@@ -85,7 +85,6 @@ public class Endereco {
 				+ numero + ", telefone = " + telefone;
 	}
 	
-	//teste github!!
-	
+	//teste github2
 	
 }
