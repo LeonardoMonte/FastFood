@@ -1,3 +1,4 @@
+package Teste;
 public class Funcionario {
 
 	private Pessoa funcionario;

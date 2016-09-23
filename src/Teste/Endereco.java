@@ -1,3 +1,4 @@
+package Teste;
 public class Endereco {
 
 	private String rua;

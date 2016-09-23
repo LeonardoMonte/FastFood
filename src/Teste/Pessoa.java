@@ -1,3 +1,4 @@
+package Teste;
 public class Pessoa {
 
 	private String nome;

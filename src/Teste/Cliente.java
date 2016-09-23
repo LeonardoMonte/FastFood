@@ -1,3 +1,4 @@
+package Teste;
 public class Cliente {
 
 	private Pessoa cliente;
@@ -6,7 +7,7 @@ public class Cliente {
 	private String email;
 	
 	public Cliente(Pessoa cliente, Endereco endere, String senha, String email) {
-		super();
+
 		this.cliente = cliente;
 		this.endere = endere;
 		this.senha = senha;
