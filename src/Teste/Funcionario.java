@@ -1,12 +1,13 @@
 package Teste;
+
 public class Funcionario {
 
 	private Pessoa funcionario;
 	private Endereco endere;
 	private String senha;
-	
-	
-	public Funcionario(String nome, String id, String rua, int numero, String bairro, String cidade, String estado, String telefone, String senha) {
+
+	public Funcionario(String nome, String id, String rua, int numero, String bairro, String cidade, String estado,
+			String telefone, String senha) {
 
 		this.funcionario.setNome(nome);
 		this.funcionario.setId(id);
@@ -23,19 +24,23 @@ public class Funcionario {
 		return endere;
 	}
 
-
 	public void setEndere(Endereco endere) {
 		this.endere = endere;
 	}
-
 
 	public String getSenha() {
 		return senha;
 	}
 
-
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public boolean equals(Funcionario f){
+		boolean retorno = false;
+		if (f != null){
+			retorno = (this.funcionario.equals(f.funcionario));
+		}
+		return retorno;
 	}
 
 	@Override
@@ -43,6 +48,4 @@ public class Funcionario {
 		return "Funcionario [funcionario=" + funcionario + ", endere=" + endere + ", senha=" + senha + "]";
 	}
 
-
-	
 }

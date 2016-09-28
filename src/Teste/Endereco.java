@@ -1,4 +1,5 @@
 package Teste;
+
 public class Endereco {
 
 	private String rua;
@@ -7,8 +8,7 @@ public class Endereco {
 	private String estado;
 	private int numero;
 	private String telefone;
-	
-	
+
 	public Endereco(String rua, String bairro, String cidade, String estado, int numero, String telefone) {
 
 		this.rua = rua;
@@ -19,72 +19,69 @@ public class Endereco {
 		this.telefone = telefone;
 	}
 
-
 	public String getRua() {
 		return rua;
 	}
-
 
 	public void setRua(String rua) {
 		this.rua = rua;
 	}
 
-
 	public String getBairro() {
 		return bairro;
 	}
-
 
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
 
-
 	public String getCidade() {
 		return cidade;
 	}
-
 
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
 
-
 	public String getEstado() {
 		return estado;
 	}
-
 
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
 
-
 	public int getNumero() {
 		return numero;
 	}
-
 
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
 
-
 	public String getTelefone() {
 		return telefone;
 	}
 
-
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-
+	
+	public boolean equals(Endereco e){
+		boolean retorno  = false;
+		if(e != null){
+			retorno = (this.rua.equals(e.rua) && this.numero == e.numero
+						&& this.bairro.equals(e.bairro) && this.cidade.equals(e.cidade)
+						 && this.telefone.equals(e.telefone));
+		}
+		return retorno;
+	}
 
 	public String toString() {
 		return "rua = " + rua + ", bairro = " + bairro + ", cidade = " + cidade + ", estado = " + estado + ", numero = "
 				+ numero + ", telefone = " + telefone;
 	}
-	
-	//teste github2
-	
+
+	// teste github2
+
 }
