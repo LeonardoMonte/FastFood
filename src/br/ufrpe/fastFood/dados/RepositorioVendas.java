@@ -1,6 +1,6 @@
 package br.ufrpe.fastFood.dados;
 
-import Teste.Vendas;
+import br.ufrpe.fastFood.beans.Vendas;
 
 public class RepositorioVendas {
 	

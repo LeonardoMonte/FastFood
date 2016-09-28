@@ -1,7 +1,7 @@
 package br.ufrpe.fastFood.dados;
 import java.util.ArrayList;
 
-import Teste.Funcionario;
+import br.ufrpe.fastFood.beans.Funcionario;
 
 public class RepositorioFuncionarios {
 	private static RepositorioFuncionarios instancia;
