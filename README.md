@@ -5,4 +5,8 @@ Projeto de POO ( Fast Food)
  
  Alunos:
  
- Alessandro Lima, Allans Cypriano, Carlos Henrique, Leonardo Monte
+ Alessandro Lima, Allans Cypriano, Carlos Henrique, Leonardo Monte.
+ 
+ Semestre:
+ 
+ 2016.2
