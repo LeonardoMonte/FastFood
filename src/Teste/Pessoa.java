@@ -7,7 +7,6 @@ public class Pessoa {
 	private String dataDeNascimento;
 
 	public Pessoa(String nome, String id, String dataDeNascimento) {
-		super();
 		this.nome = nome;
 		this.id = id;
 		this.dataDeNascimento = dataDeNascimento;

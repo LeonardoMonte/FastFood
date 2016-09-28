@@ -1,16 +1,15 @@
 package Teste;
 
-public class Funcionario {
+public class Funcionario extends Pessoa {
 
 	private Pessoa funcionario;
 	private Endereco endere;
 	private String senha;
 
-	public Funcionario(String nome, String id, String rua, int numero, String bairro, String cidade, String estado,
+	public Funcionario(String nome, String id, String dataDeNascimento, String rua, int numero, String bairro, String cidade, String estado,
 			String telefone, String senha) {
 
-		this.funcionario.setNome(nome);
-		this.funcionario.setId(id);
+		super(nome, id, dataDeNascimento);
 		this.endere.setRua(rua);
 		this.endere.setNumero(numero);
 		this.endere.setBairro(bairro);
