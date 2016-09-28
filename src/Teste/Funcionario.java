@@ -2,7 +2,6 @@ package Teste;
 
 public class Funcionario extends Pessoa {
 
-	private Pessoa funcionario;
 	private Endereco endere;
 	private String senha;
 
@@ -18,6 +17,7 @@ public class Funcionario extends Pessoa {
 		this.endere.setTelefone(telefone);
 		this.senha = senha;
 	}
+	
 
 	public Endereco getEndere() {
 		return endere;

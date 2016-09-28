@@ -32,10 +32,6 @@ public class RepositorioProdutos {
 			if (cont == 0){ 
 				this.listaProdutos.add(p);
 			}
-			//informa que produto já fora cadastrado
-			else{ 		
-				System.out.println("Produto já cadastrado!");
-			}
 			
 		}
 	}

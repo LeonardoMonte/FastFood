@@ -33,20 +33,19 @@ public class RepositorioFuncionarios {
 			if (cont == 0){ 
 				this.listaFuncionarios.add(f);
 			}
-			//informa que produto já fora cadastrado
-			else{ 		
-				System.out.println("Produto já cadastrado!");
-			}
 			
 		}
 	}
 	
-	public Funcionario buscaFuncionario(String id){
+	public Funcionario buscarFuncionario(String id){
 		if(id != null){
 			Funcionario f;
 			for (int i = 0; i < listaFuncionarios.size(); i++) {
-				if (listaFuncionarios.get(i).)
+				if (this.listaFuncionarios.get(i).getId().equals(id)){
+					f = listaFuncionarios.get(i);
+				}
 			}
+			return f;
 		}
 	}
 
