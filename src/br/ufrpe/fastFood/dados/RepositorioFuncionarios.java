@@ -20,20 +20,18 @@ public class RepositorioFuncionarios {
 	}
 	
 	public void cadastrarFuncionario(Funcionario f){
-		if(f != null){
-			
-			//verifica se o produto È n„o-nulo
+		if(f != null){	//verifica se o funcionario √© n√£o-nulo
+
 			int cont = 0;
-			//Percorre o array para verificar se h·
-			//algum produto identico na lista
-			for (int i = 0; i < this.listaFuncionarios.size();i ++){ 
+
+			for (int i = 0; i < this.listaFuncionarios.size();i ++){ 	//Percorre o array para verificar se tem algum funcionario igual na lista
 				if(this.listaFuncionarios.get(i).equals(f))  			
 					cont+= 1;
-			}//Adiciona produto
-			if (cont == 0){ 
-				this.listaFuncionarios.add(f);
 			}
 			
+			if (cont == 0){ //Adiciona produto
+				this.listaFuncionarios.add(f);
+			}
 		}
 	}
 	
