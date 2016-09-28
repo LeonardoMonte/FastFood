@@ -8,6 +8,7 @@ public class Vendas {
 	public Venda(String nomeServico, String idServico){
 		this.servico = new servico(nomeServico, idServico);
 		
+		
 	}
 	
 

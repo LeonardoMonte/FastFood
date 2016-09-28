@@ -36,10 +36,31 @@ public class RepositorioProdutos {
 		}
 	}
 	
-	public void buscarProduto(){
-		
+	public Produto buscarProduto(String codigo){
+		if(codigo !=null){
+			Produto p = 
+			for(int i = 0; i < listaProdutos.size(); i++){
+				if (listaProdutos.get(i).getCodigo().equals(codigo)){
+					p = new Produto(listaProdutos.get(i));
+				}
+			}
+		}
+		return p;
 	}
 	
+	public void atualizarProduto(){
+				
+	}
+	
+	public boolean deletarProduto( Produto p){
+		boolean retorno = false;
+		
+		if(){
+			
+		}
+		return retorno;
+		
+	}
 	
 
 }
