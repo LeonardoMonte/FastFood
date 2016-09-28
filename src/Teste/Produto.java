@@ -12,6 +12,10 @@ public class Produto {
 		this.valor = valor;
 		this.codigo = codigo;
 	}
+	
+	public Produto(){
+		
+	}
 
 	public String getNome() {
 		return nome;
