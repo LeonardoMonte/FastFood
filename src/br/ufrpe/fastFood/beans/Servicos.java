@@ -1,4 +1,4 @@
-package Teste;
+package br.ufrpe.fastFood.beans;
 
 public class Servicos {
 	private String nome;
