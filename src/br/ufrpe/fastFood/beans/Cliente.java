@@ -54,7 +54,8 @@ public class Cliente extends Pessoa {
 		
 		return retorno;
 	}
-
+	
+	@Override
 	public String toString() {
 		return "cliente = " + cliente + ", endere = " + endere + ", senha = " + senha + ", email = " + email;
 	}

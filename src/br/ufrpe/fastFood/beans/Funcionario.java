@@ -37,14 +37,15 @@ public class Funcionario extends Pessoa {
 	public boolean equals(Funcionario f){
 		boolean retorno = false;
 		if (f != null){
-			retorno = (this.funcionario.equals(f.funcionario));
+			retorno = (this.equals(f));
 		}
 		return retorno;
 	}
 
 	@Override
 	public String toString() {
-		return "Funcionario [funcionario=" + funcionario + ", endere=" + endere + ", senha=" + senha + "]";
+		return "\n***************\nFuncinario\nNome:" + this.getNome() + "\n"
+				+ "Id: " + this.getId();
 	}
 
 }

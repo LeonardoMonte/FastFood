@@ -15,7 +15,6 @@ public class RepositorioVendas {
 		if(instancia == null){
 			instancia = new RepositorioVendas();
 		}
-		
 		return instancia;
 	}
 	

@@ -28,12 +28,19 @@ public class Pessoa {
 		this.nome = nome;
 	}
 	
+	public String getDataDeNascimento(){
+		return this.dataDeNascimento;
+	}
+	
+	public void setDataDeNascimento(String data){
+		this.dataDeNascimento = data;
+	}
+	
 	public boolean equals(Pessoa p){
 		boolean retorno = false;
 		if (p != null){
 			
-			retorno = (this.nome.equalsIgnoreCase(p.nome) && this.id.equals(p.id) 
-						&& this.dataDeNascimento.equals(p.dataDeNascimento));
+			retorno = (this.nome.equalsIgnoreCase(p.nome) && this.id.equals(p.id));
 		}
 		return retorno;		
 	}
