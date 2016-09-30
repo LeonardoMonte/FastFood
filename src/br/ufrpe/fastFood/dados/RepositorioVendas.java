@@ -10,7 +10,7 @@ public class RepositorioVendas {
 	private RepositorioVendas(){
 		this.listaVendas = new ArrayList <>();
 	}
-	
+	//Criando instancia unica para repositorio
 	public static RepositorioVendas getInstancia(){
 		if(instancia == null){
 			instancia = new RepositorioVendas();
@@ -19,7 +19,7 @@ public class RepositorioVendas {
 	}
 	
 	public void cadastrarVenda(Vendas v){
-		if(v != null){	//verifica se o funcionario é não-nulo
+		if(v != null){	//verifica se o objeto eh diferente de nulo
 
 			int cont = 0;
 
@@ -42,7 +42,7 @@ public class RepositorioVendas {
 		if(id != null){
 			
 			while((!achou) && (i < this.listaVendas.size())) {
-				if (this.listaVendas.get(i).getId().equals(id)){
+				if (this.listaVendas.get(i).getIdServico().equals(id)){
 					achou = true;
 					
 				}else{
@@ -55,6 +55,18 @@ public class RepositorioVendas {
 				
 			}
 			
+		}
+		return resultado;
+	}
+	
+	public boolean deletarVenda(Vendas v){
+		boolean resultado = false;
+		if (v != null){
+			
+			for (Vendas vendas : listaVendas) {
+				if (v.equals(vendas))
+					resultado = listaVendas.remove(vendas);
+			}
 		}
 		return resultado;
 	}

@@ -22,6 +22,10 @@ public class Servicos {
 		this.idServico = idServico;
 	}
 	
+	public String toString(){
+		return "Serviço: " + this.getNome() + "\nId:" + this.getIdServico();
+	}
+	
 	
 	
 }

@@ -5,7 +5,7 @@ import br.ufrpe.fastFood.beans.Cliente;
 public class RepositorioClientes {
 	
 	private static RepositorioClientes instancia;
-	private ArrayList<Cliente> listaClientes; 
+	private ArrayList<Cliente> listaClientes;
 	
 	private RepositorioClientes(){
 		

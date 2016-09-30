@@ -3,14 +3,16 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 
-public class Vendas{
+public class Vendas extends Servicos{
 	
 	private ArrayList <Produto> listaProdutos;
 	private LocalDateTime dataHoraVenda;
 	private double valorTotal;
 	
 	
-	public Vendas(){
+	public Vendas(String nome, String idServico){
+		
+		super(nome, idServico);
 		this.listaProdutos = new ArrayList<>();
 		this.valorTotal = 0;
 		this.dataHoraVenda = LocalDateTime.now();
@@ -40,6 +42,13 @@ public class Vendas{
 		return this.valorTotal;
 	}
 	
+	public boolean equals(Vendas v){
+		boolean resultado = false;
+		if (v != null){
+			resultado = (this.getIdServico().equals(v.getIdServico()));
+		}
+		return resultado;
+	}
 	public String toString(){
 		return "Produtos: " + (Produto[]) listaProdutos.toArray(new Produto[listaProdutos.size()]) + "\n"
 				+ "Total a pagar: " + this.getValorTotal();
