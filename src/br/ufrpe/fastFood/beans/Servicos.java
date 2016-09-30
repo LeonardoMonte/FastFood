@@ -4,8 +4,8 @@ public class Servicos {
 	private String nome;
 	private String idServico;
 	
-	public Servico(String nome, String idServico){
-		this.setNome(nome)
+	public Servicos(String nome, String idServico){
+		this.setNome(nome);
 		this.setIdServico(idServico);
 	}
 	

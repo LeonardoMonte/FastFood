@@ -1,6 +1,9 @@
 package br.ufrpe.fastFood.dados;
 import java.util.ArrayList;
+
+import br.ufrpe.fastFood.beans.Cliente;
 import br.ufrpe.fastFood.beans.Funcionario;
+import br.ufrpe.fastFood.beans.Produto;
 
 public class RepositorioFuncionarios {
 	private static RepositorioFuncionarios instancia;
@@ -59,6 +62,27 @@ public class RepositorioFuncionarios {
 		return resultado;
 	}
 	
-	
+	public void removerFuncionario(String id){
+		Funcionario resultado;
+		int i = 0;
+		boolean achou = false;
 
+		if(id != null){
+			
+			while((!achou) && (i < this.listaFuncionarios.size())) {
+				if (this.listaFuncionarios.get(i).equals(id)){
+					achou = true;
+					
+				}else{
+					i++;
+				}
+			}
+			resultado = this.listaFuncionarios.get(i);
+			
+			if(achou == true){
+				this.listaFuncionarios.remove(resultado);
+				
+			}
+		}
+	}
 }
