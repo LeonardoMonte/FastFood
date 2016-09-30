@@ -1,6 +1,5 @@
 package br.ufrpe.fastFood.dados;
 import java.util.ArrayList;
-
 import br.ufrpe.fastFood.beans.Cliente;
 
 public class RepositorioClientes {
@@ -39,9 +38,51 @@ public class RepositorioClientes {
 		}
 	}
 	
-	public Cliente buscarCliente(){
-		
-		
-		return null;
+	public Cliente buscarCliente(String id){
+		Cliente resultado = null;
+		int i = 0;
+		boolean achou = false;
+
+		if(id != null){
+			
+			while((!achou) && (i < this.listaClientes.size())) {
+				if (this.listaClientes.get(i).equals(id)){
+					achou = true;
+					
+				}else{
+					i++;
+				}
+			}
+			
+			if(achou == true){
+				resultado = this.listaClientes.get(i);
+				
+			}
+		}
+		return resultado;
+	}
+	
+	public void removerCliente(String id){
+		Cliente resultado;
+		int i = 0;
+		boolean achou = false;
+
+		if(id != null){
+			
+			while((!achou) && (i < this.listaClientes.size())) {
+				if (this.listaClientes.get(i).equals(id)){
+					achou = true;
+					
+				}else{
+					i++;
+				}
+			}
+			resultado = this.listaClientes.get(i);
+			
+			if(achou == true){
+				this.listaClientes.remove(resultado);
+				
+			}
+		}
 	}
 }

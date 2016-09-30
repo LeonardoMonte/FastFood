@@ -1,13 +1,15 @@
 package br.ufrpe.fastFood.beans;
 
-public class Cliente {
+public class Cliente extends Pessoa {
 
 	private Pessoa cliente;
 	private Endereco endere;
 	private String senha;
 	private String email;
 
-	public Cliente(Pessoa cliente, Endereco endere, String senha, String email) {
+	public Cliente(String nome, String id, String dataDeNascimento, Pessoa cliente, Endereco endere, String senha, String email) {
+		
+		super(nome, id, dataDeNascimento);
 
 		this.cliente = cliente;
 		this.endere = endere;

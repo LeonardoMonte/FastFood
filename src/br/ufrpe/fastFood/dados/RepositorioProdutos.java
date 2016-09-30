@@ -1,8 +1,6 @@
 package br.ufrpe.fastFood.dados;
-
 import java.util.ArrayList;
-
-import Teste.Produto;
+import br.ufrpe.fastFood.beans.Produto;;
 
 public class RepositorioProdutos {
 	private static RepositorioProdutos instancia;
@@ -21,9 +19,9 @@ public class RepositorioProdutos {
 	}
 	
 	public void cadastrar(Produto p){
-		if(p != null){ //verifica se o produto é não-nulo
+		if(p != null){ //verifica se o produto ï¿½ nï¿½o-nulo
 			int cont = 0;
-			//Percorre o array para verificar se há
+			//Percorre o array para verificar se hï¿½
 			//algum produto identico na lista
 			for (int i = 0; i < this.listaProdutos.size(); i ++){ 
 				if(this.listaProdutos.get(i).equals(p))  			
@@ -37,30 +35,50 @@ public class RepositorioProdutos {
 	}
 	
 	public Produto buscarProduto(String codigo){
-		if(codigo !=null){
-			Produto p = 
-			for(int i = 0; i < listaProdutos.size(); i++){
-				if (listaProdutos.get(i).getCodigo().equals(codigo)){
-					p = new Produto(listaProdutos.get(i));
+		Produto resultado = null;
+		int i = 0;
+		boolean achou = false;
+
+		if(codigo != null){
+			
+			while((!achou) && (i < this.listaProdutos.size())) {
+				if (this.listaProdutos.get(i).getCodigo().equals(codigo)){
+					achou = true;
+					
+				}else{
+					i++;
 				}
 			}
-		}
-		return p;
-	}
-	
-	public void atualizarProduto(){
-				
-	}
-	
-	public boolean deletarProduto( Produto p){
-		boolean retorno = false;
-		
-		if(){
 			
+			if(i < this.listaProdutos.size()){
+				resultado = this.listaProdutos.get(i);
+				
+			}
 		}
-		return retorno;
-		
+		return resultado;
 	}
 	
+	public void removerProduto(String codigo){
+		Produto resultado = null;
+		int i = 0;
+		boolean achou = false;
 
+		if(codigo != null){
+			
+			while((!achou) && (i < this.listaProdutos.size())) {
+				if (this.listaProdutos.get(i).getCodigo().equals(codigo)){
+					achou = true;
+					
+				}else{
+					i++;
+				}
+			}
+			resultado = this.listaProdutos.get(i);
+
+			if(achou == true){
+				this.listaProdutos.remove(resultado);
+				
+			}
+		}
+	}
 }
