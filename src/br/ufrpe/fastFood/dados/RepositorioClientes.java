@@ -56,7 +56,7 @@ public class RepositorioClientes {
 			
 			if(achou == true){
 				resultado = this.listaClientes.get(i);
-				
+
 			}
 		}
 		return resultado;
