@@ -1,9 +1,6 @@
 package br.ufrpe.fastFood.dados;
 import java.util.ArrayList;
-
-import br.ufrpe.fastFood.beans.Cliente;
 import br.ufrpe.fastFood.beans.Funcionario;
-import br.ufrpe.fastFood.beans.Produto;
 
 public class RepositorioFuncionarios {
 	private static RepositorioFuncionarios instancia;
@@ -84,5 +81,34 @@ public class RepositorioFuncionarios {
 				
 			}
 		}
+	}
+	
+	public void alterarFuncionario(int opcao, Funcionario f){
+		
+		switch (opcao) {
+		
+		case 1:
+			
+			break;
+			
+		case 2:
+			
+			break;
+			
+		case 3:
+				
+			break;
+			
+		case 4:
+			
+			break;
+
+		default:
+			
+			System.out.println("Opção invalida!!!");
+			
+			break;
+		}
+		
 	}
 }
