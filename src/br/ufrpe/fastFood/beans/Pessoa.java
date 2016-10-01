@@ -11,6 +11,10 @@ public class Pessoa {
 		this.id = id;
 		this.dataDeNascimento = dataDeNascimento;
 	}
+	
+	public Pessoa(){
+		
+	}
 
 	public String getId() {
 		return id;

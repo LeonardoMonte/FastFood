@@ -18,6 +18,10 @@ public class Funcionario extends Pessoa {
 		this.senha = senha;
 	}
 	
+	public Funcionario(){
+		super();
+	}
+	
 
 	public Endereco getEndere() {
 		return endere;
@@ -37,7 +41,7 @@ public class Funcionario extends Pessoa {
 	public boolean equals(Funcionario f){
 		boolean retorno = false;
 		if (f != null){
-			retorno = (this.equals(f));
+			retorno = (this.getId().equals(f.getId()));
 		}
 		return retorno;
 	}

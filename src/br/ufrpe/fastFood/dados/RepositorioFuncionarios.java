@@ -35,51 +35,35 @@ public class RepositorioFuncionarios {
 	}
 	
 	public Funcionario buscarFuncionario(String id){
-		Funcionario resultado = null;
-		int i = 0;
-		boolean achou = false;
-
-		if(id != null){
-			
-			while((!achou) && (i < this.listaFuncionarios.size())) {
-				if (this.listaFuncionarios.get(i).getId().equals(id)){
-					achou = true;
-					
-				}else{
-					i++;
-				}
+		Funcionario resultado = new Funcionario();
+		resultado.setId(id); 
+		for (Funcionario funcionario : listaFuncionarios) {
+			if(resultado.getId().equals(funcionario.getId())){
+				resultado = funcionario;
 			}
-			
-			if(i < this.listaFuncionarios.size()){
-				resultado = this.listaFuncionarios.get(i);
-				
-			}
-			
-		}
+		}		
 		return resultado;
 	}
 	
-	public void removerFuncionario(String id){
-		Funcionario resultado;
-		int i = 0;
-		boolean achou = false;
-
-		if(id != null){
-			
-			while((!achou) && (i < this.listaFuncionarios.size())) {
-				if (this.listaFuncionarios.get(i).equals(id)){
-					achou = true;
-					
-				}else{
-					i++;
+	public void atualizarFuncionario(Funcionario novoFuncionario){
+		if(novoFuncionario != null){
+			for (Funcionario funcionario : listaFuncionarios) {
+				if (funcionario.equals(novoFuncionario)){
+					funcionario = novoFuncionario;
 				}
 			}
-			resultado = this.listaFuncionarios.get(i);
-			
-			if(achou == true){
-				this.listaFuncionarios.remove(resultado);
-				
-			}
+		}
+	}
+	
+	public void removerFuncionario(String id){
+		Funcionario f = new Funcionario();
+		f.setId(id);
+		if(id != null){
+			for (Funcionario funcionario : listaFuncionarios) {
+				if(funcionario.equals(f.getId())){
+					listaFuncionarios.remove(funcionario);
+				}
+			}			
 		}
 	}
 }
