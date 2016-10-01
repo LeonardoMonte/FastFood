@@ -48,7 +48,7 @@ public class RepositorioFuncionarios {
 	public void atualizarFuncionario(Funcionario novoFuncionario){
 		if(novoFuncionario != null){
 			for (Funcionario funcionario : listaFuncionarios) {
-				if (funcionario.equals(novoFuncionario)){
+				if (funcionario.getId().equals(novoFuncionario.getId())){
 					funcionario = novoFuncionario;
 				}
 			}
