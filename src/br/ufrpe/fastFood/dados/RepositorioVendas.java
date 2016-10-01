@@ -81,9 +81,9 @@ public class RepositorioVendas {
 				if(venda.equals(novaVenda)){					
 					
 					venda = novaVenda;
-						
+					
 				}
-			}
+				}
 			
 		}
 	}	
