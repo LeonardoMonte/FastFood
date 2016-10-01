@@ -85,4 +85,20 @@ public class RepositorioClientes {
 			}
 		}
 	}
+	
+	public void atualizarCliente(Cliente novoCliente){
+		
+		if(buscarCliente(novoCliente.getId()) != null){
+		 
+			for(Cliente cliente : listaClientes){
+			
+				if(cliente.equals(novoCliente)){
+					
+					cliente = novoCliente;
+				}
+			}
+				
+				
+		}
+	}
 }

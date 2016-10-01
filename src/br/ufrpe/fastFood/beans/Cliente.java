@@ -2,27 +2,17 @@ package br.ufrpe.fastFood.beans;
 
 public class Cliente extends Pessoa {
 
-	private Pessoa cliente;
 	private Endereco endere;
 	private String senha;
 	private String email;
 
-	public Cliente(String nome, String id, String dataDeNascimento, Pessoa cliente, Endereco endere, String senha, String email) {
+	public Cliente(String nome, String id, String dataDeNascimento, Endereco endere, String senha, String email) {
 		
 		super(nome, id, dataDeNascimento);
 
-		this.cliente = cliente;
 		this.endere = endere;
 		this.senha = senha;
 		this.email = email;
-	}
-
-	public Pessoa getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Pessoa cliente) {
-		this.cliente = cliente;
 	}
 
 	public Endereco getEndere() {
@@ -41,11 +31,15 @@ public class Cliente extends Pessoa {
 		this.senha = senha;
 	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getEmail() {
 		return email;
 	}
 	
-	public boolean equals(Cliente c){
+	/*public boolean equals(Cliente c){
 		boolean retorno =  false;
 		
 		if (c != null){
@@ -54,7 +48,7 @@ public class Cliente extends Pessoa {
 		
 		return retorno;
 	}
-	
+	*/
 	@Override
 	public String toString() {
 		return "cliente = " + cliente + ", endere = " + endere + ", senha = " + senha + ", email = " + email;
