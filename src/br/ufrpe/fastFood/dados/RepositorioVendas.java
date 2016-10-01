@@ -35,27 +35,8 @@ public class RepositorioVendas {
 	}
 	
 	public Vendas buscarVenda(String id){
-		Vendas resultado = null;
-		int i = 0;
-		boolean achou = false;
-
-		if(id != null){
-			
-			while((!achou) && (i < this.listaVendas.size())) {
-				if (this.listaVendas.get(i).getIdServico().equals(id)){
-					achou = true;
-					
-				}else{
-					i++;
-				}
-			}
-			
-			if(i < this.listaVendas.size()){
-				resultado = this.listaVendas.get(i);
-				
-			}
-			
-		}
+		Vendas resultado;
+		
 		return resultado;
 	}
 	

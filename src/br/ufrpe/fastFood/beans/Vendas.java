@@ -1,8 +1,7 @@
 package br.ufrpe.fastFood.beans;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
-
 
 public class Vendas{
 	
