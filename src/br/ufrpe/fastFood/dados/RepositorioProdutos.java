@@ -1,5 +1,7 @@
 package br.ufrpe.fastFood.dados;
 import java.util.ArrayList;
+
+import br.ufrpe.fastFood.beans.Cliente;
 import br.ufrpe.fastFood.beans.Produto;;
 
 public class RepositorioProdutos {
@@ -81,4 +83,18 @@ public class RepositorioProdutos {
 			}
 		}
 	}
+
+	public void atualizarProdutos(Produto novoProduto){
+			
+			if(buscarProduto(novoProduto.getCodigo()) != null){
+				 
+				for(Produto produto : listaProdutos){
+				
+					if(produto.equals(novoProduto)){
+						
+						produto = novoProduto;
+					}
+				}
+			}
+		}
 }
