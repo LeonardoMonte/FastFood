@@ -26,6 +26,12 @@ public class Vendas{
 		return this.dataHoraVenda;
 	}
 	
+	public String getIdVenda() {
+		return idVenda;
+	}
+
+
+
 	public void addProduto(Produto p){
 		if(p != null){
 			listaProdutos.add(p);

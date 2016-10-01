@@ -1,5 +1,7 @@
 package br.ufrpe.fastFood.dados;
 import java.util.ArrayList;
+
+import br.ufrpe.fastFood.beans.Produto;
 import br.ufrpe.fastFood.beans.Vendas;
 
 public class RepositorioVendas {
@@ -35,8 +37,26 @@ public class RepositorioVendas {
 	}
 	
 	public Vendas buscarVenda(String id){
-		Vendas resultado;
-		
+		Vendas resultado = null;
+		int i = 0;
+		boolean achou = false;
+
+		if(id != null){
+			
+			while((!achou) && (i < this.listaVendas.size())) {
+				if (this.listaVendas.get(i).getIdVenda().equals(id)){
+					achou = true;
+					
+				}else{
+					i++;
+				}
+			}
+			
+			if(i < this.listaVendas.size()){
+				resultado = this.listaVendas.get(i);
+				
+			}
+		}
 		return resultado;
 	}
 	
@@ -52,5 +72,19 @@ public class RepositorioVendas {
 		return resultado;
 	}
 	
+	public void atualizarVendas(Vendas novaVenda){
 
+		if(buscarVenda(novaVenda.getIdVenda()) != null){
+			
+			for(Vendas venda : listaVendas){
+				
+				if(venda.equals(novaVenda)){					
+					
+					venda = novaVenda;
+						
+				}
+			}
+			
+		}
+	}	
 }

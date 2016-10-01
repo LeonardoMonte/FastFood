@@ -93,6 +93,7 @@ public class RepositorioProdutos {
 					if(produto.equals(novoProduto)){
 						
 						produto = novoProduto;
+						
 					}
 				}
 			}
