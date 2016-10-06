@@ -5,17 +5,11 @@ public class Funcionario extends Pessoa {
 	private Endereco endere;
 	private String senha;
 
-	public Funcionario(String nome, String id, String dataDeNascimento, String rua, int numero, String bairro, String cidade, String estado,
-			String telefone, String senha) {
+	public Funcionario(String nome, String id, String dataDeNascimento, Endereco endere, String senha) {
 
 		super(nome, id, dataDeNascimento);
-		this.endere.setRua(rua);
-		this.endere.setNumero(numero);
-		this.endere.setBairro(bairro);
-		this.endere.setCidade(cidade);
-		this.endere.setEstado(estado);
-		this.endere.setTelefone(telefone);
-		this.senha = senha;
+		this.endere = endere;
+		this.setSenha(senha);
 	}
 	
 	public Funcionario(){

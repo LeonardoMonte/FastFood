@@ -23,7 +23,7 @@ public class TesteCliente {
 		//Adicionando Cliente
 		repositorioClientes.cadastrarCliente(cliente1);
 		
-		//Buscando Cliente através do ID
+		//Buscando Cliente atravï¿½s do ID
 		System.out.println(repositorioClientes.buscarCliente(cliente1.getId()));
 		
 		// Removendo cliente e buscando Cliente que fora removido
