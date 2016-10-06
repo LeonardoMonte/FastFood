@@ -2,11 +2,15 @@ package br.ufrpe.fastFood.testes;
 
 import br.ufrpe.fastFood.beans.Cliente;
 import br.ufrpe.fastFood.beans.Endereco;
+import br.ufrpe.fastFood.dados.RepositorioClientes;
 
 
 public class TesteCliente {
 
 	public static void main(String [] args){
+		
+		RepositorioClientes repositorioClientes = RepositorioClientes.getInstancia();
+		
 		
 		//Criando um cliente
 		Endereco end1 = new Endereco("Marechal Deodoro Fosneca", "Afogados", "Recife", "Pernambuco", 123, "(81) 98877-6666");
@@ -15,6 +19,16 @@ public class TesteCliente {
 		
 		//Imprimindo o cliente
 		System.out.println(cliente1); 
+		
+		//Adicionando Cliente
+		repositorioClientes.cadastrarCliente(cliente1);
+		
+		//Buscando Cliente através do ID
+		System.out.println(repositorioClientes.buscarCliente(cliente1.getId()));
+		
+		// Removendo cliente e buscando Cliente que fora removido
+		repositorioClientes.removerCliente(cliente1.getId());
+		System.out.println( repositorioClientes.buscarCliente(cliente1.getId()));
 		
 		
 		

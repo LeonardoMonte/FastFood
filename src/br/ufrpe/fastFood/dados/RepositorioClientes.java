@@ -46,7 +46,7 @@ public class RepositorioClientes {
 		if(id != null){
 			
 			while((!achou) && (i < this.listaClientes.size())) {
-				if (this.listaClientes.get(i).equals(id)){
+				if (this.listaClientes.get(i).getId().equals(id)){
 					achou = true;
 					
 				}else{
@@ -70,7 +70,7 @@ public class RepositorioClientes {
 		if(id != null){
 			
 			while((!achou) && (i < this.listaClientes.size())) {
-				if (this.listaClientes.get(i).equals(id)){
+				if (this.listaClientes.get(i).getId().equals(id)){
 					achou = true;
 					
 				}else{
