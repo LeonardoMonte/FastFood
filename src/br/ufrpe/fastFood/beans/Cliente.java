@@ -39,19 +39,31 @@ public class Cliente extends Pessoa {
 		return email;
 	}
 	
-	/*public boolean equals(Cliente c){
+	public boolean equals(Cliente c){
 		boolean retorno =  false;
 		
 		if (c != null){
-			retorno = (this.cliente.equals(c.cliente));
+			retorno = (this.getId().equals(c.getId()) &&
+					this.getNome().equals(c.getNome()) &&
+					this.getEmail().equals(c.getEmail()) &&
+					this.getDataDeNascimento().equals(c.getDataDeNascimento()));
 		}
 		
 		return retorno;
 	}
-	*/
+	
 	@Override
 	public String toString() {
-		return "cliente = " + cliente + ", endere = " + endere + ", senha = " + senha + ", email = " + email;
+		StringBuffer buffer = new StringBuffer();
+		buffer.append("\n============================\n");
+		buffer.append("Nome: " + "\n");
+		buffer.append(this.getNome());
+		buffer.append("\nCPF: " + this.getId());
+		buffer.append("\nEmail: " + this.getEmail());
+		buffer.append(this.endere.toString());
+		
+		
+		return buffer.toString();
 	}
 
 }

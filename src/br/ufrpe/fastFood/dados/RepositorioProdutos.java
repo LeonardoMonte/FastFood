@@ -1,7 +1,7 @@
 package br.ufrpe.fastFood.dados;
 import java.util.ArrayList;
 
-import br.ufrpe.fastFood.beans.Cliente;
+
 import br.ufrpe.fastFood.beans.Produto;;
 
 public class RepositorioProdutos {

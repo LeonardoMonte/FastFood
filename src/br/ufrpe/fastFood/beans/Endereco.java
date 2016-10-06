@@ -78,8 +78,17 @@ public class Endereco {
 	}
 
 	public String toString() {
-		return "rua = " + rua + ", bairro = " + bairro + ", cidade = " + cidade + ", estado = " + estado + ", numero = "
-				+ numero + ", telefone = " + telefone;
+		StringBuffer buffer =  new StringBuffer();
+		
+		buffer.append("\n=====================\n");
+		buffer.append("\n       ENDEREÇO      \n");
+		buffer.append("Rua: " + this.getRua() + ", nº " + this.getNumero());
+		buffer.append("\nBairro: " + this.getBairro());
+		buffer.append("\nCidade: " + this.getCidade());
+		buffer.append("\nEstado: " + this.getEstado());
+		buffer.append("Fone: " + this.getTelefone());
+		
+		return buffer.toString();
 	}
 
 	// teste github2
