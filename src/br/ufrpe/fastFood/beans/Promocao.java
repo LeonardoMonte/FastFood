@@ -40,8 +40,9 @@ public class Promocao  {
 	public boolean equals(Promocao otherPromo){
 		boolean resultado = false;
 		if (otherPromo != null){
-			resultado = this.idPromocao.equals(otherPromo.idPromocao)
-					&& this.produto.equals(otherPromo.produto);
+			resultado = (this.idPromocao.equals(otherPromo.idPromocao)
+					&& this.produto.equals(otherPromo.produto) &&
+					this.DiaPromo.equals(otherPromo.DiaPromo));
 		}
 		return resultado;
 	}

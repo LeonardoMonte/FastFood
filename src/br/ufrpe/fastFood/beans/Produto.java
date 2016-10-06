@@ -51,6 +51,13 @@ public class Produto {
 	}
 
 	public String toString() {
-		return "Produto [nome=" + nome + ", valor=" + valor + ", codigo=" + codigo + "]";
+		StringBuffer buffer =  new StringBuffer();
+		buffer.append("==========================\n");
+		buffer.append("       PRODUTO \n");
+		buffer.append("Produto: "+ this.getNome() +"\n");
+		buffer.append("Codigo: " + this.getCodigo() + "\n");
+		buffer.append("Valor: " + this.getValor());
+		
+		return buffer.toString();
 	}
 }

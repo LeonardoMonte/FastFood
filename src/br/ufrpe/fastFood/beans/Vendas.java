@@ -9,7 +9,7 @@ public class Vendas{
 	private ArrayList <Produto> listaProdutos;
 	private LocalDateTime dataHoraVenda;
 	private double valorTotal;
-	private long numVenda;
+	private long numVenda = 1;
 	
 	public Vendas(){
 		this.idVenda = "" + this.numVenda;
@@ -54,14 +54,22 @@ public class Vendas{
 	public boolean equals(Vendas v){
 		boolean resultado = false;
 		if (v != null){
-			resultado = (this.idVenda.equals(v.idVenda));
+			resultado = (this.idVenda.equals(v.idVenda) && 
+						this.dataHoraVenda.equals(v.dataHoraVenda) &&
+						this.valorTotal == v.valorTotal &&
+						this.listaProdutos.equals(v.listaProdutos));
 		}
 		return resultado;
 	}
 	
 	public String toString(){
-		return "Produtos: " + this.listaProdutos.toString()+ "\n"
-				+ "Total a pagar: " + this.getValorTotal();
+		StringBuffer buffer = new StringBuffer();
+		
+		buffer.append("Venda: " + this.getIdVenda() + "\n");
+		buffer.append("Produtos: " + this.listaProdutos.toString()+ "\n");
+		buffer.append("Total a pagar: " + this.getValorTotal());
+		
+		return buffer.toString();				
 	}
 	
 	

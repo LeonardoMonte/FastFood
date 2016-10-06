@@ -49,6 +49,7 @@ public class Cliente extends Pessoa {
 		return email;
 	}
 	
+	
 	public boolean equals(Cliente c){
 		boolean retorno =  false;
 		
