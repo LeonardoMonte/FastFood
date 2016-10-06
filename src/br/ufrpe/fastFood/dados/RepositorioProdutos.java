@@ -12,7 +12,7 @@ public class RepositorioProdutos {
 		this.listaProdutos = new ArrayList <>(); 
 	}
 	
-	public RepositorioProdutos getInstancia(){
+	public static RepositorioProdutos getInstancia(){
 		if(instancia == null){
 			instancia = new RepositorioProdutos();
 		}
