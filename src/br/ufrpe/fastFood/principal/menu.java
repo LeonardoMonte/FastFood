@@ -10,6 +10,7 @@ public class menu {
 		
 		int opcao = 0;
 		
+		RepositorioClientes repositorioClientes = RepositorioClientes.getInstancia();
 		Scanner in = new Scanner(System.in);
 		
 		System.out.println("-----------Seja Bem-vindo------------\n");
@@ -58,13 +59,37 @@ public class menu {
 				System.out.println("Senha: ");
 				String senha = in.nextLine();
 				
-				RepositorioClientes repositorioClientes = RepositorioClientes.getInstancia();
 				Endereco end1 = new Endereco(rua, bairro, cidade, estado, numero, telefone);
 				Cliente cliente1 = new Cliente(nome, id, nascimento, end1, senha, email);
+				repositorioClientes.cadastrarCliente(cliente1);
 				
 				break;
 				
 			case 2:
+				boolean play = false;
+				
+				while(!play){
+					
+					System.out.println("------------Login Cliente------------\n");
+					System.out.println("Digite sua ID: ");
+					String tempId = in.nextLine();
+					System.out.println("Digite sua senha: ");
+					String tempSenha = in.nextLine();
+					
+					Cliente auxId = repositorioClientes.buscarCliente(tempId);
+					
+					if((auxId != null) && (auxId.equals(tempSenha))){
+						play = true;
+						
+						//Continuação do codigo...
+						
+						
+					}else{
+						
+						System.out.println("O id ou a senha foi digitado incorretamente, tente novamente!");
+					}
+				}
+				
 				
 				break;
 				
