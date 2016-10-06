@@ -80,13 +80,15 @@ public class Endereco {
 	public String toString() {
 		StringBuffer buffer =  new StringBuffer();
 		
-		buffer.append("\n=====================\n");
+		
 		buffer.append("\n       ENDEREÇO      \n");
 		buffer.append("Rua: " + this.getRua() + ", nº " + this.getNumero());
 		buffer.append("\nBairro: " + this.getBairro());
 		buffer.append("\nCidade: " + this.getCidade());
 		buffer.append("\nEstado: " + this.getEstado());
-		buffer.append("Fone: " + this.getTelefone());
+		buffer.append("\nFone: " + this.getTelefone());
+		
+		buffer.append("\n============================\n");
 		
 		return buffer.toString();
 	}

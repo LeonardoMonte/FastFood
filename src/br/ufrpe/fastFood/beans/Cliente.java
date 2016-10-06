@@ -11,7 +11,7 @@ public class Cliente extends Pessoa {
 		super(nome, id, dataDeNascimento);
 
 		this.endere = endere;
-		this.senha = senha;
+		this.setSenha(senha);
 		this.email = email;
 	}
 
@@ -23,13 +23,23 @@ public class Cliente extends Pessoa {
 		this.endere = endere;
 	}
 
-	public String getSenha() {
+	private String getSenha() {
 		return senha;
 	}
 
-	public void setSenha(String senha) {
+	private void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
+	public boolean alterarSenha(String senha){
+		boolean retorno =  false;
+		if(senha == this.getSenha()){
+			this.setSenha(senha);
+			retorno =  true;
+		}
+		return retorno;
+	}
+	
 
 	public void setEmail(String email) {
 		this.email = email;
@@ -46,7 +56,8 @@ public class Cliente extends Pessoa {
 			retorno = (this.getId().equals(c.getId()) &&
 					this.getNome().equals(c.getNome()) &&
 					this.getEmail().equals(c.getEmail()) &&
-					this.getDataDeNascimento().equals(c.getDataDeNascimento()));
+					this.getDataDeNascimento().equals(c.getDataDeNascimento()) && 
+					this.getSenha().equals(c.getSenha()));
 		}
 		
 		return retorno;
@@ -56,11 +67,11 @@ public class Cliente extends Pessoa {
 	public String toString() {
 		StringBuffer buffer = new StringBuffer();
 		buffer.append("\n============================\n");
-		buffer.append("Nome: " + "\n");
-		buffer.append(this.getNome());
+		buffer.append("Nome: " +this.getNome()+ "\n");
 		buffer.append("\nCPF: " + this.getId());
+		buffer.append("\nData de Nasc.: " + this.getDataDeNascimento());
 		buffer.append("\nEmail: " + this.getEmail());
-		buffer.append(this.endere.toString());
+		buffer.append("\n" + this.endere.toString());
 		
 		
 		return buffer.toString();
