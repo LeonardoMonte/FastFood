@@ -9,7 +9,7 @@ public class Vendas{
 	private ArrayList <Produto> listaProdutos;
 	private LocalDateTime dataHoraVenda;
 	private double valorTotal;
-	private long numVenda;
+	private long numVenda = 1;
 	
 	public Vendas(){
 		this.idVenda = "" + this.numVenda;
