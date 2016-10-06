@@ -9,6 +9,10 @@ public class TesteCliente {
 
 	public static void main(String [] args){
 		
+		String nome;
+		String id;
+		String dataDeNascimento;		
+		
 		RepositorioClientes repositorioClientes = RepositorioClientes.getInstancia();
 		
 		
@@ -29,11 +33,6 @@ public class TesteCliente {
 		// Removendo cliente e buscando Cliente que fora removido
 		repositorioClientes.removerCliente(cliente1.getId());
 		System.out.println( repositorioClientes.buscarCliente(cliente1.getId()));
-		
-		
-		
-		
-		
 		
 	}
 }

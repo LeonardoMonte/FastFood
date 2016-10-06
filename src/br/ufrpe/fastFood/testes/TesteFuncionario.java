@@ -1,7 +1,6 @@
 package br.ufrpe.fastFood.testes;
 
 import br.ufrpe.fastFood.beans.Funcionario;
-import br.ufrpe.fastFood.beans.Cliente;
 import br.ufrpe.fastFood.beans.Endereco;
 import br.ufrpe.fastFood.dados.RepositorioFuncionarios;
 
