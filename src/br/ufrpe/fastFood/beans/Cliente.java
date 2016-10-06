@@ -23,7 +23,7 @@ public class Cliente extends Pessoa {
 		this.endere = endere;
 	}
 
-	private String getSenha() {
+	public String getSenha() {
 		return senha;
 	}
 
