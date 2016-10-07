@@ -33,6 +33,8 @@ public class menu {
 
 			case 1:
 
+				boolean aux2 = false;
+
 				System.out.println("-----------Auto Atendimento----------\n");
 				System.out.println("1 - Cadastro;");
 				System.out.println("2 - Login;");
@@ -109,6 +111,9 @@ public class menu {
 					break;
 
 				default:
+
+					System.out.println("Opção invalida!");
+
 					break;
 				}
 
@@ -145,8 +150,8 @@ public class menu {
 							play = true;
 
 							// Continuação do codigo...
-							// Tela de venda do produto... 
-							
+							// Tela de venda do produto...
+
 						} else {
 
 							System.out.println("O id ou a senha foi digitado incorretamente, tente novamente!");
@@ -154,16 +159,16 @@ public class menu {
 					}
 
 					break;
-					
+
 				case 3:
-					
+
 					play = true;
-					
+
 					break;
 
 				default:
-					
-					System.out.println("Opção digitada invalida!");
+
+					System.out.println("Opção invalida!");
 
 					break;
 				}
