@@ -183,6 +183,7 @@ public class menu {
 				System.out.println("3 - Voltar;\n");
 				System.out.print("Digite sua opção: ");
 				opcao = in.nextInt();
+				in.nextLine();
 
 				switch (opcao) {
 
@@ -192,11 +193,10 @@ public class menu {
 					
 					System.out.print("Digite seu ID: ");
 					String tempIdAdmin = in.nextLine();
-					in.nextLine();
+					
 					
 					System.out.print("Digite sua senha: ");
 					String tempSenhaAdmin = in.nextLine();
-					in.nextLine();
 					boolean teste = admin.equals(tempIdAdmin, tempSenhaAdmin);
 					System.out.println(teste);
 					if(!(admin.equals(tempIdAdmin, tempSenhaAdmin))){
