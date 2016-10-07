@@ -22,9 +22,8 @@ public class menu {
 		RepositorioFuncionarios repositorioFuncionario = RepositorioFuncionarios.getInstancia();
 		RepositorioProdutos repositorioProdutos = RepositorioProdutos.getInstancia();
 		RepositorioVendas repositorioVendas = RepositorioVendas.getInstancia();
-		Admin admin = new Admin("Carlos", "123456", "Admin123", "123");
+		Admin admin = new Admin("Carlos", "123456", "Admin123", "carlos");
 		
-
 		Scanner in = new Scanner(System.in);
 
 		while (!aux) {
@@ -191,14 +190,16 @@ public class menu {
 					
 					System.out.println("------------Login Administrador------------\n");
 					
-					System.out.println("Digite seu ID: ");
+					System.out.print("Digite seu ID: ");
 					String tempIdAdmin = in.nextLine();
 					in.nextLine();
 					
-					System.out.println("Digite sua senha: ");
+					System.out.print("Digite sua senha: ");
 					String tempSenhaAdmin = in.nextLine();
-					
-					if((admin.getId().equals(tempIdAdmin) == true) && (admin.getSenha().equals(tempSenhaAdmin) == true)){
+					in.nextLine();
+					boolean teste = admin.equals(tempIdAdmin, tempSenhaAdmin);
+					System.out.println(teste);
+					if(!(admin.equals(tempIdAdmin, tempSenhaAdmin))){
 						
 						System.out.println("-----------Bem-Vindo-----------");
 						System.out.println("1 - Adicionar funcionario");
@@ -207,6 +208,7 @@ public class menu {
 						System.out.println("4 - Adicionar Produtos");
 						System.out.println("5 - Remover Produto");
 						System.out.println("6 - Listar Produtos");
+						System.out.println("\nDigite sua opção: ");
 						
 						opcao = in.nextInt();
 						
@@ -214,7 +216,7 @@ public class menu {
 						
 						case 1:
 							
-							System.out.print("------------Cadastro Cliente---------- \n");
+							System.out.print("------------Cadastro Funcionario---------- \n");
 
 							System.out.print("Nome: ");
 							String nome = in.nextLine();
@@ -329,6 +331,10 @@ public class menu {
 							break;
 						}
 						
+					}else{
+						
+						System.out.println("Deu merda!");
+						in.nextLine();
 					}
 
 					break;

@@ -11,7 +11,7 @@ public class Admin {
 		this.nome = nome;
 		this.id = id;
 		this.codigoAdmin = codAdmin;
-		this.setSenha(senha);
+		this.senha = senha;
 	}
 
 	public String getSenha() {
@@ -45,7 +45,20 @@ public class Admin {
 	protected void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	
+	public boolean equals(String id, String senha){
+		
+		boolean retorno = false;
+		
+		if(id != null && senha != null){
+			if(id.equals(this.id) && senha.equals(this.senha)){
+				
+				retorno = true;
+			}
+		}
+		
+		return retorno;
+	}
 	public String toString(){
 		StringBuffer buffer = new StringBuffer();
 		
