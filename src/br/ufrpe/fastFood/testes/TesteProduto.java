@@ -12,34 +12,34 @@ public class TesteProduto {
 		RepositorioProdutos repositorio = RepositorioProdutos.getInstancia();
 		
 	//criando novos produtos do tipo hamburger
-		Produto hamburguer = new Hamburguer("McDonald", 12.00, "0001H");
-		Produto hamburguer1 = new Hamburguer("BurgerGrill", 12.00, "0002H");
-		Produto bebida = new Bebida("refrigerante", 5.00, "0001T", "cola");
-		Produto bebida1 = new Bebida("suco", 5.00, "0002T", "maracuja");
+		Produto hamburguer1 = new Hamburguer("McDonald", 12.00, "0001H");
+		Produto hamburguer2 = new Hamburguer("BurgerGrill", 12.00, "0002H");
+		Produto bebida1 = new Bebida("Refrigerante", 5.00, "0001T", "cola");
+		Produto bebida2 = new Bebida("Suco", 5.00, "0002T", "maracuja");
 	
-	//Imprimindo produtos
-		System.out.println(hamburguer); 
-		System.out.println(hamburguer1);
-		System.out.println(bebida);
-		System.out.println(bebida1);
+	
 			
 	//Adicionando produto
-		repositorio.cadastrar(hamburguer);
 		repositorio.cadastrar(hamburguer1);
-		repositorio.cadastrar(bebida);
+		repositorio.cadastrar(hamburguer2);
 		repositorio.cadastrar(bebida1);
+		repositorio.cadastrar(bebida2);
 			
 	//Buscando produto
-		System.out.println(repositorio.buscarProduto(hamburguer.getCodigo()));
-		System.out.println(repositorio.buscarProduto(bebida.getCodigo()));
 		System.out.println(repositorio.buscarProduto(hamburguer1.getCodigo()));
 		System.out.println(repositorio.buscarProduto(bebida1.getCodigo()));
+		System.out.println(repositorio.buscarProduto(hamburguer2.getCodigo()));
+		System.out.println(repositorio.buscarProduto(bebida2.getCodigo()));
 			
-	// Removendo cliente e buscando Cliente que fora removido
-		repositorio.removerProduto(hamburguer.getCodigo());
-		repositorio.removerProduto(bebida.getCodigo());
-		System.out.println( repositorio.buscarProduto(hamburguer.getCodigo()));
-		System.out.println( repositorio.buscarProduto(bebida.getCodigo()));
+	// Removendo Produto
+		repositorio.removerProduto(hamburguer1.getCodigo());
+		repositorio.removerProduto(bebida1.getCodigo());
+		
+	//Buscando produtos removidos
+		System.out.println( repositorio.buscarProduto(hamburguer1.getCodigo()));
+		System.out.println( repositorio.buscarProduto(bebida1.getCodigo()));
+		
+	//Imprimindo Produtos do repositorio
 		
 	}
 	

@@ -1,6 +1,9 @@
 package br.ufrpe.fastFood.dados;
 import java.util.ArrayList;
+import java.util.List;
+
 import br.ufrpe.fastFood.beans.Cliente;
+import br.ufrpe.fastFood.beans.Produto;
 
 public class RepositorioClientes {
 	
@@ -97,8 +100,11 @@ public class RepositorioClientes {
 					cliente = novoCliente;
 				}
 			}
-				
-				
 		}
 	}
+	
+	public List<Cliente> listarClientes(){
+			
+			return this.listaClientes;
+		}
 }

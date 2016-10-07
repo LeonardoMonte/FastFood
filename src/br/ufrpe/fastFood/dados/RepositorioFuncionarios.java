@@ -1,6 +1,9 @@
 package br.ufrpe.fastFood.dados;
 import java.util.ArrayList;
+import java.util.List;
+
 import br.ufrpe.fastFood.beans.Funcionario;
+import br.ufrpe.fastFood.beans.Vendas;
 
 public class RepositorioFuncionarios {
 	private static RepositorioFuncionarios instancia;
@@ -65,5 +68,9 @@ public class RepositorioFuncionarios {
 				}
 			}			
 		}
+	}
+	public List<Funcionario> listarFuncinario(){
+
+		return this.listaFuncionarios;
 	}
 }
