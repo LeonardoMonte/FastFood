@@ -82,10 +82,23 @@ public class menu {
 
 						System.out.print("Email: ");
 						String email = in.nextLine();
-
-						System.out.print("Senha: ");
-						String senha = in.nextLine();
-
+						
+						String senha;
+						String senha2;
+						int tentativa = 0;
+						
+						do {
+							
+							System.out.print("Senha: ");
+							senha = in.nextLine();
+							
+							System.out.print("Confime a Senha: ");
+							senha2 = in.nextLine();
+							
+							tentativa++;
+							
+						} while (senha.equals(senha2) && (tentativa < 3));
+						
 						Endereco end1 = new Endereco(rua, bairro, cidade, estado, numero, telefone);
 						Cliente cliente1 = new Cliente(nome, id, nascimento, end1, senha, email);
 						repositorioClientes.cadastrarCliente(cliente1);
@@ -106,12 +119,13 @@ public class menu {
 							System.out.println("Digite sua senha: ");
 							String tempSenha = in.nextLine();
 
-							Cliente auxId = repositorioClientes.buscarCliente(tempId);
+							Cliente auxCliente = repositorioClientes.buscarCliente(tempId);
 
-							if ((auxId != null) && (auxId.getSenha().equals(tempSenha))) {
+							if ((auxCliente != null) && (auxCliente.getSenha().equals(tempSenha))) {
+								
 								play = true;
 								
-								System.out.println("-------Seja Bem-Vindo " + auxId.getNome() + "-------");
+								System.out.printf("-------Seja Bem-Vindo %s------- \n", auxCliente.getNome());
 								System.out.println("1 - Fazer um pedido");
 								System.out.println("2 - Alterar senha");
 								System.out.println("3 - Sair");
@@ -147,10 +161,10 @@ public class menu {
 						System.out.println("Opção invalida!");
 
 						break;
-					}
-					
-					break;
+					}					
 				}
+				
+				break;
 				
 			case 2:
 
@@ -164,8 +178,6 @@ public class menu {
 				switch (opcao) {
 
 				case 1:
-					
-					
 
 					break;
 
