@@ -52,11 +52,11 @@ public class Produto {
 
 	public String toString() {
 		StringBuffer buffer =  new StringBuffer();
-		buffer.append("==========================\n");
+		buffer.append("\n\n==========================\n");
 		buffer.append("       PRODUTO \n");
 		buffer.append("Produto: "+ this.getNome() +"\n");
 		buffer.append("Codigo: " + this.getCodigo() + "\n");
-		buffer.append("Valor: " + this.getValor());
+		buffer.append("Valor: " + this.getValor()+ "\n\n");
 		
 		return buffer.toString();
 	}

@@ -6,6 +6,8 @@ import br.ufrpe.fastFood.beans.Endereco;
 import br.ufrpe.fastFood.beans.Funcionario;
 import br.ufrpe.fastFood.dados.RepositorioClientes;
 import br.ufrpe.fastFood.dados.RepositorioFuncionarios;
+import br.ufrpe.fastFood.dados.RepositorioProdutos;
+import br.ufrpe.fastFood.dados.RepositorioVendas;
 
 public class menu {
 
@@ -16,6 +18,9 @@ public class menu {
 
 		RepositorioClientes repositorioClientes = RepositorioClientes.getInstancia();
 		RepositorioFuncionarios repositorioFuncionario = RepositorioFuncionarios.getInstancia();
+		RepositorioProdutos repositorioProdutos = RepositorioProdutos.getInstancia();
+		RepositorioVendas repositorioVendas = RepositorioVendas.getInstancia();
+		
 
 		Scanner in = new Scanner(System.in);
 
@@ -137,7 +142,8 @@ public class menu {
 								
 								case 1:
 									
-									// Continuação do codigo...
+									System.out.println("----------Produtos----------\n" + repositorioProdutos.listarProdutos());
+									
 									
 									break;
 

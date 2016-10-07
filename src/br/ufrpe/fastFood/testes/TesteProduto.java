@@ -40,7 +40,7 @@ public class TesteProduto {
 		System.out.println( repositorio.buscarProduto(bebida1.getCodigo()));
 		
 	//Imprimindo Produtos do repositorio
-		
+		System.out.println(repositorio.listarProdutos());
 	}
 	
 	
