@@ -164,6 +164,8 @@ public class menu {
 				switch (opcao) {
 
 				case 1:
+					
+					
 
 					break;
 
@@ -174,10 +176,13 @@ public class menu {
 					while (!play) {
 
 						System.out.println("------------Login Funcionario------------\n");
+						
 						System.out.println("Digite seu ID: ");
 						String tempId = in.nextLine();
+						
 						System.out.println("Digite sua senha: ");
 						String tempSenha = in.nextLine();
+						
 						Funcionario auxId = repositorioFuncionario.buscarFuncionario(tempId);
 						if ((auxId != null) && (auxId.getSenha().equals(tempSenha))) {
 							play = true;
