@@ -14,7 +14,7 @@ public class Admin {
 		this.setSenha(senha);
 	}
 
-	private String getSenha() {
+	public String getSenha() {
 		return senha;
 	}
 

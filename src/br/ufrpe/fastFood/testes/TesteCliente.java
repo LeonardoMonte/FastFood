@@ -8,11 +8,7 @@ import br.ufrpe.fastFood.dados.RepositorioClientes;
 public class TesteCliente {
 
 	public static void main(String [] args){
-		
-		String nome;
-		String id;
-		String dataDeNascimento;		
-		
+				
 		RepositorioClientes repositorioClientes = RepositorioClientes.getInstancia();
 		
 		
