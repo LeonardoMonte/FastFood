@@ -1,6 +1,6 @@
 package br.ufrpe.fastFood.dados;
 import java.util.ArrayList;
-
+import java.util.List;
 
 import br.ufrpe.fastFood.beans.Produto;;
 
@@ -98,4 +98,9 @@ public class RepositorioProdutos {
 				}
 			}
 		}
+	
+	public List<Produto> listarProdutos(){
+		
+		return this.listaProdutos;
+	}
 }
