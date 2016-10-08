@@ -1,9 +1,9 @@
 package br.ufrpe.fastFood.testes;
 
-import br.ufrpe.fastFood.beans.Bebida;
+
 import br.ufrpe.fastFood.beans.Hamburguer;
 import br.ufrpe.fastFood.beans.Produto;
-import br.ufrpe.fastFood.beans.Vendas;
+import br.ufrpe.fastFood.beans.Venda;
 import br.ufrpe.fastFood.dados.RepositorioVendas;
 
 public class TesteVenda {
@@ -11,17 +11,13 @@ public class TesteVenda {
 		
 		RepositorioVendas repositorio = RepositorioVendas.getInstancia();
 		
-		Vendas venda = new Vendas();
-		Vendas venda1 = new Vendas();
-		Vendas venda2 = new Vendas();
+		Venda venda = new Venda();
+		Venda venda1 = new Venda();
+		Venda venda2 = new Venda();
 		
-		Produto hamburguer = new Hamburguer("McDonald", 12.00, "0001H");
-		Produto hamburguer1 = new Hamburguer("BurgerGrill", 12.00, "0002H");
-		Produto bebida = new Bebida("refrigerante", 5.00, "0001T", "cola");
-		Produto bebida1 = new Bebida("suco", 5.00, "0002T", "maracuja");
-		
+	
 		//venda
-		venda.addProduto(hamburguer1);
+	/*	venda.addProduto(hamburguer1);
 		venda.addProduto(bebida1);
 		venda.calculaValorTotal();
 		
@@ -46,7 +42,7 @@ public class TesteVenda {
 		repositorio.cadastrarVenda(venda);
 		repositorio.cadastrarVenda(venda1);
 		repositorio.cadastrarVenda(venda2);
-		
+		*/
 		
 	}
 }

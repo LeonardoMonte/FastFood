@@ -3,7 +3,7 @@ package br.ufrpe.fastFood.beans;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Vendas{
+public class Venda{
 	
 	private String idVenda;
 	private ArrayList <Produto> listaProdutos;
@@ -11,7 +11,7 @@ public class Vendas{
 	private double valorTotal;
 	private long numVenda = 1;
 	
-	public Vendas(){
+	public Venda(){
 		this.idVenda = "" + this.numVenda;
 		this.listaProdutos = new ArrayList<Produto>();
 		this.valorTotal = 0;
@@ -51,7 +51,7 @@ public class Vendas{
 		return this.valorTotal;
 	}
 	
-	public boolean equals(Vendas v){
+	public boolean equals(Venda v){
 		boolean resultado = false;
 		if (v != null){
 			resultado = (this.idVenda.equals(v.idVenda) && 

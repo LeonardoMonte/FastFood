@@ -3,12 +3,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufrpe.fastFood.beans.Produto;
-import br.ufrpe.fastFood.beans.Vendas;
+import br.ufrpe.fastFood.beans.Venda;
 
 public class RepositorioVendas {
 
 	private static RepositorioVendas instancia;
-	private ArrayList <Vendas> listaVendas;
+	private ArrayList <Venda> listaVendas;
 
 	private RepositorioVendas(){
 		this.listaVendas = new ArrayList <>();
@@ -21,7 +21,7 @@ public class RepositorioVendas {
 		return instancia;
 	}
 
-	public void cadastrarVenda(Vendas v){
+	public void cadastrarVenda(Venda v){
 		if(v != null){	//verifica se o objeto eh diferente de nulo
 
 			int cont = 0;
@@ -37,8 +37,8 @@ public class RepositorioVendas {
 		}
 	}
 
-	public Vendas buscarVenda(String id){
-		Vendas resultado = null;
+	public Venda buscarVenda(String id){
+		Venda resultado = null;
 		int i = 0;
 		boolean achou = false;
 
@@ -61,23 +61,23 @@ public class RepositorioVendas {
 		return resultado;
 	}
 
-	public boolean deletarVenda(Vendas v){
+	public boolean deletarVenda(Venda v){
 		boolean resultado = false;
 		if (v != null){
 
-			for (Vendas vendas : listaVendas) {
-				if (v.equals(vendas))
-					resultado = listaVendas.remove(vendas);
+			for (Venda venda : listaVendas) {
+				if (v.equals(venda))
+					resultado = listaVendas.remove(venda);
 			}
 		}
 		return resultado;
 	}
 
-	public void atualizarVendas(Vendas novaVenda){
+	public void atualizarVendas(Venda novaVenda){
 
 		if(buscarVenda(novaVenda.getIdVenda()) != null){
 
-			for(Vendas venda : listaVendas){
+			for(Venda venda : listaVendas){
 
 				if(venda.equals(novaVenda)){					
 
@@ -89,7 +89,7 @@ public class RepositorioVendas {
 		}
 	}
 
-	public List<Vendas> listarVendas(){
+	public List<Venda> listarVendas(){
 
 		return this.listaVendas;
 	}

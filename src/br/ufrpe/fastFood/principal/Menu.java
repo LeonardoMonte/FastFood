@@ -11,7 +11,7 @@ import br.ufrpe.fastFood.dados.RepositorioFuncionarios;
 import br.ufrpe.fastFood.dados.RepositorioProdutos;
 import br.ufrpe.fastFood.dados.RepositorioVendas;
 
-public class menu {
+public class Menu {
 
 	public static void main(String[] args) {
 

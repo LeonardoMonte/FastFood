@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufrpe.fastFood.beans.Funcionario;
-import br.ufrpe.fastFood.beans.Vendas;
+import br.ufrpe.fastFood.beans.Venda;
 
 public class RepositorioFuncionarios {
 	private static RepositorioFuncionarios instancia;
