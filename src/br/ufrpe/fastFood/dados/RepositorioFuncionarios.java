@@ -33,7 +33,7 @@ public class RepositorioFuncionarios {
 		
 		int i = this.procurarIndiceF(id);
 
-		if(i > 0 )
+		if(i >= 0 )
 		{		
 			resultado = this.listaFuncionarios.get(i);
 		}
@@ -52,17 +52,22 @@ public class RepositorioFuncionarios {
 		}
 	}
 	
-	public void removerFuncionario(String id){		
+	public boolean removerFuncionario(String id){		
 			
 		
 		Funcionario resultado = new Funcionario();
 		int i = this.procurarIndiceF(id);
+		boolean result = false;
 		
 			if( i >= 0)
 			{
 				resultado = this.listaFuncionarios.get(i);	
 				this.listaFuncionarios.remove(resultado);
+				result = true;
 			}	
+			
+			return result;
+			
 			
 		
 	}
@@ -122,7 +127,7 @@ public class RepositorioFuncionarios {
 	public boolean loginFunc(String id , String senha)
 	{	
 		Funcionario c = new Funcionario();
-		c =	this.buscarFuncionario(id);	
+		c =	this.buscarFuncionario(id);
 		boolean resultado = c.equalsSenhaFunc(id, senha);
 		
 		return resultado;

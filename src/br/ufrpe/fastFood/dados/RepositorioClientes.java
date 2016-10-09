@@ -135,13 +135,11 @@ public class RepositorioClientes {
 		return resultado;
 	}
 	
-	public boolean alterarsenha(String id , String senha)
+	public boolean alterarsenha(String id , String senhaold , String senhanew)
 	{
 		Cliente c = new Cliente();
-		c = this.buscarCliente(id);
-		
-		boolean resultado = c.alterarSenha(senha);
-		
+		c = this.buscarCliente(id);		
+		boolean resultado = c.alterarSenha(senhaold, senhanew);
 		return resultado;
 	}
 	

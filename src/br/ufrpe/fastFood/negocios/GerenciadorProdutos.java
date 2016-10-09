@@ -32,15 +32,17 @@ public class GerenciadorProdutos {
 		}
 	}
 	
-	public void remover(String codigo)
+	public boolean remover(String codigo)
 	{
-		Produto a = this.repositorio.buscarProduto(codigo);
-		boolean Final = this.repositorio.removerProduto(a.getCodigo());
 		
-		if(Final == false)
-		{
-			throw new ObjectNotFound("Produto não cadastrado no sistema");
-		}	
+		boolean Final = this.repositorio.removerProduto(codigo);
+		
+//		if(Final == false)
+//		{
+//			throw new ObjectNotFound("Produto não cadastrado no sistema");
+//		}	
+		
+		return Final;
 		
 	}
 	

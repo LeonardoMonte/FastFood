@@ -32,15 +32,17 @@ public class GerenciadorClientes {
 		}
 	}
 	
-	public void remover(String id)
+	public boolean remover(String id)
 	{
-		Cliente a = this.repositorio.buscarCliente(id);
-		boolean Final = this.repositorio.removerCliente(a.getId());
+
+		boolean Final = this.repositorio.removerCliente(id);
 		
-		if(Final == false)
-		{
-			throw new ObjectNotFound("Cliente não cadastrado no sistema");
-		}	
+//		if(Final == false)
+//		{
+//			throw new ObjectNotFound("Cliente não cadastrado no sistema");
+//		}	
+		
+		return Final;
 		
 	}
 	
@@ -85,9 +87,9 @@ public class GerenciadorClientes {
 		return resultado;
 	}
 	
-	public boolean alterarSenha(String id, String senha)
+	public boolean alterarSenha(String id, String senhaold , String senhanew)
 	{
-		return this.repositorio.alterarsenha(id, senha);
+		return this.repositorio.alterarsenha(id, senhaold , senhanew);
 		
 	}
 	

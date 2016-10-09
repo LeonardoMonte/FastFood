@@ -32,9 +32,10 @@ public class GerenciadorFuncionarios {
 			}
 		}
 	
-		public void remover(String id)
+		public boolean remover(String id)
 		{		
-			this.repositorio.removerFuncionario(id);
+			boolean Final = this.repositorio.removerFuncionario(id);
+			return Final;
 		
 		}
 	
@@ -76,13 +77,7 @@ public class GerenciadorFuncionarios {
 		
 		public boolean loginFuncionario(String id , String senha)
 		{
-			boolean resultado = false;
-			
-			if(this.repositorio.loginFunc(id, senha))
-			{
-				this.repositorio.loginFunc(id, senha);
-				resultado = true;
-			}
+			boolean resultado = this.repositorio.loginFunc(id, senha);
 			
 			return resultado;
 		}

@@ -36,10 +36,10 @@ public class Cliente extends Pessoa {
 		this.senha = senha;
 	}
 	
-	public boolean alterarSenha(String senha){
+	public boolean alterarSenha(String oldsenha ,  String newsenha){
 		boolean retorno =  false;
-		if( this.senha.equals(senha)){
-			this.setSenha(senha);
+		if( this.senha.equals(oldsenha)){
+			this.setSenha(newsenha);
 			retorno =  true;
 		}
 		return retorno;
@@ -72,9 +72,9 @@ public class Cliente extends Pessoa {
 	{
 		boolean resultado = false;
 		
-		if( senha != null && senha.equals(this.senha))
+		if( senha != null )
 		{
-			resultado = true;
+			resultado = senha.equals(this.senha);
 		}
 		
 		return resultado;

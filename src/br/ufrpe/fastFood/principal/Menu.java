@@ -20,7 +20,7 @@ public class Menu {
 
 	public static void main(String[] args) {
 
-		int opcao = 0;
+		char opcao;
 		boolean aux = false;
 		int contFunc = 0 , contCliente = 0 , contProduto = 0 , contVenda = 0;
 
@@ -41,12 +41,12 @@ public class Menu {
 			System.out.println("3 - Encerrar.\n");
 			System.out.print("Digite sua opção: ");
 
-			opcao = in.nextInt();
+			opcao = in.next().charAt(0);
 			in.nextLine();
 
 			switch (opcao) {
 
-			case 1:
+			case '1':
 
 				int aux2 = 0;
 
@@ -58,12 +58,12 @@ public class Menu {
 					System.out.println("3 - Voltar;\n");
 					System.out.print("Digite sua opção: ");
 					
-					opcao = in.nextInt();
+					opcao = in.next().charAt(0);
 					in.nextLine();
 					
 					switch (opcao) {
 
-					case 1:
+					case '1':
 
 						System.out.print("------------Cadastro Cliente---------- \n");
 
@@ -119,8 +119,10 @@ public class Menu {
 						contCliente++;
 						break;
 
-					case 2:
-
+					case '2':
+						
+						if(contCliente > 0)
+						{
 						boolean resultado1;
 						String tempId , tempSenha;
 						int contTentativas = 0;
@@ -162,28 +164,29 @@ public class Menu {
 								System.out.println("3 - Sair");
 								System.out.print("\nDigite sua opção: ");
 								
-								opcao = in.nextInt();
+								opcao = in.next().charAt(0);
 								in.nextLine();
 								
 								switch (opcao) {
 								
-								case 1:
-									try{
-										System.out.println("----------Produtos----------\n" + gerenprodutos.listarProdutos());
-									}
-									catch(ObjectNotFound e)
-									{
-										System.out.println(e.getMessage());
-									}
+								case '1':
+		
+								if(contProduto > 0)
+								{
+								System.out.println("----------Produtos----------\n" + gerenprodutos.listarProdutos());
+								in.nextLine();
+								}
+								else
+								{
+									System.out.println("Nenhum produto cadastrado no estoque");
+								}
 									
-									in.nextLine();
+								break;
 									
-									break;
-									
-								case 2:
+								case '2':
 									String oldsenha , newsenha;
 									boolean result;
-									int conterro1 = 0 , conterro2 = 0; 
+
 									System.out.println("--------------Alteração de Senha-------------\n");
 									do
 									{
@@ -194,7 +197,7 @@ public class Menu {
 											System.out.println("Digite sua senha nova");
 											newsenha = in.nextLine();	
 											
-											result = gerencliente.alterarSenha(tempId, newsenha);
+											result = gerencliente.alterarSenha(tempId, oldsenha , newsenha);
 											
 											if(result == false)
 											{
@@ -212,7 +215,7 @@ public class Menu {
 									
 									break;
 									
-								case 3:
+								case '3':
 									
 									aux30 = 3;
 									
@@ -223,8 +226,14 @@ public class Menu {
 									break;
 								}
 							}
+						}else
+						{
+							System.out.println("Nenhum Cliente cadastrado no Sistema");
+						}
+						
+						break;
 								
-					case 3:
+					case '3':
 						aux2 = 3;
 						break;
 						
@@ -238,7 +247,7 @@ public class Menu {
 				
 				break;
 													
-			case 2:
+			case '2':
 				int auxsomething = 0;
 				while(auxsomething != 3)
 				{
@@ -247,12 +256,12 @@ public class Menu {
 				System.out.println("2 - Login Funcionario;");
 				System.out.println("3 - Voltar;\n");
 				System.out.print("Digite sua opção: ");
-				opcao = in.nextInt();
+				opcao = in.next().charAt(0);
 				in.nextLine();
 
 				switch (opcao) {
 
-				case 1:
+				case '1':
 					int tentativas2 = 0;
 					boolean end;
 					System.out.println("------------Login Administrador------------\n");
@@ -300,15 +309,15 @@ public class Menu {
 						System.out.println("7 - Listar Produtos");
 						System.out.println("8 - Listar Clientes");
 						System.out.println("9 - Remover Clientes");
-						System.out.println(("10 - Deslogar como admin"));
+						System.out.println(("s - Deslogar como admin"));
 						System.out.println("\nDigite sua opção: ");
 						
-						opcao = in.nextInt();
+						opcao = in.next().charAt(0);
 						in.nextLine();
 						
 						switch (opcao) {
 						
-						case 1:
+						case '1':
 							
 							System.out.print("------------Cadastro Funcionario---------- \n");
 
@@ -362,18 +371,37 @@ public class Menu {
 							
 							break;
 							
-						case 2:
+						case '2':
 							
+							if(contFunc > 0)
+							{
 							System.out.println("Digite o ID do Funcionario: ");
 							String auxIdFunc = in.nextLine();
 							
-							gerenfunc.remover(auxIdFunc);
-							contFunc--;
+							boolean a1 = gerenfunc.remover(auxIdFunc);
+							
+							if(a1 == true)
+							{
+								contFunc--;
+								System.out.println("Funcionario removido com sucesso");
+							}
+							else
+							{
+								System.out.println("Funcionario não removido");
+							}
+						}
+						else
+						{
+							System.out.println("Nenhum Funcionario cadastrado no sistema");
+						}
+							
+							
+							
 							
 							
 							break;
 							
-						case 3:
+						case '3':
 							
 							System.out.print("------------Atualização Funcionario---------- \n");
 
@@ -426,7 +454,8 @@ public class Menu {
 							
 							break;
 							
-						case 4:
+						case '4':
+							
 							if(contFunc > 0)
 							{
 								System.out.println(gerenfunc.listarFuncionarios());
@@ -440,7 +469,7 @@ public class Menu {
 							
 							break;
 							
-						case 5:
+						case '5':
 							
 							System.out.print("Nome do Produto: ");
 							String nomeProd = in.nextLine();
@@ -458,18 +487,34 @@ public class Menu {
 							
 							break;
 							
-						case 6:
+						case '6':
 							
+							if(contProduto > 0)
+							{
 							System.out.println("Digite o Codigo do Produto: ");
-							String auxCodigoProd = in.nextLine();
+							String auxCodigoProd = in.nextLine();	
 							
-							gerenprodutos.remover(auxCodigoProd);
-							contProduto--;
+							boolean a2 = gerenprodutos.remover(auxCodigoProd);
+							
+							if(a2 == true)
+							{
+								contProduto--;
+								System.out.println("Produto removido com sucesso");
+							}
+							else
+							{
+								System.out.println("Produto não removido");
+							}
+							}
+							else
+							{
+								System.out.println("Nenhum Produto cadastrado no sistema");
+							}
 							
 							
 							break;
 							
-						case 7:
+						case '7':
 							
 							if( contProduto > 0)
 							{
@@ -484,7 +529,7 @@ public class Menu {
 							
 							break;
 							
-						case 8:
+						case '8':
 							if(contCliente > 0)
 							{
 							System.out.println(gerencliente.listarClientes());
@@ -497,17 +542,33 @@ public class Menu {
 							
 							break;
 							
-						case 9:
+						case '9':
 							
+							if(contCliente > 0)
+							{
 							System.out.println("Digite o ID do Cliente: ");
 							String auxIdCliente = in.nextLine();
+								
+							boolean a3 = gerencliente.remover(auxIdCliente);
 							
+							if(a3 == true)
+							{
+								contCliente--;
+								System.out.println("Cliente removido com sucesso");
+							}
+							else
+							{
+								System.out.println("Cliente não removido");
+							}
+							}
+							else
+							{
+								System.out.println("Nenhum Cliente cadastrado no sistema");
+							}
 							
-							gerencliente.remover(auxIdCliente);
-							contCliente--;
+							break;
 							
-							
-						case 10:
+						case 's':
 							auxadmin = 10;
 							break;
 
@@ -523,8 +584,9 @@ public class Menu {
 
 					break;
 
-				case 2:
-
+				case '2':
+					if(contFunc > 0)
+					{
 					boolean result3;
 					String tempId2 , tempSenha2;
 					int tentativas3 = 0;
@@ -559,11 +621,15 @@ public class Menu {
 					{
 						break;
 					}		
-					
+					}
+					else
+					{
+						System.out.println("Nenhum Funcionario cadastrado no Sistema");
+					}
 					
 					break;
 
-				case 3:
+				case '3':
 					auxsomething = 3;
 					break;
 
@@ -577,7 +643,7 @@ public class Menu {
 		}
 				break;
 
-			case 3:
+			case '3':
 
 				System.out.println("Obrigado, volte sempre!");
 				in.nextLine();

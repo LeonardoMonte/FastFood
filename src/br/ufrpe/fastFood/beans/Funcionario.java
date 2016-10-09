@@ -46,7 +46,7 @@ public class Funcionario extends Pessoa {
 		boolean retorno = false;
 		
 		if(id != null && senha != null){
-			if(id.equals(this.getId()) && senha.equals(this.senha)){
+			if(id.equals(super.getId()) && senha.equals(this.senha)){
 				
 				retorno = true;
 			}
