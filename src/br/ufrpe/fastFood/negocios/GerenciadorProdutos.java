@@ -39,7 +39,7 @@ public class GerenciadorProdutos {
 		
 		if(Final == false)
 		{
-			throw new ObjectNotFound("Cliente não cadastrado no sistema");
+			throw new ObjectNotFound("Produto não cadastrado no sistema");
 		}	
 		
 	}
@@ -78,4 +78,8 @@ public class GerenciadorProdutos {
 		}
 		
 	}
+	
+
+	
+	
 }

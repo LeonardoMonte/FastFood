@@ -72,7 +72,7 @@ public class RepositorioProdutos {
 	
 	public boolean existeIndiceP(int ind)
 	{
-		// FUN플O PARA CHEGAR SE EXISTE ALGO NAQUELA POSI플O EXPECIFICA( MEIO NOSENSE MAS TEM UMA UTILIDADE)
+		// FUN플O PARA CHEGAR SE EXISTE ALGO NAQUELA POSI플O EXPECIFICA( MEIO NOSENSE MAS TEM UTILIDADE)
 		boolean resultado = false;
 		
 		if( this.listaProdutos.get(ind) != null)

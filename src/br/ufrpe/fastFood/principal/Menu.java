@@ -22,6 +22,7 @@ public class Menu {
 
 		int opcao = 0;
 		boolean aux = false;
+		int contFunc = 0 , contCliente = 0 , contProduto = 0 , contVenda = 0;
 
 		GerenciadorClientes gerencliente = new GerenciadorClientes();
 		GerenciadorFuncionarios gerenfunc = new GerenciadorFuncionarios();
@@ -115,6 +116,7 @@ public class Menu {
 						Endereco end1 = new Endereco(rua, bairro, cidade, estado, numero, telefone);
 						Cliente cliente1 = new Cliente(nome, id, nascimento, end1, senha, email);
 						gerencliente.cadastrar(cliente1);
+						contCliente++;
 						break;
 
 					case 2:
@@ -356,6 +358,7 @@ public class Menu {
 							Endereco end1 = new Endereco(rua, bairro, cidade, estado, numero, telefone);
 							Funcionario funcionario1 = new Funcionario(nome, id, nascimento, end1, senha);
 							gerenfunc.cadastrar(funcionario1);
+							contFunc++;
 							
 							break;
 							
@@ -365,6 +368,7 @@ public class Menu {
 							String auxIdFunc = in.nextLine();
 							
 							gerenfunc.remover(auxIdFunc);
+							contFunc--;
 							
 							
 							break;
@@ -423,9 +427,16 @@ public class Menu {
 							break;
 							
 						case 4:
+							if(contFunc > 0)
+							{
+								System.out.println(gerenfunc.listarFuncionarios());
+								in.nextLine();
+							}
+							else
+							{
+								System.out.println("Nenhum Funcionario cadastrado");
+							}
 							
-							System.out.println(gerenfunc.listarFuncionarios());
-							in.nextLine();
 							
 							break;
 							
@@ -443,6 +454,7 @@ public class Menu {
 							
 							Produto produto1 = new Produto(nomeProd, valorProd, codigoProd);
 							gerenprodutos.cadastrar(produto1);
+							contProduto++;
 							
 							break;
 							
@@ -452,16 +464,48 @@ public class Menu {
 							String auxCodigoProd = in.nextLine();
 							
 							gerenprodutos.remover(auxCodigoProd);
+							contProduto--;
 							
 							
 							break;
 							
 						case 7:
 							
-							gerenprodutos.listarProdutos();
-							in.nextLine();
+							if( contProduto > 0)
+							{
+								System.out.println(gerenprodutos.listarProdutos());
+								in.nextLine();
+								
+							}
+							else
+							{
+								System.out.println("Nenhum produto cadastrado no estoque");
+							}
 							
 							break;
+							
+						case 8:
+							if(contCliente > 0)
+							{
+							System.out.println(gerencliente.listarClientes());
+							in.nextLine();
+							}
+							else
+							{
+								System.out.println("Nenhum Cliente cadastrado");
+							}
+							
+							break;
+							
+						case 9:
+							
+							System.out.println("Digite o ID do Cliente: ");
+							String auxIdCliente = in.nextLine();
+							
+							
+							gerencliente.remover(auxIdCliente);
+							contCliente--;
+							
 							
 						case 10:
 							auxadmin = 10;
