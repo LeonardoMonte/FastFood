@@ -33,10 +33,8 @@ public class GerenciadorFuncionarios {
 		}
 	
 		public void remover(String id)
-		{
-			Funcionario a = this.repositorio.buscarFuncionario(id);
-			this.repositorio.removerFuncionario(a.getId());
-		
+		{		
+			this.repositorio.removerFuncionario(id);
 		
 		}
 	
@@ -50,7 +48,7 @@ public class GerenciadorFuncionarios {
 		{
 			if( a == null)
 			{
-				throw new ObjectNotFound("Impossivel fazer cadastro de funcionario sem dados");
+				throw new ObjectNotFound("Impossivel fazer atualização de funcionario sem dados");
 			}
 			else if(this.repositorio.existeFuncionario(a.getId()) == false )
 			{

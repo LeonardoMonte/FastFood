@@ -347,11 +347,9 @@ public class Menu {
 								
 								System.out.print("Senha: ");
 								senha = in.nextLine();
-								in.nextLine();
 								
 								System.out.print("Confime a Senha: ");
 								senha2 = in.nextLine();
-								in.nextLine();
 																
 							} while ((senha.equals(senha2) != true));
 							
@@ -426,7 +424,7 @@ public class Menu {
 							
 						case 4:
 							
-							gerenfunc.listarFuncionarios();
+							System.out.println(gerenfunc.listarFuncionarios());
 							in.nextLine();
 							
 							break;

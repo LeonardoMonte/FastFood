@@ -52,20 +52,19 @@ public class RepositorioFuncionarios {
 		}
 	}
 	
-	public boolean removerFuncionario(String id){		
+	public void removerFuncionario(String id){		
 			
-		boolean resultado = false;
-		Funcionario rresultado = null;
+		
+		Funcionario resultado = new Funcionario();
 		int i = this.procurarIndiceF(id);
 		
-			if( i > 0)
+			if( i >= 0)
 			{
-				rresultado = this.listaFuncionarios.get(i);	
-				this.listaFuncionarios.remove(rresultado);
-				resultado = true;
+				resultado = this.listaFuncionarios.get(i);	
+				this.listaFuncionarios.remove(resultado);
 			}	
 			
-		return resultado;
+		
 	}
 	
 
