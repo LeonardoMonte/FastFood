@@ -26,21 +26,18 @@ public class RepositorioClientes {
 	}
 	
 	public void cadastrarCliente(Cliente c){
-		
-		if(c != null){	// O gerenciador chama a função existe para checar se ja existe um cliente cm 
-			// aquele id			
+				
 			this.listaClientes.add(c);		
 			
-		}
 	}
 	
 	public Cliente buscarCliente(String id){
 	
-		Cliente resultado = null;
+		Cliente resultado = new Cliente();
 				
 			int i = this.procurarIndice(id);
 
-			if(i > 0 )
+			if(i >= 0 )
 			{		
 				resultado = this.listaClientes.get(i);
 			}
@@ -51,10 +48,10 @@ public class RepositorioClientes {
 	public boolean removerCliente(String id){	
 		
 		boolean rresultado = false;
-		Cliente resultado = null;
+		Cliente resultado = new Cliente();
 		int i = this.procurarIndice(id);
 		
-		if( i > 0)
+		if( i >= 0)
 		{
 			resultado = this.listaClientes.get(i);	
 			this.listaClientes.remove(resultado);

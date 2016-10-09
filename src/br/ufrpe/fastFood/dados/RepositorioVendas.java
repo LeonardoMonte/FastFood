@@ -22,54 +22,37 @@ public class RepositorioVendas {
 	}
 
 	public void cadastrarVenda(Venda v){
-		if(v != null){	//verifica se o objeto eh diferente de nulo
-
-			int cont = 0;
-
-			for (int i = 0; i < this.listaVendas.size();i ++){ 	//Percorre o array para verificar se tem algum funcionario igual na lista
-				if(this.listaVendas.get(i).equals(v))  			
-					cont+= 1;
-			}
-
-			if (cont == 0){ //Adiciona produto
-				this.listaVendas.add(v);
-			}
-		}
+	
+		this.listaVendas.add(v);
 	}
 
-	public Venda buscarVenda(String id){
-		Venda resultado = null;
-		int i = 0;
-		boolean achou = false;
+	public Venda buscarVenda(String idVenda){
+		
+		Venda resultado = new Venda();
+		
+		int i = this.procurarIndiceV(idVenda);
 
-		if(id != null){
-
-			while((!achou) && (i < this.listaVendas.size())) {
-				if (this.listaVendas.get(i).getIdVenda().equals(id)){
-					achou = true;
-
-				}else{
-					i++;
-				}
-			}
-
-			if(i < this.listaVendas.size()){
-				resultado = this.listaVendas.get(i);
-
-			}
+		if( i >= 0 )
+		{		
+			resultado = this.listaVendas.get(i);
 		}
+	
 		return resultado;
 	}
 
-	public boolean deletarVenda(Venda v){
+	public boolean removerVenda(String idVenda){
+		
 		boolean resultado = false;
-		if (v != null){
-
-			for (Venda venda : listaVendas) {
-				if (v.equals(venda))
-					resultado = listaVendas.remove(venda);
-			}
-		}
+		Venda rresultado = new Venda();
+		int i = this.procurarIndiceV(idVenda);
+		
+			if( i >= 0)
+			{
+				rresultado = this.listaVendas.get(i);	
+				this.listaVendas.remove(rresultado);
+				resultado = true;
+			}	
+			
 		return resultado;
 	}
 
@@ -93,4 +76,52 @@ public class RepositorioVendas {
 
 		return this.listaVendas;
 	}
+	
+	public int procurarIndiceV(String idVenda)
+	{
+		// Função que procura indice especifico , enxugando os codigos de remover e adicionar
+		
+		int cont = -1; 
+
+		for( int x = 0 ; x < this.listaVendas.size() ; x++)
+		{
+			if( this.listaVendas.get(x).getIdVenda().equals(idVenda))
+			{
+				cont = x;
+			}
+		}
+		return cont;
+	}
+	
+	public boolean existeVenda(String idVenda)
+	{
+		// FUNÇÃO PARA CHECAR SE JA EXISTE UMA VENDA COM ESSE CODIGO
+		
+		boolean resultado = false;
+		
+		for(Venda venda:listaVendas)
+		{
+			if( venda.getIdVenda().equals(idVenda))
+			{
+				resultado = true;
+			}
+		}
+		
+		return resultado;
+	}
+	
+	public boolean existeIndiceV(int ind)
+	{
+		// FUNÇÃO PARA CHEGAR SE EXISTE ALGO NAQUELA POSIÇÃO EXPECIFICA( MEIO NOSENSE MAS TEM UMA UTILIDADE)
+		boolean resultado = false;
+		
+		if( this.listaVendas.get(ind) != null)
+		{
+			resultado = true;
+		}
+		
+		return resultado;
+	}
+	
+	
 }

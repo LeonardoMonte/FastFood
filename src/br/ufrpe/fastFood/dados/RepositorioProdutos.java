@@ -21,12 +21,9 @@ public class RepositorioProdutos {
 		return instancia;
 	}
 	
-	public void cadastrarProduto(Produto p){
-		
-		if(p != null){	// O gerenciador chama a função existe para checar se ja existe um cliente cm 
-			// aquele id			
+	public void cadastrarProduto(Produto p){		
+			
 			this.listaProdutos.add(p);	
-		}
 	}
 	
 	public Produto buscarProduto(String codigo){
@@ -35,7 +32,7 @@ public class RepositorioProdutos {
 		
 		int i = this.procurarIndiceP(codigo);
 
-		if(i > 0 )
+		if(i >= 0 )
 		{		
 			resultado = this.listaProdutos.get(i);
 		}
@@ -46,10 +43,10 @@ public class RepositorioProdutos {
 	public boolean removerProduto(String codigo){
 		
 		boolean resultado = false;
-		Produto rresultado = null;
+		Produto rresultado = new Produto();
 		int i = this.procurarIndiceP(codigo);
 		
-			if( i > 0)
+			if( i >= 0)
 			{
 				rresultado = this.listaProdutos.get(i);	
 				this.listaProdutos.remove(rresultado);

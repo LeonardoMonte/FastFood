@@ -20,8 +20,6 @@ public class Venda{
 			
 	}
 	
-	
-	
 	public LocalDateTime getDataHoraVenda(){
 		return this.dataHoraVenda;
 	}
@@ -29,7 +27,6 @@ public class Venda{
 	public String getIdVenda() {
 		return idVenda;
 	}
-
 
 
 	public void addProduto(Produto p){

@@ -14,7 +14,12 @@ public class Cliente extends Pessoa {
 		this.setSenha(senha);
 		this.email = email;
 	}
-
+	
+	public Cliente()
+	{
+		super();
+	}
+	
 	public Endereco getEndere() {
 		return endere;
 	}
