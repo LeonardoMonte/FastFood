@@ -2,6 +2,7 @@ package br.ufrpe.fastFood.dados;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufrpe.fastFood.beans.Funcionario;
 import br.ufrpe.fastFood.beans.Produto;;
 
 public class RepositorioProdutos {
@@ -20,68 +21,42 @@ public class RepositorioProdutos {
 		return instancia;
 	}
 	
-	public void cadastrar(Produto p){
-		if(p != null){ //verifica se o produto ï¿½ nï¿½o-nulo
-			int cont = 0;
-			//Percorre o array para verificar se hï¿½
-			//algum produto identico na lista
-			for (int i = 0; i < this.listaProdutos.size(); i ++){ 
-				if(this.listaProdutos.get(i).equals(p))  			
-					cont+= 1;
-			}//Adiciona produto
-			if (cont == 0){ 
-				this.listaProdutos.add(p);
-			}
-			
+	public void cadastrarProduto(Produto p){
+		
+		if(p != null){	// O gerenciador chama a função existe para checar se ja existe um cliente cm 
+			// aquele id			
+			this.listaProdutos.add(p);	
 		}
 	}
 	
 	public Produto buscarProduto(String codigo){
-		Produto resultado = null;
-		int i = 0;
-		boolean achou = false;
+		
+		Produto resultado = new Produto();
+		
+		int i = this.procurarIndiceP(codigo);
 
-		if(codigo != null){
-			
-			while((!achou) && (i < this.listaProdutos.size())) {
-				if (this.listaProdutos.get(i).getCodigo().equals(codigo)){
-					achou = true;
-					
-				}else{
-					i++;
-				}
-			}
-			
-			if(i < this.listaProdutos.size()){
-				resultado = this.listaProdutos.get(i);
-				
-			}
+		if(i > 0 )
+		{		
+			resultado = this.listaProdutos.get(i);
 		}
+	
 		return resultado;
 	}
 	
-	public void removerProduto(String codigo){
-		Produto resultado = null;
-		int i = 0;
-		boolean achou = false;
-
-		if(codigo != null){
+	public boolean removerProduto(String codigo){
+		
+		boolean resultado = false;
+		Produto rresultado = null;
+		int i = this.procurarIndiceP(codigo);
+		
+			if( i > 0)
+			{
+				rresultado = this.listaProdutos.get(i);	
+				this.listaProdutos.remove(rresultado);
+				resultado = true;
+			}	
 			
-			while((!achou) && (i < this.listaProdutos.size())) {
-				if (this.listaProdutos.get(i).getCodigo().equals(codigo)){
-					achou = true;
-					
-				}else{
-					i++;
-				}
-			}
-			resultado = this.listaProdutos.get(i);
-
-			if(achou == true){
-				this.listaProdutos.remove(resultado);
-				
-			}
-		}
+		return resultado;
 	}
 
 	public void atualizarProdutos(Produto novoProduto){
@@ -98,6 +73,52 @@ public class RepositorioProdutos {
 				}
 			}
 		}
+	
+	public boolean existeIndiceP(int ind)
+	{
+		// FUNÇÃO PARA CHEGAR SE EXISTE ALGO NAQUELA POSIÇÃO EXPECIFICA( MEIO NOSENSE MAS TEM UMA UTILIDADE)
+		boolean resultado = false;
+		
+		if( this.listaProdutos.get(ind) != null)
+		{
+			resultado = true;
+		}
+		
+		return resultado;
+	}
+	
+	public boolean existeProduto(String codigo)
+	{
+		// FUNÇÃO PARA CHECAR SE JA EXISTE UM PRODUTO COM ESSE CODIGO
+		
+		boolean resultado = false;
+		
+		for(Produto produto:listaProdutos)
+		{
+			if( produto.getCodigo().equals(codigo))
+			{
+				resultado = true;
+			}
+		}
+		
+		return resultado;
+	}
+	
+	public int procurarIndiceP(String codigo)
+	{
+		// Função que procura indice especifico , enxugando os codigos de remover e adicionar
+		
+		int cont = -1; 
+
+		for( int x = 0 ; x < this.listaProdutos.size() ; x++)
+		{
+			if( this.listaProdutos.get(x).getCodigo().equals(codigo))
+			{
+				cont = x;
+			}
+		}
+		return cont;
+	}
 	
 	public List<Produto> listarProdutos(){
 		

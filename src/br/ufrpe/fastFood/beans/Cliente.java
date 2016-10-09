@@ -49,6 +49,20 @@ public class Cliente extends Pessoa {
 		return email;
 	}
 	
+	public boolean equalsSenhaCliente(String id, String senha){
+		
+		boolean retorno = false;
+		
+		if(id != null && senha != null){
+			if(id.equals(this.getId()) && senha.equals(this.senha)){
+				
+				retorno = true;
+			}
+		}
+		
+		return retorno;
+	}
+	
 	
 	public boolean equals(Cliente c){
 		boolean retorno =  false;

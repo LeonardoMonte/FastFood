@@ -4,7 +4,8 @@ import java.util.List;
 
 import br.ufrpe.fastFood.beans.Cliente;
 import br.ufrpe.fastFood.dados.RepositorioClientes;
-import br.ufrpe.fastFood.exceptions.SemObjetosCadastrados;
+import br.ufrpe.fastFood.exceptions.ObjectFound;
+import br.ufrpe.fastFood.exceptions.ObjectNotFound;
 
 public class GerenciadorClientes {
 
@@ -17,7 +18,15 @@ public class GerenciadorClientes {
 	
 	public void cadastrar(Cliente a)
 	{
-		if(a != null && this.repositorio.existeCliente(a.getId()))
+		if(a == null)
+		{
+			throw new ObjectNotFound("Impossivel fazer o cadastro de um cliente sem dados");
+		}
+		else if(this.repositorio.existeCliente(a.getId()))
+		{
+			throw new ObjectFound("Cliente já cadastrado no sistema");
+		}
+		else
 		{
 			this.repositorio.cadastrarCliente(a);
 		}
@@ -26,11 +35,12 @@ public class GerenciadorClientes {
 	public void remover(String id)
 	{
 		Cliente a = this.repositorio.buscarCliente(id);
+		boolean Final = this.repositorio.removerCliente(a.getId());
 		
-		if( a != null )
+		if(Final == false)
 		{
-			this.repositorio.removerCliente(a.getId());
-		}
+			throw new ObjectNotFound("Cliente não cadastrado no sistema");
+		}	
 		
 	}
 	
@@ -42,7 +52,15 @@ public class GerenciadorClientes {
 	
 	public void atualizarCliente(Cliente a)
 	{
-		if( a != null && this.repositorio.existeCliente(a.getId()))
+		if( a == null)
+		{
+			throw new ObjectNotFound("Impossivel fazer cadastro de cliente sem dados");
+		}
+		else if(this.repositorio.existeCliente(a.getId()) == false )
+		{
+			throw new ObjectNotFound("Cliente não encontrado no sistema");
+		}
+		else
 		{
 			this.repositorio.atualizarCliente(a);
 		}
@@ -51,7 +69,7 @@ public class GerenciadorClientes {
 	public List<Cliente> listarClientes()
 	{	if(this.repositorio.existeIndice(0) == false) // TENTATIVA DE EXCEPTION
 		{
-			throw new SemObjetosCadastrados("Não existe nada a ser listado");
+			throw new ObjectNotFound("Não existe nada a ser listado");
 		}
 		
 	else
@@ -60,6 +78,12 @@ public class GerenciadorClientes {
 		}
 		
 	}
-		
+	
+	public boolean loginCliente(String id , String senha)
+	{
+		boolean resultado = this.repositorio.loginCliente(id, senha);
+		return resultado;
+	}
+	
 	
 }

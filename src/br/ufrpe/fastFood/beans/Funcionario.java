@@ -32,11 +32,26 @@ public class Funcionario extends Pessoa {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	
 	public boolean equals(Funcionario f){
 		boolean retorno = false;
 		if (f != null){
 			retorno = (this.getId().equals(f.getId()));
 		}
+		return retorno;
+	}
+	
+	public boolean equalsSenhaFunc(String id, String senha){
+		
+		boolean retorno = false;
+		
+		if(id != null && senha != null){
+			if(id.equals(this.getId()) && senha.equals(this.senha)){
+				
+				retorno = true;
+			}
+		}
+		
 		return retorno;
 	}
 

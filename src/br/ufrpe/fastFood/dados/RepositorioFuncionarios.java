@@ -2,6 +2,7 @@ package br.ufrpe.fastFood.dados;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufrpe.fastFood.beans.Cliente;
 import br.ufrpe.fastFood.beans.Funcionario;
 import br.ufrpe.fastFood.beans.Venda;
 
@@ -22,30 +23,27 @@ public class RepositorioFuncionarios {
 	}
 	
 	public void cadastrarFuncionario(Funcionario f){
-		if(f != null){	//verifica se o funcionario Ã© nÃ£o-nulo
-
-			int cont = 0;
-
-			for (int i = 0; i < this.listaFuncionarios.size();i ++){ 	//Percorre o array para verificar se tem algum funcionario igual na lista
-				if(this.listaFuncionarios.get(i).equals(f))  			
-					cont+= 1;
-			}
-			
-			if (cont == 0){ //Adiciona produto
-				this.listaFuncionarios.add(f);
-			}
+	
+		if(f != null)
+		{				// O gerenciador chama a função existe para checar se ja existe um cliente cm 
+						// aquele id			
+			this.listaFuncionarios.add(f);	
 		}
 	}
 	
 	public Funcionario buscarFuncionario(String id){
-		Funcionario resultado = new Funcionario();
-		resultado.setId(id); 
-		for (Funcionario funcionario : listaFuncionarios) {
-			if(resultado.getId().equals(funcionario.getId())){
-				resultado = funcionario;
-			}
-		}		
+		
+		Funcionario resultado = null;
+		
+		int i = this.procurarIndiceF(id);
+
+		if(i > 0 )
+		{		
+			resultado = this.listaFuncionarios.get(i);
+		}
+	
 		return resultado;
+		
 	}
 	
 	public void atualizarFuncionario(Funcionario novoFuncionario){
@@ -58,19 +56,79 @@ public class RepositorioFuncionarios {
 		}
 	}
 	
-	public void removerFuncionario(String id){
-		Funcionario f = new Funcionario();
-		f.setId(id);
-		if(id != null){
-			for (Funcionario funcionario : listaFuncionarios) {
-				if(funcionario.equals(f.getId())){
-					listaFuncionarios.remove(funcionario);
-				}
-			}			
-		}
+	public boolean removerFuncionario(String id){		
+			
+		boolean resultado = false;
+		Funcionario rresultado = null;
+		int i = this.procurarIndiceF(id);
+		
+			if( i > 0)
+			{
+				rresultado = this.listaFuncionarios.get(i);	
+				this.listaFuncionarios.remove(rresultado);
+				resultado = true;
+			}	
+			
+		return resultado;
 	}
+	
+
 	public List<Funcionario> listarFuncinario(){
 
 		return this.listaFuncionarios;
+	}
+	
+	public boolean existeFuncionario(String id)
+	{
+		// FUNÇÃO PARA CHECAR SE JA EXISTE UM FUNCIONARIO COM ESSE ID
+		
+		boolean resultado = false;
+		
+		for(Funcionario funcionario:listaFuncionarios)
+		{
+			if( funcionario.getId().equals(id))
+			{
+				resultado = true;
+			}
+		}
+		
+		return resultado;
+	}
+	
+	public boolean existeIndiceF(int ind)
+	{
+		boolean resultado = false;
+		
+		if( this.listaFuncionarios.get(ind) != null)
+		{
+			resultado = true;
+		}
+		
+		return resultado;
+		
+	}
+	
+	public int procurarIndiceF(String id)
+	{
+		// Função que procura indice especifico , enxugando os codigos de remover e adicionar
+		
+		int cont = -1; 
+
+		for( int x = 0 ; x < this.listaFuncionarios.size() ; x++)
+		{
+			if( this.listaFuncionarios.get(x).getId().equals(id))
+			{
+				cont = x;
+			}
+		}
+		return cont;
+	}
+	
+	public boolean loginFunc(String id , String senha)
+	{	
+		Funcionario c = this.buscarFuncionario(id);	
+		boolean resultado = c.equalsSenhaFunc(id, senha);
+		return resultado;
+		
 	}
 }

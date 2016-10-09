@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufrpe.fastFood.beans.Cliente;
+import br.ufrpe.fastFood.beans.Funcionario;
 import br.ufrpe.fastFood.beans.Produto;
 
 public class RepositorioClientes {
@@ -36,8 +37,6 @@ public class RepositorioClientes {
 	public Cliente buscarCliente(String id){
 	
 		Cliente resultado = null;
-		
-		if(id != null){
 				
 			int i = this.procurarIndice(id);
 
@@ -45,15 +44,13 @@ public class RepositorioClientes {
 			{		
 				resultado = this.listaClientes.get(i);
 			}
-		}
 		
 		return resultado;
 	}
 	
-	public void removerCliente(String id){	
+	public boolean removerCliente(String id){	
 		
-		if(id != null){
-		
+		boolean rresultado = false;
 		Cliente resultado = null;
 		int i = this.procurarIndice(id);
 		
@@ -61,10 +58,12 @@ public class RepositorioClientes {
 		{
 			resultado = this.listaClientes.get(i);	
 			this.listaClientes.remove(resultado);
+			rresultado = true;
 		}	
 			
-		}
+		return rresultado;
 	}
+	
 	
 	public void atualizarCliente(Cliente novoCliente){
 		
@@ -129,5 +128,13 @@ public class RepositorioClientes {
 			}
 		}
 		return cont;
+	}
+	
+	public boolean loginCliente(String id , String senha)
+	{	
+		Cliente c = this.buscarCliente(id);	
+		boolean resultado = c.equalsSenhaCliente(id, senha);
+		return resultado;
+		
 	}
 }

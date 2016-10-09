@@ -46,7 +46,7 @@ public class Admin {
 		this.nome = nome;
 	}
 	
-	public boolean equals(String id, String senha){
+	public boolean equalsSenhaAdmin(String id, String senha){
 		
 		boolean retorno = false;
 		
