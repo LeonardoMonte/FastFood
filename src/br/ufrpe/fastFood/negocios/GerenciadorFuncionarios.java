@@ -35,12 +35,8 @@ public class GerenciadorFuncionarios {
 		public void remover(String id)
 		{
 			Funcionario a = this.repositorio.buscarFuncionario(id);
-			boolean Final = this.repositorio.removerFuncionario(a.getId());
+			this.repositorio.removerFuncionario(a.getId());
 		
-			if(Final == false)
-			{
-				throw new ObjectNotFound("Funcionario não cadastrado no sistema");
-			}	
 		
 		}
 	
@@ -82,7 +78,14 @@ public class GerenciadorFuncionarios {
 		
 		public boolean loginFuncionario(String id , String senha)
 		{
-			boolean resultado = this.repositorio.loginFunc(id, senha);
+			boolean resultado = false;
+			
+			if(this.repositorio.loginFunc(id, senha))
+			{
+				this.repositorio.loginFunc(id, senha);
+				resultado = true;
+			}
+			
 			return resultado;
 		}
 		

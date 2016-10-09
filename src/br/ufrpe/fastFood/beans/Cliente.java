@@ -38,7 +38,7 @@ public class Cliente extends Pessoa {
 	
 	public boolean alterarSenha(String senha){
 		boolean retorno =  false;
-		if(senha == this.getSenha()){
+		if( this.senha.equals(senha)){
 			this.setSenha(senha);
 			retorno =  true;
 		}

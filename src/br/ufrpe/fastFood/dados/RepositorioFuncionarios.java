@@ -23,12 +23,8 @@ public class RepositorioFuncionarios {
 	}
 	
 	public void cadastrarFuncionario(Funcionario f){
-	
-		if(f != null)
-		{				// O gerenciador chama a função existe para checar se ja existe um cliente cm 
-						// aquele id			
+				
 			this.listaFuncionarios.add(f);	
-		}
 	}
 	
 	public Funcionario buscarFuncionario(String id){
@@ -126,8 +122,16 @@ public class RepositorioFuncionarios {
 	
 	public boolean loginFunc(String id , String senha)
 	{	
-		Funcionario c = this.buscarFuncionario(id);	
-		boolean resultado = c.equalsSenhaFunc(id, senha);
+		Funcionario c = new Funcionario();
+		c =	this.buscarFuncionario(id);	
+		boolean resultado = false;
+		
+		if ( c.equalsSenhaFunc(id, senha))
+		{
+			c.equalsSenhaFunc(id, senha);
+			resultado = true;
+		}
+		
 		return resultado;
 		
 	}

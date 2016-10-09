@@ -212,7 +212,7 @@ public class Menu {
 									
 								case 3:
 									
-									aux2 = 3;
+									aux30 = 3;
 									
 								default:
 									
@@ -220,19 +220,26 @@ public class Menu {
 									
 									break;
 								}
-								}	
-
+							}
+								
+					case 3:
+						aux2 = 3;
+						break;
+						
+								
+					default:
+						System.out.println("Opção Invalida");
 		
 						}
 
-						break;
 				}
 				
 				break;
 													
 			case 2:
-
-				
+				int auxsomething = 0;
+				while(auxsomething != 3)
+				{
 				System.out.println("-----------Caixa----------\n");
 				System.out.println("1 - Login Administrador;");
 				System.out.println("2 - Login Funcionario;");
@@ -278,13 +285,20 @@ public class Menu {
 						break;
 					}
 					
+					int auxadmin = 0;
+					while(auxadmin != 10)
+					{
 						System.out.println("-----------Bem-Vindo-----------");
 						System.out.println("1 - Adicionar funcionario");
 						System.out.println("2 - Remover Funcionario");
-						System.out.println("3 - listar Funcionarios");
-						System.out.println("4 - Adicionar Produtos");
-						System.out.println("5 - Remover Produto");
-						System.out.println("6 - Listar Produtos");
+						System.out.println("3 - Atualizar Funcionario");
+						System.out.println("4 - listar Funcionarios");
+						System.out.println("5 - Adicionar Produtos");
+						System.out.println("6 - Remover Produto");
+						System.out.println("7 - Listar Produtos");
+						System.out.println("8 - Listar Clientes");
+						System.out.println("9 - Remover Clientes");
+						System.out.println(("10 - Deslogar como admin"));
 						System.out.println("\nDigite sua opção: ");
 						
 						opcao = in.nextInt();
@@ -359,12 +373,65 @@ public class Menu {
 							
 						case 3:
 							
+							System.out.print("------------Atualização Funcionario---------- \n");
+
+							System.out.print("Nome: ");
+							String nome2 = in.nextLine();
+							
+
+							System.out.print("CPF: ");
+							String id2 = in.nextLine();
+
+							System.out.print("Nascimento: ");
+							String nascimento2 = in.nextLine();
+
+							System.out.print("Rua: ");
+							String rua2 = in.nextLine();
+
+							System.out.print("Numero: ");
+							int numero2 = in.nextInt();
+							in.nextLine();
+
+							System.out.print("Bairro: ");
+							String bairro2 = in.nextLine();
+							
+
+							System.out.print("Cidade: ");
+							String cidade2 = in.nextLine();
+
+							System.out.print("Estado: ");
+							String estado2 = in.nextLine();
+
+							System.out.print("Telefone: ");
+							String telefone2 = in.nextLine();
+							
+							String senha4;
+							String senha5;
+							
+							do {
+								
+								System.out.print("Senha: ");
+								senha4 = in.nextLine();
+								
+								System.out.print("Confime a Senha: ");
+								senha5 = in.nextLine();
+																
+							} while ((senha4.equals(senha5) != true));
+							
+							Endereco end2 = new Endereco(rua2, bairro2, cidade2, estado2, numero2, telefone2);
+							Funcionario funcionario2 = new Funcionario(nome2, id2, nascimento2, end2, senha4);
+							gerenfunc.atualizarFuncionario(funcionario2);
+							
+							break;
+							
+						case 4:
+							
 							gerenfunc.listarFuncionarios();
 							in.nextLine();
 							
 							break;
 							
-						case 4:
+						case 5:
 							
 							System.out.print("Nome do Produto: ");
 							String nomeProd = in.nextLine();
@@ -381,7 +448,7 @@ public class Menu {
 							
 							break;
 							
-						case 5:
+						case 6:
 							
 							System.out.println("Digite o Codigo do Produto: ");
 							String auxCodigoProd = in.nextLine();
@@ -391,21 +458,26 @@ public class Menu {
 							
 							break;
 							
-						case 6:
+						case 7:
 							
 							gerenprodutos.listarProdutos();
 							in.nextLine();
 							
 							break;
+							
+						case 10:
+							auxadmin = 10;
+							break;
 
 						default:
 							
-							System.out.println("OpÃ§Ã£o invalida!");
+							System.out.println("Opção invalida!");
 							
 							break;
 						
 						
 					}
+				}
 
 					break;
 
@@ -450,7 +522,7 @@ public class Menu {
 					break;
 
 				case 3:
-								
+					auxsomething = 3;
 					break;
 
 				default:
@@ -460,7 +532,7 @@ public class Menu {
 					break;
 				
 			}
-
+		}
 				break;
 
 			case 3:
