@@ -123,13 +123,7 @@ public class RepositorioFuncionarios {
 	{	
 		Funcionario c = new Funcionario();
 		c =	this.buscarFuncionario(id);	
-		boolean resultado = false;
-		
-		if ( c.equalsSenhaFunc(id, senha))
-		{
-			c.equalsSenhaFunc(id, senha);
-			resultado = true;
-		}
+		boolean resultado = c.equalsSenhaFunc(id, senha);
 		
 		return resultado;
 		
