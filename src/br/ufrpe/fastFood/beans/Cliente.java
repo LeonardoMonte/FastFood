@@ -68,6 +68,18 @@ public class Cliente extends Pessoa {
 		return retorno;
 	}
 	
+	public boolean equalsSenhaOnly(String senha)
+	{
+		boolean resultado = false;
+		
+		if( senha != null && senha.equals(this.senha))
+		{
+			resultado = true;
+		}
+		
+		return resultado;
+	}
+	
 	
 	public boolean equals(Cliente c){
 		boolean retorno =  false;

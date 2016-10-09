@@ -85,5 +85,16 @@ public class GerenciadorClientes {
 		return resultado;
 	}
 	
+	public boolean alterarSenha(String id, String senha)
+	{
+		return this.repositorio.alterarsenha(id, senha);
+		
+	}
+	
+	public String nomeCliente(String id)
+	{
+		return this.repositorio.getNomecliente(id);
+	}
+	
 	
 }

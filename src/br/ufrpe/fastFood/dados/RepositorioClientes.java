@@ -129,8 +129,30 @@ public class RepositorioClientes {
 	
 	public boolean loginCliente(String id , String senha)
 	{	
-		Cliente c = this.buscarCliente(id);	
+		Cliente c = new Cliente();
+		c = this.buscarCliente(id);
 		boolean resultado = c.equalsSenhaCliente(id, senha);
+		return resultado;
+	}
+	
+	public boolean alterarsenha(String id , String senha)
+	{
+		Cliente c = new Cliente();
+		c = this.buscarCliente(id);
+		
+		boolean resultado = c.alterarSenha(senha);
+		
+		return resultado;
+	}
+	
+	public String getNomecliente(String id)
+	{
+		String resultado = "";
+		Cliente c = new Cliente();
+		c = this.buscarCliente(id);
+		
+		resultado += c.getNome();
+		
 		return resultado;
 		
 	}

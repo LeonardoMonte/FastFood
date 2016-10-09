@@ -10,6 +10,11 @@ import br.ufrpe.fastFood.dados.RepositorioClientes;
 import br.ufrpe.fastFood.dados.RepositorioFuncionarios;
 import br.ufrpe.fastFood.dados.RepositorioProdutos;
 import br.ufrpe.fastFood.dados.RepositorioVendas;
+import br.ufrpe.fastFood.exceptions.ObjectNotFound;
+import br.ufrpe.fastFood.negocios.GerenciadorClientes;
+import br.ufrpe.fastFood.negocios.GerenciadorFuncionarios;
+import br.ufrpe.fastFood.negocios.GerenciadorProdutos;
+import br.ufrpe.fastFood.negocios.GerenciadorVendas;
 
 public class Menu {
 
@@ -18,23 +23,25 @@ public class Menu {
 		int opcao = 0;
 		boolean aux = false;
 
-		RepositorioClientes repositorioClientes = RepositorioClientes.getInstancia();
-		RepositorioFuncionarios repositorioFuncionario = RepositorioFuncionarios.getInstancia();
-		RepositorioProdutos repositorioProdutos = RepositorioProdutos.getInstancia();
-		RepositorioVendas repositorioVendas = RepositorioVendas.getInstancia();
-		Admin admin = new Admin("Carlos", "123456", "Admin123", "carlos");
+		GerenciadorClientes gerencliente = new GerenciadorClientes();
+		GerenciadorFuncionarios gerenfunc = new GerenciadorFuncionarios();
+		GerenciadorProdutos gerenprodutos = new GerenciadorProdutos();
+		GerenciadorVendas gerenvendas = new GerenciadorVendas();
+		
+		Admin admin = new Admin("Carlos", "1234", "Admin123", "123");
 		
 		Scanner in = new Scanner(System.in);
 
-		while (!aux) {
+		while (true) {
 
 			System.out.println("-----------Seja Bem-vindo------------\n");
 			System.out.println("1 - Auto Atendimento;");
 			System.out.println("2 - Caixa;");
 			System.out.println("3 - Encerrar.\n");
-			System.out.print("Digite sua op√ß√£o: ");
+			System.out.print("Digite sua opÁ„o: ");
 
 			opcao = in.nextInt();
+			in.nextLine();
 
 			switch (opcao) {
 
@@ -48,9 +55,10 @@ public class Menu {
 					System.out.println("1 - Cadastro;");
 					System.out.println("2 - Login;");
 					System.out.println("3 - Voltar;\n");
-					System.out.print("Digite sua op√ß√£o: ");
+					System.out.print("Digite sua opÁ„o: ");
 					
 					opcao = in.nextInt();
+					in.nextLine();
 					
 					switch (opcao) {
 
@@ -60,7 +68,6 @@ public class Menu {
 
 						System.out.print("Nome: ");
 						String nome = in.nextLine();
-						in.nextLine();
 
 						System.out.print("CPF: ");
 						String id = in.nextLine();
@@ -73,10 +80,11 @@ public class Menu {
 
 						System.out.print("Numero: ");
 						int numero = in.nextInt();
+						in.nextLine();
 
 						System.out.print("Bairro: ");
 						String bairro = in.nextLine();
-						in.nextLine();
+						
 
 						System.out.print("Cidade: ");
 						String cidade = in.nextLine();
@@ -97,110 +105,179 @@ public class Menu {
 							
 							System.out.print("Senha: ");
 							senha = in.nextLine();
-							in.nextLine();
 							
 							System.out.print("Confime a Senha: ");
 							senha2 = in.nextLine();
-							in.nextLine();
 							
 							
 						} while ((senha.equals(senha2) != true));
 						
 						Endereco end1 = new Endereco(rua, bairro, cidade, estado, numero, telefone);
 						Cliente cliente1 = new Cliente(nome, id, nascimento, end1, senha, email);
-						repositorioClientes.cadastrarCliente(cliente1);
-
+						gerencliente.cadastrar(cliente1);
 						break;
 
 					case 2:
 
-						boolean play = false;
-
-						while (!play) {
-
+						boolean resultado1;
+						String tempId , tempSenha;
+						int contTentativas = 0;
+						
+						do{
 							System.out.println("------------Login Cliente------------\n");
 
 							System.out.print("Digite seu ID: ");
-							String tempId = in.nextLine();
-							in.nextLine();
+							tempId = in.nextLine();
 
 							System.out.print("Digite sua senha: ");
-							String tempSenha = in.nextLine();
+							tempSenha = in.nextLine();
 
-							Cliente auxCliente = repositorioClientes.buscarCliente(tempId);
-
-							if ((auxCliente != null) && (auxCliente.getSenha().equals(tempSenha))) {
-								
-								play = true;
-								
-								System.out.printf("-------Seja Bem-Vindo %s------- \n", auxCliente.getNome());
+							resultado1 = gerencliente.loginCliente(tempId, tempSenha);
+							
+							if( resultado1 == false)
+							{
+								System.out.println("Senha incorreta!\n");
+							}
+							contTentativas++;
+							
+							if(contTentativas == 7)
+							{
+								break;
+							}
+							
+						}while(resultado1 != true);
+						
+							if(contTentativas == 7)
+							{
+								break;
+							}
+								int aux30 = 0;
+								while(aux30 != 3)
+								{
+								System.out.printf("-------Seja Bem-Vindo %s------- \n", gerencliente.nomeCliente(tempId));
 								System.out.println("1 - Fazer um pedido");
 								System.out.println("2 - Alterar senha");
 								System.out.println("3 - Sair");
-								System.out.print("\nDigite sua op√ß√£o: ");
+								System.out.print("\nDigite sua opÁ„o: ");
 								
 								opcao = in.nextInt();
+								in.nextLine();
 								
 								switch (opcao) {
 								
 								case 1:
+									try{
+										System.out.println("----------Produtos----------\n" + gerenprodutos.listarProdutos());
+									}
+									catch(ObjectNotFound e)
+									{
+										System.out.println(e.getMessage());
+									}
 									
-									System.out.println("----------Produtos----------\n" + repositorioProdutos.listarProdutos());
 									in.nextLine();
 									
 									break;
-
+									
+								case 2:
+									String oldsenha , newsenha;
+									boolean result;
+									int conterro1 = 0 , conterro2 = 0; 
+									System.out.println("--------------AlteraÁ„o de Senha-------------\n");
+									do
+									{
+							
+											System.out.println("Digite sua antiga senha");
+											oldsenha = in.nextLine();
+										
+											System.out.println("Digite sua senha nova");
+											newsenha = in.nextLine();	
+											
+											result = gerencliente.alterarSenha(tempId, newsenha);
+											
+											if(result == false)
+											{
+												System.out.println("Senha antiga incorreta\n");
+											}
+										
+									}while(result != true);
+									
+									if ( result == true)
+									{
+										System.out.println("Senha modificado com sucesso");
+									}
+									
+									in.nextLine();
+									
+									break;
+									
+								case 3:
+									
+									aux2 = 3;
+									
 								default:
 									
-									System.out.print("Op√ß√£o invalida!");
+									System.out.print("OpÁ„o Invalida!");
 									
 									break;
 								}
+								}	
 
-							} else {
-
-								System.out.println("O id ou a senha foi digitado incorretamente, tente novamente!");
-							}
+		
 						}
 
 						break;
-
-					default:
-
-						System.out.println("Op√ß√£o invalida!");
-
-						break;
-					}					
 				}
 				
 				break;
-				
+													
 			case 2:
 
+				
 				System.out.println("-----------Caixa----------\n");
 				System.out.println("1 - Login Administrador;");
 				System.out.println("2 - Login Funcionario;");
 				System.out.println("3 - Voltar;\n");
-				System.out.print("Digite sua op√ß√£o: ");
+				System.out.print("Digite sua opÁ„o: ");
 				opcao = in.nextInt();
 				in.nextLine();
 
 				switch (opcao) {
 
 				case 1:
-					
+					int tentativas2 = 0;
+					boolean end;
 					System.out.println("------------Login Administrador------------\n");
 					
-					System.out.print("Digite seu ID: ");
-					String tempIdAdmin = in.nextLine();
+					do
+					{
+						System.out.print("Digite seu ID: ");
+						String tempIdAdmin = in.nextLine();
 					
-					
-					System.out.print("Digite sua senha: ");
-					String tempSenhaAdmin = in.nextLine();
-					boolean teste = admin.equals(tempIdAdmin, tempSenhaAdmin);
-					System.out.println(teste);
-					if(!(admin.equals(tempIdAdmin, tempSenhaAdmin))){
 						
+						System.out.print("Digite sua senha: ");
+						String tempSenhaAdmin = in.nextLine();
+						
+						tentativas2++;
+						end = admin.equalsSenhaAdmin(tempIdAdmin, tempSenhaAdmin);
+						
+						if( end == false)
+						{
+							System.out.println("Senha incorreta!\n");
+						}
+						
+						if(tentativas2 == 7)
+						{
+							break;
+						}
+						
+					
+					}while(end != true);
+					
+					if(tentativas2 == 7)
+					{
+						break;
+					}
+					
 						System.out.println("-----------Bem-Vindo-----------");
 						System.out.println("1 - Adicionar funcionario");
 						System.out.println("2 - Remover Funcionario");
@@ -208,9 +285,10 @@ public class Menu {
 						System.out.println("4 - Adicionar Produtos");
 						System.out.println("5 - Remover Produto");
 						System.out.println("6 - Listar Produtos");
-						System.out.println("\nDigite sua op√ß√£o: ");
+						System.out.println("\nDigite sua opÁ„o: ");
 						
 						opcao = in.nextInt();
+						in.nextLine();
 						
 						switch (opcao) {
 						
@@ -220,7 +298,7 @@ public class Menu {
 
 							System.out.print("Nome: ");
 							String nome = in.nextLine();
-							in.nextLine();
+							
 
 							System.out.print("CPF: ");
 							String id = in.nextLine();
@@ -233,10 +311,11 @@ public class Menu {
 
 							System.out.print("Numero: ");
 							int numero = in.nextInt();
+							in.nextLine();
 
 							System.out.print("Bairro: ");
 							String bairro = in.nextLine();
-							in.nextLine();
+							
 
 							System.out.print("Cidade: ");
 							String cidade = in.nextLine();
@@ -264,7 +343,7 @@ public class Menu {
 							
 							Endereco end1 = new Endereco(rua, bairro, cidade, estado, numero, telefone);
 							Funcionario funcionario1 = new Funcionario(nome, id, nascimento, end1, senha);
-							repositorioFuncionario.cadastrarFuncionario(funcionario1);
+							gerenfunc.cadastrar(funcionario1);
 							
 							break;
 							
@@ -272,19 +351,16 @@ public class Menu {
 							
 							System.out.println("Digite o ID do Funcionario: ");
 							String auxIdFunc = in.nextLine();
-							in.nextLine();
 							
-							if(repositorioFuncionario.buscarFuncionario(auxIdFunc).getId().equals(auxIdFunc)){
-								
-								repositorioFuncionario.removerFuncionario(auxIdFunc);
-							}
+							gerenfunc.remover(auxIdFunc);
+							
 							
 							break;
 							
 						case 3:
 							
-							repositorioFuncionario.listarFuncinario();
-							in.hasNext();
+							gerenfunc.listarFuncionarios();
+							in.nextLine();
 							
 							break;
 							
@@ -298,9 +374,10 @@ public class Menu {
 							
 							System.out.print("Valor do Produto: ");
 							Double valorProd = in.nextDouble();
+							in.nextLine();
 							
 							Produto produto1 = new Produto(nomeProd, valorProd, codigoProd);
-							repositorioProdutos.cadastrar(produto1);
+							gerenprodutos.cadastrar(produto1);
 							
 							break;
 							
@@ -308,18 +385,15 @@ public class Menu {
 							
 							System.out.println("Digite o Codigo do Produto: ");
 							String auxCodigoProd = in.nextLine();
-							in.nextLine();
 							
-							if(repositorioProdutos.buscarProduto(auxCodigoProd).getCodigo().equals(auxCodigoProd)){
-								
-								repositorioProdutos.removerProduto(auxCodigoProd);
-							}
+							gerenprodutos.remover(auxCodigoProd);
+							
 							
 							break;
 							
 						case 6:
 							
-							repositorioProdutos.listarProdutos();
+							gerenprodutos.listarProdutos();
 							in.nextLine();
 							
 							break;
@@ -329,50 +403,54 @@ public class Menu {
 							System.out.println("Op√ß√£o invalida!");
 							
 							break;
-						}
 						
-					}else{
 						
-						System.out.println("Deu merda!");
-						in.nextLine();
 					}
 
 					break;
 
 				case 2:
 
-					boolean play = false;
-
-					while (!play) {
+					boolean result3;
+					String tempId2 , tempSenha2;
+					int tentativas3 = 0;
+					do{
 
 						System.out.println("------------Login Funcionario------------\n");
 						
 						System.out.println("Digite seu ID: ");
-						String tempId = in.nextLine();
-						in.nextLine();
+						tempId2 = in.nextLine();
 						
 						System.out.println("Digite sua senha: ");
-						String tempSenha = in.nextLine();
+						tempSenha2 = in.nextLine();
 						
-						Funcionario auxFuncionario = repositorioFuncionario.buscarFuncionario(tempId);
-						if ((auxFuncionario != null) && (auxFuncionario.getSenha().equals(tempSenha))) {
-							play = true;
-
-							// Continua√ß√£o do codigo...
-							// Tela de venda do produto...
-
-						} else {
-
-							System.out.println("O id ou a senha foi digitado incorretamente, tente novamente!");
+						tentativas3++;
+						
+						result3 = gerenfunc.loginFuncionario(tempId2, tempSenha2);
+						
+						if( result3 == false)
+						{
+							System.out.println("Senha ou id Incorretos");
 						}
-					}
+						
+						if( tentativas3 == 7)
+						{
+							break;
+						}		
+										
+						
+					}while(result3 != true);
 
+					if( tentativas3 == 7)
+					{
+						break;
+					}		
+					
+					
 					break;
 
 				case 3:
-
-					play = true;
-
+								
 					break;
 
 				default:
@@ -380,26 +458,25 @@ public class Menu {
 					System.out.println("Op√ß√£o invalida!");
 
 					break;
-				}
+				
+			}
 
 				break;
 
 			case 3:
 
 				System.out.println("Obrigado, volte sempre!");
-				aux = true;
-
-				break;
+				in.nextLine();
+				System.exit(0);
 
 			default:
 				
-				System.out.println("Op√ß√£o invalida!");
-
+				System.out.println("OpÁ„o Invalida!");
+				
 				break;
 			}
 
 		}
 		
-		in.close();
 	}
-}
+	}

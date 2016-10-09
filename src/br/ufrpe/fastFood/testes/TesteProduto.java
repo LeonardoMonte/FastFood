@@ -1,14 +1,14 @@
-package br.ufrpe.fastFood.testes;
-
-
-import br.ufrpe.fastFood.beans.Produto;
-import br.ufrpe.fastFood.dados.RepositorioProdutos;
-
-public class TesteProduto {
-	
-	public static void main(String[] args){
-	
-		RepositorioProdutos repositorio = RepositorioProdutos.getInstancia();
+//package br.ufrpe.fastFood.testes;
+//
+//
+//import br.ufrpe.fastFood.beans.Produto;
+//import br.ufrpe.fastFood.dados.RepositorioProdutos;
+//
+//public class TesteProduto {
+//	
+//	public static void main(String[] args){
+//	
+//		RepositorioProdutos repositorio = RepositorioProdutos.getInstancia();
 		
 	//criando novos produtos do tipo hamburger
 
@@ -38,8 +38,3 @@ public class TesteProduto {
 	}
 	*/
 	
-	
-	
-	
-	
-}

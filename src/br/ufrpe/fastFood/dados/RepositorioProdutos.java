@@ -16,8 +16,7 @@ public class RepositorioProdutos {
 	public static RepositorioProdutos getInstancia(){
 		if(instancia == null){
 			instancia = new RepositorioProdutos();
-		}
-		
+		}		
 		return instancia;
 	}
 	
