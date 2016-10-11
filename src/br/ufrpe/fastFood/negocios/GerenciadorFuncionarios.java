@@ -2,6 +2,7 @@ package br.ufrpe.fastFood.negocios;
 
 import java.util.List;
 
+import br.ufrpe.fastFood.beans.Endereco;
 import br.ufrpe.fastFood.beans.Funcionario;
 import br.ufrpe.fastFood.dados.RepositorioFuncionarios;
 import br.ufrpe.fastFood.exceptions.ObjectFound;
@@ -45,20 +46,24 @@ public class GerenciadorFuncionarios {
 		
 		}
 	
-		public void atualizarFuncionario(Funcionario a)
+		public boolean atualizarFuncionario( String id , Endereco ende)
 		{
-			if( a == null)
+			
+			boolean resultado = false;
+			if( ende == null)
 			{
 				throw new ObjectNotFound("Impossivel fazer atualização de funcionario sem dados");
 			}
-			else if(this.repositorio.existeFuncionario(a.getId()) == false )
-			{
-				throw new ObjectNotFound("Funcionario não encontrado no sistema");
-			}
+//			else if(this.repositorio.existeFuncionario()id == false )
+//			{
+//				throw new ObjectNotFound("Funcionario não encontrado no sistema");
+//			}
 			else
 			{
-				this.repositorio.atualizarFuncionario(a);
+				resultado = this.repositorio.atualizarFuncionarioendereço(id , ende);
 			}
+			
+			return resultado;
 		}
 	
 		public List<Funcionario> listarFuncionarios()
@@ -82,6 +87,15 @@ public class GerenciadorFuncionarios {
 			return resultado;
 		}
 		
-
+		public boolean existe(String id)
+		{
+			return this.repositorio.existeFuncionario(id);
+		}
+		
+		public boolean alterarSenha(String id, String senhaold , String senhanew)
+		{
+			return this.repositorio.alterarsenha(id, senhaold , senhanew);
+			
+		}
 		
 }

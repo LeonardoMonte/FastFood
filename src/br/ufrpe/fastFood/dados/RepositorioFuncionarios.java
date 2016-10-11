@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufrpe.fastFood.beans.Cliente;
+import br.ufrpe.fastFood.beans.Endereco;
 import br.ufrpe.fastFood.beans.Funcionario;
 import br.ufrpe.fastFood.beans.Venda;
 
@@ -42,15 +43,22 @@ public class RepositorioFuncionarios {
 		
 	}
 	
-	public void atualizarFuncionario(Funcionario novoFuncionario){
-		if(novoFuncionario != null){
-			for (Funcionario funcionario : listaFuncionarios) {
-				if (funcionario.getId().equals(novoFuncionario.getId())){
-					funcionario = novoFuncionario;
+	public boolean atualizarFuncionarioendereço(String id , Endereco ende){	
+		
+		boolean resultado = false;
+		if(this.existeFuncionario(id) == true){
+
+			for(Funcionario func : listaFuncionarios){
+				if(func.getId().equals(id)){					
+				
+					func.setEndere(ende);
+					resultado = true;
 				}
 			}
+
 		}
-	}
+		return resultado;
+	} 
 	
 	public boolean removerFuncionario(String id){		
 			
@@ -132,5 +140,13 @@ public class RepositorioFuncionarios {
 		
 		return resultado;
 		
+	}
+	
+	public boolean alterarsenha(String id , String senhaold , String senhanew)
+	{
+		Funcionario c = new Funcionario();
+		c = this.buscarFuncionario(id);		
+		boolean resultado = c.alterarSenha(senhaold, senhanew);
+		return resultado;
 	}
 }

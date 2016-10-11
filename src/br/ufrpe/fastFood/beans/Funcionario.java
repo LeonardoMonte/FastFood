@@ -29,8 +29,17 @@ public class Funcionario extends Pessoa {
 		return senha;
 	}
 
-	public void setSenha(String senha) {
+	private void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	public boolean alterarSenha(String oldsenha ,  String newsenha){
+		boolean retorno =  false;
+		if( this.senha.equals(oldsenha)){
+			this.setSenha(newsenha);
+			retorno =  true;
+		}
+		return retorno;
 	}
 	
 	public boolean equals(Funcionario f){

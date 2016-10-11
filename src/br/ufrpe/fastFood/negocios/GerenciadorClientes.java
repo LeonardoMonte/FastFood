@@ -58,10 +58,11 @@ public class GerenciadorClientes {
 		{
 			throw new ObjectNotFound("Impossivel fazer cadastro de cliente sem dados");
 		}
-		else if(this.repositorio.existeCliente(a.getId()) == false )
-		{
-			throw new ObjectNotFound("Cliente não encontrado no sistema");
-		}
+//		else if(this.repositorio.existeCliente(a.getId()) == false )
+//		{
+//			throw new ObjectNotFound("Cliente não encontrado no sistema");
+//		}
+		
 		else
 		{
 			this.repositorio.atualizarCliente(a);

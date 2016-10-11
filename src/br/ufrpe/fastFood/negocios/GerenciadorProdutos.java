@@ -58,10 +58,10 @@ public class GerenciadorProdutos {
 		{
 			throw new ObjectNotFound("Impossivel fazer cadastro de cliente sem dados");
 		}
-		else if(this.repositorio.existeProduto(a.getCodigo()) == false )
-		{
-			throw new ObjectNotFound("Cliente não encontrado no sistema");
-		}
+//		else if(this.repositorio.existeProduto(a.getCodigo()) == false )
+//		{
+//			throw new ObjectNotFound("Cliente não encontrado no sistema");
+//		}
 		else
 		{
 			this.repositorio.atualizarProdutos(a);

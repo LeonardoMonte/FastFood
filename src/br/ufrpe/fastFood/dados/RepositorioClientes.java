@@ -68,7 +68,7 @@ public class RepositorioClientes {
 		 
 			for(Cliente cliente : listaClientes){
 			
-				if(cliente.equals(novoCliente)){
+				if(cliente.getId().equals(novoCliente.getId())){
 					
 					cliente = novoCliente;
 				}

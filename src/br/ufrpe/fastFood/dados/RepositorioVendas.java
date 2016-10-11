@@ -61,11 +61,9 @@ public class RepositorioVendas {
 		if(buscarVenda(novaVenda.getIdVenda()) != null){
 
 			for(Venda venda : listaVendas){
-
-				if(venda.equals(novaVenda)){					
+				if(venda.getIdVenda().equals(novaVenda.getIdVenda())){					
 
 					venda = novaVenda;
-
 				}
 			}
 

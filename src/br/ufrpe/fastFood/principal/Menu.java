@@ -186,7 +186,7 @@ public class Menu {
 								case '2':
 									String oldsenha , newsenha;
 									boolean result;
-
+									int contla = 0;
 									System.out.println("--------------Alteração de Senha-------------\n");
 									do
 									{
@@ -202,6 +202,12 @@ public class Menu {
 											if(result == false)
 											{
 												System.out.println("Senha antiga incorreta\n");
+												contla++;
+												
+											}
+											if(contla > 6)
+											{
+												break;
 											}
 										
 									}while(result != true);
@@ -209,6 +215,10 @@ public class Menu {
 									if ( result == true)
 									{
 										System.out.println("Senha modificado com sucesso");
+									}
+									else
+									{
+										System.out.println("Senha não foi modificada");
 									}
 									
 									in.nextLine();
@@ -403,55 +413,140 @@ public class Menu {
 							
 						case '3':
 							
+							String oldsenha , newsenha;
+							boolean result;
+							int contla = 0;
+							int blabla = 0;
+							
+							if(contFunc > 0)
+							{
+							
+							
+							System.out.println("Digite o id do funcionario:");
+							String idd = in.nextLine();
+							boolean resul = gerenfunc.existe(idd);
+							
+							if( resul == true)
+							{
+							while(blabla != 3)
+							{
 							System.out.print("------------Atualização Funcionario---------- \n");
-
-							System.out.print("Nome: ");
-							String nome2 = in.nextLine();
 							
-
-							System.out.print("CPF: ");
-							String id2 = in.nextLine();
-
-							System.out.print("Nascimento: ");
-							String nascimento2 = in.nextLine();
-
-							System.out.print("Rua: ");
-							String rua2 = in.nextLine();
-
-							System.out.print("Numero: ");
-							int numero2 = in.nextInt();
+							System.out.println("1 - Alterar endereço:");
+							System.out.println("2 - Alterar senha:");
+							System.out.println("3 - Sair");
+							
+							opcao = in.next().charAt(0);
 							in.nextLine();
-
-							System.out.print("Bairro: ");
-							String bairro2 = in.nextLine();
 							
-
-							System.out.print("Cidade: ");
-							String cidade2 = in.nextLine();
-
-							System.out.print("Estado: ");
-							String estado2 = in.nextLine();
-
-							System.out.print("Telefone: ");
-							String telefone2 = in.nextLine();
-							
-							String senha4;
-							String senha5;
-							
-							do {
+							switch(opcao)
+							{
 								
-								System.out.print("Senha: ");
-								senha4 = in.nextLine();
+							case '1':
 								
-								System.out.print("Confime a Senha: ");
-								senha5 = in.nextLine();
-																
-							} while ((senha4.equals(senha5) != true));
+									System.out.println("Digite a rua:");
+									String ruaa = in.nextLine();
+									
+									System.out.println("Digite o numero:");
+									int numeroo = in.nextInt();
+									in.nextLine();
+									
+									System.out.println("Digite o bairro:");
+									String bairroo = in.nextLine();
+									
+									System.out.println("Digite a cidade:");
+									String cidadee = in.nextLine();
+									
+									System.out.println("Digite o estado:");
+									String estadoo = in.nextLine();
+									
+									System.out.println("Digite o telefone:");
+									String telefonee = in.nextLine();
+									
+									Endereco endtwo = new Endereco(ruaa , bairroo , cidadee , estadoo , numeroo , telefonee);
+									boolean allritgh = gerenfunc.atualizarFuncionario(idd, endtwo);
+									
+									if(allritgh == true)
+									{
+										System.out.println("Alteração realizada com sucesso!");
+									}
+									else
+									{
+										System.out.println("Falha ao realizar alteração");
+									}
+									
+									in.nextLine();
+									
+								break;
+					
 							
-							Endereco end2 = new Endereco(rua2, bairro2, cidade2, estado2, numero2, telefone2);
-							Funcionario funcionario2 = new Funcionario(nome2, id2, nascimento2, end2, senha4);
-							gerenfunc.atualizarFuncionario(funcionario2);
 							
+							
+							case '2':
+								
+								System.out.println("--------------Alteração de Senha-------------\n");
+								do
+								{
+										
+						
+										System.out.println("Digite sua antiga senha");
+										oldsenha = in.nextLine();
+									
+										System.out.println("Digite sua senha nova");
+										newsenha = in.nextLine();	
+										
+										result = gerenfunc.alterarSenha(idd, oldsenha, newsenha);
+										
+										if(result == false)
+										{
+											System.out.println("Senha antiga incorreta\n");
+											contla++;
+											
+										}
+										if(contla > 6)
+										{
+											break;
+										}
+									
+								}while(result != true);
+								
+								if ( result == true)
+								{
+									System.out.println("Senha modificado com sucesso");
+								}
+								else
+								{
+									System.out.println("Senha não foi modificada");
+								}
+								
+								in.nextLine();
+								
+							break;
+								
+							case '3':
+							
+							blabla = 3;
+							break;
+							
+							default:
+								System.out.println("Opção invalida");
+							
+							
+							}
+					}
+				}
+				else
+				{
+					System.out.println("Usuario não encontrado no sistema");
+				}
+				
+				}								
+					else
+					{
+						System.out.println("Nenhum funcionario cadastrado no sistema");
+					}
+					
+									
 							break;
 							
 						case '4':
@@ -465,6 +560,8 @@ public class Menu {
 							{
 								System.out.println("Nenhum Funcionario cadastrado");
 							}
+							
+							
 							
 							
 							break;

@@ -61,7 +61,7 @@ public class RepositorioProdutos {
 				 
 				for(Produto produto : listaProdutos){
 				
-					if(produto.equals(novoProduto)){
+					if(produto.getCodigo().equals(novoProduto.getCodigo())){
 						
 						produto = novoProduto;
 						

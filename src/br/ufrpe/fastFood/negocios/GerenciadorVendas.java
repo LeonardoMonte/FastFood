@@ -60,10 +60,10 @@ public class GerenciadorVendas {
 		{
 			throw new ObjectNotFound("Impossivel fazer cadastro de cliente sem dados");
 		}
-		else if(this.repositorio.existeVenda(a.getIdVenda()) == false )
-		{
-			throw new ObjectNotFound("Cliente não encontrado no sistema");
-		}
+//		else if(this.repositorio.existeVenda(a.getIdVenda()) == false )
+//		{
+//			throw new ObjectNotFound("Cliente não encontrado no sistema");
+//		}
 		else
 		{
 			this.repositorio.atualizarVendas(a);
