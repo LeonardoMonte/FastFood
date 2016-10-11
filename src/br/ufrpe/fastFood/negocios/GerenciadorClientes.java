@@ -3,6 +3,7 @@ package br.ufrpe.fastFood.negocios;
 import java.util.List;
 
 import br.ufrpe.fastFood.beans.Cliente;
+import br.ufrpe.fastFood.beans.Endereco;
 import br.ufrpe.fastFood.dados.RepositorioClientes;
 import br.ufrpe.fastFood.exceptions.ObjectFound;
 import br.ufrpe.fastFood.exceptions.ObjectNotFound;
@@ -52,8 +53,9 @@ public class GerenciadorClientes {
 		
 	}
 	
-	public void atualizarCliente(Cliente a)
+	public boolean atualizarClienteendereço(String id , Endereco a)
 	{
+		boolean resultado = false;
 		if( a == null)
 		{
 			throw new ObjectNotFound("Impossivel fazer cadastro de cliente sem dados");
@@ -65,8 +67,10 @@ public class GerenciadorClientes {
 		
 		else
 		{
-			this.repositorio.atualizarCliente(a);
+			resultado = this.repositorio.atualizarClienteendereço(id , a);
 		}
+		
+		return resultado;
 	}
 	
 	public List<Cliente> listarClientes()
@@ -97,6 +101,11 @@ public class GerenciadorClientes {
 	public String nomeCliente(String id)
 	{
 		return this.repositorio.getNomecliente(id);
+	}
+	
+	public boolean existeC(String id)
+	{
+		return this.repositorio.existeCliente(id);
 	}
 	
 	

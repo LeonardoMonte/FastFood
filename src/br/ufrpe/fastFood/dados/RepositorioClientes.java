@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufrpe.fastFood.beans.Cliente;
+import br.ufrpe.fastFood.beans.Endereco;
 import br.ufrpe.fastFood.beans.Funcionario;
 import br.ufrpe.fastFood.beans.Produto;
 
@@ -62,19 +63,22 @@ public class RepositorioClientes {
 	}
 	
 	
-	public void atualizarCliente(Cliente novoCliente){
+	public boolean atualizarClienteendereço(String id , Endereco ende){	
 		
-		if(buscarCliente(novoCliente.getId()) != null){
-		 
+		boolean resultado = false;
+		if(this.existeCliente(id) == true){
+
 			for(Cliente cliente : listaClientes){
-			
-				if(cliente.getId().equals(novoCliente.getId())){
-					
-					cliente = novoCliente;
+				if(cliente.getId().equals(id)){					
+				
+					cliente.setEndere(ende);
+					resultado = true;
 				}
 			}
+
 		}
-	}
+		return resultado;
+	} 
 	
 	public List<Cliente> listarClientes(){
 			
