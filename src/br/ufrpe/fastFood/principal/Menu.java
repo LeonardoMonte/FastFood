@@ -311,7 +311,7 @@ public class Menu {
 						System.out.println("-----------Bem-Vindo-----------");
 						System.out.println("1 - Gerenciar funcionarios");
 						System.out.println("2 - Gerenciar produtos");
-						System.out.println("3 - Gerencia clientes");
+						System.out.println("3 - Gerenciar clientes");
 						System.out.println("4 - Gerenciar vendas");
 						System.out.println(("s - Deslogar como admin"));
 						System.out.println("\nDigite sua opção: ");
@@ -891,7 +891,7 @@ public class Menu {
 											System.out.println("Digite a senha nova");
 											newsenha = in.nextLine();	
 											
-											result = gerenfunc.alterarSenha(idd, oldsenha, newsenha);
+											result = gerencliente.alterarSenha(idd, oldsenha, newsenha);
 											
 											if(result == false)
 											{
