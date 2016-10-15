@@ -3,9 +3,11 @@ package br.ufrpe.fastFood.dados;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufrpe.fastFood.beans.Produto;;
+import br.ufrpe.fastFood.beans.Produto;
+import br.ufrpe.fastFood.interfaces.RepositorioProdutoInterface;;
 
-public class RepositorioProdutos {
+public class RepositorioProdutos implements RepositorioProdutoInterface {
+	
 	private static RepositorioProdutos instancia;
 	private ArrayList<Produto> listaProdutos;
 

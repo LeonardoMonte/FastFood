@@ -20,10 +20,10 @@ public class GerenciadorVendas {
 	public void cadastrar(Venda a) {
 		if (a == null) {
 			throw new ObjectNotFound("Impossivel fazer o cadastro de uma venda sem dados");
-			
+
 		} else if (this.repositorio.existeVenda(a.getIdVenda())) {
 			throw new ObjectFound("Venda j� cadastrada no sistema");
-			
+
 		} else {
 			this.repositorio.cadastrarVenda(a);
 		}
@@ -62,8 +62,8 @@ public class GerenciadorVendas {
 	public List<Venda> listarProdutos() {
 		if (this.repositorio.existeIndiceV(0) == false) {
 			throw new ObjectNotFound("N�o existe nada a ser listado");
-			
-		}else {
+
+		} else {
 			return this.repositorio.listarVendas();
 		}
 	}

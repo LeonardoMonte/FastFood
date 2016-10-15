@@ -18,10 +18,10 @@ public class GerenciadorProdutos {
 	public void cadastrar(Produto a) {
 		if (a == null) {
 			throw new ObjectNotFound("Impossivel fazer o cadastro de um cliente sem dados");
-			
+
 		} else if (this.repositorio.existeProduto(a.getCodigo())) {
 			throw new ObjectFound("Cliente j� cadastrado no sistema");
-			
+
 		} else {
 			this.repositorio.cadastrarProduto(a);
 		}
@@ -59,10 +59,10 @@ public class GerenciadorProdutos {
 	}
 
 	public List<Produto> listarProdutos() {
-		if (this.repositorio.existeIndiceP(0) == false){
+		if (this.repositorio.existeIndiceP(0) == false) {
 			throw new ObjectNotFound("N�o existe nada a ser listado");
-			
-		}else {
+
+		} else {
 			return this.repositorio.listarProdutos();
 		}
 	}

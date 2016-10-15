@@ -17,13 +17,13 @@ public class GerenciadorFuncionarios {
 	}
 
 	public void cadastrar(Funcionario a) {
-		
+
 		if (a == null) {
 			throw new ObjectNotFound("Impossivel fazer o cadastro de um funcionario sem dados");
-			
+
 		} else if (this.repositorio.existeFuncionario(a.getId())) {
 			throw new ObjectFound("Funcionario j� cadastrado no sistema");
-			
+
 		} else {
 			this.repositorio.cadastrarFuncionario(a);
 		}
