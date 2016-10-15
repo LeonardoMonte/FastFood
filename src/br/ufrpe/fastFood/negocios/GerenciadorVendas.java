@@ -11,75 +11,60 @@ public class GerenciadorVendas {
 
 	private RepositorioVendas repositorio;
 	private GerenciadorProdutos produtos;
-	
-	public GerenciadorVendas()
-	{
+
+	public GerenciadorVendas() {
 		this.repositorio = RepositorioVendas.getInstancia();
 
 	}
-	
-	public void cadastrar(Venda a)
-	{
-		if(a == null)
-		{
+
+	public void cadastrar(Venda a) {
+		if (a == null) {
 			throw new ObjectNotFound("Impossivel fazer o cadastro de uma venda sem dados");
-		}
-		else if(this.repositorio.existeVenda(a.getIdVenda()))
-		{
-			throw new ObjectFound("Venda já cadastrada no sistema");
-		}
-		else
-		{
+			
+		} else if (this.repositorio.existeVenda(a.getIdVenda())) {
+			throw new ObjectFound("Venda jï¿½ cadastrada no sistema");
+			
+		} else {
 			this.repositorio.cadastrarVenda(a);
 		}
 	}
-	
-	public void remover(String idVenda)
-	{
+
+	public void remover(String idVenda) {
 		Venda a = new Venda();
 		a = this.procurar(idVenda);
-		
+
 		boolean Final = this.repositorio.removerVenda(a.getIdVenda());
-		
-		if(Final == false)
-		{
-			throw new ObjectNotFound("Cliente não cadastrado no sistema");
-		}	
-		
+
+		if (Final == false) {
+			throw new ObjectNotFound("Cliente nï¿½o cadastrado no sistema");
+		}
+
 	}
-	
-	public Venda procurar(String idVenda)
-	{
+
+	public Venda procurar(String idVenda) {
 		return this.repositorio.buscarVenda(idVenda);
-		
+
 	}
-	
-	public void atualizarProduto(Venda a)
-	{
-		if( a == null)
-		{
+
+	public void atualizarProduto(Venda a) {
+		if (a == null) {
 			throw new ObjectNotFound("Impossivel fazer cadastro de cliente sem dados");
 		}
-//		else if(this.repositorio.existeVenda(a.getIdVenda()) == false )
-//		{
-//			throw new ObjectNotFound("Cliente não encontrado no sistema");
-//		}
-		else
-		{
+		// else if(this.repositorio.existeVenda(a.getIdVenda()) == false )
+		// {
+		// throw new ObjectNotFound("Cliente nï¿½o encontrado no sistema");
+		// }
+		else {
 			this.repositorio.atualizarVendas(a);
 		}
 	}
-	
-	public List<Venda> listarProdutos()
-	{	if(this.repositorio.existeIndiceV(0) == false) // TENTATIVA DE EXCEPTION
-		{
-			throw new ObjectNotFound("Não existe nada a ser listado");
+
+	public List<Venda> listarProdutos() {
+		if (this.repositorio.existeIndiceV(0) == false) {
+			throw new ObjectNotFound("Nï¿½o existe nada a ser listado");
+			
+		}else {
+			return this.repositorio.listarVendas();
 		}
-		
-	else
-		{
-		return this.repositorio.listarVendas();
-		}
-		
 	}
 }

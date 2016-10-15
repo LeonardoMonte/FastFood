@@ -25,7 +25,7 @@ public class GerenciadorClientes {
 		}
 		else if(this.repositorio.existeCliente(a.getId()))
 		{
-			throw new ObjectFound("Cliente já cadastrado no sistema");
+			throw new ObjectFound("Cliente jï¿½ cadastrado no sistema");
 		}
 		else
 		{
@@ -40,7 +40,7 @@ public class GerenciadorClientes {
 		
 //		if(Final == false)
 //		{
-//			throw new ObjectNotFound("Cliente não cadastrado no sistema");
+//			throw new ObjectNotFound("Cliente nï¿½o cadastrado no sistema");
 //		}	
 		
 		return Final;
@@ -53,7 +53,7 @@ public class GerenciadorClientes {
 		
 	}
 	
-	public boolean atualizarClienteendereço(String id , Endereco a)
+	public boolean atualizarClienteendereco(String id , Endereco a)
 	{
 		boolean resultado = false;
 		if( a == null)
@@ -62,12 +62,12 @@ public class GerenciadorClientes {
 		}
 //		else if(this.repositorio.existeCliente(a.getId()) == false )
 //		{
-//			throw new ObjectNotFound("Cliente não encontrado no sistema");
+//			throw new ObjectNotFound("Cliente nï¿½o encontrado no sistema");
 //		}
 		
 		else
 		{
-			resultado = this.repositorio.atualizarClienteendereço(id , a);
+			resultado = this.repositorio.atualizarClienteendereco(id , a);
 		}
 		
 		return resultado;
@@ -76,7 +76,7 @@ public class GerenciadorClientes {
 	public List<Cliente> listarClientes()
 	{	if(this.repositorio.existeIndice(0) == false) // TENTATIVA DE EXCEPTION
 		{
-			throw new ObjectNotFound("Não existe nada a ser listado");
+			throw new ObjectNotFound("Nï¿½o existe nada a ser listado");
 		}
 		
 	else

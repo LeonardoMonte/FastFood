@@ -1,123 +1,115 @@
 package br.ufrpe.fastFood.dados;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufrpe.fastFood.beans.Funcionario;
 import br.ufrpe.fastFood.beans.Produto;;
 
 public class RepositorioProdutos {
 	private static RepositorioProdutos instancia;
-	private ArrayList <Produto> listaProdutos;
-	
-	private RepositorioProdutos(){
-		this.listaProdutos = new ArrayList <>(); 
+	private ArrayList<Produto> listaProdutos;
+
+	private RepositorioProdutos() {
+		this.listaProdutos = new ArrayList<>();
 	}
-	
-	public static RepositorioProdutos getInstancia(){
-		if(instancia == null){
+
+	public static RepositorioProdutos getInstancia() {
+		if (instancia == null) {
 			instancia = new RepositorioProdutos();
-		}		
+		}
 		return instancia;
 	}
-	
-	public void cadastrarProduto(Produto p){		
-			
-			this.listaProdutos.add(p);	
+
+	public void cadastrarProduto(Produto p) {
+
+		this.listaProdutos.add(p);
 	}
-	
-	public Produto buscarProduto(String codigo){
-		
+
+	public Produto buscarProduto(String codigo) {
+
 		Produto resultado = new Produto();
-		
+
 		int i = this.procurarIndiceP(codigo);
 
-		if(i >= 0 )
-		{		
+		if (i >= 0) {
 			resultado = this.listaProdutos.get(i);
 		}
-	
+
 		return resultado;
 	}
-	
-	public boolean removerProduto(String codigo){
-		
+
+	public boolean removerProduto(String codigo) {
+
 		boolean resultado = false;
 		Produto rresultado = new Produto();
 		int i = this.procurarIndiceP(codigo);
-		
-			if( i >= 0)
-			{
-				rresultado = this.listaProdutos.get(i);	
-				this.listaProdutos.remove(rresultado);
-				resultado = true;
-			}	
-			
+
+		if (i >= 0) {
+			rresultado = this.listaProdutos.get(i);
+			this.listaProdutos.remove(rresultado);
+			resultado = true;
+		}
+
 		return resultado;
 	}
 
-	public void atualizarProdutos(Produto novoProduto){
-			
-			if(buscarProduto(novoProduto.getCodigo()) != null){
-				 
-				for(Produto produto : listaProdutos){
-				
-					if(produto.getCodigo().equals(novoProduto.getCodigo())){
-						
-						produto = novoProduto;
-						
-					}
+	public void atualizarProdutos(Produto novoProduto) {
+
+		if (buscarProduto(novoProduto.getCodigo()) != null) {
+
+			for (Produto produto : listaProdutos) {
+
+				if (produto.getCodigo().equals(novoProduto.getCodigo())) {
+
+					produto = novoProduto;
+
 				}
 			}
 		}
-	
-	public boolean existeIndiceP(int ind)
-	{
-		// FUNÇÃO PARA CHEGAR SE EXISTE ALGO NAQUELA POSIÇÃO EXPECIFICA( MEIO NOSENSE MAS TEM UTILIDADE)
+	}
+
+	public boolean existeIndiceP(int ind) {
+		// FUNï¿½ï¿½O PARA CHEGAR SE EXISTE ALGO NAQUELA POSIï¿½ï¿½O EXPECIFICA( MEIO
+		// NOSENSE MAS TEM UTILIDADE)
 		boolean resultado = false;
-		
-		if( this.listaProdutos.get(ind) != null)
-		{
+
+		if (this.listaProdutos.get(ind) != null) {
 			resultado = true;
 		}
-		
+
 		return resultado;
 	}
-	
-	public boolean existeProduto(String codigo)
-	{
-		// FUNÇÃO PARA CHECAR SE JA EXISTE UM PRODUTO COM ESSE CODIGO
-		
+
+	public boolean existeProduto(String codigo) {
+		// FUNï¿½ï¿½O PARA CHECAR SE JA EXISTE UM PRODUTO COM ESSE CODIGO
+
 		boolean resultado = false;
-		
-		for(Produto produto:listaProdutos)
-		{
-			if( produto.getCodigo().equals(codigo))
-			{
+
+		for (Produto produto : listaProdutos) {
+			if (produto.getCodigo().equals(codigo)) {
 				resultado = true;
 			}
 		}
-		
+
 		return resultado;
 	}
-	
-	public int procurarIndiceP(String codigo)
-	{
-		// Função que procura indice especifico , enxugando os codigos de remover e adicionar
-		
-		int cont = -1; 
 
-		for( int x = 0 ; x < this.listaProdutos.size() ; x++)
-		{
-			if( this.listaProdutos.get(x).getCodigo().equals(codigo))
-			{
+	public int procurarIndiceP(String codigo) {
+		// Funï¿½ï¿½o que procura indice especifico , enxugando os codigos de
+		// remover e adicionar
+
+		int cont = -1;
+
+		for (int x = 0; x < this.listaProdutos.size(); x++) {
+			if (this.listaProdutos.get(x).getCodigo().equals(codigo)) {
 				cont = x;
 			}
 		}
 		return cont;
 	}
-	
-	public List<Produto> listarProdutos(){
-		
+
+	public List<Produto> listarProdutos() {
+
 		return this.listaProdutos;
 	}
 }
