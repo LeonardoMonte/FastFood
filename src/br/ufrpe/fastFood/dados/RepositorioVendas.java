@@ -1,11 +1,12 @@
-package br.ufrpe.fastFood.dados;
+	package br.ufrpe.fastFood.dados;
 import java.util.ArrayList;
 import java.util.List;
 
 import br.ufrpe.fastFood.beans.Produto;
 import br.ufrpe.fastFood.beans.Venda;
+import br.ufrpe.fastFood.interfaces.RepositorioVendaInterface;
 
-public class RepositorioVendas {
+public class RepositorioVendas implements RepositorioVendaInterface{
 
 	private static RepositorioVendas instancia;
 	private ArrayList <Venda> listaVendas;

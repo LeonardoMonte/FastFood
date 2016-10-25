@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import br.ufrpe.fastFood.beans.Endereco;
 import br.ufrpe.fastFood.beans.Funcionario;
+import br.ufrpe.fastFood.interfaces.RepositorioFuncionarioInterface;
 
-public class RepositorioFuncionarios {
+public class RepositorioFuncionarios implements RepositorioFuncionarioInterface {
 	private static RepositorioFuncionarios instancia;
 	private ArrayList<Funcionario> listaFuncionarios;
 
@@ -59,13 +60,12 @@ public class RepositorioFuncionarios {
 
 	public boolean removerFuncionario(String id) {
 
-		Funcionario resultado = new Funcionario();
 		int i = this.procurarIndiceF(id);
 		boolean result = false;
 
 		if (i >= 0) {
-			resultado = this.listaFuncionarios.get(i);
-			this.listaFuncionarios.remove(resultado);
+			
+			this.listaFuncionarios.remove(i);
 			result = true;
 		}
 
@@ -80,11 +80,14 @@ public class RepositorioFuncionarios {
 	public boolean existeFuncionario(String id) {
 
 		boolean resultado = false;
-
-		for (Funcionario funcionario : listaFuncionarios) {
-			if (funcionario.getId().equals(id)) {
-				resultado = true;
-			}
+		Funcionario a = new Funcionario();
+		
+		a = this.buscarFuncionario(id);
+		
+		if( a != null )
+		{
+			resultado = true;
+			
 		}
 
 		return resultado;
