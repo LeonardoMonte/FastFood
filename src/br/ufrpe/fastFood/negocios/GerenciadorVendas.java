@@ -46,7 +46,7 @@ public class GerenciadorVendas {
 
 	}
 
-	public void atualizarProduto(Venda a) {
+	public void atualizarVenda(Venda a) {
 		if (a == null) {
 			throw new ObjectNotFound("Impossivel fazer cadastro de cliente sem dados");
 		}
@@ -59,12 +59,16 @@ public class GerenciadorVendas {
 		}
 	}
 
-	public List<Venda> listarProdutos() {
+	public List<Venda> listarVendas() {
 		if (this.repositorio.existeIndiceV(0) == false) {
 			throw new ObjectNotFound("N�o existe nada a ser listado");
 
 		} else {
 			return this.repositorio.listarVendas();
 		}
+	}
+	
+	public void realizarPedido(){
+		
 	}
 }
