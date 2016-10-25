@@ -46,6 +46,11 @@ public class Combo {
 	{
 		this.valor -= valor;
 	}
+	
+	public void setValorPromo(double valor)
+	{
+		this.valor = valor;
+	}
 
 
 	public String getCodigo() {

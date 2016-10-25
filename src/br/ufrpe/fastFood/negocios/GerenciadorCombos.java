@@ -24,9 +24,9 @@ public class GerenciadorCombos {
 		}
 	}
 	
-	public void removerCombo(String codigo)
+	public boolean removerCombo(String codigo)
 	{
-		this.repositorio.removerCombo(codigo);
+		return this.repositorio.removerCombo(codigo);
 	}
 	
 	public List<Combo> listarCombos()
