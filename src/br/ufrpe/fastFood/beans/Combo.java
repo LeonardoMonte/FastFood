@@ -112,10 +112,7 @@ public class Combo {
 		return cont;
 
 	}
-	
-
-
-		
+			
 		public String toString() {
 		StringBuffer buffer = new StringBuffer();
 		
@@ -125,11 +122,7 @@ public class Combo {
 		buffer.append("Valor: " + this.getValor() + "\n");
 		return buffer.toString();
 	}
-	
-	
-	
-	
-	
+			
 	
 
 }
