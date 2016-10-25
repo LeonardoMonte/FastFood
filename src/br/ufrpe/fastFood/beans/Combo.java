@@ -2,24 +2,52 @@ package br.ufrpe.fastFood.beans;
 
 import java.util.ArrayList;
 
-public class Combo extends Produto{
+public class Combo {
 	
+	private String nome;
+	private double valor;
+	private String codigo;
 	private ArrayList<Produto> itens;
 	
-	public Combo(String nome, double valor, String codigo){
-		super(nome, valor, codigo);
+	public Combo(String nome, String codigo){
+		this.nome = nome;
+		this.codigo = codigo;
+		this.valor = 0;
 		this.itens = new ArrayList<Produto>();
 	}
 	
 	public void addItens(Produto p){
-		if(p != null){
-			
+		
+					
 			this.itens.add(p);
-		}
+			this.valor += p.getValor();
+	}
+	
+	public String getNome() {
+		return nome;
 	}
 
-	@Override
-	public String toString() {
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor += valor;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+		
+		public String toString() {
 		StringBuffer buffer = new StringBuffer();
 		
 		buffer.append("Produto: " + this.getNome() + "\n");
