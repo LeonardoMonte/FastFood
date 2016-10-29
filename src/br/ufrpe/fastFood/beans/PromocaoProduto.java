@@ -6,10 +6,11 @@ public class PromocaoProduto extends Promocao{
 	
 	private Produto produto;
 	
-	public PromocaoProduto(String idPromocao , LocalDate diapromo , Produto p)
+	public PromocaoProduto(String idPromocao , LocalDate diapromo , Produto p , double valor)
 	{
 		super(idPromocao , diapromo);
 		this.produto = p;
+		this.setValor(valor);
 	}
 	
 	public PromocaoProduto()
@@ -17,9 +18,6 @@ public class PromocaoProduto extends Promocao{
 		super();
 	}
 	
-	public void AlterarPreçoProduto(double newprice)
-	{
-		this.produto.setValor(newprice);
-	}
+	
 	
 }

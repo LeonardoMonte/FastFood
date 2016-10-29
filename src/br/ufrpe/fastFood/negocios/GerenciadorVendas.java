@@ -10,7 +10,6 @@ import br.ufrpe.fastFood.exceptions.ObjectNotFound;
 public class GerenciadorVendas {
 
 	private RepositorioVendas repositorio;
-	private GerenciadorProdutos produtos;
 
 	public GerenciadorVendas() {
 		this.repositorio = RepositorioVendas.getInstancia();
@@ -46,18 +45,6 @@ public class GerenciadorVendas {
 
 	}
 
-	public void atualizarVenda(Venda a) {
-		if (a == null) {
-			throw new ObjectNotFound("Impossivel fazer cadastro de cliente sem dados");
-		}
-		// else if(this.repositorio.existeVenda(a.getIdVenda()) == false )
-		// {
-		// throw new ObjectNotFound("Cliente n�o encontrado no sistema");
-		// }
-		else {
-			this.repositorio.atualizarVendas(a);
-		}
-	}
 
 	public List<Venda> listarVendas() {
 		if (this.repositorio.existeIndiceV(0) == false) {

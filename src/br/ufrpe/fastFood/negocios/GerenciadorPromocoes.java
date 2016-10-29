@@ -58,4 +58,15 @@ public class GerenciadorPromocoes {
 		return this.repositorio.listarPromoProduto();
 	}
 	
+	public void alterarPrecoPromoCombo(double newprice , String idPromocao)
+	{
+		this.repositorio.alterarPrecoComboPromo(newprice, idPromocao);
+	}
+	
+	public void alterarPrecoPromoProduto(double newprice , String idPromocao)
+	{
+		this.repositorio.alterarPrecoProdutoPromo(newprice, idPromocao);
+		
+	}
+	
 }

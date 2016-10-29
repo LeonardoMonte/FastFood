@@ -6,7 +6,7 @@ public abstract class Promocao  {
 	
 	private String idPromocao;
 	private LocalDate DiaPromo;
-	
+	private double valor;
 	
 	public Promocao(String idPromocao, LocalDate diaPromo) {
 		this.idPromocao = idPromocao;
@@ -19,6 +19,16 @@ public abstract class Promocao  {
 
 	public String getIdPromocao() {
 		return idPromocao;
+	}
+	
+	public double getValor()
+	{
+		return this.valor;
+	}
+	
+	public void setValor(double valor)
+	{
+		this.valor = valor;
 	}
 	
 	

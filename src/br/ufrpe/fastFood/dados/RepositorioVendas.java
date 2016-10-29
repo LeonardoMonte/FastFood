@@ -1,8 +1,7 @@
-	package br.ufrpe.fastFood.dados;
+package br.ufrpe.fastFood.dados;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufrpe.fastFood.beans.Produto;
 import br.ufrpe.fastFood.beans.Venda;
 import br.ufrpe.fastFood.interfaces.RepositorioVendaInterface;
 
@@ -10,11 +9,12 @@ public class RepositorioVendas implements RepositorioVendaInterface{
 
 	private static RepositorioVendas instancia;
 	private ArrayList <Venda> listaVendas;
-
-	private RepositorioVendas(){
-		this.listaVendas = new ArrayList <>();
+	
+	private RepositorioVendas()
+	{
+		this.listaVendas = new ArrayList<>();
 	}
-	//Criando instancia unica para repositorio
+	
 	public static RepositorioVendas getInstancia(){
 		if(instancia == null){
 			instancia = new RepositorioVendas();
@@ -22,12 +22,18 @@ public class RepositorioVendas implements RepositorioVendaInterface{
 		return instancia;
 	}
 
-	public void cadastrarVenda(Venda v){
 	
-		this.listaVendas.add(v);
+	public void cadastrarVenda(Venda v)
+	{
+		if( v != null)
+		{
+			this.listaVendas.add(v);
+		}
+		
 	}
-
-	public Venda buscarVenda(String idVenda){
+	
+	public Venda buscarVenda(String idVenda)
+	{
 		
 		Venda resultado = new Venda();
 		
@@ -41,7 +47,8 @@ public class RepositorioVendas implements RepositorioVendaInterface{
 		return resultado;
 	}
 
-	public boolean removerVenda(String idVenda){
+	public boolean removerVenda(String idVenda)
+	{
 		
 		boolean resultado = false;
 		Venda rresultado = new Venda();
@@ -57,21 +64,9 @@ public class RepositorioVendas implements RepositorioVendaInterface{
 		return resultado;
 	}
 
-	public void atualizarVendas(Venda novaVenda){
 
-		if(buscarVenda(novaVenda.getIdVenda()) != null){
-
-			for(Venda venda : listaVendas){
-				if(venda.getIdVenda().equals(novaVenda.getIdVenda())){					
-
-					venda = novaVenda;
-				}
-			}
-
-		}
-	}
-
-	public List<Venda> listarVendas(){
+	public List<Venda> listarVendas()
+	{
 
 		return this.listaVendas;
 	}

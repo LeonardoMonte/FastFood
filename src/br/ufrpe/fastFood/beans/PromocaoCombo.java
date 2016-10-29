@@ -7,19 +7,18 @@ public class PromocaoCombo extends Promocao{
 	private Combo combo;
 	
 	
-	public PromocaoCombo(String idPromocao , LocalDate diapromo, Combo combo)
+	public PromocaoCombo(String idPromocao , LocalDate diapromo, Combo combo, double valor)
 	{
 		super(idPromocao , diapromo);
 		this.combo = combo;
+		this.setValor(valor);
+		
 	}
 	
 	public PromocaoCombo() {
 		super();
 	}
 
-	public void AlterarpreçoCombo(double newprice)
-	{
-		this.combo.setValorPromo(newprice);
-	}
+
 
 }

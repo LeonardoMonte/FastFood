@@ -1,6 +1,6 @@
 package br.ufrpe.fastFood.beans;
 
-public class Pessoa {
+public abstract class Pessoa {
 
 	private String nome;
 	private String id;

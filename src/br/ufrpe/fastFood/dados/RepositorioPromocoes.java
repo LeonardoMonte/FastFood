@@ -177,6 +177,28 @@ public class RepositorioPromocoes implements RepositorioPromocoesInterface {
 		
 	}
 	
+	public void alterarPrecoComboPromo(double newprice, String idPromocao)
+	{
+		PromocaoCombo a = new PromocaoCombo();
+		a = this.buscarPromoCombo(idPromocao);
+		
+		if( a != null )
+		{
+			a.setValor(newprice);
+		}
+	}
+	
+	public void alterarPrecoProdutoPromo(double newprice , String idPromocao)
+	{
+		PromocaoProduto a = new PromocaoProduto();
+		a = this.buscarPromoProduto(idPromocao);
+		
+		if( a != null )
+		{
+			a.setValor(newprice);
+		}
+	}
+	
 	
 	
 	

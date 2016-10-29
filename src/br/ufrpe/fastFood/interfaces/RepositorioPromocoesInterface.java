@@ -32,4 +32,9 @@ public interface RepositorioPromocoesInterface {
 	
 	List<PromocaoProduto> listarPromoProduto();
 	
+	void alterarPrecoComboPromo(double newprice, String idPromocao);
+	
+	void alterarPrecoProdutoPromo(double newprice , String idPromocao);
+	
+	
 }
