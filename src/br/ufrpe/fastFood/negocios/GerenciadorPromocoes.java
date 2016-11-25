@@ -37,6 +37,17 @@ public class GerenciadorPromocoes {
 		
 	}
 	
+	public PromocaoProduto buscarPromocaoProduto( String idPromocao)
+	{
+		return this.repositorio.buscarPromoProduto(idPromocao);
+	}
+	
+	public PromocaoCombo buscarPromocaoCombo(String idPromocao)
+	{
+		return this.repositorio.buscarPromoCombo(idPromocao);
+		
+	}
+	
 	public boolean removerCombo(String idPromocao)
 	{
 		return this.repositorio.removerComboPromotion(idPromocao);
