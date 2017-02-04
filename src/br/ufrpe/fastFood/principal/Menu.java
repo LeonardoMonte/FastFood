@@ -1,5 +1,5 @@
 package br.ufrpe.fastFood.principal;
-
+import java.time.LocalDate;
 import java.util.Scanner;
 import br.ufrpe.fastFood.beans.Admin;
 import br.ufrpe.fastFood.beans.Cliente;
@@ -298,7 +298,7 @@ public class Menu {
 												System.out.println("Nenhuma promocao de combo cadastrada no estoque");
 											}
 											
-											break; // BREAK DA FUNCAO DE COMPRA DE PROMOCAO DE PRDOUTO
+											break; // BREAK DA FUNCAO DE COMPRA DE PROMOCAO DE PRODOUTO
 											
 											
 										case '4':
@@ -363,7 +363,7 @@ public class Menu {
 									String oldsenha, newsenha;
 									boolean result;
 									int contla = 0;
-									System.out.println("--------------Alteraï¿½ï¿½o de Senha-------------\n");
+									System.out.println("--------------Alteracao de Senha-------------\n");
 									do {
 
 										System.out.println("Digite sua antiga senha");
@@ -417,7 +417,7 @@ public class Menu {
 						break;
 
 					default:
-						System.out.println("Opï¿½ï¿½o Invalida");
+						System.out.println("Opcao Invalida");
 
 					}
 
@@ -432,7 +432,7 @@ public class Menu {
 					System.out.println("1 - Login Administrador;");
 					System.out.println("2 - Login Funcionario;");
 					System.out.println("3 - Voltar;\n");
-					System.out.print("Digite sua opï¿½ï¿½o: ");
+					System.out.print("Digite sua opcao: ");
 					opcao = in.next().charAt(0);
 					in.nextLine();
 
@@ -713,7 +713,7 @@ public class Menu {
 										break;// funï¿½ï¿½o d sair
 
 									default:
-										System.out.println("Opï¿½ï¿½o invalida");
+										System.out.println("Opcao invalida");
 										break;
 
 									}
@@ -733,7 +733,7 @@ public class Menu {
 									System.out.println("3 - Alterar dados");
 									System.out.println("4 - Listar");
 									System.out.println("5 - Sair");
-									System.out.println("=====================\nDigite sua opï¿½ï¿½o:");
+									System.out.println("=====================\nDigite sua opcao:");
 
 									opcao = in.next().charAt(0);
 									in.nextLine();
@@ -779,14 +779,184 @@ public class Menu {
 											
 											case '2':
 												
+												if( contProduto > 2)
+												{
+														
+												System.out.println("Nome do Combo: ");
+												String nomeCombo = in.nextLine();
 												
+												System.out.println("Codigo do Combo: ");
+												String codigoCombo = in.nextLine();
+												
+												Combo combo1 = new Combo(nomeCombo , codigoCombo);
+												
+												System.out.println("Deseja listar os produtos ja cadastrados para auxiliar na criacao do combo ? (S/N)");
+												char resposta = in.next().charAt(0);
+												in.nextLine();
+												
+												if( resposta == 'S' || resposta == 's')
+												{
+													System.out.println(gerenprodutos.listarProdutos());
+												}
+												
+												int contcadastrocombo = 0;
+												boolean result = true;
+												Produto produto2 = new Produto();
+												do
+												{
+													
+													
+													System.out.println("Digite o codigo do produto a ser adicionado no combo");
+													String volatcode = in.nextLine();
+													
+													produto2 = gerenprodutos.procurar(volatcode);
+													
+													
+													
+													if(produto2.getCodigo() != null)
+													{
+														combo1.addItens(produto2);
+														
+														System.out.println("Produto adicionado ao combo com sucesso");
+														contcadastrocombo++;
+	
+													}
+													else
+													{
+														System.out.println("Produto não encontrado no estoque");
+													}
+													
+													
+													System.out.println("Deseja adicionar mais um produto ao combo ? ( S/N )");
+													
+													char resposta1000 = in.next().charAt(0);
+													
+													in.nextLine();
+													
+													if( resposta1000 == 'n' || resposta1000 == 'N')
+													{
+														result = false;
+													}
+													
+													System.out.println();
+													
+												}while( result == true);
+												
+												gerencombos.cadastrarCombo(combo1);
+												contCombo++;
+												
+												}
+												else
+												{
+													System.out.println("Impossivel criar um combo, devido a falta de produtos em estoque");
+												}
+												
+												break;// TERMINO DO CASE 2 DO ADICIONAR
+												
+											case '3':
+												
+												if( contCombo >= 1)
+												{
+												
+													
+													System.out.println("Digite o id do combo a entrar em promocão:");
+													String idcombo1 = in.nextLine();
+													
+													Combo combo1 = new Combo();
+													combo1 = gerencombos.procurarCombo(idcombo1);
+													
+													if( combo1.getNome() != null)
+													{
+														System.out.println("Digite o id da promocao do combo:");
+														String idpromocombo = in.nextLine();
+														
+														System.out.println("Digite o valor da promocao:");
+														Double valorpromocombo = in.nextDouble();
+														in.nextLine();
+														
+														LocalDate creation = LocalDate.now();
+														
+														PromocaoCombo promocombo = new PromocaoCombo(idpromocombo, creation, combo1, valorpromocombo);
+														
+														contPromoCombo++;
+														
+														gerenpromocoes.cadastrarCombo(promocombo);
+														
+														System.out.println("Promocao de combo cadastrada com sucesso");
+														
+													}
+													else
+													{
+														System.out.println("Combo nao encontrado no estoque");
+													}
+					
+													
+												}
+												else
+												{
+													System.out.println("Impossivel realizar a ação por falta de combos no estoque");
+												}
+												
+												break;// TERMINO DO CASE DE ADICIONAR PROMOCÃO DE COMBOS
+												
+											case '4':
+												
+												if( contProduto >= 1)
+												{
+												
+													
+													System.out.println("Digite o id do produto a entrar em promocão:");
+													String idproduto1 = in.nextLine();
+													
+													Produto produto2 = new Produto();
+													produto2 = gerenprodutos.procurar(idproduto1);
+													
+													if( produto2.getNome() != null)
+													{
+														System.out.println("Digite o id da promocao do produto:");
+														String idpromoprodutos = in.nextLine();
+														
+														System.out.println("Digite o valor da promocao:");
+														Double valorpromoproduto = in.nextDouble();
+														in.nextLine();
+														
+														LocalDate creation = LocalDate.now();
+														
+														PromocaoProduto promoproduto = new PromocaoProduto(idpromoprodutos, creation, produto2, valorpromoproduto);
+														
+														gerenpromocoes.cadastrarProduto(promoproduto);
+														
+														contPromoProduto++;
+														
+														System.out.println("Promocao de produto cadastrada com sucesso");
+														
+													}
+													else
+													{
+														System.out.println("Produto nao encontrado no estoque");
+													}
+					
+													
+												}
+												else
+												{
+													System.out.println("Impossivel realizar a ação por falta de produtos no estoque");
+												}
+												
+												break; // TERMINO DO CASE DE CRIAR PROMOCAO DE PRODUTO
+												
+											case '5':
+												
+												b20 = 5;
+												
+											break;
+												
+												
+											default:
+												System.out.println("Opcao invalida");
+												break;
 											
-										
-										
 										}
-										
-										
-										
 										
 
 										break; // TERMINO DO CASE 1 D
@@ -820,14 +990,96 @@ public class Menu {
 										break;
 
 									case '4':
+										
+										int z20 = 0;
 
-										if (contProduto > 0) {
-											System.out.println(gerenprodutos.listarProdutos());
-											in.nextLine();
-										} else {
+										while (z20 != 5) {
 											System.out.println(
-													"Impossivel realizar aï¿½ï¿½o, o sistema nï¿½o possui produtos cadastrados");
-										}
+													"=====================Listar Produtos==================");
+											System.out.println("1 - Listar Produtos");
+											System.out.println("2 - Listar Combos");
+											System.out.println("3 - Listar Promocoes de combo");
+											System.out.println("4 - Listar Promocoes de produto");
+											System.out.println("5 - Sair");
+											System.out.println("=====================\nDigite sua opcao:");
+
+											opcao = in.next().charAt(0);
+											in.nextLine();
+
+											switch (opcao) {
+											
+											
+											case '1':
+												
+												if(contProduto >= 1)
+												{
+													System.out.println(gerenprodutos.listarProdutos());
+												}
+												else
+												{
+													System.out.println("Nenhum produto cadastrado no estoque");
+												}
+												
+											break;
+											
+											case '2':
+												
+											if(contCombo >= 1)
+											{
+												System.out.println(gerencombos.listarCombos());
+											}
+											else
+											{
+												System.out.println("Nenhum combo cadastrado no estoque");
+											}
+											
+										break;
+										
+											case '3':
+												
+											if(contPromoCombo >= 1)
+											{
+												System.out.println(gerenpromocoes.listarCombosPromotion());
+											}
+											else
+											{
+												System.out.println("Nenhuma promocao de combo cadastrado no estoque");
+											}
+											
+										break;
+										
+											case '4':
+												
+											if(contPromoProduto >= 1)
+											{
+												System.out.println(gerenpromocoes.listarProdutoPromotion());
+											}
+											else
+											{
+												System.out.println("Nenhuma promocao de produtos cadastrado no estoque");
+											}
+											
+										break;
+										
+											case '5':
+												
+												z20 = 5;
+												
+										break;
+										
+											
+											default:
+											
+												System.out.println("Opcao invalida");
+										
+										break;
+		
+												
+											
+											}
+											
+											}
+								
 
 										break; // TERMINO DO CASE 4 D
 												// GERENCIAMENTO D PRODUTOS

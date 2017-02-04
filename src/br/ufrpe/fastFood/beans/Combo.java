@@ -14,6 +14,7 @@ public class Combo {
 	public Combo(String nome,  String codigo){
 		this.nome = nome;
 		this.codigo = codigo;
+		this.itens = new ArrayList<>();
 	}
 
 	

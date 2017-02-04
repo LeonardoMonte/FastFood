@@ -19,6 +19,15 @@ public class PromocaoCombo extends Promocao{
 		super();
 	}
 
+	public String toString(){
+	StringBuffer buffer = new StringBuffer();
+	buffer.append("Promoçao: "+ this.getIdPromocao() +"\n");
+	buffer.append("Combo: " + this.combo.getNome() + "\n");
+	buffer.append("Valor" + this.getValor() + "\n");
+	buffer.append("Data de criacao: " + this.getDiaPromo() );
+			
+	return buffer.toString();
+}
 
 
 }

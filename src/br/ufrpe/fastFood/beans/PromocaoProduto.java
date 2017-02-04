@@ -18,6 +18,15 @@ public class PromocaoProduto extends Promocao{
 		super();
 	}
 	
+	public String toString(){
+	StringBuffer buffer = new StringBuffer();
+	buffer.append("Promoçao: "+ this.getIdPromocao() +"\n");
+	buffer.append("Produto: " + this.produto.getNome() + "\n");
+	buffer.append("Valor" + this.getValor() + "\n");
+	buffer.append("Data de criacao: " + this.getDiaPromo() );
+			
+	return buffer.toString();
+}
 	
 	
 }
