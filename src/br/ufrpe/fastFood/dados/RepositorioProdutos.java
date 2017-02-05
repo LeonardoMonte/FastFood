@@ -3,6 +3,7 @@ package br.ufrpe.fastFood.dados;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufrpe.fastFood.beans.Funcionario;
 import br.ufrpe.fastFood.beans.Produto;
 import br.ufrpe.fastFood.interfaces.RepositorioProdutoInterface;;
 
@@ -55,24 +56,26 @@ public class RepositorioProdutos implements RepositorioProdutoInterface {
 		return resultado;
 	}
 
-	public void atualizarProdutos(Produto novoProduto) {
+	public boolean atualizarProdutos(Double newvalor, String produtoalterado) {
 
-		if (buscarProduto(novoProduto.getCodigo()) != null) {
+		boolean resultado = false;
+		if (this.existeProduto(produtoalterado) == true) {
 
 			for (Produto produto : listaProdutos) {
+				if (produto.getCodigo().equals(produtoalterado)) {
 
-				if (produto.getCodigo().equals(novoProduto.getCodigo())) {
-
-					produto = novoProduto;
-
+					produto.setValor(newvalor);
+					resultado = true;
 				}
 			}
+
 		}
+		return resultado;
+		
 	}
 
 	public boolean existeIndiceP(int ind) {
-		// FUN��O PARA CHEGAR SE EXISTE ALGO NAQUELA POSI��O EXPECIFICA( MEIO
-		// NOSENSE MAS TEM UTILIDADE)
+		
 		boolean resultado = false;
 
 		if (this.listaProdutos.get(ind) != null) {
@@ -83,7 +86,7 @@ public class RepositorioProdutos implements RepositorioProdutoInterface {
 	}
 
 	public boolean existeProduto(String codigo) {
-		// FUN��O PARA CHECAR SE JA EXISTE UM PRODUTO COM ESSE CODIGO
+
 
 		boolean resultado = false;
 

@@ -45,17 +45,10 @@ public class GerenciadorProdutos {
 
 	}
 
-	public void atualizarProduto(Produto a) {
-		if (a == null) {
-			throw new ObjectNotFound("Impossivel fazer cadastro de cliente sem dados");
-		}
-		// else if(this.repositorio.existeProduto(a.getCodigo()) == false )
-		// {
-		// throw new ObjectNotFound("Cliente n�o encontrado no sistema");
-		// }
-		else {
-			this.repositorio.atualizarProdutos(a);
-		}
+	public boolean atualizarProduto(Double newvalor, String produtoalterado) {
+	
+			return this.repositorio.atualizarProdutos( newvalor, produtoalterado);
+		
 	}
 
 	public List<Produto> listarProdutos() {
@@ -65,5 +58,10 @@ public class GerenciadorProdutos {
 		} else {
 			return this.repositorio.listarProdutos();
 		}
+	}
+	
+	public boolean existeProduto(String codigo)
+	{
+		return this.existeProduto(codigo);
 	}
 }

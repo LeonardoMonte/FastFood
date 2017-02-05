@@ -34,13 +34,7 @@ public class GerenciadorCombos {
 		return this.repositorio.listarCombos();
 	}
 	
-	
-	public void alterarNome(String nome , String codigo)
-	{
-		this.repositorio.AlterarNomeCombo(nome, codigo);
-	}
-	
-	
+		
 	public Combo procurarCombo(String codigo)
 	{
 		return this.repositorio.buscarCombo(codigo);
@@ -73,6 +67,10 @@ public class GerenciadorCombos {
 		return resultado;
 	}
 	
+	public boolean Existecombo(String codigo)
+	{
+		return this.Existecombo(codigo);
+	}
 	
 	
 	

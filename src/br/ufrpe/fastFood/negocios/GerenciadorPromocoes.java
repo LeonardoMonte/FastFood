@@ -69,15 +69,25 @@ public class GerenciadorPromocoes {
 		return this.repositorio.listarPromoProduto();
 	}
 	
-	public void alterarPrecoPromoCombo(double newprice , String idPromocao)
+	public boolean alterarPrecoPromoCombo(double newprice , String idPromocao)
 	{
-		this.repositorio.alterarPrecoComboPromo(newprice, idPromocao);
+		return this.repositorio.alterarPrecoComboPromo(newprice, idPromocao);
 	}
 	
-	public void alterarPrecoPromoProduto(double newprice , String idPromocao)
+	public boolean alterarPrecoPromoProduto(double newprice , String idPromocao)
 	{
-		this.repositorio.alterarPrecoProdutoPromo(newprice, idPromocao);
+		return this.repositorio.alterarPrecoProdutoPromo(newprice, idPromocao);
 		
+	}
+	
+	public boolean Existepromocombo(String codigo)
+	{
+		return this.Existepromocombo(codigo);
+	}
+	
+	public boolean Existepromoproduto(String codigo)
+	{
+		return this.Existepromoproduto(codigo);
 	}
 	
 }

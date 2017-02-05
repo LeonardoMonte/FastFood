@@ -26,7 +26,7 @@ public interface RepositorioProdutoInterface {
 
 		//
 		
-		void atualizarProdutos(Produto novoProduto);
+		boolean atualizarProdutos(Double newvalor, String produtoalterado);
 
 		// Lista todos os produtos cadastrados....
 

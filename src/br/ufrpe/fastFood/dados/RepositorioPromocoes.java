@@ -177,37 +177,45 @@ public class RepositorioPromocoes implements RepositorioPromocoesInterface {
 		
 	}
 	
-	public void alterarPrecoComboPromo(double newprice, String idPromocao)
+	public boolean alterarPrecoComboPromo(double newprice, String idPromocao)
 	{
-		PromocaoCombo a = new PromocaoCombo();
-		a = this.buscarPromoCombo(idPromocao);
+		boolean resultado = false;
 		
-		if( a != null )
+		if(this.existePromoCombo(idPromocao) == true)
 		{
-			a.setValor(newprice);
+			for(PromocaoCombo promocombo : this.listapromocombos)
+			{
+				if( promocombo.getIdPromocao().equals(idPromocao))
+				{
+					promocombo.setValor(newprice);
+					resultado = true;
+				}
+			}
 		}
+		
+		return resultado;
 	}
 	
-	public void alterarPrecoProdutoPromo(double newprice , String idPromocao)
+	public boolean alterarPrecoProdutoPromo(double newprice , String idPromocao)
 	{
-		PromocaoProduto a = new PromocaoProduto();
-		a = this.buscarPromoProduto(idPromocao);
+		boolean resultado = false;
 		
-		if( a != null )
+		if(this.existePromoProduto(idPromocao) == true)
 		{
-			a.setValor(newprice);
+			for(PromocaoProduto promoproduto : this.listapromoprodutos)
+			{
+				if( promoproduto.getIdPromocao().equals(idPromocao))
+				{
+					promoproduto.setValor(newprice);
+					resultado = true;
+				}
+			}
 		}
+		
+		return resultado;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 

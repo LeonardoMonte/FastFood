@@ -104,14 +104,19 @@ public class RepositorioCombos implements RepositorioCombosInterface {
 	public boolean AdicionarProduto(Produto p , String codigo)
 	{
 		boolean resultado = false;
-		Combo c = new Combo();		
-		c = this.buscarCombo(codigo);
 		
-		if( c != null)
+		if(this.existeCombo(codigo) == true)
 		{
-			c.addItens(p);
-			resultado = true;
+			for(Combo combo : this.listaCombos)
+			{
+				if( combo.getCodigo().equals(codigo))
+				{
+					combo.addItens(p);
+					resultado = true;
+				}
+			}
 		}
+		
 		
 		return resultado;
 		
@@ -121,53 +126,25 @@ public class RepositorioCombos implements RepositorioCombosInterface {
 	public boolean RemoverProduto(Produto p , String codigo)
 	{
 		boolean resultado = false;
-		Combo c = new Combo();
-		c = this.buscarCombo(codigo);
-		
-		if( c != null)
+	
+		if(this.existeCombo(codigo) == true)
 		{
-			c.removerProdutoNoCombo(p.getCodigo());
-			resultado = true;
+			for(Combo combo : this.listaCombos)
+			{
+				if( combo.getCodigo().equals(codigo))
+				{
+					combo.removerProdutoNoCombo(codigo);
+					resultado = true;
+				}
+			}
 		}
-		
+
 		return resultado;
 	}
 	
-	public void AlterarNomeCombo(String nome, String codigo)
-	{
-		Combo c = new Combo();
-		c = this.buscarCombo(codigo);
-		
-		if( c != null)
-		{
-			c.setNome(nome);		
-		}
-	}
-	
-	
-	
 
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	

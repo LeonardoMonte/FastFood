@@ -24,7 +24,6 @@ public interface RepositorioCombosInterface {
 	
 	boolean RemoverProduto(Produto p , String codigo);
 	
-	void AlterarNomeCombo(String nome , String codigo);
 	
 	
 	
