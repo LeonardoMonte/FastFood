@@ -1129,9 +1129,10 @@ public class Menu {
 													System.out.println("Digite o id do produto a ser alterado");
 													String idprodutoalterado = in.nextLine();
 													
-													boolean result = gerenprodutos.existeProduto(idprodutoalterado);
+													Produto p = new Produto();
+													p = gerenprodutos.procurar(idprodutoalterado);
 													
-													if( result == true)
+													if( p.getCodigo() != null)
 													{
 														System.out.println("Digite o novo valor do produto");
 														double newvalor = in.nextDouble();
@@ -1184,25 +1185,26 @@ public class Menu {
 														{
 														case '1':
 															
-															System.out.println("Digite o codigo do combo:");
+															System.out.println("Digite o codigo do combo:");                                                          
 															String codigocombo = in.nextLine();
 															
-															boolean resultwo = gerencombos.Existecombo(codigocombo);
+															Combo c = new Combo();
+															c = gerencombos.procurarCombo(codigocombo);
 															
-															if(resultwo == true)
+															
+															if(c.getCodigo() != null)
 															{
 																
 															System.out.println("Digite o codigo do produto a ser adicionado no combo");
 															String codigoproduto = in.nextLine();
 															
-															boolean resultone = gerenprodutos.existeProduto(codigoproduto);
+															Produto p = new Produto();
+															p = gerenprodutos.procurar(codigoproduto);
 															
-															if(resultone == true)
+															if(p.getCodigo() != null)
 															{
-																Produto produto = new Produto();
-																produto = gerenprodutos.procurar(codigoproduto);
-																
-																boolean helpme = gerencombos.AdicionarProduto(produto, codigocombo);
+														
+																boolean helpme = gerencombos.AdicionarProduto(p, codigocombo);
 																
 																if(helpme == true)
 																{
@@ -1231,22 +1233,22 @@ public class Menu {
 															System.out.println("Digite o codigo do combo:");
 															String codigocombo1 = in.nextLine();
 															
-															boolean resultwo1 = gerencombos.Existecombo(codigocombo1);
+															Combo c1 = new Combo();
+															c1 = gerencombos.procurarCombo(codigocombo1);
 															
-															if(resultwo1 == true)
+															if(c1.getCodigo() != null)
 															{
 																
 															System.out.println("Digite o codigo do produto a ser removido no combo");
 															String codigoproduto1 = in.nextLine();
 															
-															boolean resultone1 = gerenprodutos.existeProduto(codigoproduto1);
+															Produto p = new Produto();
+															p = gerenprodutos.procurar(codigoproduto1);
 															
-															if(resultone1 == true)
+															if(p != null)
 															{
-																Produto produto1 = new Produto();
-																produto1 = gerenprodutos.procurar(codigoproduto1);
 																
-																boolean help = gerencombos.RemoverProduto(produto1, codigocombo1);
+																boolean help = gerencombos.RemoverProduto(p, codigocombo1);
 																
 																if(help == true)
 																{
@@ -1298,9 +1300,11 @@ public class Menu {
 													System.out.println("Digite o id da promocao de combo a ser alterada");
 													String idpromocombo = in.nextLine();
 													
-													boolean result = gerenpromocoes.Existepromocombo(idpromocombo);
+													PromocaoCombo pc = new PromocaoCombo();
+													pc = gerenpromocoes.buscarPromocaoCombo(idpromocombo);
+												
 													
-													if( result == true)
+													if( pc.getIdPromocao() != null)
 													{
 														System.out.println("Digite o novo valor da promocao de combo");
 														double newvalor = in.nextDouble();
@@ -1336,9 +1340,12 @@ public class Menu {
 													System.out.println("Digite o id da promocao de produto a ser alterada");
 													String idpromoproduto = in.nextLine();
 													
-													boolean result = gerenpromocoes.Existepromoproduto(idpromoproduto);
+													PromocaoProduto pp = new PromocaoProduto();
+													pp = gerenpromocoes.buscarPromocaoProduto(idpromoproduto);
 													
-													if( result == true)
+													
+													
+													if( pp.getIdPromocao() != null)
 													{
 														System.out.println("Digite o novo valor da promocao de produto");
 														double newvalor = in.nextDouble();
