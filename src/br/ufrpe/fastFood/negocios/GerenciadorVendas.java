@@ -35,7 +35,7 @@ public class GerenciadorVendas {
 		boolean Final = this.repositorio.removerVenda(a.getIdVenda());
 
 		if (Final == false) {
-			throw new ObjectNotFound("Cliente n�o cadastrado no sistema");
+			throw new ObjectNotFound("Cliente nao cadastrado no sistema");
 		}
 
 	}
@@ -48,14 +48,11 @@ public class GerenciadorVendas {
 
 	public List<Venda> listarVendas() {
 		if (this.repositorio.existeIndiceV(0) == false) {
-			throw new ObjectNotFound("N�o existe nada a ser listado");
+			throw new ObjectNotFound("Nao existe nada a ser listado");
 
 		} else {
 			return this.repositorio.listarVendas();
 		}
 	}
 	
-	public void realizarPedido(){
-		
-	}
 }
