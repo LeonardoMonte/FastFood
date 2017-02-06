@@ -1051,7 +1051,7 @@ public class Menu {
 													}
 													else
 													{
-														System.out.println("Produto não encontrado no estoque");
+														System.out.println("Produto nï¿½o encontrado no estoque");
 													}
 													
 													
@@ -1087,7 +1087,7 @@ public class Menu {
 												{
 												
 													
-													System.out.println("Digite o id do combo a entrar em promocão:");
+													System.out.println("Digite o id do combo a entrar em promocï¿½o:");
 													String idcombo1 = in.nextLine();
 													
 													Combo combo1 = new Combo();
@@ -1122,10 +1122,10 @@ public class Menu {
 												}
 												else
 												{
-													System.out.println("Impossivel realizar a ação por falta de combos no estoque");
+													System.out.println("Impossivel realizar a aï¿½ï¿½o por falta de combos no estoque");
 												}
 												
-												break;// TERMINO DO CASE DE ADICIONAR PROMOCÃO DE COMBOS
+												break;// TERMINO DO CASE DE ADICIONAR PROMOCï¿½O DE COMBOS
 												
 											case '4':
 												
@@ -1133,7 +1133,7 @@ public class Menu {
 												{
 												
 													
-													System.out.println("Digite o id do produto a entrar em promocão:");
+													System.out.println("Digite o id do produto a entrar em promocï¿½o:");
 													String idproduto1 = in.nextLine();
 													
 													Produto produto2 = new Produto();
@@ -1168,7 +1168,7 @@ public class Menu {
 												}
 												else
 												{
-													System.out.println("Impossivel realizar a ação por falta de produtos no estoque");
+													System.out.println("Impossivel realizar a aï¿½ï¿½o por falta de produtos no estoque");
 												}
 												
 												break; // TERMINO DO CASE DE CRIAR PROMOCAO DE PRODUTO
@@ -2596,7 +2596,7 @@ public class Menu {
 														}
 														else
 														{
-															System.out.println("Produto não encontrado no estoque");
+															System.out.println("Produto nï¿½o encontrado no estoque");
 														}
 														
 														
@@ -2632,7 +2632,7 @@ public class Menu {
 													{
 													
 														
-														System.out.println("Digite o id do combo a entrar em promocão:");
+														System.out.println("Digite o id do combo a entrar em promocï¿½o:");
 														String idcombo1 = in.nextLine();
 														
 														Combo combo1 = new Combo();
@@ -2667,10 +2667,10 @@ public class Menu {
 													}
 													else
 													{
-														System.out.println("Impossivel realizar a ação por falta de combos no estoque");
+														System.out.println("Impossivel realizar a aï¿½ï¿½o por falta de combos no estoque");
 													}
 													
-													break;// TERMINO DO CASE DE ADICIONAR PROMOCÃO DE COMBOS
+													break;// TERMINO DO CASE DE ADICIONAR PROMOCï¿½O DE COMBOS
 													
 												case '4':
 													
@@ -2678,7 +2678,7 @@ public class Menu {
 													{
 													
 														
-														System.out.println("Digite o id do produto a entrar em promocão:");
+														System.out.println("Digite o id do produto a entrar em promocï¿½o:");
 														String idproduto1 = in.nextLine();
 														
 														Produto produto2 = new Produto();
@@ -2713,7 +2713,7 @@ public class Menu {
 													}
 													else
 													{
-														System.out.println("Impossivel realizar a ação por falta de produtos no estoque");
+														System.out.println("Impossivel realizar a aï¿½ï¿½o por falta de produtos no estoque");
 													}
 													
 													break; // TERMINO DO CASE DE CRIAR PROMOCAO DE PRODUTO
