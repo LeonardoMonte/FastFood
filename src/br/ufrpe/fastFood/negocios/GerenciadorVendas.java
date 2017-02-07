@@ -6,53 +6,50 @@ import br.ufrpe.fastFood.beans.Venda;
 import br.ufrpe.fastFood.dados.RepositorioVendas;
 import br.ufrpe.fastFood.exceptions.ObjectFound;
 import br.ufrpe.fastFood.exceptions.ObjectNotFound;
+import br.ufrpe.fastFood.interfaces.RepositorioVendaInterface;
 
 public class GerenciadorVendas {
-
-	private RepositorioVendas repositorio;
+	
+	private static GerenciadorVendas instancia;
+	private RepositorioVendaInterface repositorio;
 
 	public GerenciadorVendas() {
 		this.repositorio = RepositorioVendas.getInstancia();
 
 	}
-
-	public void cadastrar(Venda a) {
-		if (a == null) {
-			throw new ObjectNotFound("Impossivel fazer o cadastro de uma venda sem dados");
-
-		} else if (this.repositorio.existeVenda(a.getIdVenda())) {
-			throw new ObjectFound("Venda j� cadastrada no sistema");
-
-		} else {
-			this.repositorio.cadastrarVenda(a);
+	
+	public static GerenciadorVendas getInstancia(){
+		
+		if(instancia == null){
+			instancia = new GerenciadorVendas();
 		}
+		
+		return instancia;
 	}
 
-	public void remover(String idVenda) {
-		Venda a = new Venda();
-		a = this.procurar(idVenda);
+	public void cadastrar(Venda a) {
 
-		boolean Final = this.repositorio.removerVenda(a.getIdVenda());
+		this.repositorio.cadastrarVenda(a);
+		
+	}
 
-		if (Final == false) {
-			throw new ObjectNotFound("Cliente nao cadastrado no sistema");
-		}
+	public boolean remover(String idVenda) {
+	
+		return this.repositorio.removerVenda(idVenda);
 
 	}
 
 	public Venda procurar(String idVenda) {
+		
 		return this.repositorio.buscarVenda(idVenda);
 
 	}
 
 
 	public List<Venda> listarVendas() {
-		if (this.repositorio.existeIndiceV(0) == false) {
-			throw new ObjectNotFound("Nao existe nada a ser listado");
-
-		} else {
+	
 			return this.repositorio.listarVendas();
-		}
+		
 	}
 	
 }

@@ -7,31 +7,35 @@ import br.ufrpe.fastFood.beans.Funcionario;
 import br.ufrpe.fastFood.dados.RepositorioFuncionarios;
 import br.ufrpe.fastFood.exceptions.ObjectFound;
 import br.ufrpe.fastFood.exceptions.ObjectNotFound;
+import br.ufrpe.fastFood.interfaces.RepositorioFuncionarioInterface;
 
 public class GerenciadorFuncionarios {
 
-	private RepositorioFuncionarios repositorio;
+	private static GerenciadorFuncionarios instancia;
+	private RepositorioFuncionarioInterface repositorio;
 
 	public GerenciadorFuncionarios() {
 		this.repositorio = RepositorioFuncionarios.getInstancia();
 	}
+	
+	public static GerenciadorFuncionarios getInstancia(){
+		
+		if(instancia == null){
+			instancia = new GerenciadorFuncionarios();
+		}
+		
+		return instancia;
+	}
 
 	public void cadastrar(Funcionario a) {
 
-		if (a == null) {
-			throw new ObjectNotFound("Impossivel fazer o cadastro de um funcionario sem dados");
-
-		} else if (this.repositorio.existeFuncionario(a.getId())) {
-			throw new ObjectFound("Funcionario j� cadastrado no sistema");
-
-		} else {
-			this.repositorio.cadastrarFuncionario(a);
-		}
+		this.repositorio.cadastrarFuncionario(a);
+		
 	}
 
 	public boolean remover(String id) {
-		boolean Final = this.repositorio.removerFuncionario(id);
-		return Final;
+		
+		return this.repositorio.removerFuncionario(id);	
 
 	}
 
@@ -42,36 +46,20 @@ public class GerenciadorFuncionarios {
 
 	public boolean atualizarFuncionario(String id, Endereco ende) {
 
-		boolean resultado = false;
-		if (ende == null) {
-			throw new ObjectNotFound("Impossivel fazer atualiza��o de funcionario sem dados");
-		}
-		// else if(this.repositorio.existeFuncionario()id == false )
-		// {
-		// throw new ObjectNotFound("Funcionario n�o encontrado no sistema");
-		// }
-		else {
-			resultado = this.repositorio.atualizarFuncionarioendereco(id, ende);
-		}
-
-		return resultado;
+		return  this.repositorio.atualizarFuncionarioendereco(id, ende);
+		
 	}
 
 	public List<Funcionario> listarFuncionarios() {
-		if (this.repositorio.existeIndiceF(0) == false) {
-			throw new ObjectNotFound("N�o existe nada a ser listado");
-		}
-
-		else {
+	
 			return this.repositorio.listarFuncinario();
-		}
 
 	}
 
 	public boolean loginFuncionario(String id, String senha) {
-		boolean resultado = this.repositorio.loginFunc(id, senha);
-
-		return resultado;
+		
+		return this.repositorio.loginFunc(id, senha);
+		
 	}
 
 	public boolean existe(String id) {

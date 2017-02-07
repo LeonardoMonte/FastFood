@@ -57,5 +57,7 @@ public interface RepositorioFuncionarioInterface {
 	// pela a nova.
 
 	boolean alterarsenha(String id, String senhaold, String senhanew);
+	
+	public boolean loginFunc(String id, String senha);
 
 }

@@ -59,4 +59,6 @@ public interface RepositorioClienteInterface {
 	boolean alterarsenha(String id, String senhaold, String senhanew);
 
 	String getNomecliente(String id);
+	
+	public boolean loginCliente(String id , String senha);
 }

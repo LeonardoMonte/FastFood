@@ -6,10 +6,13 @@ import java.util.List;
 import br.ufrpe.fastFood.beans.PromocaoCombo;
 import br.ufrpe.fastFood.beans.PromocaoProduto;
 import br.ufrpe.fastFood.dados.RepositorioPromocoes;
+import br.ufrpe.fastFood.interfaces.RepositorioPromocoesInterface;
 
 public class GerenciadorPromocoes {
 
-	private RepositorioPromocoes repositorio;
+	
+	private static GerenciadorPromocoes instancia;
+	private RepositorioPromocoesInterface repositorio;
 	
 	
 	public GerenciadorPromocoes()
@@ -17,23 +20,28 @@ public class GerenciadorPromocoes {
 		this.repositorio = RepositorioPromocoes.getInstance();
 	}
 	
+	public static GerenciadorPromocoes getInstancia(){
+		
+		if(instancia == null){
+			instancia = new GerenciadorPromocoes();
+		}
+		
+		return instancia;
+	}
+	
 	
 	public void cadastrarCombo(PromocaoCombo a)
 	{
-		if( a != null)
-		{
-			this.repositorio.cadastrarComboPromotion(a);
-		}
+		
+		this.repositorio.cadastrarComboPromotion(a);
 		
 	}
 	
 	
 	public void cadastrarProduto(PromocaoProduto a)
 	{
-		if( a != null)
-		{
+		
 			this.repositorio.cadastrarProdutoPromotion(a);
-		}
 		
 	}
 	
@@ -82,12 +90,12 @@ public class GerenciadorPromocoes {
 	
 	public boolean Existepromocombo(String codigo)
 	{
-		return this.Existepromocombo(codigo);
+		return this.repositorio.existePromoCombo(codigo);
 	}
 	
 	public boolean Existepromoproduto(String codigo)
 	{
-		return this.Existepromoproduto(codigo);
+		return this.repositorio.existePromoProduto(codigo);
 	}
 	
 }

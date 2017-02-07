@@ -5,23 +5,32 @@ import java.util.List;
 import br.ufrpe.fastFood.beans.Combo;
 import br.ufrpe.fastFood.beans.Produto;
 import br.ufrpe.fastFood.dados.RepositorioCombos;
+import br.ufrpe.fastFood.interfaces.RepositorioCombosInterface;
 
 public class GerenciadorCombos {
 
-	private RepositorioCombos repositorio;
+	private static GerenciadorCombos instancia;
+	private RepositorioCombosInterface repositorio;
 	
 	public GerenciadorCombos()
 	{
 		this.repositorio = RepositorioCombos.getInstance();
 	}
 	
-	public void cadastrarCombo(Combo a)
-	{
-		if( a != null)
-		{
-			this.repositorio.cadastrar(a);
-			
+	public static GerenciadorCombos getInstancia(){
+		
+		if(instancia == null){
+			instancia = new GerenciadorCombos();
 		}
+		
+		return instancia;
+	}
+	
+	public void cadastrarCombo(Combo a)
+	{		
+		
+		this.repositorio.cadastrar(a);
+					
 	}
 	
 	public boolean removerCombo(String codigo)
@@ -42,34 +51,22 @@ public class GerenciadorCombos {
 	
 	public boolean AdicionarProduto(Produto p ,String codigo)
 	{
-		boolean resultado = false;
-		
-		if( p != null)
-		{
-			this.repositorio.AdicionarProduto(p, codigo);
-			resultado = true;
-		}
-		
-		return resultado;
+
+		return	this.repositorio.AdicionarProduto(p, codigo);
+
 	}
 	
 	
 	public boolean RemoverProduto(Produto p ,String codigo)
 	{
-		boolean resultado = false;
-		
-		if( p != null)
-		{
-			this.repositorio.RemoverProduto(p, codigo);
-			resultado = true;
-		}
-		
-		return resultado;
+
+		return this.repositorio.RemoverProduto(p, codigo);
+
 	}
 	
 	public boolean Existecombo(String codigo)
 	{
-		return this.Existecombo(codigo);
+		return this.repositorio.existeCombo(codigo);
 	}
 	
 	
