@@ -5,8 +5,6 @@ import java.util.List;
 import br.ufrpe.fastFood.beans.Cliente;
 import br.ufrpe.fastFood.beans.Endereco;
 import br.ufrpe.fastFood.dados.RepositorioClientes;
-import br.ufrpe.fastFood.exceptions.ObjectFound;
-import br.ufrpe.fastFood.exceptions.ObjectNotFound;
 import br.ufrpe.fastFood.interfaces.RepositorioClienteInterface;
 
 public class GerenciadorClientes {

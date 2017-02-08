@@ -4,8 +4,7 @@ import java.util.List;
 
 import br.ufrpe.fastFood.beans.Produto;
 import br.ufrpe.fastFood.dados.RepositorioProdutos;
-import br.ufrpe.fastFood.exceptions.ObjectFound;
-import br.ufrpe.fastFood.exceptions.ObjectNotFound;
+import br.ufrpe.fastFood.exceptions.ONFException;
 import br.ufrpe.fastFood.interfaces.RepositorioProdutoInterface;
 
 public class GerenciadorProdutos {
@@ -32,20 +31,21 @@ public class GerenciadorProdutos {
 		
 	}
 
-	public boolean remover(String codigo) {
+	public void remover(String codigo) throws ONFException {
 
-		return  this.repositorio.removerProduto(codigo);
+		this.repositorio.removerProduto(codigo);
 
 	}
 
-	public Produto procurar(String codigo) {
+	public Produto procurar(String codigo) throws ONFException {
+		
 		return this.repositorio.buscarProduto(codigo);
 
 	}
 
-	public boolean atualizarProduto(Double newvalor, String produtoalterado) {
+	public void atualizarProduto(Double newvalor, String produtoalterado) throws ONFException {
 	
-			return this.repositorio.atualizarProdutos( newvalor, produtoalterado);
+		this.repositorio.atualizarProdutos( newvalor, produtoalterado);
 		
 	}
 

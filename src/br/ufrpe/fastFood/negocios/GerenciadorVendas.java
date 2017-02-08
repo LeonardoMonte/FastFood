@@ -4,8 +4,6 @@ import java.util.List;
 
 import br.ufrpe.fastFood.beans.Venda;
 import br.ufrpe.fastFood.dados.RepositorioVendas;
-import br.ufrpe.fastFood.exceptions.ObjectFound;
-import br.ufrpe.fastFood.exceptions.ObjectNotFound;
 import br.ufrpe.fastFood.interfaces.RepositorioVendaInterface;
 
 public class GerenciadorVendas {

@@ -5,6 +5,8 @@ import java.util.List;
 
 import br.ufrpe.fastFood.beans.Combo;
 import br.ufrpe.fastFood.beans.Produto;
+import br.ufrpe.fastFood.exceptions.ONFException;
+import br.ufrpe.fastFood.exceptions.PNEException;
 import br.ufrpe.fastFood.interfaces.RepositorioCombosInterface;
 
 public class RepositorioCombos implements RepositorioCombosInterface {
@@ -34,23 +36,16 @@ public class RepositorioCombos implements RepositorioCombosInterface {
 	}
 	
 	
-	public boolean removerCombo(String codigo)
+	public void removerCombo(String codigo) throws ONFException
 	{
+		Combo c = new Combo();
+		c = this.buscarCombo(codigo);
 		
-		int remove = this.procurarIndiceC(codigo);
-		boolean resultado = false;
-		
-		if( remove >= 0)
-		{
-			this.listaCombos.remove(remove);
-			resultado = true;
-		}
-		
-		return resultado;
+		this.listaCombos.remove(c);		
 		
 	}
 	
-	public Combo buscarCombo(String codigo)
+	public Combo buscarCombo(String codigo) throws ONFException
 	{
 		Combo a = new Combo();
 		
@@ -59,6 +54,10 @@ public class RepositorioCombos implements RepositorioCombosInterface {
 		if( x >= 0)
 		{
 			a = this.listaCombos.get(x);
+		}
+		else
+		{
+			throw new ONFException(codigo);
 		}
 		
 		return a;
@@ -79,21 +78,6 @@ public class RepositorioCombos implements RepositorioCombosInterface {
 	}
 	
 	
-	public boolean existeCombo(String codigo)
-	{
-		boolean resultado = false;
-		Combo a = new Combo();
-		
-		a = this.buscarCombo(codigo);
-		
-		if( a != null)
-		{
-			resultado = true;
-		}
-		
-		return resultado;
-	}
-	
 	public List<Combo> listarCombos() {
 
 		return this.listaCombos;
@@ -101,50 +85,24 @@ public class RepositorioCombos implements RepositorioCombosInterface {
 	}
 	
 	
-	public boolean AdicionarProduto(Produto p , String codigo)
+	public void AdicionarProduto(Produto p , String codigo) throws ONFException
 	{
-		boolean resultado = false;
+		Combo c = new Combo();
+		c = this.buscarCombo(codigo);
 		
-		if(this.existeCombo(codigo) == true)
-		{
-			for(Combo combo : this.listaCombos)
-			{
-				if( combo.getCodigo().equals(codigo))
-				{
-					combo.addItens(p);
-					resultado = true;
-				}
-			}
-		}
-		
-		
-		return resultado;
+		c.addItens(p);
+
 		
 		
 	}
 	
-	public boolean RemoverProduto(Produto p , String codigo)
+	public void RemoverProduto(Produto p , String idproduto) throws ONFException, PNEException
 	{
-		boolean resultado = false;
-	
-		if(this.existeCombo(codigo) == true)
-		{
-			for(Combo combo : this.listaCombos)
-			{
-				if( combo.getCodigo().equals(codigo))
-				{
-					combo.removerProdutoNoCombo(codigo);
-					resultado = true;
-				}
-			}
-		}
-
-		return resultado;
+		Combo c = new Combo();
+		c = this.buscarCombo(idproduto);
+		
+		c.removerProdutoNoCombo(p.getCodigo());
 	}
-	
-
-	
-
 	
 	
 	

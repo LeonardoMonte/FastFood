@@ -2,6 +2,8 @@ package br.ufrpe.fastFood.beans;
 
 import java.util.ArrayList;
 
+import br.ufrpe.fastFood.exceptions.PNEException;
+
 public class Combo {
 	
 
@@ -72,7 +74,7 @@ public class Combo {
 			
 	}
 	
-	public Produto buscarProdutoNoCombo(String codigo)
+	public Produto buscarProdutoNoCombo(String codigo) throws PNEException
 	{
 		Produto p = new Produto();
 		
@@ -83,24 +85,26 @@ public class Combo {
 				p = produto;
 			}
 		}
+		if ( p.getCodigo() == null)
+		{
+			throw new PNEException(codigo);
+		
+		}
 		
 		return p;
 	}
 	
-	public boolean removerProdutoNoCombo(String codigo)
+	public void removerProdutoNoCombo(String codigo) throws PNEException
 	{
-		boolean resultado = false;
+
 		Produto p = new Produto();
 		p = this.buscarProdutoNoCombo(codigo);
+
+		this.itens.remove(p);
+		this.setValorDiminuir(p.getValor());
+
 		
-		if ( p != null )
-		{
-			this.itens.remove(p);
-			this.setValorDiminuir(p.getValor());
-			resultado = true;
-		}
-		
-		return resultado;
+
 	}
 	
 	public int procurarIndice(String codigo)

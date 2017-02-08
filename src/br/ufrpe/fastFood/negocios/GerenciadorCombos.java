@@ -5,6 +5,8 @@ import java.util.List;
 import br.ufrpe.fastFood.beans.Combo;
 import br.ufrpe.fastFood.beans.Produto;
 import br.ufrpe.fastFood.dados.RepositorioCombos;
+import br.ufrpe.fastFood.exceptions.ONFException;
+import br.ufrpe.fastFood.exceptions.PNEException;
 import br.ufrpe.fastFood.interfaces.RepositorioCombosInterface;
 
 public class GerenciadorCombos {
@@ -33,9 +35,9 @@ public class GerenciadorCombos {
 					
 	}
 	
-	public boolean removerCombo(String codigo)
+	public void removerCombo(String codigo) throws ONFException
 	{
-		return this.repositorio.removerCombo(codigo);
+		this.repositorio.removerCombo(codigo);
 	}
 	
 	public List<Combo> listarCombos()
@@ -44,30 +46,27 @@ public class GerenciadorCombos {
 	}
 	
 		
-	public Combo procurarCombo(String codigo)
+	public Combo procurarCombo(String codigo) throws ONFException
 	{
 		return this.repositorio.buscarCombo(codigo);
 	}
 	
-	public boolean AdicionarProduto(Produto p ,String codigo)
+	public void AdicionarProduto(Produto p ,String codigo) throws ONFException
 	{
 
-		return	this.repositorio.AdicionarProduto(p, codigo);
+		this.repositorio.AdicionarProduto(p, codigo);
 
 	}
 	
 	
-	public boolean RemoverProduto(Produto p ,String codigo)
+	public void RemoverProduto(Produto p ,String codigo) throws ONFException, PNEException
 	{
 
-		return this.repositorio.RemoverProduto(p, codigo);
+		this.repositorio.RemoverProduto(p, codigo);
 
 	}
 	
-	public boolean Existecombo(String codigo)
-	{
-		return this.repositorio.existeCombo(codigo);
-	}
+
 	
 	
 	

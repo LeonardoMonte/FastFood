@@ -15,7 +15,8 @@ import br.ufrpe.fastFood.dados.RepositorioClientes;
 import br.ufrpe.fastFood.dados.RepositorioFuncionarios;
 import br.ufrpe.fastFood.dados.RepositorioProdutos;
 import br.ufrpe.fastFood.dados.RepositorioVendas;
-import br.ufrpe.fastFood.exceptions.ObjectNotFound;
+import br.ufrpe.fastFood.exceptions.ONFException;
+import br.ufrpe.fastFood.exceptions.PNEException;
 import br.ufrpe.fastFood.negocios.GerenciadorClientes;
 import br.ufrpe.fastFood.negocios.GerenciadorCombos;
 import br.ufrpe.fastFood.negocios.GerenciadorFuncionarios;
@@ -208,7 +209,7 @@ public class Menu {
 									
 									switch(opcao)
 									{
-										
+										// COMPRAR PRODUTOOOOOO
 									
 										case '1':
 											
@@ -217,7 +218,8 @@ public class Menu {
 														"----------Produtos----------\n" + gerenprodutos.listarProdutos());
 												
 												
-												
+												try
+												{
 												System.out.println("\nDigite o codigo do Produto que voce deseja");
 												String codigo = in.nextLine();
 												
@@ -225,15 +227,15 @@ public class Menu {
 												
 												p = gerenprodutos.procurar(codigo);
 												
-												if( p.getCodigo() != null)
+												venda.comprarProduto(p);
+												somethingcomprado++;
+												System.out.println("Pedido adicionado ao carrinho com sucesso");
+												
+												}	
+												catch(ONFException exc)
 												{
-													venda.comprarProduto(p);
-													somethingcomprado++;
-													System.out.println("Pedido adicionado ao carrinho com sucesso");
-												}
-												else
-												{
-													System.out.println("Produto nao encontrado no sistema");
+													System.out.println(exc.getMessage());
+													System.out.println(exc.getidObjeto());
 												}
 					
 												
@@ -254,24 +256,25 @@ public class Menu {
 												System.out.println(" ==================Combos =================\n" + gerencombos.listarCombos());
 											
 												
-												
-												System.out.println("\nDigite o codigo do combo que voce deseja");
-												String codigo = in.nextLine();
-												
-												Combo c = new Combo();
-												
-												c = gerencombos.procurarCombo(codigo);
-												
-												if( c.getCodigo() != null )
+												try
 												{
+													System.out.println("\nDigite o codigo do combo que voce deseja");
+													String codigo = in.nextLine();
+												
+													Combo c = new Combo();
+												
+													c = gerencombos.procurarCombo(codigo);
+
 													venda.comprarCombo(c);
 													somethingcomprado++;
 													System.out.println("Pedido adicionado ao carrinho com sucesso");
 												}
-												else
+												catch(ONFException exc)
 												{
-													System.out.println("Combo nao encotrado");
+													System.out.println(exc.getMessage());
+													System.out.println("Id do objeto nao encontrado: " + exc.getidObjeto());
 												}
+	
 												
 												
 											}
@@ -1033,27 +1036,26 @@ public class Menu {
 												do
 												{
 													
-													
+													try
+													{
 													System.out.println("Digite o codigo do produto a ser adicionado no combo");
 													String volatcode = in.nextLine();
 													
 													produto2 = gerenprodutos.procurar(volatcode);
 													
-													
-													
-													if(produto2.getCodigo() != null)
-													{
-														combo1.addItens(produto2);
+													combo1.addItens(produto2);
 														
-														System.out.println("Produto adicionado ao combo com sucesso");
-														contcadastrocombo++;
+													System.out.println("Produto adicionado ao combo com sucesso");
+													contcadastrocombo++;
 	
+
 													}
-													else
+													catch(ONFException exc)
 													{
-														System.out.println("Produto n�o encontrado no estoque");
+														System.out.println(exc.getMessage());
+														System.out.println(exc.getidObjeto());
+														
 													}
-													
 													
 													System.out.println("Deseja adicionar mais um produto ao combo ? ( S/N )");
 													
@@ -1085,16 +1087,24 @@ public class Menu {
 												
 												if( contCombo >= 1)
 												{
-												
-													
-													System.out.println("Digite o id do combo a entrar em promoc�o:");
-													String idcombo1 = in.nextLine();
-													
 													Combo combo1 = new Combo();
+													
+													try
+													{
+													
+													System.out.println("Digite o id do combo a entrar em promocao:");
+													String idcombo1 = in.nextLine();
+															
 													combo1 = gerencombos.procurarCombo(idcombo1);
 													
-													if( combo1.getNome() != null)
+													}
+													catch(ONFException exc)
 													{
+														System.out.println(exc.getMessage());
+														System.out.println("Id do objeto nao encontrado: " + exc.getidObjeto());
+													}
+													
+
 														System.out.println("Digite o id da promocao do combo:");
 														String idpromocombo = in.nextLine();
 														
@@ -1113,17 +1123,13 @@ public class Menu {
 														System.out.println("Promocao de combo cadastrada com sucesso");
 														
 													}
-													else
-													{
-														System.out.println("Combo nao encontrado no estoque");
-													}
 					
 													
-												}
 												else
 												{
-													System.out.println("Impossivel realizar a a��o por falta de combos no estoque");
+													System.out.println("Impossivel realizar a acao por falta de combos no estoque");
 												}
+												
 												
 												break;// TERMINO DO CASE DE ADICIONAR PROMOC�O DE COMBOS
 												
@@ -1132,15 +1138,14 @@ public class Menu {
 												if( contProduto >= 1)
 												{
 												
-													
-													System.out.println("Digite o id do produto a entrar em promoc�o:");
-													String idproduto1 = in.nextLine();
-													
-													Produto produto2 = new Produto();
-													produto2 = gerenprodutos.procurar(idproduto1);
-													
-													if( produto2.getNome() != null)
+													try
 													{
+														System.out.println("Digite o id do produto a entrar em promocao:");
+														String idproduto1 = in.nextLine();
+													
+														Produto produto2 = new Produto();
+														produto2 = gerenprodutos.procurar(idproduto1);
+													
 														System.out.println("Digite o id da promocao do produto:");
 														String idpromoprodutos = in.nextLine();
 														
@@ -1158,12 +1163,14 @@ public class Menu {
 														
 														System.out.println("Promocao de produto cadastrada com sucesso");
 														
+													
+
 													}
-													else
+													catch(ONFException exc)
 													{
-														System.out.println("Produto nao encontrado no estoque");
+														System.out.println(exc.getMessage());
+														System.out.println(exc.getidObjeto());
 													}
-					
 													
 												}
 												else
@@ -1218,15 +1225,21 @@ public class Menu {
 
 													System.out.println("Digite o Codigo do Produto a ser removido: ");
 													String auxCodigoProd = in.nextLine();
-
-													boolean a2 = gerenprodutos.remover(auxCodigoProd);
-
-													if (a2 == true) {
+													try
+													{
+													
+														gerenprodutos.remover(auxCodigoProd);
 														contProduto--;
 														System.out.println("Produto removido com sucesso");
-													} else {
-														System.out.println("Produto nao removido");
+														
 													}
+													catch(ONFException exc)
+													{
+														System.out.println(exc.getMessage());
+														System.out.println(exc.getidObjeto());
+													}
+													
+											
 												} else {
 													System.out.println(
 															"Impossivel realizar acao, o sistema nao possui produtos cadastrados");
@@ -1238,20 +1251,20 @@ public class Menu {
 												
 												if( contCombo > 0 )
 												{
-													System.out.println("Digite o codigo do combo a ser removido:");
-													String auxCodigoCombo = in.nextLine();
-													
-													boolean z1 = gerencombos.removerCombo(auxCodigoCombo);
-													
-													if(z1 == true)
+													try
 													{
+														System.out.println("Digite o codigo do combo a ser removido:");
+														String auxCodigoCombo = in.nextLine();
+													
+														gerencombos.removerCombo(auxCodigoCombo);
 														contCombo--;
 														System.out.println("Combo removido com sucesso");
-													}
-													else
-													{
-														System.out.println("Combo nao removido");
-													}
+													
+												}catch(ONFException exc)
+												{
+													System.out.println(exc.getMessage());
+													System.out.println(exc.getidObjeto());
+												}
 												}
 												else
 												{
@@ -1354,31 +1367,28 @@ public class Menu {
 													System.out.println("Digite o id do produto a ser alterado");
 													String idprodutoalterado = in.nextLine();
 													
-													Produto p = new Produto();
-													p = gerenprodutos.procurar(idprodutoalterado);
-													
-													if( p.getCodigo() != null)
+													try
 													{
+														Produto p = new Produto();
+														p = gerenprodutos.procurar(idprodutoalterado);
+
 														System.out.println("Digite o novo valor do produto");
 														double newvalor = in.nextDouble();
 														in.nextLine();
+																			
+														gerenprodutos.atualizarProduto(newvalor, idprodutoalterado);
 														
-														boolean result2 = gerenprodutos.atualizarProduto(newvalor, idprodutoalterado);
+														System.out.println("Preco alterado com suceso");
 														
-														if(result2 == true)
-														{
-															System.out.println("Preco alterado com suceso");
 														}
-														else
+														catch(ONFException exc)
 														{
-															System.out.println("Preco nao alterado");
+															System.out.println(exc.getMessage());
+															System.out.println(exc.getidObjeto());
 														}
-														
-													}
-													else
-													{
-														System.out.println("Produto nao encontrado no estoque");
-													}
+
+													
+
 												}
 												else
 												{
@@ -1410,90 +1420,103 @@ public class Menu {
 														{
 														case '1':
 															
+															
+															
 															System.out.println("Digite o codigo do combo:");                                                          
 															String codigocombo = in.nextLine();
 															
+															
 															Combo c = new Combo();
-															c = gerencombos.procurarCombo(codigocombo);
-															
-															
-															if(c.getCodigo() != null)
+															try
 															{
+															
+																c = gerencombos.procurarCombo(codigocombo);
+															
+															}
+															catch(ONFException exc)
+															{
+																System.out.println(exc.getMessage());
+																System.out.println("Id do objeto nao encontrado: " + exc.getidObjeto());
+															}
+															
+															
+															
+															try
+															{
+																System.out.println("Digite o codigo do produto a ser adicionado no combo");
+																String codigoproduto = in.nextLine();
+															
+																Produto p = new Produto();
+																p = gerenprodutos.procurar(codigoproduto);
+															
+							
+																gerencombos.AdicionarProduto(p, codigocombo);
+																System.out.println("Produto adicionado com sucesso");
 																
-															System.out.println("Digite o codigo do produto a ser adicionado no combo");
-															String codigoproduto = in.nextLine();
-															
-															Produto p = new Produto();
-															p = gerenprodutos.procurar(codigoproduto);
-															
-															if(p.getCodigo() != null)
-															{
-														
-																boolean helpme = gerencombos.AdicionarProduto(p, codigocombo);
+
 																
-																if(helpme == true)
-																{
-																	System.out.println("Produto adicionado com sucesso");
-																}
-																else
-																{
-																	System.out.println("Produto nao adicionado");
-																}
-																
-															}
-															else
+															}catch(ONFException exc)
 															{
-																System.out.println("Produto nao encontrado no sistema");
+																System.out.println(exc.getMessage());
+																System.out.println(exc.getidObjeto());
 															}
-															}
-															else
-															{
-																System.out.println("Combo nao encontrado no sistema");
-															}
-															
+																	
 															break;
 															
 														case '2':
 															
+		
 															System.out.println("Digite o codigo do combo:");
 															String codigocombo1 = in.nextLine();
 															
 															Combo c1 = new Combo();
-															c1 = gerencombos.procurarCombo(codigocombo1);
-															
-															if(c1.getCodigo() != null)
+															try
 															{
-																
+															c1 = gerencombos.procurarCombo(codigocombo1);
+															}
+															catch(ONFException exc )
+															{
+																System.out.println(exc.getMessage());
+																System.out.println("Id do objeto nao encontrado: " + exc.getidObjeto());
+															}
+															
+															Produto p = new Produto();
+															
+															try
+															{
 															System.out.println("Digite o codigo do produto a ser removido no combo");
 															String codigoproduto1 = in.nextLine();
 															
-															Produto p = new Produto();
-															p = gerenprodutos.procurar(codigoproduto1);
 															
-															if(p != null)
-															{
+															p = gerenprodutos.procurar(codigoproduto1);						
 																
-																boolean help = gerencombos.RemoverProduto(p, codigocombo1);
-																
-																if(help == true)
-																{
-																	System.out.println("Produto removido com sucesso");
-																}
-																else
-																{
-																	System.out.println("Produto nao removido");
-																}
-																
+															
 															}
-															else
+															catch(ONFException exc)
 															{
-																System.out.println("Produto nao encontrado no sistema");
+																System.out.println(exc.getMessage());
+																System.out.println(exc.getidObjeto());
 															}
-															}
-															else
+															
+															try
 															{
-																System.out.println("Combo nao encontrado no sistema");
+																gerencombos.RemoverProduto(p, codigocombo1);
+																
+																System.out.println("Produto removido com sucesso");
 															}
+															catch(PNEException exc)
+															{
+																System.out.println(exc.getMessage());                                                          
+																System.out.println(exc.getidObjeto());
+															}
+															catch(ONFException exc)
+															{
+																System.out.println(exc.getMessage());
+																System.out.println(exc.getidObjeto());
+															}
+															
+
+
 															
 															break;
 															
@@ -2025,12 +2048,14 @@ public class Menu {
 											
 												case '1':
 													
+
 													if (contProduto > 0) {
 														System.out.println(
 																"----------Produtos----------\n" + gerenprodutos.listarProdutos());
 														
 														
-														
+														try
+														{
 														System.out.println("\nDigite o codigo do Produto que voce deseja");
 														String codigo = in.nextLine();
 														
@@ -2038,15 +2063,15 @@ public class Menu {
 														
 														p = gerenprodutos.procurar(codigo);
 														
-														if( p.getCodigo() != null)
+														venda.comprarProduto(p);
+														somethingcomprado++;
+														System.out.println("Pedido adicionado ao carrinho com sucesso");
+														
+														}	
+														catch(ONFException exc)
 														{
-															venda.comprarProduto(p);
-															somethingcomprado++;
-															System.out.println("Pedido adicionado ao carrinho com sucesso");
-														}
-														else
-														{
-															System.out.println("Produto nao encontrado no sistema");
+															System.out.println(exc.getMessage());
+															System.out.println(exc.getidObjeto());
 														}
 							
 														
@@ -2067,24 +2092,25 @@ public class Menu {
 														System.out.println(" ==================Combos =================\n" + gerencombos.listarCombos());
 													
 														
-														
-														System.out.println("\nDigite o codigo do combo que voce deseja");
-														String codigo = in.nextLine();
-														
-														Combo c = new Combo();
-														
-														c = gerencombos.procurarCombo(codigo);
-														
-														if( c.getCodigo() != null )
+														try
 														{
+															System.out.println("\nDigite o codigo do combo que voce deseja");
+															String codigo = in.nextLine();
+														
+															Combo c = new Combo();
+														
+															c = gerencombos.procurarCombo(codigo);
+
 															venda.comprarCombo(c);
 															somethingcomprado++;
 															System.out.println("Pedido adicionado ao carrinho com sucesso");
 														}
-														else
+														catch(ONFException exc)
 														{
-															System.out.println("Combo nao encotrado");
+															System.out.println(exc.getMessage());
+															System.out.println("Id do objeto nao encontrado: " + exc.getidObjeto());
 														}
+			
 														
 														
 													}
@@ -2578,25 +2604,24 @@ public class Menu {
 													do
 													{
 														
-														
-														System.out.println("Digite o codigo do produto a ser adicionado no combo");
-														String volatcode = in.nextLine();
-														
-														produto2 = gerenprodutos.procurar(volatcode);
-														
-														
-														
-														if(produto2.getCodigo() != null)
+														try
 														{
+															System.out.println("Digite o codigo do produto a ser adicionado no combo");
+															String volatcode = in.nextLine();
+														
+															produto2 = gerenprodutos.procurar(volatcode);
+														
 															combo1.addItens(produto2);
 															
-															System.out.println("Produto adicionado ao combo com sucesso");
+															System.out.println("Produto adicionado ao combo com sucesso");                                                
 															contcadastrocombo++;
-		
+
 														}
-														else
+														catch(ONFException exc)
 														{
-															System.out.println("Produto n�o encontrado no estoque");
+															System.out.println(exc.getMessage());
+															System.out.println(exc.getidObjeto());
+															
 														}
 														
 														
@@ -2630,16 +2655,24 @@ public class Menu {
 													
 													if( contCombo >= 1)
 													{
-													
-														
-														System.out.println("Digite o id do combo a entrar em promoc�o:");
-														String idcombo1 = in.nextLine();
-														
 														Combo combo1 = new Combo();
+														
+														try
+														{
+														
+														System.out.println("Digite o id do combo a entrar em promocao:");
+														String idcombo1 = in.nextLine();
+																
 														combo1 = gerencombos.procurarCombo(idcombo1);
 														
-														if( combo1.getNome() != null)
+														}
+														catch(ONFException exc)
 														{
+															System.out.println(exc.getMessage());
+															System.out.println("Id do objeto nao encontrado: " + exc.getidObjeto());
+														}
+														
+
 															System.out.println("Digite o id da promocao do combo:");
 															String idpromocombo = in.nextLine();
 															
@@ -2658,16 +2691,11 @@ public class Menu {
 															System.out.println("Promocao de combo cadastrada com sucesso");
 															
 														}
-														else
-														{
-															System.out.println("Combo nao encontrado no estoque");
-														}
 						
 														
-													}
 													else
 													{
-														System.out.println("Impossivel realizar a a��o por falta de combos no estoque");
+														System.out.println("Impossivel realizar a acao por falta de combos no estoque");
 													}
 													
 													break;// TERMINO DO CASE DE ADICIONAR PROMOC�O DE COMBOS
@@ -2678,14 +2706,15 @@ public class Menu {
 													{
 													
 														
-														System.out.println("Digite o id do produto a entrar em promoc�o:");
-														String idproduto1 = in.nextLine();
-														
-														Produto produto2 = new Produto();
-														produto2 = gerenprodutos.procurar(idproduto1);
-														
-														if( produto2.getNome() != null)
+														try
 														{
+															System.out.println("Digite o id do produto a entrar em promocao:");
+															String idproduto1 = in.nextLine();
+														
+															Produto produto2 = new Produto();
+															produto2 = gerenprodutos.procurar(idproduto1);
+														
+
 															System.out.println("Digite o id da promocao do produto:");
 															String idpromoprodutos = in.nextLine();
 															
@@ -2702,18 +2731,19 @@ public class Menu {
 															contPromoProduto++;
 															
 															System.out.println("Promocao de produto cadastrada com sucesso");
-															
+		
 														}
-														else
+														catch(ONFException exc)
 														{
-															System.out.println("Produto nao encontrado no estoque");
+															System.out.println(exc.getMessage());
+															System.out.println(exc.getidObjeto());
 														}
 						
 														
 													}
 													else
 													{
-														System.out.println("Impossivel realizar a a��o por falta de produtos no estoque");
+														System.out.println("Impossivel realizar a acao por falta de produtos no estoque");
 													}
 													
 													break; // TERMINO DO CASE DE CRIAR PROMOCAO DE PRODUTO
@@ -2761,47 +2791,59 @@ public class Menu {
 													
 													if (contProduto > 0) {
 
-														System.out.println("Digite o Codigo do Produto a ser removido: ");
-														String auxCodigoProd = in.nextLine();
+														if (contProduto > 0) {
 
-														boolean a2 = gerenprodutos.remover(auxCodigoProd);
-
-														if (a2 == true) {
-															contProduto--;
-															System.out.println("Produto removido com sucesso");
-														} else {
-															System.out.println("Produto nao removido");
+															System.out.println("Digite o Codigo do Produto a ser removido: ");
+															String auxCodigoProd = in.nextLine();
+															try
+															{
+															
+																gerenprodutos.remover(auxCodigoProd);
+																contProduto--;
+																System.out.println("Produto removido com sucesso");
+																
+															}
+															catch(ONFException exc)
+															{
+																System.out.println(exc.getMessage());
+																System.out.println(exc.getidObjeto());
+															}
+															
 														}
-													} else {
-														System.out.println(
-																"Impossivel realizar acao, o sistema nao possui produtos cadastrados");
-													}
+														} else {
+															System.out.println(
+																	"Impossivel realizar acao, o sistema nao possui produtos cadastrados");
+														}
 
-													break; 
+													
+														break; 
 													
 												case '2':
 													
 													if( contCombo > 0 )
 													{
+														try
+														{
 														System.out.println("Digite o codigo do combo a ser removido:");
 														String auxCodigoCombo = in.nextLine();
 														
-														boolean z1 = gerencombos.removerCombo(auxCodigoCombo);
+														gerencombos.removerCombo(auxCodigoCombo);
+														contCombo--;
+														System.out.println("Combo removido com sucesso");
 														
-														if(z1 == true)
-														{
-															contCombo--;
-															System.out.println("Combo removido com sucesso");
 														}
-														else
+														catch(ONFException exc)
 														{
-															System.out.println("Combo nao removido");
+															System.out.println(exc.getMessage());
+															System.out.println("Id do objeto nao encontrado: " + exc.getidObjeto());
 														}
+
 													}
 													else
 													{
 														System.out.println("Impossivel realizar acao, o sistema nao possui combos cadastrados");
 													}
+													
 													break;
 													
 												
@@ -2899,36 +2941,35 @@ public class Menu {
 														System.out.println("Digite o id do produto a ser alterado");
 														String idprodutoalterado = in.nextLine();
 														
-														Produto p = new Produto();
-														p = gerenprodutos.procurar(idprodutoalterado);
-														
-														if( p.getCodigo() != null)
+														try
 														{
+															Produto p = new Produto();
+															p = gerenprodutos.procurar(idprodutoalterado);
+
 															System.out.println("Digite o novo valor do produto");
 															double newvalor = in.nextDouble();
 															in.nextLine();
+																				
+															gerenprodutos.atualizarProduto(newvalor, idprodutoalterado);
 															
-															boolean result2 = gerenprodutos.atualizarProduto(newvalor, idprodutoalterado);
+															System.out.println("Preco alterado com suceso");
 															
-															if(result2 == true)
-															{
-																System.out.println("Preco alterado com suceso");
 															}
-															else
+															catch(ONFException exc)
 															{
-																System.out.println("Preco nao alterado");
+																System.out.println(exc.getMessage());
+																System.out.println(exc.getidObjeto());
 															}
-															
-														}
-														else
-														{
-															System.out.println("Produto nao encontrado no estoque");
-														}
+
+														
+
 													}
+												
 													else
 													{
 														System.out.println("Nenhum produto cadastrado no sistema");
 													}
+												
 													
 												break; // TERMINO DO CASE 1
 												
@@ -2954,47 +2995,42 @@ public class Menu {
 															switch(opcao)
 															{
 															case '1':
-																
+																String codigocombo = null;
+																try
+																{
 																System.out.println("Digite o codigo do combo:");                                                          
-																String codigocombo = in.nextLine();
+																codigocombo = in.nextLine();
 																
 																Combo c = new Combo();
 																c = gerencombos.procurarCombo(codigocombo);
-																
-																
-																if(c.getCodigo() != null)
+																}
+																catch(ONFException exc)
 																{
+																	System.out.println(exc.getMessage());
+																	System.out.println("Id do objeto nao encontrado: " + exc.getidObjeto());
+																}
+																
+
+																try
+																{
+																	System.out.println("Digite o codigo do produto a ser adicionado no combo");
+																	String codigoproduto = in.nextLine();
+																
+																	Produto p = new Produto();
+																	p = gerenprodutos.procurar(codigoproduto);
+																
+								
+																	gerencombos.AdicionarProduto(p, codigocombo);
+
+																	System.out.println("Produto adicionado com sucesso");
+
 																	
-																System.out.println("Digite o codigo do produto a ser adicionado no combo");
-																String codigoproduto = in.nextLine();
-																
-																Produto p = new Produto();
-																p = gerenprodutos.procurar(codigoproduto);
-																
-																if(p.getCodigo() != null)
+																}catch(ONFException exc)
 																{
+																	System.out.println(exc.getMessage());
+																	System.out.println(exc.getidObjeto());
+																}
 															
-																	boolean helpme = gerencombos.AdicionarProduto(p, codigocombo);
-																	
-																	if(helpme == true)
-																	{
-																		System.out.println("Produto adicionado com sucesso");
-																	}
-																	else
-																	{
-																		System.out.println("Produto nao adicionado");
-																	}
-																	
-																}
-																else
-																{
-																	System.out.println("Produto nao encontrado no sistema");
-																}
-																}
-																else
-																{
-																	System.out.println("Combo nao encontrado no sistema");
-																}
 																
 																break;
 																
@@ -3004,41 +3040,52 @@ public class Menu {
 																String codigocombo1 = in.nextLine();
 																
 																Combo c1 = new Combo();
-																c1 = gerencombos.procurarCombo(codigocombo1);
-																
-																if(c1.getCodigo() != null)
+																try
 																{
-																	
+																c1 = gerencombos.procurarCombo(codigocombo1);
+																}
+																catch(ONFException exc )
+																{
+																	System.out.println(exc.getMessage());
+																	System.out.println("Id do objeto nao encontrado: " + exc.getidObjeto());
+																}
+																
+																Produto p = new Produto();
+																
+																try
+																{
 																System.out.println("Digite o codigo do produto a ser removido no combo");
 																String codigoproduto1 = in.nextLine();
 																
-																Produto p = new Produto();
-																p = gerenprodutos.procurar(codigoproduto1);
 																
-																if(p != null)
-																{
+																p = gerenprodutos.procurar(codigoproduto1);						
 																	
-																	boolean help = gerencombos.RemoverProduto(p, codigocombo1);
-																	
-																	if(help == true)
-																	{
-																		System.out.println("Produto removido com sucesso");
-																	}
-																	else
-																	{
-																		System.out.println("Produto nao removido");
-																	}
-																	
+																
 																}
-																else
+																catch(ONFException exc)
 																{
-																	System.out.println("Produto nao encontrado no sistema");
+																	System.out.println(exc.getMessage());
+																	System.out.println(exc.getidObjeto());
 																}
-																}
-																else
+																
+																try
 																{
-																	System.out.println("Combo nao encontrado no sistema");
+																	gerencombos.RemoverProduto(p, codigocombo1);
+																	
+																	System.out.println("Produto removido com sucesso");
 																}
+																catch(PNEException exc)
+																{
+																	System.out.println(exc.getMessage());                                                          
+																	System.out.println(exc.getidObjeto());
+																}
+																catch(ONFException exc)
+																{
+																	System.out.println(exc.getMessage());
+																	System.out.println(exc.getidObjeto());
+																}
+																
+
 																
 																break;
 																
@@ -3574,7 +3621,8 @@ public class Menu {
 																	"----------Produtos----------\n" + gerenprodutos.listarProdutos());
 															
 															
-															
+															try
+															{
 															System.out.println("\nDigite o codigo do Produto que voce deseja");
 															String codigo = in.nextLine();
 															
@@ -3582,19 +3630,17 @@ public class Menu {
 															
 															p = gerenprodutos.procurar(codigo);
 															
-															if( p.getCodigo() != null)
-															{
-																venda.comprarProduto(p);
-																somethingcomprado++;
-																System.out.println("Pedido adicionado ao carrinho com sucesso");
-															}
-															else
-															{
-																System.out.println("Produto nao encontrado no sistema");
-															}
-								
+															venda.comprarProduto(p);
+															somethingcomprado++;
+															System.out.println("Pedido adicionado ao carrinho com sucesso");
 															
-															
+															}	
+															catch(ONFException exc)
+															{
+																System.out.println(exc.getMessage());
+																System.out.println(exc.getidObjeto());
+															}
+														
 
 														} else {
 															System.out.println("Nenhum produto cadastrado no estoque");
@@ -3611,24 +3657,25 @@ public class Menu {
 															System.out.println(" ==================Combos =================\n" + gerencombos.listarCombos());
 														
 															
-															
-															System.out.println("\nDigite o codigo do combo que voce deseja");
-															String codigo = in.nextLine();
-															
-															Combo c = new Combo();
-															
-															c = gerencombos.procurarCombo(codigo);
-															
-															if( c.getCodigo() != null )
+															try
 															{
+																System.out.println("\nDigite o codigo do combo que voce deseja");
+																String codigo = in.nextLine();
+															
+																Combo c = new Combo();
+															
+																c = gerencombos.procurarCombo(codigo);
+
 																venda.comprarCombo(c);
 																somethingcomprado++;
 																System.out.println("Pedido adicionado ao carrinho com sucesso");
 															}
-															else
+															catch(ONFException exc)
 															{
-																System.out.println("Combo nao encotrado");
+																System.out.println(exc.getMessage());
+																System.out.println("Id do objeto nao encontrado: " + exc.getidObjeto());
 															}
+				
 															
 															
 														}

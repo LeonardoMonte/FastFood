@@ -10,6 +10,8 @@ import br.ufrpe.fastFood.beans.Produto;
 import br.ufrpe.fastFood.beans.PromocaoCombo;
 import br.ufrpe.fastFood.beans.PromocaoProduto;
 import br.ufrpe.fastFood.beans.Venda;
+import br.ufrpe.fastFood.exceptions.ONFException;
+import br.ufrpe.fastFood.exceptions.PNEException;
 
 public class Fachada {
 	
@@ -143,21 +145,21 @@ public class Fachada {
 	
 	}
 	
-	public boolean removerProduto(String codigo) {
+	public void removerProduto(String codigo) throws ONFException{
 
-		return this.gerenprodutos.remover(codigo);
+		this.gerenprodutos.remover(codigo);
 
 	}
 	
-	public Produto procurarProduto(String codigo) {
+	public Produto procurarProduto(String codigo) throws ONFException {
 		
 		return this.gerenprodutos.procurar(codigo);
 
 	}
 	
-	public boolean atualizarProduto(Double newvalor, String produtoalterado) {
+	public void atualizarProduto(Double newvalor, String produtoalterado) throws ONFException {
 		
-		return this.gerenprodutos.atualizarProduto(newvalor, produtoalterado);
+		this.gerenprodutos.atualizarProduto(newvalor, produtoalterado);
 	
 	}
 	
@@ -208,9 +210,9 @@ public class Fachada {
 					
 	}
 	
-	public boolean removerCombo(String codigo)
+	public void removerCombo(String codigo) throws ONFException
 	{
-		return this.gerencombos.removerCombo(codigo);
+		this.gerencombos.removerCombo(codigo);
 	}
 	
 	public List<Combo> listarCombos()
@@ -218,31 +220,26 @@ public class Fachada {
 		return this.gerencombos.listarCombos();
 	}
 	
-	public Combo procurarCombo(String codigo)
+	public Combo procurarCombo(String codigo) throws ONFException
 	{
 		return this.gerencombos.procurarCombo(codigo);
 		
 	}
 	
-	public boolean AdicionarProdutoAoCombo(Produto p ,String codigo)
+	public void AdicionarProdutoAoCombo(Produto p ,String codigo) throws ONFException
 	{
 
-		return this.gerencombos.AdicionarProduto(p, codigo);
+		this.gerencombos.AdicionarProduto(p, codigo);
 
 	}
 	
-	public boolean RemoverProduto(Produto p ,String codigo)
+	public void RemoverProduto(Produto p ,String codigo) throws ONFException, PNEException
 	{
 
-		return this.gerencombos.RemoverProduto(p, codigo);
+		this.gerencombos.RemoverProduto(p, codigo);
 
 	}
-	
-	public boolean Existecombo(String codigo)
-	{
-		return this.gerencombos.Existecombo(codigo);
-	}
-	
+		
 	
 	// INICIO DAS FUNCOES DE GERENCIAMENTO DE PROMOCOES
 	

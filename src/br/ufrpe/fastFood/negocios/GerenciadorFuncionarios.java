@@ -5,8 +5,6 @@ import java.util.List;
 import br.ufrpe.fastFood.beans.Endereco;
 import br.ufrpe.fastFood.beans.Funcionario;
 import br.ufrpe.fastFood.dados.RepositorioFuncionarios;
-import br.ufrpe.fastFood.exceptions.ObjectFound;
-import br.ufrpe.fastFood.exceptions.ObjectNotFound;
 import br.ufrpe.fastFood.interfaces.RepositorioFuncionarioInterface;
 
 public class GerenciadorFuncionarios {
