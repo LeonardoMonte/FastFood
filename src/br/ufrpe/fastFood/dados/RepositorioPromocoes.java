@@ -3,9 +3,11 @@ package br.ufrpe.fastFood.dados;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import br.ufrpe.fastFood.beans.Produto;
 import br.ufrpe.fastFood.beans.PromocaoCombo;
 import br.ufrpe.fastFood.beans.PromocaoProduto;
+import br.ufrpe.fastFood.exceptions.OJEException;
+import br.ufrpe.fastFood.exceptions.ONFException;
 import br.ufrpe.fastFood.interfaces.RepositorioPromocoesInterface;
 
 public class RepositorioPromocoes implements RepositorioPromocoesInterface {
@@ -33,51 +35,82 @@ public class RepositorioPromocoes implements RepositorioPromocoesInterface {
 	}
 	
 	
-	public void cadastrarComboPromotion(PromocaoCombo a)
+	public void cadastrarComboPromotion(PromocaoCombo a) throws OJEException
 	{
-		this.listapromocombos.add(a);
-	}
-	
-	public void cadastrarProdutoPromotion(PromocaoProduto a)
-	{
-		this.listapromoprodutos.add(a);
-	}
-	
-	
-	public boolean removerComboPromotion(String idPromocao)
-	{
+		int cont = 0;
 		
-		int remove = this.procurarIndiceComboPromotion(idPromocao);
-		boolean resultado = false;
-		
-		if( remove >= 0)
+		for(int x = 0 ; x < this.listapromocombos.size() ; x++)
 		{
-			this.listapromocombos.remove(remove);
-			resultado = true;
+			if(this.listapromocombos.get(x).getIdPromocao().equals(a.getIdPromocao()))
+			{
+				cont++;
+			}
 		}
 		
-		return resultado;	
-	}
-	
-	public boolean removerProdutoPromotion(String idPromocao)
-	{
-		
-		int remove = this.procurarIndiceProdutoPromotion(idPromocao);
-		boolean resultado = false;
-		
-		if( remove >= 0)
+		if(cont > 0)
 		{
-			this.listapromoprodutos.remove(remove);
-			resultado = true;
+			throw new OJEException(a.getIdPromocao());
+		}
+		else
+		{
+			this.listapromocombos.add(a);
 		}
 		
-		return resultado;
+	}
+	
+	public void cadastrarProdutoPromotion(PromocaoProduto a) throws OJEException
+	{
+		int cont = 0;
+		
+		for(int x = 0 ; x < this.listapromoprodutos.size() ; x++)
+		{
+			if(this.listapromoprodutos.get(x).getIdPromocao().equals(a.getIdPromocao()))
+			{
+				cont++;
+			}
+		}
+		
+		if(cont > 0)
+		{
+			throw new OJEException(a.getIdPromocao());
+		}
+		else
+		{
+			this.listapromoprodutos.add(a);
+		}
+		
+	}
+	
+	
+	public void removerComboPromotion(String idPromocao) throws ONFException
+	{
+		
+		PromocaoCombo p = new PromocaoCombo();
+		p = this.buscarPromoCombo(idPromocao);
+
+		if (p.getIdPromocao() != null) {
+			
+			this.listapromocombos.remove(p);
+		}
+
+	}
+	
+	public void removerProdutoPromotion(String idPromocao) throws ONFException
+	{
+		
+		PromocaoProduto p = new PromocaoProduto();
+		p = this.buscarPromoProduto(idPromocao);
+
+		if (p.getIdPromocao() != null) {
+			
+			this.listapromoprodutos.remove(p);
+		}
 		
 	}
 	
 		
 	
-	public PromocaoCombo buscarPromoCombo(String idPromocao)
+	public PromocaoCombo buscarPromoCombo(String idPromocao) throws ONFException
 	{
 		PromocaoCombo a = new PromocaoCombo();
 		
@@ -87,13 +120,17 @@ public class RepositorioPromocoes implements RepositorioPromocoesInterface {
 		{
 			a = this.listapromocombos.get(x);
 		}
+		else
+		{
+			throw new ONFException(idPromocao);
+		}
 		
 		return a;
 		
 	}
 	
 	
-	public PromocaoProduto buscarPromoProduto(String idPromocao)
+	public PromocaoProduto buscarPromoProduto(String idPromocao) throws ONFException
 	{
 		PromocaoProduto a = new PromocaoProduto();
 		
@@ -102,6 +139,10 @@ public class RepositorioPromocoes implements RepositorioPromocoesInterface {
 		if( x >= 0)
 		{
 			a = this.listapromoprodutos.get(x);
+		}
+		else
+		{
+			throw new ONFException(idPromocao);
 		}
 		
 		return a;
@@ -134,35 +175,6 @@ public class RepositorioPromocoes implements RepositorioPromocoesInterface {
 		return cont;
 	}
 	
-	public boolean existePromoCombo(String idPromocao)
-	{
-		boolean resultado = false;
-		PromocaoCombo a = new PromocaoCombo();
-		
-		a = this.buscarPromoCombo(idPromocao);
-		
-		if( a != null)
-		{
-			resultado = true;
-		}
-		
-		return resultado;
-	}
-	
-	public boolean existePromoProduto(String idPromocao)
-	{
-		boolean resultado = false;
-		PromocaoProduto a = new PromocaoProduto();
-		
-		a = this.buscarPromoProduto(idPromocao);
-		
-		if( a != null)
-		{
-			resultado = true;
-		}
-		
-		return resultado;
-	}
 	
 	
 	public List<PromocaoCombo> listarPromoCombos() {
@@ -177,42 +189,29 @@ public class RepositorioPromocoes implements RepositorioPromocoesInterface {
 		
 	}
 	
-	public boolean alterarPrecoComboPromo(double newprice, String idPromocao)
+	public void alterarPrecoComboPromo(double newprice, String idPromocao) throws ONFException
 	{
-		boolean resultado = false;
+		PromocaoCombo p = new PromocaoCombo();
+		p = this.buscarPromoCombo(idPromocao);
 		
-		if(this.existePromoCombo(idPromocao) == true)
+		if(p.getIdPromocao() != null)
 		{
-			for(PromocaoCombo promocombo : this.listapromocombos)
-			{
-				if( promocombo.getIdPromocao().equals(idPromocao))
-				{
-					promocombo.setValor(newprice);
-					resultado = true;
-				}
-			}
+			p.setValor(newprice);
 		}
-		
-		return resultado;
+					
+	
 	}
 	
-	public boolean alterarPrecoProdutoPromo(double newprice , String idPromocao)
+	public void alterarPrecoProdutoPromo(double newprice , String idPromocao) throws ONFException
 	{
-		boolean resultado = false;
+		PromocaoProduto p = new PromocaoProduto();
+		p = this.buscarPromoProduto(idPromocao);
 		
-		if(this.existePromoProduto(idPromocao) == true)
+		if(p.getIdPromocao() != null)
 		{
-			for(PromocaoProduto promoproduto : this.listapromoprodutos)
-			{
-				if( promoproduto.getIdPromocao().equals(idPromocao))
-				{
-					promoproduto.setValor(newprice);
-					resultado = true;
-				}
-			}
+			p.setValor(newprice);
 		}
-		
-		return resultado;
+			
 	}
 	
 

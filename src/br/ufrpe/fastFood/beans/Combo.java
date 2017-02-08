@@ -2,6 +2,7 @@ package br.ufrpe.fastFood.beans;
 
 import java.util.ArrayList;
 
+import br.ufrpe.fastFood.exceptions.OJEException;
 import br.ufrpe.fastFood.exceptions.PNEException;
 
 public class Combo {
@@ -66,11 +67,30 @@ public class Combo {
 	}
 
 
-	public void addItens(Produto p){
+	public void addItens(Produto p) throws OJEException{
 
+
+		int cont = 0;
+		
+		for(int x = 0 ; x <	this.itens.size() ; x++)
+		{
+			if(this.itens.get(x).getCodigo().equals(p.getCodigo()))
+			{
+				cont++;
+			}
+		}
+		
+		if(cont > 0)
+		{
+			throw new OJEException(p.getCodigo());
+		}
+		else
+		{
 			this.itens.add(p);
-
 			this.setValorAumentar(p.getValor());
+		}
+		
+
 			
 	}
 	

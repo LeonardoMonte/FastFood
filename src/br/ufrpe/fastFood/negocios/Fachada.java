@@ -10,6 +10,7 @@ import br.ufrpe.fastFood.beans.Produto;
 import br.ufrpe.fastFood.beans.PromocaoCombo;
 import br.ufrpe.fastFood.beans.PromocaoProduto;
 import br.ufrpe.fastFood.beans.Venda;
+import br.ufrpe.fastFood.exceptions.OJEException;
 import br.ufrpe.fastFood.exceptions.ONFException;
 import br.ufrpe.fastFood.exceptions.PNEException;
 
@@ -139,7 +140,7 @@ public class Fachada {
 	
 	// INICIO DAS FUNCOES DE GERENCIAMENTO DE PRODUTOS
 	
-	public void cadastrarProduto(Produto a) {
+	public void cadastrarProduto(Produto a) throws OJEException {
 
 		this.gerenprodutos.cadastrar(a);
 	
@@ -203,7 +204,7 @@ public class Fachada {
 	// INICIO DAS FUNCOES DE GERENCIAMENTO DE COMBOS
 	
 	
-	public void cadastrarCombo(Combo a)
+	public void cadastrarCombo(Combo a) throws OJEException
 	{		
 		
 		this.gerencombos.cadastrarCombo(a);
@@ -226,7 +227,7 @@ public class Fachada {
 		
 	}
 	
-	public void AdicionarProdutoAoCombo(Produto p ,String codigo) throws ONFException
+	public void AdicionarProdutoAoCombo(Produto p ,String codigo) throws ONFException,  OJEException
 	{
 
 		this.gerencombos.AdicionarProduto(p, codigo);
@@ -244,39 +245,40 @@ public class Fachada {
 	// INICIO DAS FUNCOES DE GERENCIAMENTO DE PROMOCOES
 	
 	
-	public void cadastrarPromoCombo(PromocaoCombo a)
+	public void cadastrarPromoCombo(PromocaoCombo a) throws OJEException
 	{
 		
 		this.gerenpromocoes.cadastrarCombo(a);
 		
 	}
 	
-	public void cadastrarPromoProduto(PromocaoProduto a)
+	public void cadastrarPromoProduto(PromocaoProduto a) throws OJEException
 	{
 		
 			this.gerenpromocoes.cadastrarProduto(a);
 		
 	}
 	
-	public PromocaoProduto buscarPromocaoProduto( String idPromocao)
+	public PromocaoProduto buscarPromocaoProduto( String idPromocao) throws ONFException
 	{
 		return this.gerenpromocoes.buscarPromocaoProduto(idPromocao);
 	}
 	
-	public PromocaoCombo buscarPromocaoCombo(String idPromocao)
+	public PromocaoCombo buscarPromocaoCombo(String idPromocao) throws ONFException
 	{
 		return this.gerenpromocoes.buscarPromocaoCombo(idPromocao);
 		
 	}
 	
-	public boolean removerPromoCombo(String idPromocao)
+	public void removerPromoCombo(String idPromocao) throws ONFException
 	{
-		return this.gerenpromocoes.removerCombo(idPromocao);
+		this.gerenpromocoes.removerCombo(idPromocao);
 	}
 	
-	public boolean removerPromoProduto(String idPromocao)
+	public void removerPromoProduto(String idPromocao) throws ONFException
 	{
-		return this.gerenpromocoes.removerProduto(idPromocao);
+		this.gerenpromocoes.removerProduto(idPromocao);
+		
 	}
 	
 	public List<PromocaoCombo> listarCombosPromotion()
@@ -290,26 +292,17 @@ public class Fachada {
 		return this.gerenpromocoes.listarProdutoPromotion();
 	}
 	
-	public boolean alterarPrecoPromoCombo(double newprice , String idPromocao)
-	{
-		return this.gerenpromocoes.alterarPrecoPromoCombo(newprice, idPromocao);
+	public void alterarPrecoPromoCombo(double newprice , String idPromocao) throws ONFException
+	{		
+		this.gerenpromocoes.alterarPrecoPromoCombo(newprice, idPromocao);
 	}
 	
-	public boolean alterarPrecoPromoProduto(double newprice , String idPromocao)
+	public void alterarPrecoPromoProduto(double newprice , String idPromocao) throws ONFException
 	{
-		return this.gerenpromocoes.alterarPrecoPromoProduto(newprice, idPromocao);
+		this.gerenpromocoes.alterarPrecoPromoProduto(newprice, idPromocao);
 		
 	}
 	
-	public boolean Existepromocombo(String codigo)
-	{
-		return this.gerenpromocoes.Existepromocombo(codigo);
-	}
-	
-	public boolean Existepromoproduto(String codigo)
-	{
-		return this.gerenpromocoes.Existepromoproduto(codigo);
-	}
 	
 	
 	// end da fachada

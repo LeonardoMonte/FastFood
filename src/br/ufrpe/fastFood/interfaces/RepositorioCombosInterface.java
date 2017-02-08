@@ -4,13 +4,14 @@ import java.util.List;
 
 import br.ufrpe.fastFood.beans.Combo;
 import br.ufrpe.fastFood.beans.Produto;
+import br.ufrpe.fastFood.exceptions.OJEException;
 import br.ufrpe.fastFood.exceptions.ONFException;
 import br.ufrpe.fastFood.exceptions.PNEException;
 
 public interface RepositorioCombosInterface {
 
 	
-	void cadastrar(Combo p);
+	void cadastrar(Combo p) throws OJEException;
 	
 	void removerCombo(String combo) throws ONFException;
 	
@@ -21,7 +22,7 @@ public interface RepositorioCombosInterface {
 	
 	List<Combo> listarCombos();
 	
-	void AdicionarProduto(Produto p , String codigo) throws ONFException;
+	void AdicionarProduto(Produto p , String idcodigo) throws ONFException, OJEException;
 	
 	void RemoverProduto(Produto p , String idproduto) throws ONFException, PNEException;
 	

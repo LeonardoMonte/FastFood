@@ -5,6 +5,7 @@ import java.util.List;
 
 import br.ufrpe.fastFood.beans.Combo;
 import br.ufrpe.fastFood.beans.Produto;
+import br.ufrpe.fastFood.exceptions.OJEException;
 import br.ufrpe.fastFood.exceptions.ONFException;
 import br.ufrpe.fastFood.exceptions.PNEException;
 import br.ufrpe.fastFood.interfaces.RepositorioCombosInterface;
@@ -30,9 +31,28 @@ public class RepositorioCombos implements RepositorioCombosInterface {
 	}
 	
 	
-	public void cadastrar(Combo a)
+	public void cadastrar(Combo a) throws OJEException
 	{
-		this.listaCombos.add(a);
+		int cont = 0;
+		
+		for(int x = 0 ; x <	this.listaCombos.size() ; x++)
+		{
+			if(this.listaCombos.get(x).getCodigo().equals(a.getCodigo()))
+			{
+				cont++;
+			}
+		}
+		
+		if(cont > 0)
+		{
+			throw new OJEException(a.getCodigo());
+		}
+		else
+		{
+			this.listaCombos.add(a);
+		}
+		
+		
 	}
 	
 	
@@ -85,10 +105,10 @@ public class RepositorioCombos implements RepositorioCombosInterface {
 	}
 	
 	
-	public void AdicionarProduto(Produto p , String codigo) throws ONFException
+	public void AdicionarProduto(Produto p , String idcodigo) throws ONFException, OJEException
 	{
 		Combo c = new Combo();
-		c = this.buscarCombo(codigo);
+		c = this.buscarCombo(idcodigo);
 		
 		c.addItens(p);
 

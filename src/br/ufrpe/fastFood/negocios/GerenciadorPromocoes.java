@@ -6,6 +6,8 @@ import java.util.List;
 import br.ufrpe.fastFood.beans.PromocaoCombo;
 import br.ufrpe.fastFood.beans.PromocaoProduto;
 import br.ufrpe.fastFood.dados.RepositorioPromocoes;
+import br.ufrpe.fastFood.exceptions.OJEException;
+import br.ufrpe.fastFood.exceptions.ONFException;
 import br.ufrpe.fastFood.interfaces.RepositorioPromocoesInterface;
 
 public class GerenciadorPromocoes {
@@ -30,7 +32,7 @@ public class GerenciadorPromocoes {
 	}
 	
 	
-	public void cadastrarCombo(PromocaoCombo a)
+	public void cadastrarCombo(PromocaoCombo a) throws OJEException
 	{
 		
 		this.repositorio.cadastrarComboPromotion(a);
@@ -38,32 +40,32 @@ public class GerenciadorPromocoes {
 	}
 	
 	
-	public void cadastrarProduto(PromocaoProduto a)
+	public void cadastrarProduto(PromocaoProduto a) throws OJEException
 	{
 		
 			this.repositorio.cadastrarProdutoPromotion(a);
 		
 	}
 	
-	public PromocaoProduto buscarPromocaoProduto( String idPromocao)
+	public PromocaoProduto buscarPromocaoProduto( String idPromocao) throws ONFException
 	{
 		return this.repositorio.buscarPromoProduto(idPromocao);
 	}
 	
-	public PromocaoCombo buscarPromocaoCombo(String idPromocao)
+	public PromocaoCombo buscarPromocaoCombo(String idPromocao) throws ONFException
 	{
 		return this.repositorio.buscarPromoCombo(idPromocao);
 		
 	}
 	
-	public boolean removerCombo(String idPromocao)
+	public void removerCombo(String idPromocao) throws ONFException
 	{
-		return this.repositorio.removerComboPromotion(idPromocao);
+		this.repositorio.removerComboPromotion(idPromocao);
 	}
 	
-	public boolean removerProduto(String idPromocao)
+	public void removerProduto(String idPromocao) throws ONFException
 	{
-		return this.repositorio.removerProdutoPromotion(idPromocao);
+		this.repositorio.removerProdutoPromotion(idPromocao);
 	}
 	
 	
@@ -77,25 +79,16 @@ public class GerenciadorPromocoes {
 		return this.repositorio.listarPromoProduto();
 	}
 	
-	public boolean alterarPrecoPromoCombo(double newprice , String idPromocao)
+	public void alterarPrecoPromoCombo(double newprice , String idPromocao) throws ONFException
 	{
-		return this.repositorio.alterarPrecoComboPromo(newprice, idPromocao);
+		this.repositorio.alterarPrecoComboPromo(newprice, idPromocao);
 	}
 	
-	public boolean alterarPrecoPromoProduto(double newprice , String idPromocao)
+	public void alterarPrecoPromoProduto(double newprice , String idPromocao) throws ONFException
 	{
-		return this.repositorio.alterarPrecoProdutoPromo(newprice, idPromocao);
+		this.repositorio.alterarPrecoProdutoPromo(newprice, idPromocao);
 		
 	}
 	
-	public boolean Existepromocombo(String codigo)
-	{
-		return this.repositorio.existePromoCombo(codigo);
-	}
-	
-	public boolean Existepromoproduto(String codigo)
-	{
-		return this.repositorio.existePromoProduto(codigo);
-	}
 	
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.ufrpe.fastFood.beans.Produto;
 import br.ufrpe.fastFood.dados.RepositorioProdutos;
+import br.ufrpe.fastFood.exceptions.OJEException;
 import br.ufrpe.fastFood.exceptions.ONFException;
 import br.ufrpe.fastFood.interfaces.RepositorioProdutoInterface;
 
@@ -25,7 +26,7 @@ public class GerenciadorProdutos {
 		return instancia;
 	}
 	
-	public void cadastrar(Produto a) {
+	public void cadastrar(Produto a) throws OJEException{
 
 			this.repositorio.cadastrarProduto(a);
 		
