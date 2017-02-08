@@ -1178,6 +1178,8 @@ public class Menu {
 												
 											case '4':
 												
+												int contErro1 = 0;
+												
 												if( contProduto >= 1)
 												{
 												
@@ -1190,6 +1192,7 @@ public class Menu {
 													{
 										
 														produto2 = gerenprodutos.procurar(idproduto1);
+														contErro1++;
 														
 													}
 													catch(ONFException exc)
@@ -1198,7 +1201,8 @@ public class Menu {
 														System.out.println(exc.getidObjeto());
 													}
 					
-													
+													if(contErro1 > 0)
+													{
 
 														System.out.println("Digite o id da promocao do produto:");
 														String idpromoprodutos = in.nextLine();
@@ -1224,13 +1228,14 @@ public class Menu {
 															System.out.println(exc.getMessage());
 															System.out.println("Id do objeto: " + exc.getId());
 														}
-														
+													}
 													
 												}
 												else
 												{
 													System.out.println("Impossivel realizar a acao por falta de produtos no estoque");
 												}
+												
 												break; // TERMINO DO CASE DE CRIAR PROMOCAO DE PRODUTO
 												
 											case '5':
@@ -2814,6 +2819,8 @@ public class Menu {
 													
 												case '4':
 													
+													int contErro1 = 0;
+													
 													if( contProduto >= 1)
 													{
 													
@@ -2826,6 +2833,7 @@ public class Menu {
 														{
 											
 															produto2 = gerenprodutos.procurar(idproduto1);
+															contErro1++;
 															
 														}
 														catch(ONFException exc)
@@ -2834,7 +2842,8 @@ public class Menu {
 															System.out.println(exc.getidObjeto());
 														}
 						
-														
+														if(contErro1 > 0)
+														{
 
 															System.out.println("Digite o id da promocao do produto:");
 															String idpromoprodutos = in.nextLine();
@@ -2860,7 +2869,7 @@ public class Menu {
 																System.out.println(exc.getMessage());
 																System.out.println("Id do objeto: " + exc.getId());
 															}
-															
+														}
 														
 													}
 													else
