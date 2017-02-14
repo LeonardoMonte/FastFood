@@ -7,92 +7,135 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.CadastroController">
    <children>
-      <Label layoutX="14.0" layoutY="30.0" prefHeight="27.0" prefWidth="81.0" text="Nome:">
+      <Label fx:id="nome" layoutX="14.0" layoutY="29.0" prefHeight="27.0" prefWidth="81.0" text="Nome:">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <TextField layoutX="88.0" layoutY="32.0" prefHeight="28.0" prefWidth="502.0" />
-      <Label layoutX="14.0" layoutY="68.0" prefHeight="27.0" prefWidth="81.0" text="CPF:">
+      <TextField fx:id="txtNome" layoutX="88.0" layoutY="32.0" prefHeight="28.0" prefWidth="502.0" promptText="Ex: Fulano de Tal da Silva">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+      <Label fx:id="cpf" layoutX="14.0" layoutY="68.0" prefHeight="27.0" prefWidth="81.0" text="CPF:">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="300.0" layoutY="72.0" prefHeight="28.0" prefWidth="149.0" text="Nascimento:">
+      <Label fx:id="nascimento" layoutX="313.0" layoutY="69.0" prefHeight="28.0" prefWidth="149.0" text="Nascimento:">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="149.0" prefHeight="27.0" prefWidth="81.0" text="CEP:">
+      <Label fx:id="cep" layoutX="14.0" layoutY="149.0" prefHeight="27.0" prefWidth="81.0" text="CEP:">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="300.0" layoutY="152.0" prefHeight="27.0" prefWidth="81.0" text="Bairro:">
+      <Label fx:id="bairro" layoutX="312.0" layoutY="108.0" prefHeight="27.0" prefWidth="81.0" text="Bairro:">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="407.0" layoutY="192.0" prefHeight="27.0" prefWidth="93.0" text="Numero:">
+      <Label fx:id="numero" layoutX="416.0" layoutY="189.0" prefHeight="27.0" prefWidth="93.0" text="Numero:">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="111.0" prefHeight="27.0" prefWidth="93.0" text="Cidade:">
+      <Label fx:id="cidade" layoutX="14.0" layoutY="108.0" prefHeight="27.0" prefWidth="93.0" text="Cidade:">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="192.0" prefHeight="27.0" prefWidth="81.0" text="Rua:">
+      <Label fx:id="rua" layoutX="14.0" layoutY="189.0" prefHeight="34.0" prefWidth="50.0" text="Rua:">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="231.0" prefHeight="28.0" prefWidth="93.0" text="Estado:">
+      <Label fx:id="estado" layoutX="317.0" layoutY="149.0" prefHeight="28.0" prefWidth="93.0" text="Estado:">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="272.0" prefHeight="28.0" prefWidth="128.0" text="Telefone 1:">
+      <Label fx:id="fone1" layoutX="14.0" layoutY="272.0" prefHeight="28.0" prefWidth="128.0" text="Telefone 1:">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="299.0" layoutY="232.0" prefHeight="28.0" prefWidth="128.0" text="Referência:">
+      <Label fx:id="referencia" layoutX="14.0" layoutY="229.0" prefHeight="28.0" prefWidth="128.0" text="Referência:">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <TextField layoutX="73.0" layoutY="72.0" prefHeight="28.0" prefWidth="211.0" />
-      <TextField layoutX="441.0" layoutY="72.0" prefHeight="28.0" prefWidth="149.0" />
-      <TextField layoutX="98.0" layoutY="111.0" prefHeight="28.0" prefWidth="492.0" />
-      <TextField layoutX="73.0" layoutY="152.0" prefHeight="28.0" prefWidth="211.0" />
-      <TextField layoutX="378.0" layoutY="152.0" prefHeight="28.0" prefWidth="211.0" />
-      <TextField layoutX="73.0" layoutY="192.0" prefHeight="28.0" prefWidth="325.0" />
-      <TextField layoutX="507.0" layoutY="192.0" prefHeight="28.0" prefWidth="81.0" />
-      <TextField layoutX="430.0" layoutY="232.0" prefHeight="28.0" prefWidth="158.0" />
-      <TextField layoutX="101.0" layoutY="232.0" prefHeight="28.0" prefWidth="190.0" />
-      <Label layoutX="299.0" layoutY="272.0" prefHeight="28.0" prefWidth="128.0" text="Telefone 2:">
+      <TextField fx:id="txtCpf" layoutX="73.0" layoutY="72.0" prefHeight="28.0" prefWidth="211.0" promptText="Ex: xxx.xxx.xxx-xx">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="txtNascimento" layoutX="441.0" layoutY="72.0" prefHeight="28.0" prefWidth="149.0" promptText="dd/mm/aaaa">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="txtCidade" layoutX="98.0" layoutY="111.0" prefHeight="28.0" prefWidth="202.0" promptText="Ex: Gothan City">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="txtCep" layoutX="73.0" layoutY="152.0" prefHeight="28.0" prefWidth="211.0" promptText="Ex: xx.xxx-xxx">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="txtBairro" layoutX="387.0" layoutY="111.0" prefHeight="28.0" prefWidth="211.0" promptText="Ex: Jardim Piedade">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="txtRua" layoutX="73.0" layoutY="192.0" prefHeight="28.0" prefWidth="325.0" promptText="Ex: Rua do Socrro">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="txtNumero" layoutX="507.0" layoutY="192.0" prefHeight="28.0" prefWidth="81.0" promptText="xxxx">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="txtReferencia" layoutX="135.0" layoutY="232.0" prefHeight="28.0" prefWidth="435.0" promptText="Ex: Próx. ao Bar da Curva">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="txtEstado" layoutX="396.0" layoutY="152.0" prefHeight="28.0" prefWidth="190.0" promptText="Ex: PE">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+      <Label fx:id="fone2" layoutX="299.0" layoutY="272.0" prefHeight="28.0" prefWidth="128.0" text="Telefone 2:">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <TextField layoutX="135.0" layoutY="272.0" prefHeight="28.0" prefWidth="158.0" />
-      <TextField layoutX="430.0" layoutY="272.0" prefHeight="28.0" prefWidth="158.0" />
-      <Label layoutX="14.0" layoutY="311.0" prefHeight="28.0" prefWidth="93.0" text="Senha:">
+      <TextField fx:id="txtFone1" layoutX="135.0" layoutY="272.0" prefHeight="28.0" prefWidth="158.0" promptText="(xx) xxxx-xxxx">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="txtFone2" layoutX="430.0" layoutY="272.0" prefHeight="28.0" prefWidth="158.0" promptText="(xx) xxxx-xxxx">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+      <Label fx:id="senha" layoutX="14.0" layoutY="311.0" prefHeight="28.0" prefWidth="93.0" text="Senha:">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="349.0" prefHeight="27.0" prefWidth="202.0" text="Confirmar senha:">
+      <Label fx:id="confirmaSenha" layoutX="14.0" layoutY="349.0" prefHeight="27.0" prefWidth="202.0" text="Confirmar senha:">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Button layoutX="518.0" layoutY="362.0" mnemonicParsing="false" text="Button" />
-      <PasswordField layoutX="93.0" layoutY="313.0" prefHeight="28.0" prefWidth="190.0" />
-      <PasswordField layoutX="204.0" layoutY="352.0" prefHeight="27.0" prefWidth="176.0" />
+      <Button fx:id="botaoFinalizar" layoutX="518.0" layoutY="362.0" mnemonicParsing="false" onAction="#botaoFinalizarAction" text="Finalizar" />
+      <PasswordField fx:id="txtSenha" layoutX="93.0" layoutY="313.0" prefHeight="28.0" prefWidth="190.0" promptText="Ex: 1234">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></PasswordField>
+      <PasswordField fx:id="txtConfrmaSenha" layoutX="204.0" layoutY="352.0" prefHeight="27.0" prefWidth="176.0" promptText="repete a senha anterior">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></PasswordField>
+      <Button fx:id="cancelar" layoutX="445.0" layoutY="362.0" mnemonicParsing="false" onAction="#botaoCancelarAction" text="Cancelar" />
    </children>
 </AnchorPane>
