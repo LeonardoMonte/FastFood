@@ -31,19 +31,16 @@ public class LoginFuncionarioController implements Initializable {
 	private TextField txtSenha;
 
 	@FXML
-	private Hyperlink recupLogin;
+	private Hyperlink esqueceuLogin;
 
 	@FXML
-	private Hyperlink recupSenha;
+	private Hyperlink esqueceuSenha;
 
 	@FXML
 	private Button botaoEntrar;
 
 	@FXML
 	private Button botaoSair;
-
-	@FXML
-	private Button botaoCadastrar;
 
 	@FXML
 	private Label aviso;
@@ -92,24 +89,6 @@ public class LoginFuncionarioController implements Initializable {
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Tela Incial");
 			primaryStage.show();			
-		}catch (Exception e){
-			System.out.println(e.getMessage());
-		}
-
-
-	}
-
-	@FXML
-	private void botaoCadastrarAction(ActionEvent event){
-
-		((Node) (event.getSource())).getScene().getWindow().hide();
-		try{
-			Parent root = FXMLLoader.load(getClass().getResource("Cadastro.fxml"));
-			Stage stage = new Stage();
-			Scene scene = new Scene(root);
-			stage.setScene(scene);
-			stage.setTitle("Cadastrar");
-			stage.show();
 		}catch (Exception e){
 			System.out.println(e.getMessage());
 		}
