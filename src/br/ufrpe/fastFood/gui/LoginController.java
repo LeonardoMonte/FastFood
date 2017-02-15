@@ -3,6 +3,8 @@ package br.ufrpe.fastFood.gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.ufrpe.fastFood.exceptions.ONFException;
+import br.ufrpe.fastFood.exceptions.WPException;
 import br.ufrpe.fastFood.negocios.Fachada;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -50,7 +52,7 @@ public class LoginController implements Initializable {
 	private ImageView imagem;
 
 	@FXML
-	private void botaoEntrarAction(ActionEvent event){
+	private void botaoEntrarAction(ActionEvent event) throws ONFException, WPException{
 
 		if (!(txtLogin.getText().equals("") || txtSenha.getText().equals(""))) {
 			if(Fachada.getInstancia().loginCliente(txtLogin.getText(), txtSenha.getText())){

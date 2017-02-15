@@ -4,6 +4,10 @@ import java.util.List;
 
 import br.ufrpe.fastFood.beans.Cliente;
 import br.ufrpe.fastFood.beans.Endereco;
+import br.ufrpe.fastFood.beans.Produto;
+import br.ufrpe.fastFood.exceptions.OJEException;
+import br.ufrpe.fastFood.exceptions.ONFException;
+import br.ufrpe.fastFood.exceptions.WPException;
 import br.ufrpe.fastFood.interfaces.RepositorioClienteInterface;
 
 public class RepositorioClientes implements RepositorioClienteInterface {
@@ -25,13 +29,30 @@ public class RepositorioClientes implements RepositorioClienteInterface {
 		return instancia;
 	}
 	
-	public void cadastrarCliente(Cliente c){
-				
-			this.listaClientes.add(c);		
+	public void cadastrarCliente(Cliente c) throws OJEException {
+		int cont = 0;
+		
+		for(int x = 0 ; x < this.listaClientes.size() ; x++)
+		{
+			if(this.listaClientes.get(x).getId().equals(c.getId()))
+			{
+				cont++;
+			}
+		}
+		
+		if(cont > 0)
+		{
+			throw new OJEException( c.getId());
+		}
+		else
+		{
+			this.listaClientes.add(c);
+		}
+					
 			
 	}
 	
-	public Cliente buscarCliente(String id){
+	public Cliente buscarCliente(String id) throws ONFException{
 	
 		Cliente resultado = new Cliente();
 				
@@ -41,42 +62,35 @@ public class RepositorioClientes implements RepositorioClienteInterface {
 				
 				resultado = this.listaClientes.get(i);
 			}
-		
-		return resultado;
-	}
-	
-	public boolean removerCliente(String id){	
-		
-		boolean rresultado = false;
-		Cliente resultado = new Cliente();
-		int i = this.procurarIndice(id);
-		
-		if( i >= 0){
-			
-			resultado = this.listaClientes.get(i);	
-			this.listaClientes.remove(resultado);
-			rresultado = true;
-		}	
-			
-		return rresultado;
-	}
-	
-	
-	public boolean atualizarClienteendereco(String id , Endereco ende){	
-		
-		boolean resultado = false;
-		if(this.existeCliente(id) == true){
-
-			for(Cliente cliente : listaClientes){
-				if(cliente.getId().equals(id)){					
-				
-					cliente.setEndere(ende);
-					resultado = true;
-				}
+			else
+			{
+				throw new ONFException(id);
 			}
-
-		}
+		
 		return resultado;
+	}
+	
+	public void removerCliente(String id) throws ONFException{	
+		
+		Cliente c = new Cliente();
+		c = this.buscarCliente(id);
+
+		if (c.getId() != null) {
+			
+			this.listaClientes.remove(c);
+		}
+	}
+	
+	
+	public void atualizarClienteendereco(String id , Endereco ende) throws ONFException{	
+		
+		Cliente c = new Cliente();
+		c = this.buscarCliente(id);
+		
+		if(c.getId() != null)
+		{
+			c.setEndere(ende);
+		}
 	} 
 	
 	public List<Cliente> listarClientes(){
@@ -84,33 +98,7 @@ public class RepositorioClientes implements RepositorioClienteInterface {
 			return this.listaClientes;
 		}
 	
-	public boolean existeCliente(String id){
-				
-		boolean resultado = false;
-		
-		for(Cliente cliente: listaClientes){
-			
-			if( cliente.getId().equals(id)){
-				
-				resultado = true;
-			}
-		}
-		
-		return resultado;
-	}
-	
-	public boolean existeIndice(int ind){
-		
-		boolean resultado = false;
-		
-		if( this.listaClientes.get(ind) != null){
-			
-			resultado = true;
-		}
-		
-		return resultado;
-		
-	}
+
 	
 	public int procurarIndice(String id){
 				
@@ -126,31 +114,39 @@ public class RepositorioClientes implements RepositorioClienteInterface {
 		return cont;
 	}
 	
-	public boolean loginCliente(String id , String senha){	
-		
+	public boolean loginCliente(String id , String senhanew) throws  ONFException, WPException{	
+	
+		boolean b = false;
 		Cliente c = new Cliente();
-		c = this.buscarCliente(id);
-		boolean resultado = c.equalsSenhaCliente(id, senha);
-		return resultado;
-		
+		c = this.buscarCliente(id);		
+		if(c.getId() != null)
+		{
+
+			b = c.equalsSenhaCliente(senhanew);		
+
+		}
+		return b;
 	}
 	
-	public boolean alterarsenha(String id , String senhaold , String senhanew){
+	public void alterarsenha(String id , String senhaold , String senhanew) throws ONFException , WPException{
 		
 		Cliente c = new Cliente();
 		c = this.buscarCliente(id);		
-		boolean resultado = c.alterarSenha(senhaold, senhanew);
-		return resultado;
+		if(c.getId() != null)
+		{
+			c.alterarSenha(senhaold, senhanew);
+		}
+		
+		
 	}
 	
 	public String getNomecliente(String id){
 		
-		String resultado = "";
 		Cliente c = new Cliente();
-		c = this.buscarCliente(id);
+		int x = this.procurarIndice(id);
+		c = this.listaClientes.get(x);
 		
-		resultado += c.getNome();
-		
-		return resultado;
+		return c.getNome();
 	}
+	
 }

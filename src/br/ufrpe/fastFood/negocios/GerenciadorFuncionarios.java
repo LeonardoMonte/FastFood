@@ -5,6 +5,9 @@ import java.util.List;
 import br.ufrpe.fastFood.beans.Endereco;
 import br.ufrpe.fastFood.beans.Funcionario;
 import br.ufrpe.fastFood.dados.RepositorioFuncionarios;
+import br.ufrpe.fastFood.exceptions.OJEException;
+import br.ufrpe.fastFood.exceptions.ONFException;
+import br.ufrpe.fastFood.exceptions.WPException;
 import br.ufrpe.fastFood.interfaces.RepositorioFuncionarioInterface;
 
 public class GerenciadorFuncionarios {
@@ -25,26 +28,27 @@ public class GerenciadorFuncionarios {
 		return instancia;
 	}
 
-	public void cadastrar(Funcionario a) {
+	public void cadastrar(Funcionario a) throws OJEException {
 
 		this.repositorio.cadastrarFuncionario(a);
 		
 	}
 
-	public boolean remover(String id) {
+	public void remover(String id) throws ONFException {
 		
-		return this.repositorio.removerFuncionario(id);	
+		this.repositorio.removerFuncionario(id);	
 
 	}
 
-	public Funcionario procurar(String id) {
+	public Funcionario procurar(String id) throws ONFException {
+		
 		return this.repositorio.buscarFuncionario(id);
 
 	}
 
-	public boolean atualizarFuncionario(String id, Endereco ende) {
+	public void atualizarFuncionario(String id, Endereco ende) throws ONFException {
 
-		return  this.repositorio.atualizarFuncionarioendereco(id, ende);
+		this.repositorio.atualizarFuncionarioendereco(id, ende);
 		
 	}
 
@@ -54,18 +58,16 @@ public class GerenciadorFuncionarios {
 
 	}
 
-	public boolean loginFuncionario(String id, String senha) {
+	public boolean loginFuncionario(String id, String senha) throws ONFException, WPException {
 		
-		return this.repositorio.loginFunc(id, senha);
+		 return this.repositorio.loginFunc(id, senha);
 		
 	}
 
-	public boolean existe(String id) {
-		return this.repositorio.existeFuncionario(id);
-	}
 
-	public boolean alterarSenha(String id, String senhaold, String senhanew) {
-		return this.repositorio.alterarsenha(id, senhaold, senhanew);
+	public void alterarSenha(String id, String senhaold, String senhanew) throws ONFException, WPException {
+		
+		this.repositorio.alterarsenha(id, senhaold, senhanew);
 
 	}
 }

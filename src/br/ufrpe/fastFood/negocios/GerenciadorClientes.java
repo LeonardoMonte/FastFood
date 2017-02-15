@@ -5,6 +5,9 @@ import java.util.List;
 import br.ufrpe.fastFood.beans.Cliente;
 import br.ufrpe.fastFood.beans.Endereco;
 import br.ufrpe.fastFood.dados.RepositorioClientes;
+import br.ufrpe.fastFood.exceptions.OJEException;
+import br.ufrpe.fastFood.exceptions.ONFException;
+import br.ufrpe.fastFood.exceptions.WPException;
 import br.ufrpe.fastFood.interfaces.RepositorioClienteInterface;
 
 public class GerenciadorClientes {
@@ -26,26 +29,26 @@ public class GerenciadorClientes {
 	}
 	
 	
-	public void cadastrar(Cliente a) {
+	public void cadastrar(Cliente a) throws OJEException {
 
 			this.repositorio.cadastrarCliente(a);
 	
 	}
 
-	public boolean remover(String id) {
+	public void remover(String id) throws ONFException {
 
-		return this.repositorio.removerCliente(id);		
+		this.repositorio.removerCliente(id);		
 
 	}
 
-	public Cliente procurar(String id) {
+	public Cliente procurar(String id) throws ONFException {
 		return this.repositorio.buscarCliente(id);  
 
 	}
 
-	public boolean atualizarClienteendereco(String id, Endereco a) {
+	public void atualizarClienteendereco(String id, Endereco a) throws ONFException {
 
-			return this.repositorio.atualizarClienteendereco(id, a); 
+			this.repositorio.atualizarClienteendereco(id, a); 
 		
 	}
 
@@ -55,22 +58,20 @@ public class GerenciadorClientes {
 
 	}
 
-	public boolean loginCliente(String id, String senha) {
+	public boolean loginCliente(String id, String senha) throws ONFException, WPException {
 		
-		return this.repositorio.loginCliente(id, senha); // ultimo
+		return this.repositorio.loginCliente(id, senha); 
 	}
 
-	public boolean alterarSenha(String id, String senhaold, String senhanew) {
-		return this.repositorio.alterarsenha(id, senhaold, senhanew);
+	public void alterarSenha(String id, String senhaold, String senhanew) throws ONFException, WPException {
+		
+		this.repositorio.alterarsenha(id, senhaold, senhanew);
 
 	}
 
-	public String nomeCliente(String id) {
+	public String nomeCliente(String id)  {
 		return this.repositorio.getNomecliente(id);
 	}
 
-	public boolean existeC(String id) {
-		return this.repositorio.existeCliente(id);
-	}
 
 }

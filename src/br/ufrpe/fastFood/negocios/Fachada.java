@@ -13,6 +13,7 @@ import br.ufrpe.fastFood.beans.Venda;
 import br.ufrpe.fastFood.exceptions.OJEException;
 import br.ufrpe.fastFood.exceptions.ONFException;
 import br.ufrpe.fastFood.exceptions.PNEException;
+import br.ufrpe.fastFood.exceptions.WPException;
 
 public class Fachada {
 
@@ -46,26 +47,26 @@ public class Fachada {
 
 	// FUNCOES DO GERENCIADOR DE CLIENTE 
 
-	public void cadastrarCliente(Cliente a)
+	public void cadastrarCliente(Cliente a) throws OJEException
 	{
 		this.gerencliente.cadastrar(a);
 	}
 
-	public boolean removerCliente(String id) {
+	public void removerCliente(String id) throws ONFException {
 
-		return this.gerencliente.remover(id);		
+		this.gerencliente.remover(id);		
 
 	}
 
-	public Cliente procurarCliente(String id) {
+	public Cliente procurarCliente(String id) throws ONFException {
 
 		return this.gerencliente.procurar(id);
 
 	}
 
-	public boolean atualizarClienteendereco(String id, Endereco a) {
+	public void atualizarClienteendereco(String id, Endereco a) throws ONFException {
 
-		return this.gerencliente.atualizarClienteendereco(id, a);
+		this.gerencliente.atualizarClienteendereco(id, a);
 
 	}
 
@@ -75,52 +76,47 @@ public class Fachada {
 
 	}
 
-	public boolean loginCliente(String id, String senha) {
+	public boolean loginCliente(String id, String senha) throws ONFException, WPException {
 
 		return this.gerencliente.loginCliente(id, senha);
 	}
 
-	public boolean alterarSenhaCliente(String id, String senhaold, String senhanew) {
+	public void alterarSenhaCliente(String id, String senhaold, String senhanew) throws ONFException, WPException {
 
-		return this.gerencliente.alterarSenha(id, senhaold, senhanew);
+		this.gerencliente.alterarSenha(id, senhaold, senhanew);
 
 	}
 
-	public String nomeCliente(String id) {
+	public String nomeCliente(String id){
 
 		return this.gerencliente.nomeCliente(id);
 
 	}
 
-	public boolean existeC(String id) {
-
-		return this.gerencliente.existeC(id);
-
-	}
 
 	// INICIO DAS FUNCOES DE GERENCIAMENTO DE FUNC
 
-	public void cadastrarFuncionario(Funcionario a) {
+	public void cadastrarFuncionario(Funcionario a) throws OJEException {
 
 		this.gerenfunc.cadastrar(a);
 
 	}
 
-	public boolean removerFuncionario(String id) {
+	public void removerFuncionario(String id) throws ONFException {
 
-		return this.gerenfunc.remover(id);
+		this.gerenfunc.remover(id);
 
 	}
 
-	public Funcionario procurarFuncionario(String id) {
+	public Funcionario procurarFuncionario(String id) throws ONFException {
 
 		return this.gerenfunc.procurar(id);
 
 	}
 
-	public boolean atualizarFuncionario(String id, Endereco ende) {
+	public void atualizarFuncionario(String id, Endereco ende) throws ONFException {
 
-		return this.gerenfunc.atualizarFuncionario(id, ende);
+		 this.gerenfunc.atualizarFuncionario(id, ende);
 
 	}
 
@@ -130,21 +126,17 @@ public class Fachada {
 
 	}
 
-	public boolean loginFuncionario(String id, String senha) {
+	public boolean loginFuncionario(String id, String senha) throws ONFException, WPException {
 
 		return this.gerenfunc.loginFuncionario(id, senha);
 
 	}
 
-	public boolean existeFuncionario(String id) {
 
-		return this.gerenfunc.existe(id);
 
-	}
+	public void alterarSenhaFuncionario(String id, String senhaold, String senhanew) throws ONFException, WPException {
 
-	public boolean alterarSenhaFuncionario(String id, String senhaold, String senhanew) {
-
-		return this.gerenfunc.alterarSenha(id, senhaold, senhanew);
+		this.gerenfunc.alterarSenha(id, senhaold, senhanew);
 
 	}
 

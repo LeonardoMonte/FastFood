@@ -1,5 +1,7 @@
 package br.ufrpe.fastFood.beans;
 
+import br.ufrpe.fastFood.exceptions.WPException;
+
 public class Cliente extends Pessoa {
 
 	private Endereco endere;
@@ -36,13 +38,16 @@ public class Cliente extends Pessoa {
 		this.senha = senha;
 	}
 	
-	public boolean alterarSenha(String oldsenha ,  String newsenha){
-		boolean retorno =  false;
+	public void alterarSenha(String oldsenha ,  String newsenha) throws WPException{
+
 		if( this.senha.equals(oldsenha)){
 			this.setSenha(newsenha);
-			retorno =  true;
 		}
-		return retorno;
+		else
+		{
+			throw new WPException(oldsenha);
+		}
+
 	}
 	
 
@@ -54,18 +59,21 @@ public class Cliente extends Pessoa {
 		return email;
 	}
 	
-	public boolean equalsSenhaCliente(String id, String senha){
+	public boolean equalsSenhaCliente( String senha) throws WPException{
 		
-		boolean retorno = false;
-		
-		if(id != null && senha != null){
-			if(id.equals(this.getId()) && senha.equals(this.senha)){
-				
-				retorno = true;
+		boolean resultado = false;
+		if( senha != null){
+			if(senha.equals(this.senha)){
+				resultado = true;
+			}
+			else
+			{
+				throw new WPException(senha);
 			}
 		}
-		
-		return retorno;
+	
+		return resultado;
+
 	}
 	
 	public boolean equalsSenhaOnly(String senha)

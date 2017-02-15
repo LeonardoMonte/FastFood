@@ -2,8 +2,13 @@ package br.ufrpe.fastFood.dados;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import br.ufrpe.fastFood.beans.Cliente;
 import br.ufrpe.fastFood.beans.Endereco;
 import br.ufrpe.fastFood.beans.Funcionario;
+import br.ufrpe.fastFood.exceptions.OJEException;
+import br.ufrpe.fastFood.exceptions.ONFException;
+import br.ufrpe.fastFood.exceptions.WPException;
 import br.ufrpe.fastFood.interfaces.RepositorioFuncionarioInterface;
 
 public class RepositorioFuncionarios implements RepositorioFuncionarioInterface {
@@ -22,12 +27,32 @@ public class RepositorioFuncionarios implements RepositorioFuncionarioInterface 
 		return instancia;
 	}
 
-	public void cadastrarFuncionario(Funcionario f) {
+	public void cadastrarFuncionario(Funcionario f) throws OJEException {
 
-		this.listaFuncionarios.add(f);
+		int cont = 0;
+		
+		for(int x = 0 ; x < this.listaFuncionarios.size() ; x++)
+		{
+			if(this.listaFuncionarios.get(x).getId().equals(f.getId()))
+			{
+				cont++;
+			}
+		}
+		
+		if(cont > 0)
+		{
+			throw new OJEException( f.getId());
+		}
+		else
+		{
+			this.listaFuncionarios.add(f);
+		}
+				
+		
+		
 	}
 
-	public Funcionario buscarFuncionario(String id) {
+	public Funcionario buscarFuncionario(String id) throws ONFException {
 
 		Funcionario resultado = null;
 
@@ -36,40 +61,39 @@ public class RepositorioFuncionarios implements RepositorioFuncionarioInterface 
 		if (i >= 0) {
 			resultado = this.listaFuncionarios.get(i);
 		}
-
-		return resultado;
-
-	}
-
-	public boolean atualizarFuncionarioendereco(String id, Endereco ende) {
-
-		boolean resultado = false;
-		if (this.existeFuncionario(id) == true) {
-
-			for (Funcionario func : listaFuncionarios) {
-				if (func.getId().equals(id)) {
-
-					func.setEndere(ende);
-					resultado = true;
-				}
-			}
-
+		else
+		{
+			throw new ONFException(id);
 		}
+
 		return resultado;
+
 	}
 
-	public boolean removerFuncionario(String id) {
+	public void atualizarFuncionarioendereco(String id, Endereco ende) throws ONFException {
 
-		int i = this.procurarIndiceF(id);
-		boolean result = false;
-
-		if (i >= 0) {
+		Funcionario f = new Funcionario();
+		f = this.buscarFuncionario(id);
+		
+		if( f.getId() != null)
+		{
+			f.setEndere(ende);
 			
-			this.listaFuncionarios.remove(i);
-			result = true;
 		}
+		
+	
+	}
 
-		return result;
+	public void removerFuncionario(String id) throws ONFException{
+
+		Funcionario f = new Funcionario();
+		f = this.buscarFuncionario(id);
+		
+		if( f.getId() != null)
+		{
+			this.listaFuncionarios.remove(f);
+			
+		}
 	}
 
 	public List<Funcionario> listarFuncinario() {
@@ -77,32 +101,6 @@ public class RepositorioFuncionarios implements RepositorioFuncionarioInterface 
 		return this.listaFuncionarios;
 	}
 
-	public boolean existeFuncionario(String id) {
-
-		boolean resultado = false;
-		Funcionario a = new Funcionario();
-		
-		a = this.buscarFuncionario(id);
-		
-		if( a != null )
-		{
-			resultado = true;
-			
-		}
-
-		return resultado;
-	}
-
-	public boolean existeIndiceF(int ind) {
-
-		boolean resultado = false;
-
-		if (this.listaFuncionarios.get(ind) != null) {
-			resultado = true;
-		}
-
-		return resultado;
-	}
 
 	public int procurarIndiceF(String id) {
 
@@ -116,21 +114,28 @@ public class RepositorioFuncionarios implements RepositorioFuncionarioInterface 
 		return cont;
 	}
 
-	public boolean loginFunc(String id, String senha) {
+	public boolean loginFunc(String id, String senha) throws ONFException, WPException{
 
-		Funcionario c = new Funcionario();
-		c = this.buscarFuncionario(id);
-		boolean resultado = c.equalsSenhaFunc(id, senha);
+		boolean b = false;
+		Funcionario f = new Funcionario();
+		f = this.buscarFuncionario(id);		
+		if(f.getId() != null)
+		{
 
-		return resultado;
+			b = f.equalsSenhaFunc(senha);
 
+		}
+		return b;
 	}
 
-	public boolean alterarsenha(String id, String senhaold, String senhanew) {
 
-		Funcionario c = new Funcionario();
-		c = this.buscarFuncionario(id);
-		boolean resultado = c.alterarSenha(senhaold, senhanew);
-		return resultado;
+	public void alterarsenha(String id, String senhaold, String senhanew) throws ONFException, WPException {
+
+		Funcionario f = new Funcionario();
+		f = this.buscarFuncionario(id);
+		if(f.getId() != null)
+		{
+			f.alterarSenha(senhaold, senhanew);
+		}
 	}
 }
