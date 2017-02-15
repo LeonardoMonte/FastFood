@@ -3,6 +3,10 @@ package br.ufrpe.fastFood.gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
+import br.ufrpe.fastFood.beans.Endereco;
+import br.ufrpe.fastFood.beans.Funcionario;
+import br.ufrpe.fastFood.negocios.Fachada;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -46,13 +49,7 @@ public class CadastroController implements Initializable {
 	private Label numero;
 
 	@FXML
-	private Label refencia;
-
-	@FXML
-	private Label telefone1;
-
-	@FXML
-	private Label telefone2;
+	private Label fone;
 
 	@FXML
 	private Label senha;
@@ -61,8 +58,11 @@ public class CadastroController implements Initializable {
 	private Label confirmaSenha;
 
 	@FXML
-	private Button finalizar;
-	
+	private Label lblAviso;
+
+	@FXML
+	private Button botaoFinalizar;
+
 	@FXML
 	private Button cancelar;
 
@@ -94,13 +94,7 @@ public class CadastroController implements Initializable {
 	private TextField txtNumero;
 
 	@FXML
-	private TextField txtReferecia;
-
-	@FXML
-	private TextField txtFone1;
-
-	@FXML
-	private TextField txtFone2;
+	private TextField txtFone;
 
 	@FXML
 	private TextField txtSenha;
@@ -110,25 +104,57 @@ public class CadastroController implements Initializable {
 
 	@FXML
 	private void botaoFinalizarAction(ActionEvent event){
-		try{
-			if(!(txtNome.equals("") || txtCpf.equals("") || txtNascimento.equals("")
-					|| txtCidade.equals("")	|| txtBairro.equals("") || txtEstado.equals("")
-					|| txtFone1.equals("") || txtSenha.equals("") || txtConfirmaSenha.equals(""))){
-				Alert cadastroConfirmado = new Alert(Alert.AlertType.INFORMATION);
-				cadastroConfirmado.setHeaderText("Aviso");
-				cadastroConfirmado.setContentText("Cadastro Realizado com sucesso");
-				cadastroConfirmado.showAndWait();
-			}else{
 
-				Alert cadastrNaoConfirmado = new Alert(Alert.AlertType.INFORMATION);
-				cadastrNaoConfirmado.setHeaderText("Aviso");
-				cadastrNaoConfirmado.setContentText("Por favor, preencha todos os campos.");
-				cadastrNaoConfirmado.showAndWait();
+
+		String nome, cpf, nasc, fone, rua, bairro, cidade, estado, senha1, senha2, numero;
+		nome = txtNome.getText();
+		cpf = txtCpf.getText();
+		nasc = txtNascimento.getText();
+		rua = txtRua.getText();
+		bairro = txtBairro.getText();
+		cidade = txtCidade.getText();
+		estado = txtEstado.getText();
+		senha1 = txtSenha.getText();
+		senha2 = txtConfirmaSenha.getText();
+		fone = txtFone.getText();
+		numero = txtNumero.getText();
+
+
+		if(!nome.equals("") && !cpf.equals("") && !nasc.equals("") && !rua.equals("") 
+				&& !bairro.equals("") && !cidade.equals("") && !estado.equals("") 
+				&& !senha1.equals("") && !senha2.equals("") && !fone.equals("") && !numero.equals("")){
+
+			try{
+				if(senha1.equals(senha2)){
+					int num = Integer.parseInt(numero);
+					Endereco endereco = new Endereco(rua, bairro, cidade, estado, num, fone);
+					Funcionario cadFuncionario = new Funcionario(nome, cpf, nasc, endereco, senha1);					
+					Fachada.getInstancia().cadastrarFuncionario(cadFuncionario);
+
+					try{
+						Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+						Scene scene = new Scene(root);
+						Stage stage = new Stage();
+						stage.setScene(scene);
+						stage.setTitle("Login");
+						stage.show();
+					}catch(Exception e){
+						System.out.println(e.getMessage());
+					}
+
+				}else{
+					lblAviso.setText("Senhas não conferem, tente novamente");
+				}
+
+			}catch(Exception e){
+				System.out.println(e.getMessage());
 			}
 
-		}catch(Exception e){
-			System.out.println(e.getMessage());
+		}else{
+			lblAviso.setText("Preencha todos os campos");
 		}
+
+
 	}
 
 
@@ -136,14 +162,14 @@ public class CadastroController implements Initializable {
 	private void botaoCancelarAction(ActionEvent event){
 		((Node) (event.getSource())).getScene().getWindow().hide();
 		try{
-			
+
 			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
 			Stage stage = new Stage();
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.setTitle("Login");
 			stage.show();			
-			
+
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}

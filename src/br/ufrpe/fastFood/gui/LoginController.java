@@ -55,21 +55,35 @@ public class LoginController implements Initializable {
 	private void botaoEntrarAction(ActionEvent event) throws ONFException, WPException{
 
 		if (!(txtLogin.getText().equals("") || txtSenha.getText().equals(""))) {
-			if(Fachada.getInstancia().loginCliente(txtLogin.getText(), txtSenha.getText())){
-				((Node) (event.getSource())).getScene().getWindow().hide();
-				
+
+			String login, senha;
+
+			login = txtLogin.getText();
+			senha = txtSenha.getText();
+
+			try{
+
+				if(Fachada.getInstancia().loginFuncionario(login, senha)){
+					((Node) (event.getSource())).getScene().getWindow().hide();
+
+				}else{
+					aviso.setText("Login ou Senha inválido ");
+				}
+
+			}catch(ONFException e){
+				System.out.println(e.getMessage());
+				aviso.setText("Usuário não encontrado");
 			}
 
-
+		}else{
+			aviso.setText("Preencha os campos");
 		}
-		aviso.setText("Login ou Senha inválido.");
-
 
 	}
 
 	@FXML
 	private void botaoSairAction(ActionEvent event){
-		
+
 		((Node) (event.getSource())).getScene().getWindow().hide();	
 		try{
 			Parent root = FXMLLoader.load(getClass().getResource("Tela Inicial.fxml"));
@@ -84,10 +98,10 @@ public class LoginController implements Initializable {
 
 
 	}
-	
+
 	@FXML
 	private void botaoCadastrarAction(ActionEvent event){
-		
+
 		((Node) (event.getSource())).getScene().getWindow().hide();
 		try{
 			Parent root = FXMLLoader.load(getClass().getResource("Cadastro.fxml"));

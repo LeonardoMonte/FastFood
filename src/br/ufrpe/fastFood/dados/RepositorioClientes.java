@@ -4,7 +4,6 @@ import java.util.List;
 
 import br.ufrpe.fastFood.beans.Cliente;
 import br.ufrpe.fastFood.beans.Endereco;
-import br.ufrpe.fastFood.beans.Produto;
 import br.ufrpe.fastFood.exceptions.OJEException;
 import br.ufrpe.fastFood.exceptions.ONFException;
 import br.ufrpe.fastFood.exceptions.WPException;

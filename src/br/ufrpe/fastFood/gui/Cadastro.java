@@ -13,7 +13,7 @@ public class Cadastro extends Application{
 		Parent root = FXMLLoader.load(getClass().getResource("Cadastro.fxml"));
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
-		primaryStage.setTitle("Cadastro");
+		primaryStage.setTitle("Cadastro de Funcionário");
 		primaryStage.show();
 		
 	}
