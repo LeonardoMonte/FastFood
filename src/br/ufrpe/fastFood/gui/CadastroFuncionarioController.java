@@ -19,7 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class CadastroController implements Initializable {
+public class CadastroFuncionarioController implements Initializable {
 
 	@FXML
 	private Label nome;

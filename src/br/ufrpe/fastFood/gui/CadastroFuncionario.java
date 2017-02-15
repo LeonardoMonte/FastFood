@@ -6,11 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Cadastro extends Application{
+public class CadastroFuncionario extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Parent root = FXMLLoader.load(getClass().getResource("Cadastro.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("CadastroFuncionario.fxml"));
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Cadastro de Funcionário");

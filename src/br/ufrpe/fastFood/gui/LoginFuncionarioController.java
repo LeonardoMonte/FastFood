@@ -22,7 +22,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 
-public class LoginController implements Initializable {
+public class LoginFuncionarioController implements Initializable {
 
 	@FXML
 	private TextField txtLogin;
