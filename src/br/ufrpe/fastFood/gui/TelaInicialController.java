@@ -41,7 +41,7 @@ public class TelaInicialController implements Initializable {
 		((Node) (event.getSource())).getScene().getWindow().hide();
 		try {
 			Stage stageNew = new Stage();
-			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("LoginCliente.fxml"));
 			Scene loginScene = new Scene(root);
 			stageNew.setScene(loginScene);
 			stageNew.setTitle("Auto Atendimento");
