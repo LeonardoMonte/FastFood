@@ -30,11 +30,7 @@ import javafx.stage.Stage;
 
 public class CadastroClienteController implements Initializable {
 	
-	
-	ObservableList<String> Estados = FXCollections.observableArrayList("Acre", "Alagoas" , "Amapá" , "Amazonas" , "Bahia",
-			"Ceará" , "Distrito Federal" , "Goiás" , "Espírito Santo" , "Maranhao" , "Mato Grosso" , "Mato Grosso do Sul" , 
-			"Minas Gerais" , "Pará" , "Paraiba" , "Paraná" , "Pernambuco" , "Piauí" , "Rio de Janeiro" , "Rio Grande do Norte" ,
-			"Rio Grande do Sul" , "Rondonia" , "Roraima" , "Sao Paulo" , "Santa Catarina" , "Sergipe" , "Tocatins");
+
 	
 	@FXML
 	private TextField nometxt;
@@ -64,13 +60,11 @@ public class CadastroClienteController implements Initializable {
 	private PasswordField confirmarsenhatxt;
 	
 	@FXML
-	private DatePicker datadenascismentotxt;
+	private TextField datadenascismentotxt;
 	
 	@FXML
-	private ComboBox estadotxt;
+	private TextField estadotxt;
 	
-	@FXML
-	private CheckBox checkbox;
 	
 	@FXML
 	private Button confirmarbutton;
@@ -84,27 +78,20 @@ public class CadastroClienteController implements Initializable {
 	@FXML
 	private Label lblAviso;
 	
-	private void iniciar()
-	{
-		
-		estadotxt.setValue("Acre");
-		estadotxt.setItems(Estados);
-	}
 	
 	@FXML
-	private void botaoFinalizarActionC(ActionEvent event){
-
-
+	private void botaoFinalizarActionC(ActionEvent event){		
+		
 		String nome, cpf, nasc, fone, rua, bairro, cidade, estado, senha1, senha2, numero, email;
 		nome = nometxt.getText();
 		cpf = CPFtxt.getText();
-		nasc = datadenascismentotxt.getValue().toString();
+		nasc = datadenascismentotxt.getText();
 		rua = ruatxt.getText();
 		cidade = cidadetxt.getText();
 		bairro = bairrotxt.getText();
 		email = emailtxt.getText();
 		
-		estado = estadotxt.getValue().toString();
+		estado = estadotxt.getText();
 		senha1 = senhatxt.getText();
 		senha2 = confirmarsenhatxt.getText();
 		fone = telefonetxt.getText();
@@ -147,7 +134,7 @@ public class CadastroClienteController implements Initializable {
 
 
 				}else{
-					lblAviso.setText("Senhas não conferem, tente novamente");
+					lblAviso.setText("Senhas não conferem");
 				}
 
 			}catch(Exception e){

@@ -160,7 +160,7 @@ public class CadastroFuncionarioController implements Initializable {
 
 
 				}else{
-					lblAviso.setText("Senhas não conferem, tente novamente");
+					lblAviso.setText("Senhas não conferem");
 				}
 
 			}catch(Exception e){
