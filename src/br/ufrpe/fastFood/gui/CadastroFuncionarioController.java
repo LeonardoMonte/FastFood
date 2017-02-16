@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import br.ufrpe.fastFood.beans.Endereco;
 import br.ufrpe.fastFood.beans.Funcionario;
+import br.ufrpe.fastFood.exceptions.OJEException;
 import br.ufrpe.fastFood.negocios.Fachada;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +15,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -111,8 +114,9 @@ public class CadastroFuncionarioController implements Initializable {
 		cpf = txtCpf.getText();
 		nasc = txtNascimento.getText();
 		rua = txtRua.getText();
-		bairro = txtBairro.getText();
 		cidade = txtCidade.getText();
+		bairro = txtBairro.getText();
+		
 		estado = txtEstado.getText();
 		senha1 = txtSenha.getText();
 		senha2 = txtConfirmaSenha.getText();
@@ -128,11 +132,13 @@ public class CadastroFuncionarioController implements Initializable {
 				if(senha1.equals(senha2)){
 					int num = Integer.parseInt(numero);
 					Endereco endereco = new Endereco(rua, bairro, cidade, estado, num, fone);
-					Funcionario cadFuncionario = new Funcionario(nome, cpf, nasc, endereco, senha1);					
+					Funcionario cadFuncionario = new Funcionario(nome, cpf, nasc, endereco, senha1);
+					try
+					{
 					Fachada.getInstancia().cadastrarFuncionario(cadFuncionario);
-
+					
 					try{
-						Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+						Parent root = FXMLLoader.load(getClass().getResource("LoginFuncionario.fxml"));
 						Scene scene = new Scene(root);
 						Stage stage = new Stage();
 						stage.setScene(scene);
@@ -141,6 +147,17 @@ public class CadastroFuncionarioController implements Initializable {
 					}catch(Exception e){
 						System.out.println(e.getMessage());
 					}
+					
+					}
+					catch(OJEException exc)
+					{
+						Alert alert = new Alert(AlertType.WARNING);
+						alert.setTitle("Warning Dialog");
+						alert.setHeaderText("Impossivel realizar a acao");
+						alert.setContentText("Funcionario com o id " + exc.getId() + " Ja existe");			
+						
+					}
+
 
 				}else{
 					lblAviso.setText("Senhas não conferem, tente novamente");
@@ -163,7 +180,7 @@ public class CadastroFuncionarioController implements Initializable {
 		((Node) (event.getSource())).getScene().getWindow().hide();
 		try{
 
-			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("LoginFuncionario.fxml"));
 			Stage stage = new Stage();
 			Scene scene = new Scene(root);
 			stage.setScene(scene);

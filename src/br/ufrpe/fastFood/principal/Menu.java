@@ -12,26 +12,11 @@ import br.ufrpe.fastFood.beans.Produto;
 import br.ufrpe.fastFood.beans.PromocaoCombo;
 import br.ufrpe.fastFood.beans.PromocaoProduto;
 import br.ufrpe.fastFood.beans.Venda;
-import br.ufrpe.fastFood.dados.RepositorioClientes;
-import br.ufrpe.fastFood.dados.RepositorioFuncionarios;
-import br.ufrpe.fastFood.dados.RepositorioProdutos;
-import br.ufrpe.fastFood.dados.RepositorioVendas;
 import br.ufrpe.fastFood.exceptions.OJEException;
 import br.ufrpe.fastFood.exceptions.ONFException;
 import br.ufrpe.fastFood.exceptions.PNEException;
 import br.ufrpe.fastFood.exceptions.WPException;
 import br.ufrpe.fastFood.negocios.Fachada;
-import br.ufrpe.fastFood.negocios.GerenciadorClientes;
-import br.ufrpe.fastFood.negocios.GerenciadorCombos;
-import br.ufrpe.fastFood.negocios.GerenciadorFuncionarios;
-import br.ufrpe.fastFood.negocios.GerenciadorProdutos;
-import br.ufrpe.fastFood.negocios.GerenciadorPromocoes;
-import br.ufrpe.fastFood.negocios.GerenciadorVendas;
-import br.ufrpe.fastFood.interfaces.RepositorioClienteInterface;
-import br.ufrpe.fastFood.interfaces.RepositorioFuncionarioInterface;
-import br.ufrpe.fastFood.interfaces.RepositorioProdutoInterface;
-import br.ufrpe.fastFood.interfaces.RepositorioVendaInterface;;
-
 
 public class Menu {
 
@@ -139,7 +124,6 @@ public class Menu {
 						if (contCliente > 0) {
 							boolean resultado1 = false;
 							String tempId, tempSenha;
-							int contTentativas = 0;
 
 							do {
 								System.out.println("------------Login Cliente------------\n");
@@ -586,7 +570,6 @@ public class Menu {
 								case '2':
 									String oldsenha, newsenha;
 									boolean result = false;
-									int contla = 0;
 									System.out.println("--------------Alteracao de Senha-------------\n");
 									do {
 
@@ -827,7 +810,6 @@ public class Menu {
 
 										String oldsenha, newsenha;
 										boolean result = false;
-										int contla = 0;
 										int blabla = 0;
 
 										if (contFunc > 0) {

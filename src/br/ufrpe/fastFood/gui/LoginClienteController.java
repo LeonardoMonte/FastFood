@@ -22,63 +22,66 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-
-
-public class LoginFuncionarioController implements Initializable {
+public class LoginClienteController implements Initializable {
 
 	@FXML
-	private TextField txtLoginF;
+	private TextField txtLoginC;
 
 	@FXML
-	private PasswordField txtSenhaF;
+	private PasswordField txtSenhaC;
 
 	@FXML
-	private Hyperlink esqueceuSenhaF;
+	private Hyperlink esqueceuSenhaC;
 
 	@FXML
-	private Button botaoEntrarF;
+	private Button botaoEntrarC;
 
 	@FXML
-	private Button botaoSairF;
+	private Button botaoSairC;
+	
+	@FXML
+	private Button botaoCadastrarC;
 
 	@FXML
-	private Label avisoF;
+	private Label avisoC;
 
 	@FXML
-	private ImageView imagemF;
-
+	private ImageView imagemC;
+	
+	
+	
 	@FXML
-	private void botaoEntrarActionF(ActionEvent event) throws ONFException, WPException{
+	private void botaoEntrarActionC(ActionEvent event) throws ONFException, WPException{
 
-		if (!(txtLoginF.getText().equals("") || txtSenhaF.getText().equals(""))) {
+		if (!(txtLoginC.getText().equals("") || txtSenhaC.getText().equals(""))) {
 
 			String login, senha;
 
-			login = txtLoginF.getText();
-			senha = txtSenhaF.getText();
+			login = txtLoginC.getText();
+			senha = txtSenhaC.getText();
 
 			try{
 
-				if(Fachada.getInstancia().loginFuncionario(login, senha)){
+				if(Fachada.getInstancia().loginCliente(login, senha)){
 					((Node) (event.getSource())).getScene().getWindow().hide();
 
 				}else{
-					avisoF.setText("Login ou Senha inválido ");
+					avisoC.setText("Login ou Senha inválido ");
 				}
 
 			}catch(ONFException e){
 				System.out.println(e.getMessage());
-				avisoF.setText("Usuário não encontrado");
+				avisoC.setText("Usuário não encontrado");
 			}
 
 		}else{
-			avisoF.setText("Preencha os campos");
+			avisoC.setText("Preencha os campos");
 		}
 
 	}
 
 	@FXML
-	private void botaoSairActionF(ActionEvent event){
+	private void botaoSairActionC(ActionEvent event){
 
 		((Node) (event.getSource())).getScene().getWindow().hide();	
 		try{
@@ -94,16 +97,32 @@ public class LoginFuncionarioController implements Initializable {
 
 
 	}
+	
+	@FXML
+	private void botaoCadastrarActionC(ActionEvent event)
+	{
+		((Node) (event.getSource())).getScene().getWindow().hide();
+		
+		try
+		{
+			Parent root = FXMLLoader.load(getClass().getResource("Cadastro Cliente.fxml"));
+			Scene scene = new Scene(root);
+			Stage primaryStage = new Stage();
+			primaryStage.setScene(scene);
+			primaryStage.setTitle("Cadastro");
+			primaryStage.show();
+			
+		}catch (Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
 
 
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		Image img = new Image("br/ufrpe/fastFood/gui/LOGO_PROJETO.png");
-		this.imagemF.setImage(img);
+		this.imagemC.setImage(img);
 
 	}
-
-
-
 }

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="355.0" prefWidth="477.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.LoginClienteController">
+   <children>
+      <JFXTextField fx:id="txtLoginC" focusColor="#e51b09" labelFloat="true" layoutX="289.0" layoutY="96.0" prefHeight="29.0" prefWidth="156.0" promptText="Login" unFocusColor="#14bce3">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXPasswordField fx:id="txtSenhaC" focusColor="#e51b09" labelFloat="true" layoutX="289.0" layoutY="163.0" prefHeight="29.0" prefWidth="156.0" promptText="Senha" unFocusColor="#14bce3">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXButton fx:id="botaoEntrarC" buttonType="RAISED" layoutX="363.0" layoutY="217.0" onAction="#botaoEntrarActionC" prefHeight="39.0" prefWidth="88.0" ripplerFill="#ee8700" text="ENTRAR" textFill="#ee8700">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="botaoSairC" buttonType="RAISED" layoutX="289.0" layoutY="217.0" onAction="#botaoSairActionC" prefHeight="39.0" prefWidth="64.0" ripplerFill="#ee8700" text="SAIR" textFill="#ee8700">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="botaoCadastrarC" buttonType="RAISED" layoutX="353.0" layoutY="293.0" onAction="#botaoCadastrarActionC" prefHeight="39.0" prefWidth="108.0" text="CADASTRO" textFill="#ee8700">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <Hyperlink fx:id="esqueceuSenhaC" layoutX="40.0" layoutY="298.0" text="*Esqueceu sua senha" />
+      <Label fx:id="avisoC" alignment="CENTER" layoutX="273.0" layoutY="28.0" prefHeight="45.0" prefWidth="190.0" textAlignment="CENTER" textFill="RED" />
+      <ImageView fx:id="imagemC" fitHeight="200.0" fitWidth="199.0" layoutX="24.0" layoutY="59.0" nodeOrientation="RIGHT_TO_LEFT">
+         <image>
+            <Image url="@LOGO_PROJETO.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
