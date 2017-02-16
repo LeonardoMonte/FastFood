@@ -64,6 +64,7 @@ public class LoginClienteController implements Initializable {
 
 				if(Fachada.getInstancia().loginCliente(login, senha)){
 					((Node) (event.getSource())).getScene().getWindow().hide();
+					
 
 				}else{
 					avisoC.setText("Login ou Senha inválido ");
