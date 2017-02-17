@@ -109,7 +109,7 @@ public class CadastroClienteController implements Initializable {
 					try
 					{
 					Fachada.getInstancia().cadastrarCliente(cadCliente);
-					
+					((Node) (event.getSource())).getScene().getWindow().hide();
 					try{
 						Parent root = FXMLLoader.load(getClass().getResource("LoginCliente.fxml"));
 						Scene scene = new Scene(root);
@@ -117,6 +117,7 @@ public class CadastroClienteController implements Initializable {
 						stage.setScene(scene);
 						stage.setTitle("Login");
 						stage.show();
+						
 					}catch(Exception e){
 						System.out.println(e.getMessage());
 					}
@@ -127,7 +128,8 @@ public class CadastroClienteController implements Initializable {
 						Alert alert = new Alert(AlertType.WARNING);
 						alert.setTitle("Warning Dialog");
 						alert.setHeaderText("Impossivel realizar a acao");
-						alert.setContentText("Funcionario com o id " + exc.getId() + " Ja existe");			
+						alert.setContentText("Funcionario com o id " + exc.getId() + " Ja existe");	
+
 						
 					}
 

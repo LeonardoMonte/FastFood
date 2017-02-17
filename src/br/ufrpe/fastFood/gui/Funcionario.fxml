@@ -1,27 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.AreaFuncionarioController">
    <children>
-      <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="51.0" layoutY="107.0" prefHeight="140.0" prefWidth="140.0" ripplerFill="#00bcd4" text="PEDIDO" textFill="#ff9800">
+      <ImageView fx:id="imgGerenciamento" fitHeight="117.0" fitWidth="90.0" layoutX="441.0" layoutY="115.0">
+         <image>
+            <Image url="@Fremes-e-Máscaras-Digitais-queroimagem-Ceiça-Crispim%20%20%20(8).png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgPedido" fitHeight="105.0" fitWidth="90.0" layoutX="76.0" layoutY="113.0">
+         <image>
+            <Image url="@Shopping-bag_icon-icons.com_51907.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgRelatorio" fitHeight="100.0" fitWidth="100.0" layoutX="261.0" layoutY="124.0">
+         <image>
+            <Image url="@bars-chart-ascending_icon-icons.com_56865.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="botaoNovoPedidoF" alignment="BOTTOM_CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="38.0" layoutY="107.0" prefHeight="166.0" prefWidth="166.0" ripplerFill="#00bcd4" text="PEDIDO" textFill="#ff9800">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="218.0" layoutY="107.0" prefHeight="140.0" prefWidth="140.0" ripplerFill="#00bcd4" text="RELATORIO" textFill="#ff9800">
+      <JFXButton fx:id="botaoRelatioF" alignment="BOTTOM_CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="222.0" layoutY="107.0" prefHeight="166.0" prefWidth="166.0" ripplerFill="#00bcd4" text="RELATORIO" textFill="#ff9800">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="386.0" layoutY="108.0" prefHeight="140.0" prefWidth="140.0" ripplerFill="#00bcd4" text="GERENCIAMENTO" textFill="#ff9800">
+      <JFXButton fx:id="botaoGerenciamentoF" alignment="BOTTOM_CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="403.0" layoutY="107.0" prefHeight="166.0" prefWidth="166.0" ripplerFill="#00bcd4" text="GERENCIAMENTO" textFill="#ff9800">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="413.0" layoutY="333.0" prefHeight="41.0" prefWidth="113.0" ripplerFill="#00bcd4" text="VOLTAR" textFill="#ff9800">
+      <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="38.0" layoutY="334.0" prefHeight="41.0" prefWidth="113.0" ripplerFill="#00bcd4" text="VOLTAR" textFill="#ff9800">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
