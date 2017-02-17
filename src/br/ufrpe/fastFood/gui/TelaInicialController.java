@@ -5,37 +5,35 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXButton;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-//import javafx.scene.image.ImageView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class TelaInicialController implements Initializable {
 	
 	@FXML
-	private Label lblCaixa;
+	private JFXButton botaoCaixa;
 	
 	@FXML
-	private Label lblAutoAtendimento;
+	private JFXButton botaoAutoAtendimento;
 	
 	@FXML
-	private Button botaoCaixa;
+	private ImageView imgCaixa;
 	
 	@FXML
-	private Button botaoAutoAtendimento;
-	
-/*	@FXML
-	private ImageView imagem1;
+	private ImageView imgAutoAtend;
 	
 	@FXML
-	private ImageView imagem2;
-*/	
+	private ImageView imgCabecalho;
+	
 	@FXML 
 	private void botaoAutoAtendimentoAction(ActionEvent event){
 		((Node) (event.getSource())).getScene().getWindow().hide();
@@ -70,7 +68,14 @@ public class TelaInicialController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+		Image img = new Image("br/ufrpe/fastFood/gui/LOGO_PROJETO_wallpaper.png");
+		this.imgCabecalho.setImage(img);
+		
+		Image img2 = new Image("br/ufrpe/fastFood/gui/icon-funcionario.png");
+		this.imgCaixa.setImage(img2);
+		
+		Image img3 = new Image("br/ufrpe/fastFood/gui/icon-self-service.png");
+		this.imgAutoAtend.setImage(img3);
 		
 	}
 

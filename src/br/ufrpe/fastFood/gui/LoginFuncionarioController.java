@@ -3,6 +3,10 @@ package br.ufrpe.fastFood.gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
+
 import br.ufrpe.fastFood.exceptions.ONFException;
 import br.ufrpe.fastFood.exceptions.WPException;
 import br.ufrpe.fastFood.negocios.Fachada;
@@ -27,19 +31,19 @@ import javafx.stage.Stage;
 public class LoginFuncionarioController implements Initializable {
 
 	@FXML
-	private TextField txtLoginF;
+	private JFXTextField txtLoginF;
 
 	@FXML
-	private PasswordField txtSenhaF;
+	private JFXPasswordField txtSenhaF;
 
 	@FXML
 	private Hyperlink esqueceuSenhaF;
 
 	@FXML
-	private Button botaoEntrarF;
+	private JFXButton botaoEntrarF;
 
 	@FXML
-	private Button botaoSairF;
+	private JFXButton botaoSairF;
 
 	@FXML
 	private Label avisoF;

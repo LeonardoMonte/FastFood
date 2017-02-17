@@ -19,9 +19,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -37,6 +34,9 @@ public class CadastroClienteController implements Initializable {
 	
 	@FXML
 	private TextField CPFtxt;
+	 	
+	@FXML
+	private TextField ruatxt;
 	
 	@FXML
 	private TextField cidadetxt;
@@ -44,8 +44,7 @@ public class CadastroClienteController implements Initializable {
 	@FXML
 	private TextField bairrotxt;
 	
-	@FXML
-	private TextField ruatxt;
+	
 	
 	@FXML
 	private TextField numerotxt;

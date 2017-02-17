@@ -3,6 +3,9 @@ package br.ufrpe.fastFood.gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 
 import br.ufrpe.fastFood.beans.Endereco;
 import br.ufrpe.fastFood.beans.Funcionario;
@@ -17,93 +20,56 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class CadastroFuncionarioController implements Initializable {
 
-	@FXML
-	private Label nome;
-
-	@FXML
-	private Label cpf;
-
-	@FXML
-	private Label nascimento;
-
-	@FXML
-	private Label cidade;
-
-	@FXML
-	private Label bairro;
-
-	@FXML
-	private Label estado;
-
-	@FXML
-	private Label cep;
-
-	@FXML
-	private Label rua;
-
-	@FXML
-	private Label numero;
-
-	@FXML
-	private Label fone;
-
-	@FXML
-	private Label senha;
-
-	@FXML
-	private Label confirmaSenha;
-
+	
 	@FXML
 	private Label lblAviso;
 
 	@FXML
-	private Button botaoFinalizar;
+	private JFXButton botaoFinalizar;
 
 	@FXML
-	private Button cancelar;
+	private JFXButton botaoCancelar;
 
 	@FXML
-	private TextField txtNome;
+	private JFXTextField txtNome;
 
 	@FXML
-	private TextField txtCpf;
+	private JFXTextField txtCpf;
 
 	@FXML
-	private TextField txtNascimento;
+	private JFXTextField txtNascimento;
+	
+	@FXML
+	private JFXTextField txtRua;
+	
+	@FXML
+	private JFXTextField txtNumero;
+	
+	@FXML
+	private JFXTextField txtBairro;
 
 	@FXML
-	private TextField txtCidade;
+	private JFXTextField txtCidade;
 
 	@FXML
-	private TextField txtBairro;
+	private JFXTextField txtEstado;
 
 	@FXML
-	private TextField txtEstado;
+	private JFXTextField txtCep;
 
 	@FXML
-	private TextField txtCep;
+	private JFXPasswordField txtSenha;
 
 	@FXML
-	private TextField txtRua;
-
+	private JFXPasswordField txtConfirmaSenha;
+	
 	@FXML
-	private TextField txtNumero;
-
-	@FXML
-	private TextField txtFone;
-
-	@FXML
-	private TextField txtSenha;
-
-	@FXML
-	private TextField txtConfirmaSenha;
+	private JFXTextField txtFone;
 
 	@FXML
 	private void botaoFinalizarAction(ActionEvent event){

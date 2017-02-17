@@ -12,29 +12,29 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="355.0" prefWidth="477.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.LoginFuncionarioController">
    <children>
-      <Hyperlink fx:id="recupSenha" layoutX="40.0" layoutY="298.0" text="*Esqueceu sua senha" />
-      <ImageView fx:id="imagem" fitHeight="200.0" fitWidth="199.0" layoutX="24.0" layoutY="59.0" nodeOrientation="RIGHT_TO_LEFT">
+      <Hyperlink fx:id="esqueceuSenhaF" layoutX="40.0" layoutY="298.0" text="*Esqueceu sua senha" />
+      <ImageView fx:id="imagemF" fitHeight="200.0" fitWidth="199.0" layoutX="24.0" layoutY="59.0" nodeOrientation="RIGHT_TO_LEFT">
          <image>
             <Image url="@LOGO_PROJETO.png" />
          </image>
       </ImageView>
-      <Label fx:id="aviso" alignment="CENTER" layoutX="273.0" layoutY="28.0" prefHeight="45.0" prefWidth="190.0" textAlignment="CENTER" textFill="RED" />
-      <JFXTextField fx:id="txtLogin" focusColor="#e51b09" labelFloat="true" layoutX="289.0" layoutY="96.0" prefHeight="29.0" prefWidth="156.0" promptText="Login" unFocusColor="#14bce3">
+      <Label fx:id="avisoF" alignment="CENTER" layoutX="273.0" layoutY="28.0" prefHeight="45.0" prefWidth="190.0" textAlignment="CENTER" textFill="RED" />
+      <JFXTextField fx:id="txtLoginF" focusColor="#f44336" labelFloat="true" layoutX="289.0" layoutY="96.0" prefHeight="29.0" prefWidth="156.0" promptText="Login" unFocusColor="#03a9f4">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
       </JFXTextField>
-      <JFXButton fx:id="botaoSair" buttonType="RAISED" layoutX="289.0" layoutY="217.0" onAction="#botaoSairAction" prefHeight="39.0" prefWidth="64.0" ripplerFill="#ee8700" text="SAIR" textFill="#ee8700">
+      <JFXButton fx:id="botaoSairF" buttonType="RAISED" layoutX="289.0" layoutY="217.0" onAction="#botaoSairActionF" prefHeight="39.0" prefWidth="64.0" ripplerFill="#ee8700" text="SAIR" textFill="#ee8700">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="botaoEntrar" buttonType="RAISED" layoutX="363.0" layoutY="217.0" onAction="#botaoEntrarAction" prefHeight="39.0" prefWidth="88.0" ripplerFill="#ee8700" text="ENTRAR" textFill="#ee8700">
+      <JFXButton fx:id="botaoEntrarF" buttonType="RAISED" layoutX="363.0" layoutY="217.0" onAction="#botaoEntrarActionF" prefHeight="39.0" prefWidth="88.0" ripplerFill="#ee8700" text="ENTRAR" textFill="#ee8700">
          <font>
             <Font name="Arial Bold" size="15.0" />
          </font>
       </JFXButton>
-      <JFXPasswordField fx:id="txtSenha" focusColor="#e51b09" labelFloat="true" layoutX="289.0" layoutY="163.0" prefHeight="29.0" prefWidth="156.0" promptText="Senha" unFocusColor="#14bce3">
+      <JFXPasswordField fx:id="txtSenhaF" focusColor="#f44336" labelFloat="true" layoutX="289.0" layoutY="163.0" prefHeight="29.0" prefWidth="156.0" promptText="Senha" unFocusColor="#03a9f4">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
