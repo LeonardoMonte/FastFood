@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -30,11 +29,7 @@
             <Image url="@../../Downloads/gerador-de-cartao-de-credito-visa.png" />
          </image>
       </ImageView>
-      <Button layoutX="49.0" layoutY="85.0" mnemonicParsing="false" opacity="0.5" prefHeight="58.0" prefWidth="112.0" />
-      <Button layoutX="180.0" layoutY="85.0" mnemonicParsing="false" opacity="0.5" prefHeight="58.0" prefWidth="112.0" />
-      <Button layoutX="311.0" layoutY="85.0" mnemonicParsing="false" opacity="0.5" prefHeight="58.0" prefWidth="112.0" />
-      <Button layoutX="439.0" layoutY="85.0" mnemonicParsing="false" opacity="0.5" prefHeight="58.0" prefWidth="112.0" />
-      <Label layoutX="32.0" layoutY="14.0" text="Debito">
+      <Label layoutX="32.0" layoutY="14.0" text="Débito">
          <font>
             <Font name="Bangla MN" size="24.0" />
          </font>
@@ -44,11 +39,6 @@
             <Font name="Bangla MN" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="508.0" layoutY="352.0" mnemonicParsing="false" opacity="0.8" prefHeight="34.0" prefWidth="78.0" text="Voltar">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Button>
       <ImageView fitHeight="79.0" fitWidth="125.0" layoutX="461.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Downloads/amex_american_express-512.png" />
@@ -69,9 +59,18 @@
             <Image url="@../../Downloads/gerador-de-cartao-de-credito-visa.png" />
          </image>
       </ImageView>
-      <Button layoutX="54.0" layoutY="237.0" mnemonicParsing="false" opacity="0.5" prefHeight="58.0" prefWidth="112.0" />
-      <Button layoutX="185.0" layoutY="237.0" mnemonicParsing="false" opacity="0.5" prefHeight="58.0" prefWidth="112.0" />
-      <Button layoutX="316.0" layoutY="237.0" mnemonicParsing="false" opacity="0.5" prefHeight="58.0" prefWidth="112.0" />
-      <Button layoutX="444.0" layoutY="237.0" mnemonicParsing="false" opacity="0.5" prefHeight="58.0" prefWidth="112.0" />
+      <JFXButton layoutX="470.0" layoutY="345.0" prefHeight="41.0" prefWidth="85.0" text="Voltar">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="42.0" layoutY="85.0" prefHeight="58.0" prefWidth="126.0" text=" " />
+      <JFXButton layoutX="173.0" layoutY="86.0" prefHeight="58.0" prefWidth="126.0" text=" " />
+      <JFXButton layoutX="304.0" layoutY="86.0" prefHeight="58.0" prefWidth="126.0" text=" " />
+      <JFXButton layoutX="433.0" layoutY="85.0" prefHeight="58.0" prefWidth="126.0" text=" " />
+      <JFXButton layoutX="47.0" layoutY="236.0" prefHeight="58.0" prefWidth="126.0" text=" " />
+      <JFXButton layoutX="178.0" layoutY="237.0" prefHeight="58.0" prefWidth="126.0" text=" " />
+      <JFXButton layoutX="309.0" layoutY="237.0" prefHeight="58.0" prefWidth="126.0" text=" " />
+      <JFXButton layoutX="438.0" layoutY="236.0" prefHeight="58.0" prefWidth="126.0" text=" " />
    </children>
 </AnchorPane>
