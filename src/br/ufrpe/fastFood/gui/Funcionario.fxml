@@ -11,12 +11,12 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="218.0" layoutY="107.0" prefHeight="140.0" prefWidth="140.0" text="RELATORIO" textFill="#ff9800">
+      <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="218.0" layoutY="107.0" prefHeight="140.0" prefWidth="140.0" ripplerFill="#00bcd4" text="RELATORIO" textFill="#ff9800">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="386.0" layoutY="108.0" prefHeight="140.0" prefWidth="140.0" text="GERENCIAMENTO" textFill="#ff9800">
+      <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="386.0" layoutY="108.0" prefHeight="140.0" prefWidth="140.0" ripplerFill="#00bcd4" text="GERENCIAMENTO" textFill="#ff9800">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
