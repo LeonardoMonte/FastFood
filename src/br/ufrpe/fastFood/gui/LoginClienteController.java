@@ -65,6 +65,17 @@ public class LoginClienteController implements Initializable {
 				if(Fachada.getInstancia().loginCliente(login, senha)){
 					((Node) (event.getSource())).getScene().getWindow().hide();
 					
+					try{
+						Parent root = FXMLLoader.load(getClass().getResource("MenuCliente.fxml"));
+						Scene scene = new Scene(root);
+						Stage primaryStage = new Stage();
+						primaryStage.setScene(scene);
+						primaryStage.setTitle("Tela Inicial");
+						primaryStage.show();			
+					}catch (Exception e){
+						System.out.println(e.getMessage());
+					}
+					
 
 				}else{
 					avisoC.setText("Login ou Senha inválido ");

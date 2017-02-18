@@ -129,7 +129,7 @@ public class CadastroClienteController implements Initializable {
 						alert.setTitle("Warning Dialog");
 						alert.setHeaderText("Impossivel realizar a acao");
 						alert.setContentText("Funcionario com o id " + exc.getId() + " Ja existe");	
-
+						alert.showAndWait();
 						
 					}
 

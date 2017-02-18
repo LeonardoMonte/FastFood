@@ -25,7 +25,15 @@ public class Menu {
 		char opcao;
 		int contFunc = 0, contCliente = 0, contProduto = 0, contVenda = 0 , contCombo = 0 , contPromoCombo = 0 , contPromoProduto = 0;
 
-		Admin admin = new Admin("Carlos", "1234", "Admin123", "123");
+		String senha1 = "admin";
+		String login = "admin";
+		Admin admin = new Admin(null, login, null, null, senha1);
+		try {
+			Fachada.getInstancia().cadastrarFuncionario(admin);
+		} catch (OJEException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 
 		Scanner in = new Scanner(System.in);
 
@@ -657,7 +665,7 @@ public class Menu {
 
 					case '1':
 						int tentativas2 = 0;
-						boolean end;
+						boolean end = false;
 						String tempSenhaAdmin;
 						System.out.println("------------Login Administrador------------\n");
 
@@ -668,22 +676,18 @@ public class Menu {
 							System.out.print("Digite sua senha: ");
 							tempSenhaAdmin = in.nextLine();
 
-							tentativas2++;
-							end = admin.equalsSenhaAdmin(tempIdAdmin, tempSenhaAdmin);
-
-							if (end == false) {
-								System.out.println("Senha incorreta!\n");
+							try
+							{
+								end = Fachada.getInstancia().loginFuncionario(tempIdAdmin, tempSenhaAdmin);
+							}catch(WPException exc)
+							{
+								System.out.println(exc.getMessage());
+							} catch (ONFException e) {
+								System.out.println(e.getMessage());
 							}
 
-							if (tentativas2 == 7) {
-								break;
-							}
 
 						} while (end != true);
-
-						if (tentativas2 == 7) {
-							break;
-						}
 
 						int auxadmin = 0;
 						while (auxadmin != 10) {

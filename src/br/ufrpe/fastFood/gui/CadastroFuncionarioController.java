@@ -59,8 +59,6 @@ public class CadastroFuncionarioController implements Initializable {
 	@FXML
 	private JFXTextField txtEstado;
 
-	@FXML
-	private JFXTextField txtCep;
 
 	@FXML
 	private JFXPasswordField txtSenha;

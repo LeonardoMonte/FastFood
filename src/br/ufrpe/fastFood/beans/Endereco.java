@@ -19,6 +19,10 @@ public class Endereco {
 		this.telefone = telefone;
 	}
 
+	public Endereco() {
+		
+	}
+
 	public String getRua() {
 		return rua;
 	}
