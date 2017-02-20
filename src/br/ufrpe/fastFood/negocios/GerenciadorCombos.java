@@ -52,32 +52,5 @@ public class GerenciadorCombos {
 		return this.repositorio.buscarCombo(codigo);
 	}
 
-	public void AdicionarProduto(Produto p ,String codigo) throws ONFException,  OJEException
-
-	{
-
-
-
-		this.repositorio.AdicionarProduto(p, codigo);
-
-
-
-	}
-
-	
-
-	
-
-	public void RemoverProduto(Produto p ,String codigo) throws ONFException, PNEException
-
-	{
-
-
-
-		this.repositorio.RemoverProduto(p, codigo);
-
-
-
-	}
 	
 }

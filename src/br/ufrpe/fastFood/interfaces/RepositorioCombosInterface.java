@@ -45,15 +45,6 @@ public interface RepositorioCombosInterface {
 	List<Combo> listarCombos();
 
 	
-
-	void AdicionarProduto(Produto p , String idcodigo) throws ONFException, OJEException;
-
-	
-
-	void RemoverProduto(Produto p , String idproduto) throws ONFException, PNEException;
-
-	
-
 	
 
 	

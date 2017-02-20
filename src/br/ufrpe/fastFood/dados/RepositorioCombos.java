@@ -209,47 +209,6 @@ public class RepositorioCombos implements RepositorioCombosInterface {
 	}
 
 	
-
-	
-
-	public void AdicionarProduto(Produto p , String idcodigo) throws ONFException, OJEException
-
-	{
-
-		Combo c = new Combo();
-
-		c = this.buscarCombo(idcodigo);
-
-		
-
-		c.addItens(p);
-
-
-
-		
-
-		
-
-	}
-
-	
-
-	public void RemoverProduto(Produto p , String idproduto) throws ONFException, PNEException
-
-	{
-
-		Combo c = new Combo();
-
-		c = this.buscarCombo(idproduto);
-
-		
-
-		c.removerProdutoNoCombo(p.getCodigo());
-
-	}
-
-	
-
 	
 
 	

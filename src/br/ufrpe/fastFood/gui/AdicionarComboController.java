@@ -100,29 +100,58 @@ public class AdicionarComboController implements Initializable {
 		if(!nome.equals("") && !id.equals("") && !produto1.equals("") && !produto2.equals("") && !produto3.equals(""))
 		{
 			
-			
-			
-			Combo c = new Combo(nome, id);
-			
+
+			Produto p1 = new Produto();
+			Produto p2 = new Produto();
+			Produto p3 = new Produto();
 			
 			try {
+				p1 = Fachada.getInstancia().procurarProduto(produto1);
+				p2 = Fachada.getInstancia().procurarProduto(produto2);
+				p3 = Fachada.getInstancia().procurarProduto(produto3);
 				
-				Fachada.getInstancia().cadastrarCombo(c);
-								 
-				Produto p = new Produto();
-				Produto p2 = new Produto();
-				Produto p3 = new Produto();
-		
+				Combo c = new Combo(nome, id , p1 , p2 ,p3);
 				
-	
+				try {
+					
+					Fachada.getInstancia().cadastrarCombo(c);
+									 
+					
+					
+					((Node) (event.getSource())).getScene().getWindow().hide();
+					
+					try
+					{
+						Parent root = FXMLLoader.load(getClass().getResource("Adicionar produto.fxml"));
+						Scene scene = new Scene(root);
+						Stage primaryStage = new Stage();
+						primaryStage.setScene(scene);
+						primaryStage.setTitle("Cadastro");
+						primaryStage.show();
+						
+					}catch (Exception e){
+						System.out.println(e.getMessage());
+					}
+								
+					
+				}
+				catch (OJEException e) {
+					Alert alert = new Alert(AlertType.WARNING);
+					alert.setTitle("Warning Dialog");
+					alert.setHeaderText("Impossivel realizar a acao");
+					alert.setContentText("Combo com o id " + e.getId() + " Ja existe");	
+					alert.showAndWait();
+				}
 				
-			} catch (OJEException e) {
+				
+			} catch (ONFException e1) {
+			
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("Warning Dialog");
 				alert.setHeaderText("Impossivel realizar a acao");
-				alert.setContentText("Combo com o id " + e.getId() + " Ja existe");	
+				alert.setContentText("Produto com o id " + e1.getidObjeto() + " nao existe");	
 				alert.showAndWait();
-			}
+			}	
 			
 		}
 		else

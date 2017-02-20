@@ -10,7 +10,6 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.AdicionarPromoComboController">
    <children>
       <TableView fx:id="tabela" prefHeight="265.0" prefWidth="600.0">
@@ -58,7 +57,7 @@
             <Font name="Arial" size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="concluir" layoutX="495.0" layoutY="335.0" prefHeight="54.0" prefWidth="93.0" text="CONCLUIR" textFill="#03a9f4" />
+      <JFXButton fx:id="concluir" layoutX="495.0" layoutY="335.0" onAction="#Concluir" prefHeight="54.0" prefWidth="93.0" text="CONCLUIR" textFill="#03a9f4" />
       <Label fx:id="label" layoutX="166.0" layoutY="352.0" prefHeight="21.0" prefWidth="232.0" textFill="#03a9f4">
          <font>
             <Font name="Arial" size="15.0" />

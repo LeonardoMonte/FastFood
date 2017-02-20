@@ -236,33 +236,6 @@ public class Fachada {
 
 	}
 
-
-	public void AdicionarProdutoAoCombo(Produto p ,String codigo) throws ONFException,  OJEException
-
-	{
-
-
-
-		this.gerencombos.AdicionarProduto(p, codigo);
-
-
-
-	}
-
-
-
-	public void RemoverProduto(Produto p ,String codigo) throws ONFException, PNEException
-
-	{
-
-
-
-		this.gerencombos.RemoverProduto(p, codigo);
-
-
-
-	}
-
 	// INICIO DAS FUNCOES DE GERENCIAMENTO DE PROMOCOES
 
 

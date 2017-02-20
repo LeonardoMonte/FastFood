@@ -8,20 +8,62 @@ import br.ufrpe.fastFood.exceptions.PNEException;
 public class Combo {
 	
 
-	private ArrayList<Produto> itens;
+	private Produto p1;
+	private Produto p2;
+	private Produto p3;
 	private String nome;
 	private double valor;
 	private String codigo;
 	
 
-	public Combo(String nome,  String codigo){
+	public Combo(String nome,  String codigo, Produto p1 , Produto p2 , Produto p3){
 		this.nome = nome;
 		this.codigo = codigo;
-		this.itens = new ArrayList<>();
+		this.p1 = p1;
+		this.p2 = p2;
+		this.p3 = p3;
+		this.valor = p1.getValor() + p2.getValor() + p3.getValor();
+		
 	}
 
 	
 	
+	public Produto getP1() {
+		return p1;
+	}
+
+
+
+	public void setP1(Produto p1) {
+		this.p1 = p1;
+	}
+
+
+
+	public Produto getP2() {
+		return p2;
+	}
+
+
+
+	public void setP2(Produto p2) {
+		this.p2 = p2;
+	}
+
+
+
+	public Produto getP3() {
+		return p3;
+	}
+
+
+
+	public void setP3(Produto p3) {
+		this.p3 = p3;
+	}
+
+
+
 	public Combo() {
 		// TODO Auto-generated constructor stub
 	}
@@ -66,89 +108,14 @@ public class Combo {
 		this.codigo = codigo;
 	}
 
-
-	public void addItens(Produto p) throws OJEException{
-
-
-		int cont = 0;
-		
-		for(int x = 0 ; x <	this.itens.size() ; x++)
-		{
-			if(this.itens.get(x).getCodigo().equals(p.getCodigo()))
-			{
-				cont++;
-			}
-		}
-		
-		if(cont > 0)
-		{
-			throw new OJEException(p.getCodigo());
-		}
-		else
-		{
-			this.itens.add(p);
-			this.setValorAumentar(p.getValor());
-		}
-		
-
-			
-	}
 	
-	public Produto buscarProdutoNoCombo(String codigo) throws PNEException
-	{
-		Produto p = new Produto();
-		
-		for(Produto produto: itens)
-		{
-			if(produto.getCodigo().equals(codigo))
-			{
-				p = produto;
-			}
-		}
-		if ( p.getCodigo() == null)
-		{
-			throw new PNEException(codigo);
-		
-		}
-		
-		return p;
-	}
-	
-	public void removerProdutoNoCombo(String codigo) throws PNEException
-	{
 
-		Produto p = new Produto();
-		p = this.buscarProdutoNoCombo(codigo);
-
-		this.itens.remove(p);
-		this.setValorDiminuir(p.getValor());
-
-		
-
-	}
-	
-	public int procurarIndice(String codigo)
-	{
-		int cont = -1;
-		
-		for(int x = 0 ; x < itens.size() ; x++)
-		{
-			if(this.itens.get(x).getCodigo().equals(codigo))
-			{
-				cont = x;
-			}
-		}
-		
-		return cont;
-
-	}
 			
 		public String toString() {
 		StringBuffer buffer = new StringBuffer();
 		
 		buffer.append("Combo: " + this.getNome() + "\n");
 		buffer.append("Codigo: " + this.getCodigo() + "\n");
-		buffer.append("Itens: " + this.itens.toString() + "\n");
 		buffer.append("Valor: " + this.getValor() + "\n");
 		return buffer.toString();
 	}

@@ -29,7 +29,7 @@ public class AdicionarPController implements Initializable{
 	
 	@FXML
 	private Button Entrar;
-	
+		
 	@FXML
 	private Button Sair;
 	
