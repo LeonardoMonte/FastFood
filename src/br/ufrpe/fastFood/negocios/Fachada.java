@@ -1,4 +1,4 @@
-package br.ufrpe.fastFood.negocios;
+	package br.ufrpe.fastFood.negocios;
 
 import java.util.List;
 
@@ -10,6 +10,7 @@ import br.ufrpe.fastFood.beans.Produto;
 import br.ufrpe.fastFood.beans.PromocaoCombo;
 import br.ufrpe.fastFood.beans.PromocaoProduto;
 import br.ufrpe.fastFood.beans.Venda;
+import br.ufrpe.fastFood.dados.RepositorioProdutos;
 import br.ufrpe.fastFood.exceptions.OJEException;
 import br.ufrpe.fastFood.exceptions.ONFException;
 import br.ufrpe.fastFood.exceptions.PNEException;
@@ -46,7 +47,13 @@ public class Fachada {
 
 
 	// FUNCOES DO GERENCIADOR DE CLIENTE 
-
+	
+	public RepositorioProdutos getProdutos()
+	{
+		return RepositorioProdutos.getInstancia();
+		
+	}
+	
 	public void cadastrarCliente(Cliente a) throws OJEException
 	{
 		this.gerencliente.cadastrar(a);
@@ -229,20 +236,32 @@ public class Fachada {
 
 	}
 
+
 	public void AdicionarProdutoAoCombo(Produto p ,String codigo) throws ONFException,  OJEException
+
 	{
+
+
 
 		this.gerencombos.AdicionarProduto(p, codigo);
 
+
+
 	}
 
+
+
 	public void RemoverProduto(Produto p ,String codigo) throws ONFException, PNEException
+
 	{
+
+
 
 		this.gerencombos.RemoverProduto(p, codigo);
 
-	}
 
+
+	}
 
 	// INICIO DAS FUNCOES DE GERENCIAMENTO DE PROMOCOES
 

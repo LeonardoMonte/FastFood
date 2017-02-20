@@ -22,6 +22,7 @@ public class RepositorioProdutos implements RepositorioProdutoInterface {
 		}
 		return instancia;
 	}
+	
 
 	public void cadastrarProduto(Produto p) throws OJEException {
 

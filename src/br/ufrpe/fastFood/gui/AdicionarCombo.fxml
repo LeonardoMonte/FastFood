@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.AdicionarComboController">
+   <children>
+      <TableView fx:id="tabela" prefHeight="237.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="colunaNome" prefWidth="189.0" text="Nome" />
+          <TableColumn fx:id="colunaid" prefWidth="214.0" text="Id" />
+            <TableColumn fx:id="colunavalor" prefWidth="196.0" text="Valor" />
+        </columns>
+      </TableView>
+      <JFXTextField fx:id="nometxt" focusColor="#f44336" labelFloat="true" layoutX="14.0" layoutY="266.0" promptText="Nome:">
+         <unFocusColor>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#03a9f4" />
+                  <Stop color="#03a9f4" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </unFocusColor>
+      </JFXTextField>
+      <JFXTextField fx:id="idtxt" focusColor="#f44336" labelFloat="true" layoutX="14.0" layoutY="328.0" promptText="Id:">
+         <unFocusColor>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#03a9f4" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </unFocusColor>
+      </JFXTextField>
+      <JFXTextField fx:id="produto1txt" focusColor="#f44336" labelFloat="true" layoutX="210.0" layoutY="258.0" promptText="1:">
+         <unFocusColor>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#03a9f4" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </unFocusColor>
+      </JFXTextField>
+      <JFXTextField fx:id="produto2txt" focusColor="#f44336" labelFloat="true" layoutX="210.0" layoutY="306.0" promptText="2:">
+         <unFocusColor>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#03a9f4" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </unFocusColor>
+      </JFXTextField>
+      <JFXTextField fx:id="produto3txt" focusColor="#f24438" labelFloat="true" layoutX="210.0" layoutY="357.0" promptText="3:">
+         <unFocusColor>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#03a9f4" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </unFocusColor>
+      </JFXTextField>
+      <JFXButton fx:id="concluir" buttonType="RAISED" layoutX="453.0" layoutY="344.0" onAction="#Concluir" prefHeight="56.0" prefWidth="143.0" text="CONCLUIR" textFill="#03a9f4">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="sair" buttonType="RAISED" layoutX="453.0" layoutY="287.0" onAction="#Sair" prefHeight="56.0" prefWidth="143.0" text="SAIR" textFill="#03a9f4">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="label" layoutX="398.0" layoutY="258.0" prefHeight="29.0" prefWidth="193.0">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

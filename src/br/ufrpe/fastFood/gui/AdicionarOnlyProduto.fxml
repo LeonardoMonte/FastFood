@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="453.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.AdicionarPController">
+   <children>
+      <ImageView fx:id="imagemC" fitHeight="281.0" fitWidth="454.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@LOGO_PROJETO_wallpaper.png" />
+         </image>
+      </ImageView>
+      <JFXTextField fx:id="nometxt" focusColor="#03a9f4" labelFloat="true" layoutX="22.0" layoutY="294.0" promptText="Nome:" unFocusColor="#ee8700">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="idtxt" focusColor="#03a9f4" labelFloat="true" layoutX="22.0" layoutY="352.0" promptText="Id:" unFocusColor="#ee8700">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="valortxt" focusColor="#03a9f4" labelFloat="true" layoutX="22.0" layoutY="407.0" promptText="Valor:" unFocusColor="#ee8700">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="Entrar" buttonType="RAISED" layoutX="328.0" layoutY="390.0" onAction="#Concluir" prefHeight="64.0" prefWidth="124.0" text="CONCLUIR" textFill="#ee8700">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="Sair" buttonType="RAISED" layoutX="204.0" layoutY="390.0" onAction="#Sair" prefHeight="64.0" prefWidth="124.0" text="SAIR" textFill="#ee8700">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="label" layoutX="244.0" layoutY="354.0" prefHeight="21.0" prefWidth="199.0" textFill="#e80909">
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
