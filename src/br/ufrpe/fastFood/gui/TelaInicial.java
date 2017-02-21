@@ -14,6 +14,7 @@ public class TelaInicial extends Application {
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Tela Incial");
+		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
 	

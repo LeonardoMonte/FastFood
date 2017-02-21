@@ -8,26 +8,26 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.TelaInicialController">
    <children>
-      <ImageView fx:id="imgAutoAtend" fitHeight="92.0" fitWidth="80.0" layoutX="160.0" layoutY="364.0">
+      <ImageView fx:id="imgAutoAtend" fitHeight="92.0" fitWidth="77.0" layoutX="164.0" layoutY="363.0">
          <image>
             <Image url="@icon-self-service.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imgCaixa" fitHeight="92.0" fitWidth="80.0" layoutX="161.0" layoutY="231.0">
+      <ImageView fx:id="imgCaixa" fitHeight="92.0" fitWidth="64.0" layoutX="170.0" layoutY="226.0">
          <image>
             <Image url="@icon-funcionario.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgCabecalho" fitHeight="221.0" fitWidth="400.0" layoutY="-2.0">
+         <image>
+            <Image url="@LOGO_PROJETO_wallpaper.png" />
          </image>
       </ImageView>
       <JFXButton fx:id="botaoCaixa" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="4.0" layoutY="219.0" onAction="#botaoCaixaAction" prefHeight="130.0" prefWidth="395.0" ripplerFill="#ff9800" text="Caixa" textFill="#ff9800">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></JFXButton>
-      <ImageView fx:id="imgCabecalho" fitHeight="221.0" fitWidth="400.0" layoutY="-2.0">
-         <image>
-            <Image url="@LOGO_PROJETO_wallpaper.png" />
-         </image>
-      </ImageView>
-      <JFXButton fx:id="botaoAutoAtendimento" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="3.0" layoutY="356.0" onAction="#botaoAutoAtendimentoAction" prefHeight="130.0" prefWidth="395.0" ripplerFill="#ff9800" text="Auto Atendimento" textFill="#ff9800">
+      <JFXButton fx:id="botaoAutoAtendimento" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="3.0" layoutY="356.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#botaoAutoAtendimentoAction" prefHeight="130.0" prefWidth="395.0" ripplerFill="#ff9800" text="Auto Atendimento" textFill="#ff9800">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

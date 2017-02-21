@@ -33,10 +33,15 @@ public class GerenciadorVendas {
 	}
 
 	public boolean remover(String idVenda) {
-	
-		return this.repositorio.removerVenda(idVenda);
+		
+		boolean removeu = false;
+		if(this.repositorio.removerVenda(idVenda))
+			removeu = true;
+		
 		this.repositorio.save();
-
+		
+		return removeu;
+	
 	}
 
 	public Venda procurar(String idVenda) {

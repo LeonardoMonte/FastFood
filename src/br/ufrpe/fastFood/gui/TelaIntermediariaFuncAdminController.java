@@ -3,6 +3,7 @@ package br.ufrpe.fastFood.gui;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import br.ufrpe.fastFood.negocios.Fachada;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -55,6 +56,7 @@ public class TelaIntermediariaFuncAdminController implements Initializable {
 	{
 				
 		((Node) (event.getSource())).getScene().getWindow().hide();
+	
 		try{
 
 			Parent root = FXMLLoader.load(getClass().getResource("LoginFuncionario.fxml"));
