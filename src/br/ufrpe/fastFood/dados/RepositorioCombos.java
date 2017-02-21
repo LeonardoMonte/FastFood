@@ -2,6 +2,13 @@ package br.ufrpe.fastFood.dados;
 
 
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -22,9 +29,14 @@ import br.ufrpe.fastFood.interfaces.RepositorioCombosInterface;
 
 
 
-public class RepositorioCombos implements RepositorioCombosInterface {
+public class RepositorioCombos implements RepositorioCombosInterface, Serializable {
 
 	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1601212855046938106L;
 
 	private static RepositorioCombos instance;
 
@@ -206,6 +218,74 @@ public class RepositorioCombos implements RepositorioCombosInterface {
 
 		
 
+	}
+	
+	//AREA DE PERSISTENCIA DE DADOS
+
+	private static RepositorioCombos load(){
+		RepositorioCombos repCombos =  null;
+
+		File arquivoCombo = new File("RepositorioCombos.dat");
+
+		FileInputStream fInput = null;
+		ObjectInputStream oInput = null;
+
+		try{
+			fInput = new FileInputStream(arquivoCombo);
+			oInput = new ObjectInputStream(fInput);
+			
+			Object o = oInput.readObject();
+
+			repCombos = (RepositorioCombos) o;
+
+		}catch(Exception e){
+			repCombos = new RepositorioCombos();
+		}finally{
+			if (oInput != null){
+				try{
+					oInput.close();
+				}catch(IOException e){
+					System.out.println("Não foi possível fechar o arquivo!");
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return repCombos;
+	}
+
+
+	public void save(){
+		if(instance == null){
+			return;
+		}
+
+		File arquivoCombos = new File("RepositorioCombos.dat");
+		FileOutputStream fOutput =  null;
+		ObjectOutputStream oOutput = null;
+
+		try{
+			if(!arquivoCombos.exists())
+				arquivoCombos.createNewFile();
+
+			fOutput = new FileOutputStream(arquivoCombos);
+			oOutput = new ObjectOutputStream(fOutput);
+			oOutput.writeObject(instance);
+
+		}catch(Exception e){
+			e.printStackTrace();
+
+		}finally{
+			if(oOutput != null){
+				try{
+
+					oOutput.close();
+
+				}catch(IOException e){
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 
 	

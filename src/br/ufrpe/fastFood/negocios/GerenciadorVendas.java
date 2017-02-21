@@ -28,12 +28,14 @@ public class GerenciadorVendas {
 	public void cadastrar(Venda a) {
 
 		this.repositorio.cadastrarVenda(a);
+		this.repositorio.save();
 		
 	}
 
 	public boolean remover(String idVenda) {
 	
 		return this.repositorio.removerVenda(idVenda);
+		this.repositorio.save();
 
 	}
 

@@ -1,7 +1,13 @@
 package br.ufrpe.fastFood.beans;
 
-public class Produto {
+import java.io.Serializable;
 
+public class Produto implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6094923781947475193L;
 	private String nome;
 	private double valor;
 	private String codigo;

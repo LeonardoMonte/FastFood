@@ -1,9 +1,15 @@
 package br.ufrpe.fastFood.beans;
 
+import java.io.Serializable;
+
 import br.ufrpe.fastFood.exceptions.WPException;
 
-public class Cliente extends Pessoa {
+public class Cliente extends Pessoa  implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8333710358678744626L;
 	private Endereco endere;
 	private String senha;
 	private String email;

@@ -1,7 +1,13 @@
 package br.ufrpe.fastFood.beans;
 
-public class Endereco {
+import java.io.Serializable;
 
+public class Endereco implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1769724232777567108L;
 	private String rua;
 	private String bairro;
 	private String cidade;

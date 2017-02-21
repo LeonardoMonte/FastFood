@@ -46,7 +46,7 @@ public interface RepositorioCombosInterface {
 
 	
 	
-
+	void save();
 	
 
 	

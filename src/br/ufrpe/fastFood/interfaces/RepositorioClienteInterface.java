@@ -27,4 +27,6 @@ public interface RepositorioClienteInterface {
 	String getNomecliente(String id);
 	
 	public boolean loginCliente(String id , String senhanew) throws ONFException, WPException;
+	
+	void save();
 }

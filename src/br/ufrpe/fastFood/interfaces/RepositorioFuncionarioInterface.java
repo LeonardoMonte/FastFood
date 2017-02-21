@@ -29,5 +29,7 @@ public interface RepositorioFuncionarioInterface {
 	void alterarsenha(String id, String senhaold, String senhanew) throws ONFException, WPException;
 	
 	boolean loginFunc(String id, String senha) throws ONFException, WPException;
+	
+	void save();
 
 }

@@ -1,5 +1,11 @@
 package br.ufrpe.fastFood.dados;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import br.ufrpe.fastFood.beans.Produto;
@@ -118,5 +124,73 @@ public class RepositorioProdutos implements RepositorioProdutoInterface {
 	public List<Produto> listarProdutos() {
 
 		return this.listaProdutos;
+	}
+	
+	//AREA DE PERSISTENCIA DE DADOS
+
+	private static RepositorioProdutos load(){
+		RepositorioProdutos repProdutos =  null;
+
+		File arquivoProduto = new File("RepositorioProdutos.dat");
+
+		FileInputStream fInput = null;
+		ObjectInputStream oInput = null;
+
+		try{
+			fInput = new FileInputStream(arquivoProduto);
+			oInput = new ObjectInputStream(fInput);
+			
+			Object o = oInput.readObject();
+
+			repProdutos = (RepositorioProdutos) o;
+
+		}catch(Exception e){
+			repProdutos = new RepositorioProdutos();
+		}finally{
+			if (oInput != null){
+				try{
+					oInput.close();
+				}catch(IOException e){
+					System.out.println("Não foi possível fechar o arquivo!");
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return repProdutos;
+	}
+
+
+	public void save(){
+		if(instancia == null){
+			return;
+		}
+
+		File arquivoProdutos = new File("RepositorioProdutos.dat");
+		FileOutputStream fOutput =  null;
+		ObjectOutputStream oOutput = null;
+
+		try{
+			if(!arquivoProdutos.exists())
+				arquivoProdutos.createNewFile();
+
+			fOutput = new FileOutputStream(arquivoProdutos);
+			oOutput = new ObjectOutputStream(fOutput);
+			oOutput.writeObject(instancia);
+
+		}catch(Exception e){
+			e.printStackTrace();
+
+		}finally{
+			if(oOutput != null){
+				try{
+
+					oOutput.close();
+
+				}catch(IOException e){
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 }

@@ -29,5 +29,7 @@ public interface RepositorioProdutoInterface {
 
 
 		int procurarIndiceP(String codigo);
+		
+		void save();
 
 }

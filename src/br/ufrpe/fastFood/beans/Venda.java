@@ -1,20 +1,25 @@
 package br.ufrpe.fastFood.beans;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Venda{
+public class Venda implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7090611508830771306L;
 	private String idVenda;
 	private String idCliente;
 	private LocalDateTime dataHoraVenda;
 	private double valorTotal;
 	private ArrayList<Combo> combos;
 	private ArrayList<Produto> produtos;
-	private int contcombo = 0;
-	private int contproduto = 0;
-	private int contpromocombo = 0;
-	private int contpromoproduto = 0;
+	private int contCombo = 0;
+	private int contProduto = 0;
+	private int contPromoCombo = 0;
+	private int contPromoProduto = 0;
 	
 	public Venda(int pegadomain , String idCliente){
 		
@@ -89,18 +94,18 @@ public class Venda{
 	
 	public void comprarCombo(Combo a)
 	{
-		if(this.contcombo == 0)
+		if(this.contCombo == 0)
 		{
 			this.combos = new ArrayList<>();
 			this.combos.add(a);
 			this.setValorTotalAdicionar(a.getValor());
-			contcombo++;
+			contCombo++;
 		}
 		else
 		{
 			this.combos.add(a);
 			this.setValorTotalAdicionar(a.getValor());
-			contcombo++;
+			contCombo++;
 		}
 		
 		
@@ -108,18 +113,18 @@ public class Venda{
 	
 	public void comprarProduto(Produto p)
 	{
-		if(this.contproduto == 0)
+		if(this.contProduto == 0)
 		{
 			this.produtos = new ArrayList<>();
 			this.produtos.add(p);
 			this.setValorTotalAdicionar(p.getValor());
-			contproduto++;
+			contProduto++;
 		}
 		else
 		{
 			this.produtos.add(p);
 			this.setValorTotalAdicionar(p.getValor());
-			contproduto++;
+			contProduto++;
 		}
 	}
 	
@@ -166,7 +171,7 @@ public class Venda{
 		{
 			this.setValorTotalDiminuir(a.getValor());
 			this.combos.remove(a);
-			contcombo--;
+			contCombo--;
 		}
 	}
 	
@@ -179,7 +184,7 @@ public class Venda{
 		{
 			this.setValorTotalDiminuir(a.getValor());
 			this.produtos.remove(a);
-			contproduto--;
+			contProduto--;
 		}
 	}
 	
@@ -205,11 +210,11 @@ public class Venda{
 		buffer.append("\n\nVenda: " + this.getIdVenda() + "\n");
 		buffer.append("Id do cliente: " + this.idCliente + "\n");
 		
-		if(contproduto > 0)
+		if(contProduto > 0)
 		{
 			buffer.append("Produtos: " + this.produtos.toString() + "\n");
 		}
-		if(contcombo > 0)
+		if(contCombo > 0)
 		{
 			buffer.append("Combos: " + this.combos.toString() + "\n");
 		}

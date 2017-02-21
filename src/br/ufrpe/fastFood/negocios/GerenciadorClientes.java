@@ -32,7 +32,7 @@ public class GerenciadorClientes {
 
 
 
-	public GerenciadorClientes() {
+	private GerenciadorClientes() {
 
 		this.repositorio = RepositorioClientes.getInstancia();
 
@@ -65,8 +65,7 @@ public class GerenciadorClientes {
 
 
 			this.repositorio.cadastrarCliente(a);
-
-	
+			this.repositorio.save();
 
 	}
 
@@ -77,7 +76,7 @@ public class GerenciadorClientes {
 
 
 		this.repositorio.removerCliente(id);		
-
+		this.repositorio.save();
 
 
 	}
@@ -98,7 +97,8 @@ public class GerenciadorClientes {
 
 
 
-			this.repositorio.atualizarClienteendereco(id, a); 
+			this.repositorio.atualizarClienteendereco(id, a);
+			this.repositorio.save();
 
 		
 
@@ -133,6 +133,7 @@ public class GerenciadorClientes {
 		
 
 		this.repositorio.alterarsenha(id, senhaold, senhanew);
+		this.repositorio.save();
 
 
 

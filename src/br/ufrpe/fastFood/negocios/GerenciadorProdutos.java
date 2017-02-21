@@ -29,12 +29,14 @@ public class GerenciadorProdutos {
 	public void cadastrar(Produto a) throws OJEException{
 
 			this.repositorio.cadastrarProduto(a);
+			this.repositorio.save();
 		
 	}
 
 	public void remover(String codigo) throws ONFException {
 
 		this.repositorio.removerProduto(codigo);
+		this.repositorio.save();
 
 	}
 
@@ -47,6 +49,7 @@ public class GerenciadorProdutos {
 	public void atualizarProduto(Double newvalor, String produtoalterado) throws ONFException {
 	
 		this.repositorio.atualizarProdutos( newvalor, produtoalterado);
+		this.repositorio.save();
 		
 	}
 

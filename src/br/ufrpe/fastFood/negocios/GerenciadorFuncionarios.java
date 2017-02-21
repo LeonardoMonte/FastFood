@@ -31,12 +31,13 @@ public class GerenciadorFuncionarios {
 	public void cadastrar(Funcionario a) throws OJEException {
 
 		this.repositorio.cadastrarFuncionario(a);
-		
+		this.repositorio.save();
 	}
 
 	public void remover(String id) throws ONFException {
 		
-		this.repositorio.removerFuncionario(id);	
+		this.repositorio.removerFuncionario(id);
+		this.repositorio.save();
 
 	}
 
@@ -49,7 +50,7 @@ public class GerenciadorFuncionarios {
 	public void atualizarFuncionario(String id, Endereco ende) throws ONFException {
 
 		this.repositorio.atualizarFuncionarioendereco(id, ende);
-		
+		this.repositorio.save();
 	}
 
 	public List<Funcionario> listarFuncionarios() {
@@ -68,6 +69,7 @@ public class GerenciadorFuncionarios {
 	public void alterarSenha(String id, String senhaold, String senhanew) throws ONFException, WPException {
 		
 		this.repositorio.alterarsenha(id, senhaold, senhanew);
+		this.repositorio.save();
 
 	}
 }

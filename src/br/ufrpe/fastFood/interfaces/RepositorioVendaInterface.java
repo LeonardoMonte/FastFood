@@ -21,6 +21,8 @@ public interface RepositorioVendaInterface {
 	
 	boolean existeIndiceV(int ind);
 	
+	void save();
+	
 	
 	
 

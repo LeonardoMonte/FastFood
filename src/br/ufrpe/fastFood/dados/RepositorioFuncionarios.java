@@ -1,5 +1,11 @@
 package br.ufrpe.fastFood.dados;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -136,6 +142,74 @@ public class RepositorioFuncionarios implements RepositorioFuncionarioInterface 
 		if(f.getId() != null)
 		{
 			f.alterarSenha(senhaold, senhanew);
+		}
+	}
+	
+	//AREA DE PERSISTENCIA DE DADOS
+
+	private static RepositorioFuncionarios load(){
+		RepositorioFuncionarios repFuncionarios =  null;
+
+		File arquivoFuncionario = new File("RepositorioFuncionarios.dat");
+
+		FileInputStream fInput = null;
+		ObjectInputStream oInput = null;
+
+		try{
+			fInput = new FileInputStream(arquivoFuncionario);
+			oInput = new ObjectInputStream(fInput);
+			
+			Object o = oInput.readObject();
+
+			repFuncionarios = (RepositorioFuncionarios) o;
+
+		}catch(Exception e){
+			repFuncionarios = new RepositorioFuncionarios();
+		}finally{
+			if (oInput != null){
+				try{
+					oInput.close();
+				}catch(IOException e){
+					System.out.println("Não foi possível fechar o arquivo!");
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return repFuncionarios;
+	}
+
+
+	public void save(){
+		if(instancia == null){
+			return;
+		}
+
+		File arquivoFuncionario = new File("RepositorioFuncionarios.dat");
+		FileOutputStream fOutput =  null;
+		ObjectOutputStream oOutput = null;
+
+		try{
+			if(!arquivoFuncionario.exists())
+				arquivoFuncionario.createNewFile();
+
+			fOutput = new FileOutputStream(arquivoFuncionario);
+			oOutput = new ObjectOutputStream(fOutput);
+			oOutput.writeObject(instancia);
+
+		}catch(Exception e){
+			e.printStackTrace();
+
+		}finally{
+			if(oOutput != null){
+				try{
+
+					oOutput.close();
+
+				}catch(IOException e){
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 }

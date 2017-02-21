@@ -54,6 +54,7 @@ public class LoginClienteController implements Initializable {
 	private void botaoEntrarActionC(ActionEvent event) throws ONFException, WPException{
 
 		if (!(txtLoginC.getText().equals("") || txtSenhaC.getText().equals(""))) {
+			Fachada.getInstancia();
 
 			String login, senha;
 
@@ -61,7 +62,6 @@ public class LoginClienteController implements Initializable {
 			senha = txtSenhaC.getText();
 
 			try{
-
 				if(Fachada.getInstancia().loginCliente(login, senha)){
 					((Node) (event.getSource())).getScene().getWindow().hide();
 					
@@ -84,6 +84,9 @@ public class LoginClienteController implements Initializable {
 			}catch(ONFException e){
 				System.out.println(e.getMessage());
 				avisoC.setText("Usuário não encontrado");
+			}catch(WPException e){
+				System.out.println(e.getMessage());
+				this.avisoC.setText("Senha Incorreta");
 			}
 
 		}else{

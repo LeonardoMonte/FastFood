@@ -15,7 +15,7 @@ public class GerenciadorCombos {
 	private static GerenciadorCombos instancia;
 	private RepositorioCombosInterface repositorio;
 	
-	public GerenciadorCombos()
+	private GerenciadorCombos()
 	{
 		this.repositorio = RepositorioCombos.getInstance();
 	}
@@ -33,12 +33,14 @@ public class GerenciadorCombos {
 	{		
 		
 		this.repositorio.cadastrar(a);
+		this.repositorio.save();
 					
 	}
 	
 	public void removerCombo(String codigo) throws ONFException
 	{
 		this.repositorio.removerCombo(codigo);
+		this.repositorio.save();
 	}
 	
 	public List<Combo> listarCombos()

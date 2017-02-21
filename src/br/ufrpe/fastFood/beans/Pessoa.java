@@ -1,7 +1,13 @@
 package br.ufrpe.fastFood.beans;
 
-public abstract class Pessoa {
+import java.io.Serializable;
 
+public abstract class Pessoa implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8703396761104806750L;
 	private String nome;
 	private String id;
 	private String dataDeNascimento;
