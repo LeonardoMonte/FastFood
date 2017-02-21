@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufrpe.fastFood.beans.Venda;
+import br.ufrpe.fastFood.exceptions.ONFException;
 import br.ufrpe.fastFood.interfaces.RepositorioVendaInterface;
 
 public class RepositorioVendas implements RepositorioVendaInterface{
@@ -31,43 +32,43 @@ public class RepositorioVendas implements RepositorioVendaInterface{
 	
 	public void cadastrarVenda(Venda v)
 	{
-		if( v != null)
+		if( v.getIdVenda() != null)
 		{
 			this.listaVendas.add(v);
 		}
 		
 	}
 	
-	public Venda buscarVenda(String idVenda)
+	public Venda buscarVenda(String idVenda) throws ONFException
 	{
 		
-		Venda resultado = new Venda();
+		Venda v = new Venda();
 		
 		int i = this.procurarIndiceV(idVenda);
 
 		if( i >= 0 )
 		{		
-			resultado = this.listaVendas.get(i);
+			v = this.listaVendas.get(i);
+		}
+		else
+		{
+			throw new ONFException(idVenda);
 		}
 	
-		return resultado;
+		return v;
 	}
 
-	public boolean removerVenda(String idVenda)
+	public void removerVenda(String idVenda) throws ONFException
 	{
 		
-		boolean resultado = false;
-		Venda rresultado = new Venda();
-		int i = this.procurarIndiceV(idVenda);
+		Venda v = new Venda();
+		v = this.buscarVenda(idVenda);
 		
-			if( i >= 0)
-			{
-				rresultado = this.listaVendas.get(i);	
-				this.listaVendas.remove(rresultado);
-				resultado = true;
-			}	
+		if(v.getIdVenda() != null)
+		{
+			this.listaVendas.remove(v);
+		}
 			
-		return resultado;
 	}
 
 
@@ -93,35 +94,7 @@ public class RepositorioVendas implements RepositorioVendaInterface{
 		return cont;
 	}
 	
-	public boolean existeVenda(String idVenda)
-	{
-		// FUNÇÃO PARA CHECAR SE JA EXISTE UMA VENDA COM ESSE CODIGO
-		
-		boolean resultado = false;
-		
-		for(Venda venda:listaVendas)
-		{
-			if( venda.getIdVenda().equals(idVenda))
-			{
-				resultado = true;
-			}
-		}
-		
-		return resultado;
-	}
 	
-	public boolean existeIndiceV(int ind)
-	{
-		// FUNÇÃO PARA CHEGAR SE EXISTE ALGO NAQUELA POSIÇÃO EXPECIFICA( MEIO NOSENSE MAS TEM UMA UTILIDADE)
-		boolean resultado = false;
-		
-		if( this.listaVendas.get(ind) != null)
-		{
-			resultado = true;
-		}
-		
-		return resultado;
-	}
 	
 	//AREA DE PERSISTENCIA DE DADOS
 

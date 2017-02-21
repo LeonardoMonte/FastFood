@@ -4,6 +4,7 @@ import java.util.List;
 
 import br.ufrpe.fastFood.beans.Venda;
 import br.ufrpe.fastFood.dados.RepositorioVendas;
+import br.ufrpe.fastFood.exceptions.ONFException;
 import br.ufrpe.fastFood.interfaces.RepositorioVendaInterface;
 
 public class GerenciadorVendas {
@@ -32,19 +33,15 @@ public class GerenciadorVendas {
 		
 	}
 
-	public boolean remover(String idVenda) {
+	public void remover(String idVenda) throws ONFException {
 		
-		boolean removeu = false;
-		if(this.repositorio.removerVenda(idVenda))
-			removeu = true;
-		
+		this.repositorio.removerVenda(idVenda);
 		this.repositorio.save();
 		
-		return removeu;
 	
 	}
 
-	public Venda procurar(String idVenda) {
+	public Venda procurar(String idVenda) throws ONFException {
 		
 		return this.repositorio.buscarVenda(idVenda);
 

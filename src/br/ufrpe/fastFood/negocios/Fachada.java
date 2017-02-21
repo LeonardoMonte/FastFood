@@ -190,13 +190,13 @@ public class Fachada {
 
 	}
 
-	public boolean removerVenda(String idVenda) {
+	public void removerVenda(String idVenda) throws ONFException {
 
-		return this.gerenvendas.remover(idVenda);
+		this.gerenvendas.remover(idVenda);
 
 	}
 
-	public Venda procurarVenda(String idVenda) {
+	public Venda procurarVenda(String idVenda) throws ONFException {
 
 		return this.gerenvendas.procurar(idVenda);
 

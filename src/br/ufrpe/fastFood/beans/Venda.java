@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+import br.ufrpe.fastFood.exceptions.ONFException;
+
 public class Venda implements Serializable{
 	
 	/**
@@ -128,33 +130,48 @@ public class Venda implements Serializable{
 		}
 	}
 	
-	public Produto BuscarProduto(String codigo)
+	public Produto BuscarProduto(String codigo) throws ONFException
 	{
 		Produto a = new Produto();
+
 		
 		for( int x = 0 ; x < produtos.size() ; x++)
 		{
 			if(this.produtos.get(x).getCodigo().equals(codigo))
 			{
 				a = this.produtos.get(x);
+
 			}
+			
+		}
+		
+		if(a.getCodigo() == null)
+		{
+			throw new ONFException(codigo);
 		}
 		
 		return a;
 		
 	}
 	
-	public Combo BuscarCombo(String codigo)
+	public Combo BuscarCombo(String codigo) throws ONFException
 	{
 		Combo a = new Combo();
+		
 		
 		for( int x = 0 ; x < combos.size() ; x++)
 		{
 			if(this.combos.get(x).getCodigo().equals(codigo))
 			{
-				this.setValorTotalDiminuir(a.getValor());
+				
 				a = this.combos.get(x);
+				
 			}
+		}
+		
+		if(a.getCodigo() == null)
+		{
+			throw new ONFException(codigo);
 		}
 		
 		return a;		
@@ -162,7 +179,7 @@ public class Venda implements Serializable{
 	
 
 	
-	public void removerCombo(String codigo)
+	public void removerCombo(String codigo) throws ONFException
 	{
 		Combo a = new Combo();
 		a = this.BuscarCombo(codigo);
@@ -175,7 +192,7 @@ public class Venda implements Serializable{
 		}
 	}
 	
-	public void removerProduto(String codigo)
+	public void removerProduto(String codigo) throws ONFException
 	{
 		Produto a = new Produto();
 		a = this.BuscarProduto(codigo);
