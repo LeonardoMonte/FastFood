@@ -14,7 +14,7 @@ public class AdicionarP extends Application {
 	{
 		try
 		{
-			Parent root = FXMLLoader.load(getClass().getResource("AdicionaOnlyProduto.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("AdicionarOnlyProduto.fxml"));
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.setTitle("Login");
