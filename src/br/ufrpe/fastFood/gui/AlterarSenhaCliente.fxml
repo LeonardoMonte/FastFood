@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="522.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.AlterarSenhaClienteController">
    <children>
       <ImageView fx:id="imagemC" fitHeight="294.0" fitWidth="522.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
@@ -27,7 +26,7 @@
             <Font name="Arial" size="15.0" />
          </font>
       </JFXPasswordField>
-      <JFXPasswordField fx:id="senhanova" focusColor="#ee8700" labelFloat="true" layoutX="234.0" layoutY="375.0" prefHeight="40.0" prefWidth="169.0" promptText="Nova senha:" unFocusColor="#03a9f4">
+      <JFXPasswordField fx:id="senhanova" focusColor="#ee8700" labelFloat="true" layoutX="235.0" layoutY="373.0" prefHeight="40.0" prefWidth="169.0" promptText="Nova senha:" unFocusColor="#03a9f4">
          <font>
             <Font name="Arial" size="15.0" />
          </font>

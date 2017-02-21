@@ -1,14 +1,11 @@
 package br.ufrpe.fastFood.gui;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import br.ufrpe.fastFood.beans.Combo;
 import br.ufrpe.fastFood.beans.Produto;
-import br.ufrpe.fastFood.beans.PromocaoCombo;
-import br.ufrpe.fastFood.exceptions.OJEException;
 import br.ufrpe.fastFood.exceptions.ONFException;
 import br.ufrpe.fastFood.negocios.Fachada;
 import javafx.collections.FXCollections;
@@ -29,7 +26,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class AdicionarPromoComboController implements Initializable {
+public class RemoverComboController implements Initializable {
 
 	@FXML
 	private TableView<Combo> tabela;
@@ -53,13 +50,7 @@ public class AdicionarPromoComboController implements Initializable {
 	private TableColumn<Combo, Produto> colunap3;
 	
 	@FXML
-	private TextField valortxt;
-	
-	@FXML
 	private TextField idtxt;
-	
-	@FXML
-	private TextField iddocombotxt;
 	
 	@FXML
 	private Button concluir;
@@ -70,6 +61,7 @@ public class AdicionarPromoComboController implements Initializable {
 	@FXML
 	private Label label;
 	
+	
 	@FXML
 	private void Sair(ActionEvent event)
 	{	
@@ -77,7 +69,7 @@ public class AdicionarPromoComboController implements Initializable {
 		
 		try
 		{
-			Parent root = FXMLLoader.load(getClass().getResource("Adicionar produto.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("Remover Produto.fxml"));
 			Scene scene = new Scene(root);
 			Stage primaryStage = new Stage();
 			primaryStage.setScene(scene);
@@ -89,59 +81,18 @@ public class AdicionarPromoComboController implements Initializable {
 		}
 	}
 	
-	
-	
+
 	@FXML
 	private void Concluir(ActionEvent event)
 	{
-		String id , valor , idcombo;
+		String id = idtxt.getText();
 		
-		id = idtxt.getText();
-		valor = valortxt.getText();
-		idcombo = iddocombotxt.getText();
-		
-		if(!id.equals("") && !valor.equals("") && !idcombo.equals(""))
+		if(!id.equals(""))
 		{
-			Combo c = new Combo();
-			
 			try {
-				c = Fachada.getInstancia().procurarCombo(idcombo);
-				
-				double valor2 = Double.parseDouble(valor);
-				
-				LocalDate data = LocalDate.now();
-				
-				PromocaoCombo p = new PromocaoCombo(id, data, c, valor2);
-				
-				try {
-					Fachada.getInstancia().cadastrarPromoCombo(p);
-					
-					((Node) (event.getSource())).getScene().getWindow().hide();
-					
-					try
-					{
-						Parent root = FXMLLoader.load(getClass().getResource("Adicionar produto.fxml"));
-						Scene scene = new Scene(root);
-						Stage primaryStage = new Stage();
-						primaryStage.setScene(scene);
-						primaryStage.setTitle("Cadastro");
-						primaryStage.show();
-						
-					}catch (Exception e){
-						System.out.println(e.getMessage());
-					}
-					
-					
-				} catch (OJEException e) {
-					Alert alert = new Alert(AlertType.WARNING);
-					alert.setTitle("Warning Dialog");
-					alert.setHeaderText("Impossivel realizar a acao");
-					alert.setContentText("Promocao de combo com o id " + e.getId() + " ja existe");	
-					alert.showAndWait();
-				}
-				
-				
+				Fachada.getInstancia().removerCombo(id);;
 			} catch (ONFException e) {
+			
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("Warning Dialog");
 				alert.setHeaderText("Impossivel realizar a acao");
@@ -149,11 +100,10 @@ public class AdicionarPromoComboController implements Initializable {
 				alert.showAndWait();
 			}
 		}
-		else			
+		else
 		{
 			label.setText("Preencha todos os campos");
 		}
-		
 	}
 	
 	

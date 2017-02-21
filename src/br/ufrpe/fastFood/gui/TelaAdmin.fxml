@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.TelaAdminController">
+   <children>
+      <JFXButton fx:id="funcionarios" alignment="BOTTOM_CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#funcionarios" prefHeight="268.0" prefWidth="197.0" text="FUNCIONARIOS" textFill="#ff9800">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="produtos" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="198.0" onAction="#produtos" prefHeight="268.0" prefWidth="205.0" text="PRODUTOS" textFill="#ff9800">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="clientes" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="403.0" onAction="#clientes" prefHeight="268.0" prefWidth="197.0" text="CLIENTES" textFill="#ff9800">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="sair" contentDisplay="BOTTOM" layoutX="26.0" layoutY="314.0" onAction="#sair" prefHeight="72.0" prefWidth="112.0" text="SAIR" textFill="#ff9800">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

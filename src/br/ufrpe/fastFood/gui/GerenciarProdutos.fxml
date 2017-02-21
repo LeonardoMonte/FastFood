@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.GerenciarProdutosController">
+   <children>
+      <ImageView fx:id="img2" fitHeight="125.0" fitWidth="108.0" layoutX="397.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon-editar.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img1" fitHeight="116.0" fitWidth="151.0" layoutX="76.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon-Config.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="adicionar" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutY="-5.0" onAction="#cadastrar" prefHeight="191.0" prefWidth="295.0" ripplerFill="#00bcd4" text="ADICIONAR" textFill="#ff9800">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="remover" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="300.0" onAction="#remover" prefHeight="181.0" prefWidth="302.0" ripplerFill="#00bcd4" text="REMOVER" textFill="#ff9800">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="atualizar" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutY="181.0" onAction="#atualizar" prefHeight="191.0" prefWidth="295.0" ripplerFill="#00bed4" text="ATUALIZAR" textFill="#ff9800">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="listar" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="300.0" layoutY="186.0" onAction="#mostrar" prefHeight="181.0" prefWidth="295.0" ripplerFill="#00bed4" text="LISTAR" textFill="#ff9800">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="sair" alignment="CENTER" buttonType="RAISED" layoutX="14.0" layoutY="372.0" onAction="#sair" prefHeight="59.0" prefWidth="108.0" ripplerFill="#00bed4" text="SAIR" textFill="#ff9800">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

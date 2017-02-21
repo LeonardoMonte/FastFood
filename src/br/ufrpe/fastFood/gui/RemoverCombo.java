@@ -6,15 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class AdicionarPromoCombo extends Application{
+public class RemoverCombo extends Application{
 
-	
 	@Override
 	public void start (Stage stage) throws Exception
 	{
 		try
 		{
-			Parent root = FXMLLoader.load(getClass().getResource("AdicionarPromoCombo.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("RemoverProduto.fxml"));
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.setTitle("Login");

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.RemoverProdutosController">
+   <children>
+      <JFXButton fx:id="removerpromoproduto" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutY="1.0" onAction="#removerProduto" prefHeight="249.0" prefWidth="130.0" ripplerFill="#ee8700" text="Produto" textFill="#ee8700">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="removercombo" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="130.0" layoutY="1.0" onAction="#removerCombo" prefHeight="249.0" prefWidth="151.0" text="Combo" textFill="#ee8700">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="removerproduto" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="281.0" layoutY="1.0" onAction="#removerPromoProduto" prefHeight="249.0" prefWidth="158.0" text="Promocao de produto" textFill="#ee8700">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="removerpromocombo" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="444.0" layoutY="1.0" onAction="#removerPromoCombo" prefHeight="249.0" prefWidth="158.0" text="Promocao de combo" textFill="#ee8700">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="sair" buttonType="RAISED" layoutX="38.0" layoutY="322.0" onAction="#sair" prefHeight="50.0" prefWidth="88.0" ripplerFill="#ee8700" text="VOLTAR" textFill="#ee8700">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

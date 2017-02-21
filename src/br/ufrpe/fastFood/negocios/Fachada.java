@@ -7,8 +7,7 @@ import br.ufrpe.fastFood.beans.Combo;
 import br.ufrpe.fastFood.beans.Endereco;
 import br.ufrpe.fastFood.beans.Funcionario;
 import br.ufrpe.fastFood.beans.Produto;
-import br.ufrpe.fastFood.beans.PromocaoCombo;
-import br.ufrpe.fastFood.beans.PromocaoProduto;
+
 import br.ufrpe.fastFood.beans.Venda;
 import br.ufrpe.fastFood.dados.RepositorioProdutos;
 import br.ufrpe.fastFood.exceptions.OJEException;
@@ -25,7 +24,7 @@ public class Fachada {
 	private GerenciadorProdutos gerenprodutos; 
 	private GerenciadorVendas gerenvendas;
 	private GerenciadorCombos gerencombos ;
-	private GerenciadorPromocoes gerenpromocoes ;
+
 
 	private Fachada()
 	{
@@ -34,7 +33,6 @@ public class Fachada {
 		this.gerenprodutos = GerenciadorProdutos.getInstancia();
 		this.gerenvendas = GerenciadorVendas.getInstancia();
 		this.gerencombos = GerenciadorCombos.getInstancia();
-		this.gerenpromocoes = GerenciadorPromocoes.getInstancia();	
 
 	}
 
@@ -236,66 +234,6 @@ public class Fachada {
 
 	}
 
-	// INICIO DAS FUNCOES DE GERENCIAMENTO DE PROMOCOES
-
-
-	public void cadastrarPromoCombo(PromocaoCombo a) throws OJEException
-	{
-
-		this.gerenpromocoes.cadastrarCombo(a);
-
-	}
-
-	public void cadastrarPromoProduto(PromocaoProduto a) throws OJEException
-	{
-
-		this.gerenpromocoes.cadastrarProduto(a);
-
-	}
-
-	public PromocaoProduto buscarPromocaoProduto( String idPromocao) throws ONFException
-	{
-		return this.gerenpromocoes.buscarPromocaoProduto(idPromocao);
-	}
-
-	public PromocaoCombo buscarPromocaoCombo(String idPromocao) throws ONFException
-	{
-		return this.gerenpromocoes.buscarPromocaoCombo(idPromocao);
-
-	}
-
-	public void removerPromoCombo(String idPromocao) throws ONFException
-	{
-		this.gerenpromocoes.removerCombo(idPromocao);
-	}
-
-	public void removerPromoProduto(String idPromocao) throws ONFException
-	{
-		this.gerenpromocoes.removerProduto(idPromocao);
-
-	}
-
-	public List<PromocaoCombo> listarCombosPromotion()
-	{
-		return this.gerenpromocoes.listarCombosPromotion();
-
-	}
-
-	public List<PromocaoProduto> listarProdutoPromotion()
-	{
-		return this.gerenpromocoes.listarProdutoPromotion();
-	}
-
-	public void alterarPrecoPromoCombo(double newprice , String idPromocao) throws ONFException
-	{		
-		this.gerenpromocoes.alterarPrecoPromoCombo(newprice, idPromocao);
-	}
-
-	public void alterarPrecoPromoProduto(double newprice , String idPromocao) throws ONFException
-	{
-		this.gerenpromocoes.alterarPrecoPromoProduto(newprice, idPromocao);
-
-	}
 
 
 

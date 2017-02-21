@@ -13,31 +13,31 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class AdicionarProdutoController implements Initializable {
+public class RemoverProdutosController implements Initializable {
 
 	@FXML
-	private Button cadastrarproduto;
+	private Button removerproduto;
 	
 	@FXML
-	private Button cadastrarcombo;
+	private Button removercombo;
 	
 	@FXML
-	private Button cadastrarpromocombo;
+	private Button removerpromocombo;
 	
 	@FXML
-	private Button cadastrarpromoproduto;
+	private Button removerpromoproduto;
 	
 	@FXML
 	private Button sair;
 	
 	@FXML
-	private void CadastrarProduto(ActionEvent event)
+	private void removerProduto(ActionEvent event)
 	{
 		((Node) (event.getSource())).getScene().getWindow().hide();
 		
 		try
 		{
-			Parent root = FXMLLoader.load(getClass().getResource("AdicionarOnlyProduto.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("RemoverProduto.fxml"));
 			Scene scene = new Scene(root);
 			Stage primaryStage = new Stage();
 			primaryStage.setScene(scene);
@@ -50,13 +50,13 @@ public class AdicionarProdutoController implements Initializable {
 	}
 	
 	@FXML
-	private void CadastrarCombo(ActionEvent event)
+	private void removerCombo(ActionEvent event)
 	{
 		((Node) (event.getSource())).getScene().getWindow().hide();
 		
 		try
 		{
-			Parent root = FXMLLoader.load(getClass().getResource("AdicionarCombo.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("RemoverCombo.fxml"));
 			Scene scene = new Scene(root);
 			Stage primaryStage = new Stage();
 			primaryStage.setScene(scene);
@@ -69,13 +69,13 @@ public class AdicionarProdutoController implements Initializable {
 	}
 	
 	@FXML
-	private void CadastrarPromoCombo(ActionEvent event)
+	private void removerPromoCombo(ActionEvent event)
 	{
 		((Node) (event.getSource())).getScene().getWindow().hide();
 		
 		try
 		{
-			Parent root = FXMLLoader.load(getClass().getResource("AdicionarPromoCombo.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("RemoverPromoCombo.fxml"));
 			Scene scene = new Scene(root);
 			Stage primaryStage = new Stage();
 			primaryStage.setScene(scene);
@@ -88,7 +88,7 @@ public class AdicionarProdutoController implements Initializable {
 	}
 	
 	@FXML
-	private void CadastrarPromoProduto(ActionEvent event)
+	private void removerPromoProduto(ActionEvent event)
 	{
 		((Node) (event.getSource())).getScene().getWindow().hide();
 		
@@ -124,6 +124,7 @@ public class AdicionarProdutoController implements Initializable {
 			System.out.println(e.getMessage());
 		}
 	}
+	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {

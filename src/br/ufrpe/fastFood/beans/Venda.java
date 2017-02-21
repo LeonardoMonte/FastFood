@@ -9,10 +9,8 @@ public class Venda{
 	private String idCliente;
 	private LocalDateTime dataHoraVenda;
 	private double valorTotal;
-	private ArrayList<PromocaoCombo> promocombos;
 	private ArrayList<Combo> combos;
 	private ArrayList<Produto> produtos;
-	private ArrayList<PromocaoProduto> promoprodutos;
 	private int contcombo = 0;
 	private int contproduto = 0;
 	private int contpromocombo = 0;
@@ -125,43 +123,6 @@ public class Venda{
 		}
 	}
 	
-	public void comprarPromoCombo(PromocaoCombo p1)
-	{
-		if(this.contpromocombo == 0)
-		{
-			this.promocombos = new ArrayList<>();
-			this.promocombos.add(p1);
-			this.setValorTotalAdicionar(p1.getValor());
-			contpromocombo++;
-		}
-		else
-		{
-			this.promocombos.add(p1);
-			this.setValorTotalAdicionar(p1.getValor());
-			contpromocombo++;
-		}
-		
-		
-	}
-	
-	public void comprarPromoProduto(PromocaoProduto p2)
-	{
-		if(this.contpromoproduto == 0)
-		{
-			this.promoprodutos = new ArrayList<>();
-			this.promoprodutos.add(p2);
-			this.setValorTotalAdicionar(p2.getValor());
-			contpromoproduto++;
-		}
-		else
-		{
-			this.promoprodutos.add(p2);
-			this.setValorTotalAdicionar(p2.getValor());
-			contpromoproduto++;
-		}
-		
-	}
-	
 	public Produto BuscarProduto(String codigo)
 	{
 		Produto a = new Produto();
@@ -194,37 +155,7 @@ public class Venda{
 		return a;		
 	}
 	
-	public PromocaoCombo BuscarPromoCombo(String idPromocao)
-	{
-		PromocaoCombo a = new PromocaoCombo();
-		
-		for( int x = 0 ; x < this.promocombos.size() ; x++)
-		{
-			if(this.promocombos.get(x).getIdPromocao().equals(idPromocao))
-			{
-				a = this.promocombos.get(x);
-			}
-		}
-		
-		return a;
-		
-	}
-	
-	public PromocaoProduto BuscarPromoProduto(String idPromocao)
-	{
-		PromocaoProduto a = new PromocaoProduto();
-		
-		for( int x = 0 ; x < this.promoprodutos.size() ; x++)
-		{
-			if(this.promoprodutos.get(x).getIdPromocao().equals(idPromocao))
-			{
-				a = this.promoprodutos.get(x);
-			}
-		}
-		
-		return a;
-		
-	}
+
 	
 	public void removerCombo(String codigo)
 	{
@@ -252,32 +183,7 @@ public class Venda{
 		}
 	}
 	
-	public void removerPromoCombo(String idPromocao)
-	{
-		PromocaoCombo a = new PromocaoCombo();
-		a = this.BuscarPromoCombo(idPromocao);
-		
-		if( a != null )
-		{
-			this.setValorTotalDiminuir(a.getValor());
-			this.promocombos.remove(a);
-			contpromocombo--;
-		}
-	}
-	
-	public void removerPromoProduto(String idPromocao)
-	{
-		PromocaoProduto a = new PromocaoProduto();
-		a = this.BuscarPromoProduto(idPromocao);
-		
-		if( a != null )
-		{
-			this.setValorTotalDiminuir(a.getValor());
-			this.promoprodutos.remove(a);
-			contpromoproduto--;
-		}
-	}
-	
+
 	
 
 	
@@ -307,15 +213,6 @@ public class Venda{
 		{
 			buffer.append("Combos: " + this.combos.toString() + "\n");
 		}
-		if( contpromoproduto > 0)
-		{
-			buffer.append("Promocoes de produto:  " + this.promoprodutos.toString() + "\n");
-		}
-		if(contpromocombo > 0)
-		{
-			buffer.append("Promocoes de combo: " + this.promocombos.toString() + "\n");			
-		}
-		
 		
 		buffer.append("Valor total: " + this.getValorTotal() + "\n");
 		
