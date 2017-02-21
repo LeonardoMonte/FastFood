@@ -118,7 +118,8 @@ public class CadastroFuncionarioController implements Initializable {
 						Alert alert = new Alert(AlertType.WARNING);
 						alert.setTitle("Warning Dialog");
 						alert.setHeaderText("Impossivel realizar a acao");
-						alert.setContentText("Funcionario com o id " + exc.getId() + " Ja existe");			
+						alert.setContentText("Funcionario com o id " + exc.getId() + " Ja existe");
+						alert.showAndWait();
 						
 					}
 

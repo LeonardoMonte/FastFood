@@ -98,7 +98,7 @@ public class LoginFuncionarioController implements Initializable {
 
 		((Node) (event.getSource())).getScene().getWindow().hide();	
 		try{
-			Parent root = FXMLLoader.load(getClass().getResource("Tela Inicial.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("FuncionarioAdmin.fxml"));
 			Scene scene = new Scene(root);
 			Stage primaryStage = new Stage();
 			primaryStage.setScene(scene);

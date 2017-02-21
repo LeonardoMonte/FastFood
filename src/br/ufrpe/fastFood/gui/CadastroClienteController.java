@@ -5,11 +5,8 @@ import java.util.ResourceBundle;
 
 import br.ufrpe.fastFood.beans.Cliente;
 import br.ufrpe.fastFood.beans.Endereco;
-import br.ufrpe.fastFood.beans.Funcionario;
 import br.ufrpe.fastFood.exceptions.OJEException;
 import br.ufrpe.fastFood.negocios.Fachada;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

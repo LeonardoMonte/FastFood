@@ -11,17 +11,28 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class TelaIntermediariaFuncAdminController implements Initializable {
 	
 	@FXML
+	private ImageView imgFunc;
+	
+	@FXML
+	private ImageView imgAdmin;
+	
+	@FXML
 	private Button entrarFunc;
+	
 	@FXML
 	private Button entrarAdmin;
+	
 	@FXML
 	private Button voltar;
 	
+	@FXML
 	private void entrarFuncAction(ActionEvent event){
 		
 		((Node) (event.getSource())).getScene().getWindow().hide();
@@ -39,6 +50,7 @@ public class TelaIntermediariaFuncAdminController implements Initializable {
 		}
 	}
 	
+	@FXML
 	private void entrarAdminAction(ActionEvent event)
 	{
 				
@@ -57,13 +69,14 @@ public class TelaIntermediariaFuncAdminController implements Initializable {
 		}
 	}
 	
+	@FXML
 	private void sairAction(ActionEvent event)
 	{
 				
 		((Node) (event.getSource())).getScene().getWindow().hide();
 		try{
 
-			Parent root = FXMLLoader.load(getClass().getResource("TelaInicial.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("Tela Inicial.fxml"));
 			Stage stage = new Stage();
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
@@ -78,7 +91,11 @@ public class TelaIntermediariaFuncAdminController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+		Image img = new Image("br/ufrpe/fastFood/gui/admin.png");
+		this.imgFunc.setImage(img);
+		
+		Image img2 = new Image("br/ufrpe/fastFood/gui/person_3_icon-icons.com_68899.png");
+		this.imgAdmin.setImage(img2);
 		
 	}
 	

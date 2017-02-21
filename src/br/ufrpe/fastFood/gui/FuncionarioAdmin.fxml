@@ -6,27 +6,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.TelaIntermediariaFuncAdminController">
    <children>
-      <ImageView fitHeight="118.0" fitWidth="118.0" layoutX="359.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgAdmin" fitHeight="101.0" fitWidth="95.0" layoutX="368.0" layoutY="129.0">
          <image>
-            <Image url="@../../Downloads/person_3_icon-icons.com_68899.png" />
+            <Image url="@person_3_icon-icons.com_68899.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="134.0" fitWidth="118.0" layoutX="123.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgFunc" fitHeight="107.0" fitWidth="107.0" layoutX="124.0" layoutY="126.0">
          <image>
-            <Image url="@../../Downloads/admin.png" />
+            <Image url="@admin.png" />
          </image>
       </ImageView>
-      <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="103.0" layoutY="118.0" prefHeight="148.0" prefWidth="165.0" text="Funcionário">
+      <JFXButton fx:id="entrarAdmin" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="333.0" layoutY="126.0" onAction="#entrarAdminAction" prefHeight="148.0" prefWidth="165.0" text="Administrador">
          <font>
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <JFXButton alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="336.0" layoutY="112.0" prefHeight="148.0" prefWidth="165.0" text="Administrador">
+      <JFXButton fx:id="entrarFunc" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="95.0" layoutY="126.0" onAction="#entrarFuncAction" prefHeight="148.0" prefWidth="165.0" text="Funcionário">
          <font>
             <Font size="20.0" />
          </font>
       </JFXButton>
+      <JFXButton fx:id="voltar" layoutX="43.0" layoutY="341.0" onAction="#sairAction" prefHeight="34.0" prefWidth="81.0" text="VOLTAR" />
    </children>
 </AnchorPane>
