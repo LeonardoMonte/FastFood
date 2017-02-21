@@ -6,9 +6,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufrpe.fastFood.beans.Admin;
 import br.ufrpe.fastFood.beans.Cliente;
 import br.ufrpe.fastFood.beans.Endereco;
 import br.ufrpe.fastFood.beans.Funcionario;
@@ -17,7 +19,7 @@ import br.ufrpe.fastFood.exceptions.ONFException;
 import br.ufrpe.fastFood.exceptions.WPException;
 import br.ufrpe.fastFood.interfaces.RepositorioFuncionarioInterface;
 
-public class RepositorioFuncionarios implements RepositorioFuncionarioInterface {
+public class RepositorioFuncionarios implements RepositorioFuncionarioInterface, Serializable  {
 	private static RepositorioFuncionarios instancia;
 	private ArrayList<Funcionario> listaFuncionarios;
 
@@ -129,6 +131,20 @@ public class RepositorioFuncionarios implements RepositorioFuncionarioInterface 
 		{
 
 			b = f.equalsSenhaFunc(senha);
+
+		}
+		return b;
+	}
+	
+	public boolean loginAdmin(String id, String senha) throws ONFException, WPException{
+
+		boolean b = false;
+		Admin a = new Admin();
+		a = (Admin) this.buscarFuncionario(id);		
+		if(a.getId() != null)
+		{
+
+			b = a.equalsSenhaFunc(senha);
 
 		}
 		return b;

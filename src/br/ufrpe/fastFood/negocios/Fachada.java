@@ -144,6 +144,11 @@ public class Fachada {
 		this.gerenfunc.alterarSenha(id, senhaold, senhanew);
 
 	}
+	
+	public boolean loginAdmin(String id, String senha) throws ONFException, WPException
+	{
+		return this.gerenfunc.loginAdmin(id, senha);
+	}
 
 	// INICIO DAS FUNCOES DE GERENCIAMENTO DE PRODUTOS
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.ListarPController">
+   <children>
+      <TableView fx:id="tabela" layoutY="-3.0" prefHeight="318.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="colunaNome" prefWidth="191.0" text="Nome" />
+          <TableColumn fx:id="colunaid" prefWidth="214.0" text="Id" />
+            <TableColumn fx:id="colunavalor" prefWidth="193.0" text="Valor" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="sair" buttonType="RAISED" layoutX="14.0" layoutY="338.0" onAction="#Sair" prefHeight="56.0" prefWidth="107.0" text="SAIR" textFill="#05abf2" />
+   </children>
+</AnchorPane>

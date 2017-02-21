@@ -11,6 +11,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class RemoverProdutosController implements Initializable {
@@ -22,10 +24,8 @@ public class RemoverProdutosController implements Initializable {
 	private Button removercombo;
 	
 	@FXML
-	private Button removerpromocombo;
+	private ImageView img;
 	
-	@FXML
-	private Button removerpromoproduto;
 	
 	@FXML
 	private Button sair;
@@ -68,43 +68,6 @@ public class RemoverProdutosController implements Initializable {
 		}
 	}
 	
-	@FXML
-	private void removerPromoCombo(ActionEvent event)
-	{
-		((Node) (event.getSource())).getScene().getWindow().hide();
-		
-		try
-		{
-			Parent root = FXMLLoader.load(getClass().getResource("RemoverPromoCombo.fxml"));
-			Scene scene = new Scene(root);
-			Stage primaryStage = new Stage();
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("Cadastro");
-			primaryStage.show();
-			
-		}catch (Exception e){
-			System.out.println(e.getMessage());
-		}
-	}
-	
-	@FXML
-	private void removerPromoProduto(ActionEvent event)
-	{
-		((Node) (event.getSource())).getScene().getWindow().hide();
-		
-		try
-		{
-			Parent root = FXMLLoader.load(getClass().getResource("AdicionarPromoProduto.fxml"));
-			Scene scene = new Scene(root);
-			Stage primaryStage = new Stage();
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("Cadastro");
-			primaryStage.show();
-			
-		}catch (Exception e){
-			System.out.println(e.getMessage());
-		}
-	}
 	
 	@FXML
 	private void sair(ActionEvent event)
@@ -128,7 +91,8 @@ public class RemoverProdutosController implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+		Image img = new Image("br/ufrpe/fastFood/gui/icon-combo.png");
+		this.img.setImage(img);
 		
 	}
 

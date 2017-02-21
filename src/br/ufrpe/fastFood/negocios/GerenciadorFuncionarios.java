@@ -64,6 +64,11 @@ public class GerenciadorFuncionarios {
 		 return this.repositorio.loginFunc(id, senha);
 		
 	}
+	
+	public boolean loginAdmin(String id, String senha) throws ONFException, WPException
+	{
+		return this.repositorio.loginAdmin(id, senha);
+	}
 
 
 	public void alterarSenha(String id, String senhaold, String senhanew) throws ONFException, WPException {

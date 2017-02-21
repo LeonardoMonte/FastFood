@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import br.ufrpe.fastFood.beans.Venda;
 import br.ufrpe.fastFood.exceptions.ONFException;
 import br.ufrpe.fastFood.interfaces.RepositorioVendaInterface;
 
-public class RepositorioVendas implements RepositorioVendaInterface{
+public class RepositorioVendas implements RepositorioVendaInterface, Serializable{
 
 	private static RepositorioVendas instancia;
 	private ArrayList <Venda> listaVendas;

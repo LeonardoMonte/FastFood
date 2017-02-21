@@ -11,27 +11,33 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-public class AdicionarProdutoController implements Initializable {
-
+public class ListarProdutosController implements Initializable{
 	@FXML
-	private Button cadastrarproduto;
+	private Button listarproduto;
 	
 	@FXML
-	private Button cadastrarcombo;	
+	private Button listarcombo;
+	
+	@FXML
+	private ImageView img;
+	
+	
 	
 	@FXML
 	private Button sair;
 	
 	@FXML
-	private void CadastrarProduto(ActionEvent event)
+	private void ListarProduto(ActionEvent event)
 	{
 		((Node) (event.getSource())).getScene().getWindow().hide();
 		
 		try
 		{
-			Parent root = FXMLLoader.load(getClass().getResource("AdicionarOnlyProduto.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("ListarProdutos.fxml"));
 			Scene scene = new Scene(root);
 			Stage primaryStage = new Stage();
 			primaryStage.setScene(scene);
@@ -44,13 +50,13 @@ public class AdicionarProdutoController implements Initializable {
 	}
 	
 	@FXML
-	private void CadastrarCombo(ActionEvent event)
+	private void ListarCombo(ActionEvent event)
 	{
 		((Node) (event.getSource())).getScene().getWindow().hide();
 		
 		try
 		{
-			Parent root = FXMLLoader.load(getClass().getResource("AdicionarCombo.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("ListarCombos.fxml"));
 			Scene scene = new Scene(root);
 			Stage primaryStage = new Stage();
 			primaryStage.setScene(scene);
@@ -82,9 +88,11 @@ public class AdicionarProdutoController implements Initializable {
 		}
 	}
 	
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+		Image img = new Image("br/ufrpe/fastFood/gui/icon-combo.png");
+		this.img.setImage(img);
 		
 	}
 

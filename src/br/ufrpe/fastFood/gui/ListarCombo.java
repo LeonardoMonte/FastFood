@@ -1,4 +1,4 @@
-package br.	ufrpe.fastFood.gui;
+package br.ufrpe.fastFood.gui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,14 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class GerenciarProdutos extends Application{
+public class ListarCombo extends Application{
 
 	@Override
 	public void start (Stage stage) throws Exception
 	{
 		try
 		{
-			Parent root = FXMLLoader.load(getClass().getResource("GerenciarProdutos.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("ListarCombos.fxml"));
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
 			stage.setTitle("Login");
@@ -30,4 +30,5 @@ public class GerenciarProdutos extends Application{
 	public static void main (String[] args){
 		launch(args);
 	}
+	
 }
