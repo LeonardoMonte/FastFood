@@ -127,19 +127,21 @@ public class RepositorioCombos implements RepositorioCombosInterface, Serializab
 	
 
 	public void removerCombo(String codigo) throws ONFException
-
 	{
-
 		Combo c = new Combo();
-
 		c = this.buscarCombo(codigo);
-
-		
-
 		this.listaCombos.remove(c);		
 
-		
-
+	}
+	
+	public void atualizarCombo(String codigo , double valor) throws ONFException
+	{
+		Combo c = new Combo();
+		c = this.buscarCombo(codigo);
+		if(c.getCodigo() != null)
+		{
+			c.setValor(valor);
+		}
 	}
 
 	

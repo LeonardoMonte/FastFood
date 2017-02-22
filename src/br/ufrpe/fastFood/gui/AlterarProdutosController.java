@@ -15,32 +15,34 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-public class ListarProdutosController implements Initializable{
-	@FXML
-	private Button listarproduto;
+public class AlterarProdutosController implements Initializable  {
+
 	
+
 	@FXML
-	private Button listarcombo;
-	
-	@FXML
-	private ImageView img;
+	private Button alterarproduto;
 	
 	@FXML
-	private ImageView img2;
-	
-	
+	private Button alterarcombo;	
 	
 	@FXML
 	private Button sair;
 	
 	@FXML
-	private void ListarProduto(ActionEvent event)
+	private ImageView img1;
+	
+	@FXML
+	private ImageView img2;
+	
+	
+	@FXML
+	private void AlterarProduto(ActionEvent event)
 	{
 		((Node) (event.getSource())).getScene().getWindow().hide();
 		
 		try
 		{
-			Parent root = FXMLLoader.load(getClass().getResource("ListarProdutos.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("AlterarProduto.fxml"));
 			Scene scene = new Scene(root);
 			Stage primaryStage = new Stage();
 			primaryStage.setScene(scene);
@@ -53,13 +55,13 @@ public class ListarProdutosController implements Initializable{
 	}
 	
 	@FXML
-	private void ListarCombo(ActionEvent event)
+	private void AlterarCombo(ActionEvent event)
 	{
 		((Node) (event.getSource())).getScene().getWindow().hide();
 		
 		try
 		{
-			Parent root = FXMLLoader.load(getClass().getResource("ListarCombos.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("AtualizarCombo.fxml"));
 			Scene scene = new Scene(root);
 			Stage primaryStage = new Stage();
 			primaryStage.setScene(scene);
@@ -91,15 +93,14 @@ public class ListarProdutosController implements Initializable{
 		}
 	}
 	
-	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		Image img = new Image("br/ufrpe/fastFood/gui/icon-combo.png");
-		this.img.setImage(img);
 		
-		Image img1 = new Image("br/ufrpe/fastFood/gui/icon-produto.png");
-		this.img2.setImage(img1);
+		Image imgg = new Image("br/ufrpe/fastFood/gui/icon-produto.png");
+		this.img1.setImage(imgg);
+		
+		Image imgg1 = new Image("br/ufrpe/fastFood/gui/icon-combo.png");
+		this.img2.setImage(imgg1);
 		
 	}
-
 }

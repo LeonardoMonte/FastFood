@@ -227,6 +227,11 @@ public class Fachada {
 	{
 		this.gerencombos.removerCombo(codigo);
 	}
+	
+	public void atualizarCombo(String codigo , double valor) throws ONFException
+	{
+		this.gerencombos.atualizarCombo(codigo, valor);
+	}
 
 	public List<Combo> listarCombos()
 	{

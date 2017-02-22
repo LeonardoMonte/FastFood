@@ -11,6 +11,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class AdicionarProdutoController implements Initializable {
@@ -20,6 +22,12 @@ public class AdicionarProdutoController implements Initializable {
 	
 	@FXML
 	private Button cadastrarcombo;	
+	
+	@FXML
+	private ImageView img;
+	
+	@FXML
+	private ImageView img2;
 	
 	@FXML
 	private Button sair;
@@ -84,7 +92,11 @@ public class AdicionarProdutoController implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+		Image img = new Image("br/ufrpe/fastFood/gui/icon-combo.png");
+		this.img.setImage(img);
+		
+		Image img1 = new Image("br/ufrpe/fastFood/gui/icon-produto.png");
+		this.img2.setImage(img1);
 		
 	}
 

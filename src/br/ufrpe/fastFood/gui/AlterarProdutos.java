@@ -6,17 +6,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class RemoverProdutos extends Application {
+public class AlterarProdutos extends Application{
 
 	@Override
 	public void start (Stage stage) throws Exception
 	{
 		try
 		{
-			Parent root = FXMLLoader.load(getClass().getResource("Remover Produto.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("Alterar Produto.fxml"));
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
-			stage.setTitle("Remover");
+			stage.setTitle("Atualizar");
 			stage.show();
 		}
 		catch(Exception e)

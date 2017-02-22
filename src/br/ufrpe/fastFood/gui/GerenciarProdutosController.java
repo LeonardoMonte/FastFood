@@ -39,6 +39,12 @@ public class GerenciarProdutosController implements Initializable {
 	private ImageView img2;
 	
 	@FXML
+	private ImageView img3;
+	
+	@FXML
+	private ImageView img4;
+	
+	@FXML
 	private void sair(ActionEvent event)
 	{
 		((Node) (event.getSource())).getScene().getWindow().hide();	
@@ -146,10 +152,6 @@ public class GerenciarProdutosController implements Initializable {
 	
 	
 	
-	
-	
-	
-	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		Image imgg = new Image("br/ufrpe/fastFood/gui/icon-Config.png");
@@ -158,6 +160,11 @@ public class GerenciarProdutosController implements Initializable {
 		Image imgg1 = new Image("br/ufrpe/fastFood/gui/icon-editar.png");
 		this.img2.setImage(imgg1);
 		
+		Image imgg2 = new Image("br/ufrpe/fastFood/gui/icon-masis.png");
+		this.img3.setImage(imgg2);
+		
+		Image imgg3 = new Image("br/ufrpe/fastFood/gui/icon-menos.png");
+		this.img4.setImage(imgg3);
 	}
 
 }

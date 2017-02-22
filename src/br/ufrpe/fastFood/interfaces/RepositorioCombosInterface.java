@@ -38,7 +38,7 @@ public interface RepositorioCombosInterface {
 
 	int procurarIndiceC(String codigo);
 
-	
+	public void atualizarCombo(String codigo , double valor) throws ONFException;
 
 	
 

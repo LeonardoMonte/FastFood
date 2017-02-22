@@ -37,6 +37,12 @@ public class GerenciadorCombos {
 					
 	}
 	
+	public void atualizarCombo(String codigo , double valor) throws ONFException
+	{
+		this.repositorio.atualizarCombo(codigo, valor);
+		this.repositorio.save();
+	}
+	
 	public void removerCombo(String codigo) throws ONFException
 	{
 		this.repositorio.removerCombo(codigo);

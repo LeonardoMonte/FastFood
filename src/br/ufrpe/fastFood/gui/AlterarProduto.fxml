@@ -16,7 +16,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.RemoverProdutoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.AlterarProdutoController">
    <children>
       <TableView fx:id="tabela" layoutY="-3.0" prefHeight="260.0" prefWidth="600.0">
         <columns>
@@ -25,7 +25,7 @@
             <TableColumn fx:id="colunavalor" prefWidth="193.0" text="Valor" />
         </columns>
       </TableView>
-      <JFXTextField fx:id="idtxt" focusColor="#f44336" labelFloat="true" layoutX="203.0" layoutY="293.0" promptText="Id:">
+      <JFXTextField fx:id="idtxt" focusColor="#f44336" labelFloat="true" layoutX="45.0" layoutY="289.0" promptText="Id:">
          <font>
             <Font name="Arial" size="15.0" />
          </font>
@@ -45,5 +45,18 @@
             <Font name="Arial" size="15.0" />
          </font>
       </Label>
+      <JFXTextField fx:id="valortxt" focusColor="#f44336" labelFloat="true" layoutX="364.0" layoutY="287.0" promptText="Valor:">
+         <unFocusColor>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#07aef0" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </unFocusColor>
+         <font>
+            <Font name="Arial" size="15.0" />
+         </font>
+      </JFXTextField>
    </children>
 </AnchorPane>

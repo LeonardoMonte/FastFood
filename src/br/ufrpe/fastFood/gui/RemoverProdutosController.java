@@ -26,6 +26,8 @@ public class RemoverProdutosController implements Initializable {
 	@FXML
 	private ImageView img;
 	
+	@FXML
+	private ImageView img2;
 	
 	@FXML
 	private Button sair;
@@ -93,6 +95,9 @@ public class RemoverProdutosController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		Image img = new Image("br/ufrpe/fastFood/gui/icon-combo.png");
 		this.img.setImage(img);
+		
+		Image img1 = new Image("br/ufrpe/fastFood/gui/icon-produto.png");
+		this.img2.setImage(img1);
 		
 	}
 

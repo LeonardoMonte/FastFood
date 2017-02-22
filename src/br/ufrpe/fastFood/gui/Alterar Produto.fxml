@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.AdicionarProdutoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.AlterarProdutosController">
    <children>
-      <JFXButton fx:id="cadastrarproduto" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutY="1.0" onAction="#CadastrarProduto" prefHeight="249.0" prefWidth="130.0" ripplerFill="#ee8700" text="Produto" textFill="#ee8700">
+      <ImageView fx:id="img1" fitHeight="181.0" fitWidth="190.0" layoutX="51.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon-produto.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="img2" fitHeight="165.0" fitWidth="190.0" layoutX="355.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icon-combo.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="alterarproduto" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutY="1.0" onAction="#AlterarProduto" prefHeight="303.0" prefWidth="292.0" ripplerFill="#ee8700" text="PRODUTO" textFill="#ee8700">
          <font>
-            <Font name="Arial Bold" size="13.0" />
+            <Font name="Arial Bold" size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="cadastrarcombo" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="130.0" layoutY="1.0" onAction="#CadastrarCombo" prefHeight="249.0" prefWidth="151.0" text="Combo" textFill="#ee8700">
+      <JFXButton fx:id="alterarcombo" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="300.0" layoutY="1.0" onAction="#AlterarCombo" prefHeight="303.0" prefWidth="300.0" ripplerFill="#ed8600" text="COMBO" textFill="#ee8700">
          <font>
-            <Font name="Arial Bold" size="13.0" />
+            <Font name="Arial Bold" size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="cadastrarpromoproduto" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="281.0" layoutY="1.0" onAction="#CadastrarPromoProduto" prefHeight="249.0" prefWidth="158.0" text="Promocao de produto" textFill="#ee8700">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="cadastrarpromocombo" alignment="BOTTOM_CENTER" buttonType="RAISED" layoutX="444.0" layoutY="1.0" onAction="#CadastrarPromoCombo" prefHeight="249.0" prefWidth="158.0" text="Promocao de combo" textFill="#ee8700">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="sair" buttonType="RAISED" layoutX="38.0" layoutY="322.0" onAction="#sair" prefHeight="50.0" prefWidth="88.0" ripplerFill="#ee8700" text="VOLTAR" textFill="#ee8700">
+      <JFXButton fx:id="sair" buttonType="RAISED" layoutX="32.0" layoutY="336.0" onAction="#sair" prefHeight="50.0" prefWidth="88.0" ripplerFill="#ee8700" text="VOLTAR" textFill="#ee8700">
          <font>
             <Font name="Arial Bold" size="15.0" />
          </font>

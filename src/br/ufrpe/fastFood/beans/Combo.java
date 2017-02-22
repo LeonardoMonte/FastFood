@@ -84,20 +84,10 @@ public class Combo {
 	}
 
 
-	public void setValorAumentar(double valor) {
-		this.valor += valor;
-	}
-	
-	public void setValorDiminuir(double valor)
-	{
-		this.valor -= valor;
-	}
-	
-	public void setValorPromo(double valor)
+	public void setValor(double valor)
 	{
 		this.valor = valor;
 	}
-
 
 	public String getCodigo() {
 		return codigo;

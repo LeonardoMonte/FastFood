@@ -8,12 +8,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="444.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.GerenciarProdutosController">
    <children>
-      <ImageView fitHeight="139.0" fitWidth="116.0" layoutX="390.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img4" fitHeight="139.0" fitWidth="116.0" layoutX="390.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icon-menos.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="116.0" fitWidth="171.0" layoutX="86.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="img3" fitHeight="116.0" fitWidth="171.0" layoutX="86.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icon-masis.png" />
          </image>
