@@ -1,4 +1,4 @@
-package br.ufrpe.fastFood.dados;
+package src.br.ufrpe.fastFood.dados;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -9,12 +9,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufrpe.fastFood.beans.Cliente;
-import br.ufrpe.fastFood.beans.Endereco;
-import br.ufrpe.fastFood.exceptions.OJEException;
-import br.ufrpe.fastFood.exceptions.ONFException;
-import br.ufrpe.fastFood.exceptions.WPException;
-import br.ufrpe.fastFood.interfaces.RepositorioClienteInterface;
+import src.br.ufrpe.fastFood.beans.Cliente; 	
+import src.br.ufrpe.fastFood.exceptions.OJEException;
+import src.br.ufrpe.fastFood.exceptions.ONFException;
+import src.br.ufrpe.fastFood.exceptions.WPException;
+import src.br.ufrpe.fastFood.interfaces.RepositorioClienteInterface;
 
 public class RepositorioClientes implements RepositorioClienteInterface, Serializable {
 
@@ -93,16 +92,16 @@ public class RepositorioClientes implements RepositorioClienteInterface, Seriali
 	}
 
 
-	public void atualizarClienteendereco(String id , Endereco ende) throws ONFException{	
-
-		Cliente c = new Cliente();
-		c = this.buscarCliente(id);
-
-		if(c.getId() != null)
-		{
-			c.setEndere(ende);
-		}
-	} 
+//	public void atualizarClienteendereco(String id , Endereco ende) throws ONFException{	
+//
+//		Cliente c = new Cliente();
+//		c = this.buscarCliente(id);
+//
+//		if(c.getId() != null)
+//		{
+//			c.setEndere(ende);
+//		}
+//	} 
 
 	public List<Cliente> listarClientes(){
 

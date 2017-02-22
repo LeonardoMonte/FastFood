@@ -1,4 +1,4 @@
-package br.ufrpe.fastFood.gui;
+package src.br.ufrpe.fastFood.gui;
 
 import javafx.event.ActionEvent;
 import java.io.IOException;

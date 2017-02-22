@@ -1,12 +1,11 @@
-package br.ufrpe.fastFood.interfaces;
+package src.br.ufrpe.fastFood.interfaces;
 
 import java.util.List;
 
-import br.ufrpe.fastFood.beans.Endereco;
-import br.ufrpe.fastFood.beans.Funcionario;
-import br.ufrpe.fastFood.exceptions.OJEException;
-import br.ufrpe.fastFood.exceptions.ONFException;
-import br.ufrpe.fastFood.exceptions.WPException;
+import src.br.ufrpe.fastFood.beans.Funcionario;
+import src.br.ufrpe.fastFood.exceptions.OJEException;
+import src.br.ufrpe.fastFood.exceptions.ONFException;
+import src.br.ufrpe.fastFood.exceptions.WPException;
 
 public interface RepositorioFuncionarioInterface {
 
@@ -19,7 +18,7 @@ public interface RepositorioFuncionarioInterface {
 	void removerFuncionario(String id) throws ONFException;
 
 
-	void atualizarFuncionarioendereco(String id, Endereco ende) throws ONFException;
+//	void atualizarFuncionarioendereco(String id, Endereco ende) throws ONFException;
 
 	List<Funcionario> listarFuncinario();
 

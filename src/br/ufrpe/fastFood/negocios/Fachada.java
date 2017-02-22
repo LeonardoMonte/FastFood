@@ -1,19 +1,18 @@
-	package br.ufrpe.fastFood.negocios;
+	package src.br.ufrpe.fastFood.negocios;
 
 import java.util.List;
 
-import br.ufrpe.fastFood.beans.Cliente;
-import br.ufrpe.fastFood.beans.Combo;
-import br.ufrpe.fastFood.beans.Endereco;
-import br.ufrpe.fastFood.beans.Funcionario;
-import br.ufrpe.fastFood.beans.Produto;
+import src.br.ufrpe.fastFood.beans.Cliente;
+import src.br.ufrpe.fastFood.beans.Combo;
+import src.br.ufrpe.fastFood.beans.Funcionario;
+import src.br.ufrpe.fastFood.beans.Produto;
 
-import br.ufrpe.fastFood.beans.Venda;
-import br.ufrpe.fastFood.dados.RepositorioProdutos;
-import br.ufrpe.fastFood.exceptions.OJEException;
-import br.ufrpe.fastFood.exceptions.ONFException;
-import br.ufrpe.fastFood.exceptions.PNEException;
-import br.ufrpe.fastFood.exceptions.WPException;
+import src.br.ufrpe.fastFood.beans.Venda;
+import src.br.ufrpe.fastFood.dados.RepositorioProdutos;
+import src.br.ufrpe.fastFood.exceptions.OJEException;
+import src.br.ufrpe.fastFood.exceptions.ONFException;
+import src.br.ufrpe.fastFood.exceptions.PNEException;
+import src.br.ufrpe.fastFood.exceptions.WPException;
 
 public class Fachada {
 
@@ -69,11 +68,11 @@ public class Fachada {
 
 	}
 
-	public void atualizarClienteendereco(String id, Endereco a) throws ONFException {
-
-		this.gerencliente.atualizarClienteendereco(id, a);
-
-	}
+//	public void atualizarClienteendereco(String id, Endereco a) throws ONFException {
+//
+//		this.gerencliente.atualizarClienteendereco(id, a);
+//
+//	}
 
 	public List<Cliente> listarClientes() {
 
@@ -119,11 +118,11 @@ public class Fachada {
 
 	}
 
-	public void atualizarFuncionario(String id, Endereco ende) throws ONFException {
-
-		 this.gerenfunc.atualizarFuncionario(id, ende);
-
-	}
+//	public void atualizarFuncionario(String id, Endereco ende) throws ONFException {
+//
+//		 this.gerenfunc.atualizarFuncionario(id, ende);
+//
+//	}
 
 	public List<Funcionario> listarFuncionarios() {
 

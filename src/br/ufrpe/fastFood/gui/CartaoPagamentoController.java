@@ -1,4 +1,4 @@
-package br.ufrpe.fastFood.gui;
+package src.br.ufrpe.fastFood.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -262,28 +263,28 @@ public class CartaoPagamentoController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		Image img1 = new Image("br/ufrpe/fastFood/gui/gerador-de-cartao-de-credito-visa.png");
-		this.imagemC.setImage(img);
+		this.imagemC.setImage(img1);
 		
 		Image img2 = new Image("br/ufrpe/fastFood/gui/640px-MasterCard_logo.png");
-		this.imagemC.setImage(img);
+		this.imagemC.setImage(img2);
 		
 		Image img3 = new Image("br/ufrpe/fastFood/gui/Elo_logo.png");
-		this.imagemC.setImage(img);
+		this.imagemC.setImage(img3);
 		
 		Image img4 = new Image("br/ufrpe/fastFood/gui/Hipercard_d57c6_450x450.png");
-		this.imagemC.setImage(img);
+		this.imagemC.setImage(img4);
 		
 		Image img5 = new Image("br/ufrpe/fastFood/gui/gerador-de-cartao-de-credito-visa.png");
-		this.imagemC.setImage(img);
+		this.imagemC.setImage(img5);
 		
 		Image img6 = new Image("br/ufrpe/fastFood/gui/640px-MasterCard_logo.png");
-		this.imagemC.setImage(img);
+		this.imagemC.setImage(img6);
 		
 		Image img7 = new Image("br/ufrpe/fastFood/gui/Elo_logo.png");
-		this.imagemC.setImage(img);
+		this.imagemC.setImage(img7);
 		
 		Image img8 = new Image("br/ufrpe/fastFood/gui/Hipercard_d57c6_450x450.png");
-		this.imagemC.setImage(img);
+		this.imagemC.setImage(img8);
 
 	}
 

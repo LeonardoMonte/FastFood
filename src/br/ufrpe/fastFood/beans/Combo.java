@@ -1,10 +1,6 @@
-package br.ufrpe.fastFood.beans;
+package src.br.ufrpe.fastFood.beans;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-
-import br.ufrpe.fastFood.exceptions.OJEException;
-import br.ufrpe.fastFood.exceptions.PNEException;
 
 public class Combo implements Serializable {
 	

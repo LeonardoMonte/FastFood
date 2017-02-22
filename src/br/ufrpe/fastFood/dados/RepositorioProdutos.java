@@ -1,4 +1,4 @@
-package br.ufrpe.fastFood.dados;
+package src.br.ufrpe.fastFood.dados;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,10 +9,10 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import br.ufrpe.fastFood.beans.Produto;
-import br.ufrpe.fastFood.exceptions.OJEException;
-import br.ufrpe.fastFood.exceptions.ONFException;
-import br.ufrpe.fastFood.interfaces.RepositorioProdutoInterface;;
+import src.br.ufrpe.fastFood.beans.Produto;
+import src.br.ufrpe.fastFood.exceptions.OJEException;
+import src.br.ufrpe.fastFood.exceptions.ONFException;
+import src.br.ufrpe.fastFood.interfaces.RepositorioProdutoInterface;;
 
 public class RepositorioProdutos implements RepositorioProdutoInterface, Serializable {
 	

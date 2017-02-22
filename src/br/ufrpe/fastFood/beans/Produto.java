@@ -1,4 +1,4 @@
-package br.ufrpe.fastFood.beans;
+package src.br.ufrpe.fastFood.beans;
 
 import java.io.Serializable;
 

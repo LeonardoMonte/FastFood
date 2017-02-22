@@ -1,12 +1,12 @@
-package br.ufrpe.fastFood.negocios;
+package src.br.ufrpe.fastFood.negocios;
 
 import java.util.List;
 
-import br.ufrpe.fastFood.beans.Produto;
-import br.ufrpe.fastFood.dados.RepositorioProdutos;
-import br.ufrpe.fastFood.exceptions.OJEException;
-import br.ufrpe.fastFood.exceptions.ONFException;
-import br.ufrpe.fastFood.interfaces.RepositorioProdutoInterface;
+import src.br.ufrpe.fastFood.beans.Produto;
+import src.br.ufrpe.fastFood.dados.RepositorioProdutos;
+import src.br.ufrpe.fastFood.exceptions.OJEException;
+import src.br.ufrpe.fastFood.exceptions.ONFException;
+import src.br.ufrpe.fastFood.interfaces.RepositorioProdutoInterface;
 
 public class GerenciadorProdutos {
 

@@ -6,18 +6,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class AdicionarProduto extends Application {
+public class GerenciarClientes extends Application{
 
-	
+
 	@Override
 	public void start (Stage stage) throws Exception
 	{
 		try
 		{
-			Parent root = FXMLLoader.load(getClass().getResource("Adicionar produto.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("GerenciarClientes.fxml"));
 			Scene scene = new Scene(root);
 			stage.setScene(scene);
-			stage.setTitle("Adicionar");
+			stage.setTitle("Login");
 			stage.show();
 		}
 		catch(Exception e)

@@ -1,10 +1,10 @@
-package br.ufrpe.fastFood.interfaces;
+package src.br.ufrpe.fastFood.interfaces;
 
 import java.util.List;
 
-import br.ufrpe.fastFood.beans.Produto;
-import br.ufrpe.fastFood.exceptions.OJEException;
-import br.ufrpe.fastFood.exceptions.ONFException;
+import src.br.ufrpe.fastFood.beans.Produto;
+import src.br.ufrpe.fastFood.exceptions.OJEException;
+import src.br.ufrpe.fastFood.exceptions.ONFException;
 
 public interface RepositorioProdutoInterface {
 

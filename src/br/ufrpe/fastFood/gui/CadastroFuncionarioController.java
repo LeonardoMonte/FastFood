@@ -1,4 +1,4 @@
-package br.ufrpe.fastFood.gui;
+package src.br.ufrpe.fastFood.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -6,11 +6,9 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-
-import br.ufrpe.fastFood.beans.Endereco;
-import br.ufrpe.fastFood.beans.Funcionario;
-import br.ufrpe.fastFood.exceptions.OJEException;
-import br.ufrpe.fastFood.negocios.Fachada;
+import src.br.ufrpe.fastFood.beans.Funcionario;
+import src.br.ufrpe.fastFood.exceptions.OJEException;
+import src.br.ufrpe.fastFood.negocios.Fachada;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -95,8 +93,7 @@ public class CadastroFuncionarioController implements Initializable {
 			try{
 				if(senha1.equals(senha2)){
 					int num = Integer.parseInt(numero);
-					Endereco endereco = new Endereco(rua, bairro, cidade, estado, num, fone);
-					Funcionario cadFuncionario = new Funcionario(nome, cpf, nasc, endereco, senha1);
+					Funcionario cadFuncionario = new Funcionario(nome, cpf, nasc, senha1, rua, bairro, cidade, estado, num, fone);
 					try
 					{
 					Fachada.getInstancia().cadastrarFuncionario(cadFuncionario);

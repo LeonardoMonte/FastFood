@@ -1,4 +1,4 @@
-package br.ufrpe.fastFood.exceptions;
+package src.br.ufrpe.fastFood.exceptions;
 
 public class ClienteNaoCadastrado extends Exception{
 

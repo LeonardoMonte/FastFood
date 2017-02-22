@@ -1,8 +1,8 @@
-package br.ufrpe.fastFood.beans;
+package src.br.ufrpe.fastFood.beans;
 
 import java.io.Serializable;
 
-import br.ufrpe.fastFood.exceptions.WPException;
+import src.br.ufrpe.fastFood.exceptions.WPException;
 
 public class Cliente extends Pessoa  implements Serializable{
 
@@ -10,15 +10,13 @@ public class Cliente extends Pessoa  implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 8333710358678744626L;
-	private Endereco endere;
 	private String senha;
 	private String email;
 
-	public Cliente(String nome, String id, String dataDeNascimento, Endereco endere, String senha, String email) {
+	public Cliente(String nome, String id, String dataDeNascimento, String senha, String email, String rua, String bairro, String cidade, String estado, int numero, String telefone) {
 		
-		super(nome, id, dataDeNascimento);
+		super(nome, id, dataDeNascimento, rua,bairro,  cidade,  estado, numero,  telefone);
 
-		this.endere = endere;
 		this.setSenha(senha);
 		this.email = email;
 	}
@@ -28,13 +26,6 @@ public class Cliente extends Pessoa  implements Serializable{
 		super();
 	}
 	
-	public Endereco getEndere() {
-		return endere;
-	}
-
-	public void setEndere(Endereco endere) {
-		this.endere = endere;
-	}
 
 	public String getSenha() {
 		return senha;
@@ -117,7 +108,6 @@ public class Cliente extends Pessoa  implements Serializable{
 		buffer.append("\nCPF: " + this.getId());
 		buffer.append("\nData de Nasc.: " + this.getDataDeNascimento());
 		buffer.append("\nEmail: " + this.getEmail());
-		buffer.append("\n" + this.endere.toString());
 		
 		
 		return buffer.toString();

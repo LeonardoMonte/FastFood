@@ -1,12 +1,11 @@
-package br.ufrpe.fastFood.interfaces;
+package src.br.ufrpe.fastFood.interfaces;
 
 import java.util.List;
 
-import br.ufrpe.fastFood.beans.Cliente;
-import br.ufrpe.fastFood.beans.Endereco;
-import br.ufrpe.fastFood.exceptions.OJEException;
-import br.ufrpe.fastFood.exceptions.ONFException;
-import br.ufrpe.fastFood.exceptions.WPException;
+import src.br.ufrpe.fastFood.beans.Cliente;
+import src.br.ufrpe.fastFood.exceptions.OJEException;
+import src.br.ufrpe.fastFood.exceptions.ONFException;
+import src.br.ufrpe.fastFood.exceptions.WPException;
 
 public interface RepositorioClienteInterface {
 
@@ -16,7 +15,7 @@ public interface RepositorioClienteInterface {
 
 	void removerCliente(String id) throws ONFException;
 
-	void atualizarClienteendereco(String id, Endereco ende) throws ONFException;
+//	void atualizarClienteendereco(String id, Endereco ende) throws ONFException;
 
 	List<Cliente> listarClientes();
 

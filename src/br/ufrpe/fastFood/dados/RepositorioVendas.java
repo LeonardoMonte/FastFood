@@ -1,4 +1,4 @@
-package br.ufrpe.fastFood.dados;
+package src.br.ufrpe.fastFood.dados;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -9,9 +9,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufrpe.fastFood.beans.Venda;
-import br.ufrpe.fastFood.exceptions.ONFException;
-import br.ufrpe.fastFood.interfaces.RepositorioVendaInterface;
+import src.br.ufrpe.fastFood.beans.Venda;
+import src.br.ufrpe.fastFood.exceptions.ONFException;
+import src.br.ufrpe.fastFood.interfaces.RepositorioVendaInterface;
 
 public class RepositorioVendas implements RepositorioVendaInterface, Serializable{
 

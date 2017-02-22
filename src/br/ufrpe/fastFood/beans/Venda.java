@@ -1,10 +1,10 @@
-package br.ufrpe.fastFood.beans;
+package src.br.ufrpe.fastFood.beans;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-import br.ufrpe.fastFood.exceptions.ONFException;
+import src.br.ufrpe.fastFood.exceptions.ONFException;
 
 public class Venda implements Serializable{
 	

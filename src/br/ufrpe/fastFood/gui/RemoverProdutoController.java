@@ -1,12 +1,12 @@
-package br.ufrpe.fastFood.gui;
+package src.br.ufrpe.fastFood.gui;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import br.ufrpe.fastFood.beans.Produto;
-import br.ufrpe.fastFood.exceptions.ONFException;
-import br.ufrpe.fastFood.negocios.Fachada;
+import src.br.ufrpe.fastFood.beans.Produto;
+import src.br.ufrpe.fastFood.exceptions.ONFException;
+import src.br.ufrpe.fastFood.negocios.Fachada;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

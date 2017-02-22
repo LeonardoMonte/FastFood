@@ -1,14 +1,13 @@
-package br.ufrpe.fastFood.negocios;
+package src.br.ufrpe.fastFood.negocios;
 
 import java.util.List;
 
-import br.ufrpe.fastFood.beans.Endereco;
-import br.ufrpe.fastFood.beans.Funcionario;
-import br.ufrpe.fastFood.dados.RepositorioFuncionarios;
-import br.ufrpe.fastFood.exceptions.OJEException;
-import br.ufrpe.fastFood.exceptions.ONFException;
-import br.ufrpe.fastFood.exceptions.WPException;
-import br.ufrpe.fastFood.interfaces.RepositorioFuncionarioInterface;
+import src.br.ufrpe.fastFood.beans.Funcionario;
+import src.br.ufrpe.fastFood.dados.RepositorioFuncionarios;
+import src.br.ufrpe.fastFood.exceptions.OJEException;
+import src.br.ufrpe.fastFood.exceptions.ONFException;
+import src.br.ufrpe.fastFood.exceptions.WPException;
+import src.br.ufrpe.fastFood.interfaces.RepositorioFuncionarioInterface;
 
 public class GerenciadorFuncionarios {
 
@@ -46,12 +45,12 @@ public class GerenciadorFuncionarios {
 		return this.repositorio.buscarFuncionario(id);
 
 	}
-
-	public void atualizarFuncionario(String id, Endereco ende) throws ONFException {
-
-		this.repositorio.atualizarFuncionarioendereco(id, ende);
-		this.repositorio.save();
-	}
+//
+//	public void atualizarFuncionario(String id, Endereco ende) throws ONFException {
+//
+//		this.repositorio.atualizarFuncionarioendereco(id, ende);
+//		this.repositorio.save();
+//	}
 
 	public List<Funcionario> listarFuncionarios() {
 	

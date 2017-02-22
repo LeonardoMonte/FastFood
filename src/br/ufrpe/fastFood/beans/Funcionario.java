@@ -1,8 +1,8 @@
-package br.ufrpe.fastFood.beans;
+package src.br.ufrpe.fastFood.beans;
 
 import java.io.Serializable;
 
-import br.ufrpe.fastFood.exceptions.WPException;
+import src.br.ufrpe.fastFood.exceptions.WPException;
 
 public class Funcionario extends Pessoa implements Serializable{
 
@@ -10,13 +10,11 @@ public class Funcionario extends Pessoa implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -1247262337104349358L;
-	private Endereco endere;
 	private String senha;
 
-	public Funcionario(String nome, String id, String dataDeNascimento, Endereco endere, String senha) {
+	public Funcionario(String nome, String id, String dataDeNascimento,  String senha, String rua, String bairro, String cidade, String estado, int numero, String telefone) {
 
-		super(nome, id, dataDeNascimento);
-		this.endere = endere;
+		super(nome, id, dataDeNascimento, rua,  bairro,  cidade,  estado,  numero, telefone);
 		this.setSenha(senha);
 	}
 	
@@ -24,14 +22,6 @@ public class Funcionario extends Pessoa implements Serializable{
 		super();
 	}
 	
-
-	public Endereco getEndere() {
-		return endere;
-	}
-
-	public void setEndere(Endereco endere) {
-		this.endere = endere;
-	}
 
 	public String getSenha() {
 		return senha;

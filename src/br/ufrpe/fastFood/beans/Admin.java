@@ -1,4 +1,4 @@
-package br.ufrpe.fastFood.beans;
+package src.br.ufrpe.fastFood.beans;
 
 import java.io.Serializable;
 
@@ -13,9 +13,9 @@ public class Admin extends Funcionario implements Serializable {
 	private String id;
 	private String senha;
 
-	public Admin(String nome, String id, String dataDeNascimento, Endereco endere, String senha){
+	public Admin(String nome, String id, String dataDeNascimento,  String senha , String rua, String bairro, String cidade, String estado, int numero, String telefone){
 		
-		super(nome, id,  dataDeNascimento,  endere, senha);
+		super(nome, id,  dataDeNascimento,  senha ,  rua, bairro, cidade, estado, numero, telefone);
 	}
 	
 	public Admin(String nome, String id, String senha){

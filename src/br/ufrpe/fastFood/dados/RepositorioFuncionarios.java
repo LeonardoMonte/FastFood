@@ -1,4 +1,4 @@
-package br.ufrpe.fastFood.dados;
+package src.br.ufrpe.fastFood.dados;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -10,14 +10,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.ufrpe.fastFood.beans.Admin;
-import br.ufrpe.fastFood.beans.Cliente;
-import br.ufrpe.fastFood.beans.Endereco;
-import br.ufrpe.fastFood.beans.Funcionario;
-import br.ufrpe.fastFood.exceptions.OJEException;
-import br.ufrpe.fastFood.exceptions.ONFException;
-import br.ufrpe.fastFood.exceptions.WPException;
-import br.ufrpe.fastFood.interfaces.RepositorioFuncionarioInterface;
+import src.br.ufrpe.fastFood.beans.Admin;
+import src.br.ufrpe.fastFood.beans.Funcionario;
+import src.br.ufrpe.fastFood.exceptions.OJEException;
+import src.br.ufrpe.fastFood.exceptions.ONFException;
+import src.br.ufrpe.fastFood.exceptions.WPException;
+import src.br.ufrpe.fastFood.interfaces.RepositorioFuncionarioInterface;
 
 public class RepositorioFuncionarios implements RepositorioFuncionarioInterface, Serializable  {
 	private static RepositorioFuncionarios instancia;
@@ -78,19 +76,19 @@ public class RepositorioFuncionarios implements RepositorioFuncionarioInterface,
 
 	}
 
-	public void atualizarFuncionarioendereco(String id, Endereco ende) throws ONFException {
-
-		Funcionario f = new Funcionario();
-		f = this.buscarFuncionario(id);
-		
-		if( f.getId() != null)
-		{
-			f.setEndere(ende);
-			
-		}
-		
-	
-	}
+//	public void atualizarFuncionarioendereco(String id, Endereco ende) throws ONFException {
+//
+//		Funcionario f = new Funcionario();
+//		f = this.buscarFuncionario(id);
+//		
+//		if( f.getId() != null)
+//		{
+//			f.setEndere(ende);
+//			
+//		}
+//		
+//	
+//	}
 
 	public void removerFuncionario(String id) throws ONFException{
 

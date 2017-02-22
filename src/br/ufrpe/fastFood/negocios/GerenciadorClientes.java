@@ -1,4 +1,4 @@
-package br.ufrpe.fastFood.negocios;
+package src.br.ufrpe.fastFood.negocios;
 
 
 
@@ -6,21 +6,12 @@ import java.util.List;
 
 
 
-import br.ufrpe.fastFood.beans.Cliente;
-
-import br.ufrpe.fastFood.beans.Endereco;
-
-import br.ufrpe.fastFood.dados.RepositorioClientes;
-
-import br.ufrpe.fastFood.exceptions.OJEException;
-
-import br.ufrpe.fastFood.exceptions.ONFException;
-
-import br.ufrpe.fastFood.exceptions.WPException;
-
-import br.ufrpe.fastFood.interfaces.RepositorioClienteInterface;
-
-
+import src.br.ufrpe.fastFood.beans.Cliente;
+import src.br.ufrpe.fastFood.dados.RepositorioClientes;
+import src.br.ufrpe.fastFood.exceptions.OJEException;
+import src.br.ufrpe.fastFood.exceptions.ONFException;
+import src.br.ufrpe.fastFood.exceptions.WPException;
+import src.br.ufrpe.fastFood.interfaces.RepositorioClienteInterface;
 
 public class GerenciadorClientes {
 
@@ -92,17 +83,17 @@ public class GerenciadorClientes {
 	}
 
 
-
-	public void atualizarClienteendereco(String id, Endereco a) throws ONFException {
-
-
-
-			this.repositorio.atualizarClienteendereco(id, a);
-			this.repositorio.save();
-
-		
-
-	}
+//
+//	public void atualizarClienteendereco(String id, Endereco a) throws ONFException {
+//
+//
+//
+//			this.repositorio.atualizarClienteendereco(id, a);
+//			this.repositorio.save();
+//
+//		
+//
+//	}
 
 
 
