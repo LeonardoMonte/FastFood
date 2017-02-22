@@ -102,17 +102,4 @@ public class MenuClienteController implements Initializable {
 		Image img = new Image("br/ufrpe/fastFood/gui/cash_icon-icons.com_51090.png");
 		this.imagemC.setImage(img);
 	}
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
