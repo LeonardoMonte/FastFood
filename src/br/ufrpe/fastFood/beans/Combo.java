@@ -1,13 +1,18 @@
 package br.ufrpe.fastFood.beans;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import br.ufrpe.fastFood.exceptions.OJEException;
 import br.ufrpe.fastFood.exceptions.PNEException;
 
-public class Combo {
+public class Combo implements Serializable {
 	
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3598850666530445744L;
 	private Produto p1;
 	private Produto p2;
 	private Produto p3;

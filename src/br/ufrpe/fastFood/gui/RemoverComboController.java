@@ -90,7 +90,23 @@ public class RemoverComboController implements Initializable {
 		if(!id.equals(""))
 		{
 			try {
-				Fachada.getInstancia().removerCombo(id);;
+				Fachada.getInstancia().removerCombo(id);
+				
+				((Node) (event.getSource())).getScene().getWindow().hide();
+				
+				try
+				{
+					Parent root = FXMLLoader.load(getClass().getResource("Remover Produto.fxml"));
+					Scene scene = new Scene(root);
+					Stage primaryStage = new Stage();
+					primaryStage.setScene(scene);
+					primaryStage.setTitle("Cadastro");
+					primaryStage.show();
+					
+				}catch (Exception e){
+					System.out.println(e.getMessage());
+				}
+				
 			} catch (ONFException e) {
 			
 				Alert alert = new Alert(AlertType.WARNING);

@@ -81,6 +81,21 @@ public class AtualizarComboController implements Initializable {
 				
 				Fachada.getInstancia().atualizarCombo(id, valor1);
 				
+				((Node) (event.getSource())).getScene().getWindow().hide();
+				
+				try
+				{
+					Parent root = FXMLLoader.load(getClass().getResource("Alterar Produto.fxml"));
+					Scene scene = new Scene(root);
+					Stage primaryStage = new Stage();
+					primaryStage.setScene(scene);
+					primaryStage.setTitle("Cadastro");
+					primaryStage.show();
+					
+				}catch (Exception e){
+					System.out.println(e.getMessage());
+				}
+				
 			} catch (ONFException e) {
 							
 				Alert alert = new Alert(AlertType.WARNING);
