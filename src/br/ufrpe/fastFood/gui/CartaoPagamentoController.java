@@ -15,49 +15,70 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class CartaoPagamentoController implements Initializable {
+
+	@FXML
+	private Button cartaoVisaCredito;
+
+	@FXML
+	private Button cartaoHiperCredito;
+
+	@FXML
+	private Button cartaoEloCredito;
+
+	@FXML
+	private Button cartaoMasterCredito;
+
+	@FXML
+	private Button cartaoVisaDedito;
+
+	@FXML
+	private Button cartaoHiperDedito;
+
+	@FXML
+	private Button cartaoEloDedito;
+
+	@FXML
+	private Button cartaoMasterDedito;
+
+	@FXML
+	private Button buttonexit;
+	
+	@FXML
+	private ImageView imagemA;
+	
+	@FXML
+	private ImageView imagemB;
 	
 	@FXML
 	private ImageView imagemC;
 	
 	@FXML
-	private Button cartaoVisaCredito;
+	private ImageView imagemD;
 	
 	@FXML
-	private Button cartaoHiperCredito;
+	private ImageView imagemA1;
 	
 	@FXML
-	private Button cartaoEloCredito;
+	private ImageView imagemB2;
 	
 	@FXML
-	private Button cartaoMasterCredito;
+	private ImageView imagemC3;
 	
 	@FXML
-	private Button cartaoVisaDedito;
-	
-	@FXML
-	private Button cartaoHiperDedito;
-	
-	@FXML
-	private Button cartaoEloDedito;
-	
-	@FXML
-	private Button cartaoMasterDedito;
-	
-	@FXML
-	private Button buttonexit;
-	
+	private ImageView imagemD4;
+
 	@FXML
 	private void BotaoVisaCredito(ActionEvent event){
-		
+
 		((Node) (event.getSource())).getScene().getWindow().hide();	
-		
+
 		try
 		{
-			Parent root = FXMLLoader.load(getClass().getResource("Novo Pedido.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("Insira Cartao.fxml"));
 			Scene scene = new Scene(root);
 			Stage stage2 = new Stage();
 			stage2.setScene(scene);
-			stage2.setTitle("Login");
+			stage2.setTitle("Insira seu cartão");
 			stage2.show();
 		}
 		catch(Exception e)
@@ -65,15 +86,207 @@ public class CartaoPagamentoController implements Initializable {
 			System.out.println("Erro!");
 			System.out.println(e.getMessage());
 		}
+
+	}
+	@FXML
+	private void BotaoVisaDedito(ActionEvent event){
+
+		((Node) (event.getSource())).getScene().getWindow().hide();	
+
+		try
+		{
+			Parent root = FXMLLoader.load(getClass().getResource("Insira Cartao.fxml"));
+			Scene scene = new Scene(root);
+			Stage stage2 = new Stage();
+			stage2.setScene(scene);
+			stage2.setTitle("Insira seu cartão");
+			stage2.show();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Erro!");
+			System.out.println(e.getMessage());
+		}
+
+	}
+	@FXML
+	private void BotaoHiperCredito(ActionEvent event){
+
+		((Node) (event.getSource())).getScene().getWindow().hide();	
+
+		try
+		{
+			Parent root = FXMLLoader.load(getClass().getResource("Insira Cartao.fxml"));
+			Scene scene = new Scene(root);
+			Stage stage2 = new Stage();
+			stage2.setScene(scene);
+			stage2.setTitle("Insira seu cartão");
+			stage2.show();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Erro!");
+			System.out.println(e.getMessage());
+		}
+
+	}
+	@FXML
+	private void BotaoHiperDedito(ActionEvent event){
+
+		((Node) (event.getSource())).getScene().getWindow().hide();	
+
+		try
+		{
+			Parent root = FXMLLoader.load(getClass().getResource("Insira Cartao.fxml"));
+			Scene scene = new Scene(root);
+			Stage stage2 = new Stage();
+			stage2.setScene(scene);
+			stage2.setTitle("Insira seu cartão");
+			stage2.show();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Erro!");
+			System.out.println(e.getMessage());
+		}
+
+	}
+	@FXML
+	private void BotaoEloCredito(ActionEvent event){
+
+		((Node) (event.getSource())).getScene().getWindow().hide();	
+
+		try
+		{
+			Parent root = FXMLLoader.load(getClass().getResource("Insira Cartao.fxml"));
+			Scene scene = new Scene(root);
+			Stage stage2 = new Stage();
+			stage2.setScene(scene);
+			stage2.setTitle("Insira seu cartão");
+			stage2.show();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Erro!");
+			System.out.println(e.getMessage());
+		}
+
+	}
+	@FXML
+	private void BotaoEloDedito(ActionEvent event){
+
+		((Node) (event.getSource())).getScene().getWindow().hide();	
+
+		try
+		{
+			Parent root = FXMLLoader.load(getClass().getResource("Insira Cartao.fxml"));
+			Scene scene = new Scene(root);
+			Stage stage2 = new Stage();
+			stage2.setScene(scene);
+			stage2.setTitle("Insira seu cartão");
+			stage2.show();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Erro!");
+			System.out.println(e.getMessage());
+		}
+
+	}
+	@FXML
+	private void BotaoMasterCredito(ActionEvent event){
+
+		((Node) (event.getSource())).getScene().getWindow().hide();	
+
+		try
+		{
+			Parent root = FXMLLoader.load(getClass().getResource("Insira Cartao.fxml"));
+			Scene scene = new Scene(root);
+			Stage stage2 = new Stage();
+			stage2.setScene(scene);
+			stage2.setTitle("Insira seu cartão");
+			stage2.show();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Erro!");
+			System.out.println(e.getMessage());
+		}
+
+	}
+	@FXML
+	private void BotaoMasterDedito(ActionEvent event){
+
+		((Node) (event.getSource())).getScene().getWindow().hide();	
+
+		try
+		{
+			Parent root = FXMLLoader.load(getClass().getResource("Insira Cartao.fxml"));
+			Scene scene = new Scene(root);
+			Stage stage2 = new Stage();
+			stage2.setScene(scene);
+			stage2.setTitle("Insira seu cartão");
+			stage2.show();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Erro!");
+			System.out.println(e.getMessage());
+		}
+
+	}
+	
+	@FXML
+	private void BotaoSair(ActionEvent event)
+	{
 		
+		((Node) (event.getSource())).getScene().getWindow().hide();	
+		
+		try
+		{
+			Parent root = FXMLLoader.load(getClass().getResource("Forma de pagamento.fxml"));
+			Scene scene = new Scene(root);
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.setTitle("Login");
+			stage.show();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Erro!");
+			System.out.println(e.getMessage());
+		}
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		
+		Image img1 = new Image("br/ufrpe/fastFood/gui/gerador-de-cartao-de-credito-visa.png");
+		this.imagemC.setImage(img);
+		
+		Image img2 = new Image("br/ufrpe/fastFood/gui/640px-MasterCard_logo.png");
+		this.imagemC.setImage(img);
+		
+		Image img3 = new Image("br/ufrpe/fastFood/gui/Elo_logo.png");
+		this.imagemC.setImage(img);
+		
+		Image img4 = new Image("br/ufrpe/fastFood/gui/Hipercard_d57c6_450x450.png");
+		this.imagemC.setImage(img);
+		
+		Image img5 = new Image("br/ufrpe/fastFood/gui/gerador-de-cartao-de-credito-visa.png");
+		this.imagemC.setImage(img);
+		
+		Image img6 = new Image("br/ufrpe/fastFood/gui/640px-MasterCard_logo.png");
+		this.imagemC.setImage(img);
+		
+		Image img7 = new Image("br/ufrpe/fastFood/gui/Elo_logo.png");
+		this.imagemC.setImage(img);
+		
+		Image img8 = new Image("br/ufrpe/fastFood/gui/Hipercard_d57c6_450x450.png");
+		this.imagemC.setImage(img);
+
 	}
-	
-	
+
+
 
 }

@@ -7,26 +7,46 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.fastFood.gui.CartaoPagamentoController">
    <children>
-      <ImageView fitHeight="79.0" fitWidth="125.0" layoutX="456.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="41.0" fitWidth="126.0" layoutX="39.0" layoutY="92.0">
          <image>
-            <Image url="@../../Downloads/amex_american_express-512.png" />
+            <Image url="@../../../../../../../Downloads/gerador-de-cartao-de-credito-visa.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="42.0" fitWidth="103.0" layoutX="319.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="41.0" fitWidth="126.0" layoutX="39.0" layoutY="245.0">
          <image>
-            <Image url="@../../Downloads/Hipercard_d57c6_450x450.png" />
+            <Image url="@../../../../../../../Downloads/gerador-de-cartao-de-credito-visa.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="80.0" fitWidth="103.0" layoutX="184.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="49.0" fitWidth="110.0" layoutX="181.0" layoutY="90.0">
          <image>
-            <Image url="@../../Downloads/640px-MasterCard_logo.png" />
+            <Image url="@../../../../../../../Downloads/Hipercard_d57c6_450x450.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="136.0" layoutX="42.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="49.0" fitWidth="110.0" layoutX="181.0" layoutY="241.0">
          <image>
-            <Image url="@../../Downloads/gerador-de-cartao-de-credito-visa.png" />
+            <Image url="@../../../../../../../Downloads/Hipercard_d57c6_450x450.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="57.0" fitWidth="63.0" layoutX="341.0" layoutY="86.0">
+         <image>
+            <Image url="@../../../../../../../Downloads/Elo_logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="57.0" fitWidth="63.0" layoutX="341.0" layoutY="238.0">
+         <image>
+            <Image url="@../../../../../../../Downloads/Elo_logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="58.0" fitWidth="96.0" layoutX="453.0" layoutY="234.0">
+         <image>
+            <Image url="@../../../../../../../Downloads/640px-MasterCard_logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="58.0" fitWidth="96.0" layoutX="453.0" layoutY="86.0">
+         <image>
+            <Image url="@../../../../../../../Downloads/640px-MasterCard_logo.png" />
          </image>
       </ImageView>
       <Label layoutX="32.0" layoutY="14.0" text="Débito">
@@ -39,38 +59,18 @@
             <Font name="Bangla MN" size="24.0" />
          </font>
       </Label>
-      <ImageView fitHeight="79.0" fitWidth="125.0" layoutX="461.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Downloads/amex_american_express-512.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="42.0" fitWidth="103.0" layoutX="324.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Downloads/Hipercard_d57c6_450x450.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="80.0" fitWidth="103.0" layoutX="189.0" layoutY="228.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Downloads/640px-MasterCard_logo.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="136.0" layoutX="47.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Downloads/gerador-de-cartao-de-credito-visa.png" />
-         </image>
-      </ImageView>
-      <JFXButton layoutX="470.0" layoutY="345.0" prefHeight="41.0" prefWidth="85.0" text="Voltar">
+      <JFXButton fx:id="buttonexit" layoutX="470.0" layoutY="345.0" onAction="#BotaoSair" prefHeight="41.0" prefWidth="85.0" text="Voltar">
          <font>
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="42.0" layoutY="85.0" prefHeight="58.0" prefWidth="126.0" text=" " />
-      <JFXButton layoutX="173.0" layoutY="86.0" prefHeight="58.0" prefWidth="126.0" text=" " />
-      <JFXButton layoutX="304.0" layoutY="86.0" prefHeight="58.0" prefWidth="126.0" text=" " />
-      <JFXButton layoutX="433.0" layoutY="85.0" prefHeight="58.0" prefWidth="126.0" text=" " />
-      <JFXButton layoutX="47.0" layoutY="236.0" prefHeight="58.0" prefWidth="126.0" text=" " />
-      <JFXButton layoutX="178.0" layoutY="237.0" prefHeight="58.0" prefWidth="126.0" text=" " />
-      <JFXButton layoutX="309.0" layoutY="237.0" prefHeight="58.0" prefWidth="126.0" text=" " />
-      <JFXButton layoutX="438.0" layoutY="236.0" prefHeight="58.0" prefWidth="126.0" text=" " />
+      <JFXButton fx:id="cartaoVisaDedito" layoutX="42.0" layoutY="85.0" onAction="#BotaoVisaDedito" prefHeight="58.0" prefWidth="126.0" text=" " />
+      <JFXButton fx:id="cartaoHiperDedito" layoutX="173.0" layoutY="86.0" onAction="#BotaoHiperDedito" prefHeight="58.0" prefWidth="126.0" text=" " />
+      <JFXButton fx:id="cartaoEloDedito" layoutX="304.0" layoutY="86.0" onAction="#BotaoEloDedito" prefHeight="58.0" prefWidth="126.0" text=" " />
+      <JFXButton fx:id="cartaoMasterDedito" layoutX="433.0" layoutY="85.0" onAction="#BotaoMasterDedito" prefHeight="58.0" prefWidth="126.0" text=" " />
+      <JFXButton fx:id="cartaoVisaCredito" layoutX="47.0" layoutY="236.0" onAction="#BotaoVisaCredito" prefHeight="58.0" prefWidth="126.0" text=" " />
+      <JFXButton fx:id="cartaoHiperCredito" layoutX="178.0" layoutY="237.0" onAction="#BotaoHiperCredito" prefHeight="58.0" prefWidth="126.0" text=" " />
+      <JFXButton fx:id="cartaoEloCredito" layoutX="309.0" layoutY="237.0" onAction="#BotaoEloCredito" prefHeight="58.0" prefWidth="126.0" text=" " />
+      <JFXButton fx:id="cartaoMasterCredito" layoutX="438.0" layoutY="236.0" onAction="#BotaoMasterCredito" prefHeight="58.0" prefWidth="126.0" text=" " />
    </children>
 </AnchorPane>
