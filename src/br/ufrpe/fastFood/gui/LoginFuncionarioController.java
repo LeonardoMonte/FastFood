@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
+import br.ufrpe.fastFood.beans.Admin;
 import br.ufrpe.fastFood.exceptions.ONFException;
 import br.ufrpe.fastFood.exceptions.WPException;
 import br.ufrpe.fastFood.negocios.Fachada;
@@ -51,8 +52,14 @@ public class LoginFuncionarioController implements Initializable {
 
 	@FXML
 	private void botaoEntrarActionF(ActionEvent event) throws ONFException, WPException{
+		
+		String nome, id, dataDeNascimento, senha1;
+		nome = "Leandro";
+		id = "9845";
+		senha1 = "123";
+		Admin admin = new Admin(nome, id, senha1);
 
-		if (!(txtLoginF.getText().equals("") || txtSenhaF.getText().equals(""))) {
+		if (!(txtLoginF.getText().equals("") || !txtSenhaF.getText().equals(""))) {
 
 			String login, senha;
 
@@ -60,7 +67,7 @@ public class LoginFuncionarioController implements Initializable {
 			senha = txtSenhaF.getText();
 
 			try{
-
+				
 				if(Fachada.getInstancia().loginFuncionario(login, senha)){
 					((Node) (event.getSource())).getScene().getWindow().hide();
 					
@@ -71,13 +78,32 @@ public class LoginFuncionarioController implements Initializable {
 						Scene scene = new Scene(root);
 						Stage stage = new Stage();
 						stage.setScene(scene);
-						stage.setTitle("Novo Login");
+						stage.setTitle("Novo Pedido");
+						stage.setResizable(false);
 						stage.show();
 
 					}catch(IOException e){
 						e.getMessage();
 					}
 
+				}else if(login.equals(admin.getNome()) && senha.equals(admin.getSenha())){
+					
+					try {
+						((Node) (event.getSource())).getScene().getWindow().hide();
+						
+						Parent root = FXMLLoader.load(getClass().getResource("AdminTela.fxml"));
+						Scene scene = new Scene(root);
+						Stage stage = new Stage();
+						stage.setScene(scene);
+						stage.setTitle("Administrador");
+						stage.setResizable(false);
+						stage.show();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					
 				}else{
 					avisoF.setText("Login ou Senha inválido ");
 				}
